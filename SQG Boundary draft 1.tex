@@ -1,0 +1,266 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amsbsy,upref,epsf,MnSymbol}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,mathtools,mathrsfs,wrapfig}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+
+
+%-------------------------------------------<commands>--------------------------------------------------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Prj}{\mathbb{P}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Four}{\mathcal{F}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\eps}{\varepsilon}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\chevron}[1]{\langle #1 \rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\bracket}[1]{\left[ #1 \right]}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\convex}{conv}
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\lspan}{span}
+\DeclareMathOperator{\conv}{conv} % stands for conv, as in convex hull
+\DeclareMathOperator{\Int}{int} % stands for int, as in interior of a set
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\rank}{rank}
+%\DeclareMathOperator{\dim}{dim}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\cod}{\operatorname{cod}}
+\newcommand{\Hom}{\operatorname{hom}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\cl}{\operatorname{cl}}
+\DeclareMathOperator{\BMO}{BMO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\del}{\partial}
+\newcommand{\pvec}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\grad}{\nabla}
+\newcommand{\ddt}{\frac{d}{dt}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\Laplace}{\Delta}
+\newcommand{\kinet}{\bracket{\del_t + v\cdot \grad_x}}
+\newcommand{\bessel}{\paren{1-\Laplace_v}}
+\newcommand{\loc}{\text{loc}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\isom}{\cong}
+\newcommand{\rest}{{\upharpoonright}}
+\newcommand{\weakly}{\rightharpoonup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ith}{^\mathrm{th}}
+\newcommand{\n}{^{-1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\indic}[1]{\chi_{\{#1\}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\Qext}{{Q_\textrm{ext}}}
+\newcommand{\Qint}{{Q_\textrm{int}}}
+\newcommand{\Qearly}{{Q_\textrm{early}}}
+\newcommand{\Qlate}{{Q_\textrm{late}}}
+\newcommand{\Rall}{\R\times\R^n\times\R^n}
+\newcommand{\Ctest}{C_c^\infty}
+
+\newcounter{step_count}[section]
+\newcommand{\step}[1]{\stepcounter{step_count} \smallskip \noindent{\textbf{Step \arabic{step_count}:} #1}}
+
+
+%-------------------------------------------</commands>--------------------------------------------------------
+
+\newcommand{\draftnum}{1}%-----------------------------UPDATE DRAFT NUM----------------------------------------
+
+\title{SQG Boundary, Draft \draftnum}
+
+\author[Stokols]{Logan F. Stokols} 
+\address[L. F. Stokols]{\newline Department of Mathematics, \newline The University of Texas at Austin, Austin, TX 78712, USA}
+\email{lstokols@math.utexas.edu}
+
+\date{\today}
+
+%\subjclass[2010]{35H10,35B65,47G20,35Q84} % hypoellptic, regularity, integro-differential, fokker-planck
+%\keywords{Fokker-Planck Equation, Fractional Laplacian, H\"older regularity,  De Giorgi method}
+
+%\thanks{\textbf{Acknowledgment.} This work was partially supported by the NSF Grant DMS 1614918. }
+
+\begin{document}
+
+
+
+
+\maketitle \centerline{\date}
+
+We're gonna consider the equation 
+\begin{equation}
+\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
+\\ u = \grad^\perp \Lambda\n \theta.
+\end{equation}
+
+Here the operator 
+\[ \Lambda := \sqrt{-\Laplace_D} \]
+where $\Laplace_D$ is the Laplacian with Dirichlet boundary condition.  
+
+We're going to linearize the equation by fixing $u$ independent of $\theta$.  What property do we want $u$ to have?  For some constant $\kappa$, we'll want
+\begin{align*} 
+u &= \sum_{j \in \Z} u_j, \\
+\norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
+\norm{\grad u_j}_\infty &\leq \kappa 2^j. 
+\end{align*}
+The convergence of that sum is in, say, weak $L^2$.  
+
+
+\section{Lemmas}
+
+\begin{lemma}
+If $f$ and $g$ are non-negative functions with disjoint support (i.e. $f(x)g(x) = 0$ for all $x$), then 
+\[ \int \Lambda^s f \Lambda^s g \,dx \leq 0. \]
+\end{lemma}
+
+This proves, in particular, that $-\int \theta_+ \Lambda \theta_-$ is a positive term (hence dissipational and extraneous) and that $\int \Lambda^{1/2} (\theta-\psi) \Lambda^{1/2} (\theta-\psi)$ breaks down (bilinearly) into the doubly positive, the doubly negative, and the cross term, all of which are positive and hence each of which is positive.  
+
+\begin{proof}
+Use the characterization from Caffarelli-Stinga.  There exist non-negative functions $K(x,y)$ and $B(x)$, depending on the parameter $s$, such that
+\[ \int \Lambda^s f \Lambda^s g \,dx = \iint [f(x)-f(y)][g(x)-g(y)] K(x,y) \,dxdy + \int f(x) g(x) B(x) \,dx. \]
+
+Since $f$ and $g$ are non-negative and disjoint, the $B$ term vanishes.  Moreover, the product inside the $K$ term becomes
+\[ [f(x)-f(y)][g(x)-g(y)] = -f(x)g(y)-f(y)g(x) \leq 0. \]
+Since $K$ is non-negative, the result follows.  
+\end{proof}
+
+\begin{lemma}
+For any function $f$, and any $0 < s < 1$,
+\[ \int \abs{\Lambda^s f}^2 \simeq \int \abs{\paren{-\Laplace}^{s/2} \bar{f}}^2. \]
+Here $\bar{f}$ is the extension of $f$ to $\R^2$ and $\paren{-\Laplace}^s$ is defined in the fourier sense.  
+\end{lemma}
+
+\begin{proof}
+Let $g$ be any $L^2$ function defined on all of $\R^2$, and let $f$ be a function in $H^s_D$.  Define the function
+\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g \overline{\Lambda^{s-z} f}. \]
+
+When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{\Lambda^s f}_2$.  
+
+When $\Re(z)=1$, then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$ and 
+\[ \norm{\paren{-\Laplace}^{1/2} \overline{\Lambda^{s-z} f}}_2 = \norm{\grad \overline{ \Lambda^{s-z} f} }_2 = \norm{\Lambda \Lambda^{s-z} f}_2\]
+\end{proof}
+
+
+\section{De Giorgi Estimates}
+
+First let us derive an energy inequality.  
+
+We know a priori that $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_D^{1/2}(\Omega))$.  Let $\psi: \Omega \to \R^+$ be a non-negative function in $H_D^{1/2}$ non-uniformly, and define $\theta = \theta_+ + \psi - \theta_-$.  Since $\theta - \psi$ is in $H_D^{1/2}$, by the lemma above, both $\theta_+$ and $\theta_-$ are in that space as well.  In particular, our weak solution can eat $\theta_+$.  
+
+We end up with
+\[ 0 = \int \theta_+ \bracket{ \ddt + u \cdot \grad + \Lambda } \paren{\theta_+ + \psi - \theta_-} \]
+which decomposes into three terms, corresponding to $\theta_+$, $\psi$, and $\theta_-$.  We analyze them one at a time.  
+
+Firstly,
+\begin{align*} 
+\int \theta_+ \bracket{ \ddt + u \cdot \grad + \Lambda } \theta_+ &= (1/2) \ddt \int \theta_+^2 + (1/2) \int \div u \, \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2
+\\ &= (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2.
+\end{align*}
+
+The $\psi$ term produces important error terms:
+\begin{align*} 
+\int \theta_+ \bracket{ \ddt + u \cdot \grad + \Lambda } \psi &= \ddt \int \theta_+\psi + \int \theta_+ u \cdot \grad \psi + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi.
+\end{align*}
+
+Since $\theta_+ and \theta_-$ have disjoint support, the $\theta_-$ term is nonnegative by lemma [citation]:
+\begin{align*} 
+\int \theta_+ \bracket{ \ddt + u \cdot \grad + \Lambda } \theta_- &= (1/2) \int \theta_+ \del_t \theta_- + \int \theta_+ u \cdot \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-
+\\ &= \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq 0.
+\end{align*}
+
+Put together, we arrive at 
+\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \abs{\iint \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi} + \abs{\int \theta_+ u \cdot \grad \psi}. \]
+
+\hrule%----%--------%--------
+
+\[ (1/2) \ddt \int \theta_+^2 + \int u \cdot \grad \frac{\theta_+^2}{2} + \int \theta_+ u \cdot \grad \psi - \int \theta_+ u \cdot \grad \theta_- + \int \theta_+ \Lambda \theta = 0. \]
+
+We break up the $\theta_+ \Lambda \theta$ term into
+\begin{align*} 
+\int \theta_+ \Lambda \theta &= \int \abs{\Lambda^{1/2} \theta_+} + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-
+\\ &= \int \abs{\Lambda^{1/2} \theta_+}^2 + \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) + \int \theta_+ \psi B - \int  \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-.
+\end{align*}
+The $\theta_-$ term is non-negative by lemma [citation], and the $B$ term is non-negative since $B \geq 0$, so we have the inequality
+\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \abs{\iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y)} + \abs{\int \theta_+ u \cdot \grad \psi}. \]
+
+This integral is symmetric in $x$ and $y$, and the integrand is only nonzero if one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
+\[ \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) \leq 2 \indic{\theta_+>0}(x) \abs{[\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)]} K(x,y). \]
+Now we can break up this integral using the Peter-Paul variant of H\"{o}lder's inequality.  
+\[ \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) \leq \eps \int \abs{\Lambda^{1/2}\theta_+}^2 + \frac{1}{\eps} \iint \indic{\theta_+>0}(x) [\psi(x)-\psi(y)]^2 K(x,y). \]
+
+It remains to bound the quantity $[\psi(x)-\psi(y)]^2 K(x,y)$.  By Caffarelli-Stinga theorem 2.4 [citation], there is a universal constant $C$ such that
+\[ K(x,y) \leq \frac{C}{|x-y|^{3}}. \]
+The cutoff $\psi$ is Lipschitz, and it grows at a rate $|x|^\gamma$.  Therefore 
+\[ [\psi(x)-\psi(y)]^2 K(x,y) \leq |x-y|^{-1} \wedge |x-y|^{2\gamma-3}. \]
+If $3-2\gamma > 2$ then this quantity is integrable.  Thus
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \lesssim \int \theta_+ u \cdot \grad \psi + \int \indic{\theta_+>0}.\]
+
+%\begin{align*}
+%\iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) &\leq \eps \iint [\theta_+(x)-\theta_+(y)]^2 K(x,y) + \frac{1}{\eps} \iint_{\theta_+(x) > 0 \textrm{ or } \theta_+(y) > 0} [\psi(x)-\psi(y)]^2 K(x,y)
+%\\ &\leq \eps \int \abs{\Lambda^{1/2} \theta_+}^2 + \frac{2}{\eps} \int \indic{\theta_+>0}(x)\int [\psi(x)-\psi(y)]^2 K(x,y)\,dy\,dx.
+%\end{align*}
+
+For the drift term, let's say that $u$ is broken down into $u_l$ and $u_h$ (standing for high-pass and low-pass) and that they have the desired properties.  
+
+For the high-pass term, for each $i = 1,2$,
+\[ \int (u_l)_i \theta_+ \del_i \psi = \int \Lambda^{-1/4} u_l \Lambda^{1/4} (\theta_+ \grad \psi) \leq \paren{\int \abs{\Lambda^{1/4} \theta_+ \grad \psi}^2}^{1/2} \leq \]
+
+We're looking at $\int g \Lambda^{1/4} \theta_+$ where $\Lambda^{1/4} g = u_h$ and $g \in L^\infty$.  This breaks down as
+\[ \iint [g-g^*][\theta_+-\theta_+^*] K_{1/4} + \int g \theta_+ B_{1/4}. \]
+
+For a given parameter $\lambda$, break up into the region where $|x-y|$ is bigger and smaller than $\lambda$.  Considering the bigger part,
+\[ \iint_{\geq \lambda} [g-g^*][\theta_+ - \theta_+^*] K_{1/4} \leq 2 (2 \norm{g}_\infty) \iint_{\geq \lambda} |\theta_+ - \theta_+^*| \frac{dxdx^*}{|x-y|^{2+1/4}} \leq 8 \lambda^{-2.25} \norm{g}_\infty \norm{\theta_+}_1. \]
+
+The $B$ part may be a real problem.  The $g$ means it doesn't have a sign, so we actually have to bound it.  Consider this.  
+\begin{align*}
+\int g \theta_k B_{1/4} &\leq \norm{g}_\infty \int \theta_{k-1} \theta_k B_{1/4}
+\\ &\leq \norm{g}_\infty \int \theta_{k-1}^2 B_{1/4}
+\\ &\leq \norm{g}_\infty \int \abs{\Lambda^{1/8} \theta_{k-1}}^2.
+\end{align*} 
+
+Lastly, we have the near part.  
+\begin{align*} 
+\iint_{< \lambda} [g-g^*][\theta_+ - \theta_+^*] K_{1/4} &\leq 2\iint_{<\lambda} \chi_+ [g-g^*]^2 |x-y|^{3/4} K_{1/4} + \iint_{<\lambda} [\theta_+-\theta_+^*]^2 |x-y|^{-3/4} K_{1/4} 
+\\ &\leq 4 \norm{g}_\infty^2 \int \chi_+ \int_{<\lambda} |x-y|^{-1.5} + \iint_{<\lambda} [\theta_+-\theta_+^*]^2 K_1
+\\ &\leq \norm{g}_\infty^2 \lambda^{1/2} \abs{\chi_+} + \int \abs{\Lambda^{1/2} \theta_+}^2
+\end{align*}
+
+Taken together,
+\[ \int \Lambda^{-1/4} \theta_+ u_h \cdot \grad \psi \leq \frac{1}{2} \int \abs{\Lambda^{1/2} \theta_+ \grad \psi} + \int \chi_+ + \int \theta_+ + \int \theta_+ \grad \psi B_{1/4}. \]
+
+
+
+
+
+
+
+\end{document}
