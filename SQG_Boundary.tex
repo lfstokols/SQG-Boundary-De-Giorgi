@@ -67,6 +67,7 @@
 \newcommand{\kinet}{\bracket{\del_t + v\cdot \grad_x}}
 \newcommand{\bessel}{\paren{1-\Laplace_v}}
 \newcommand{\loc}{\text{loc}}
+\newcommand{\ddz}{\frac{d}{dz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\onto}{\twoheadrightarrow}
@@ -81,11 +82,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newcommand{\Qext}{{Q_\textrm{ext}}}
-\newcommand{\Qint}{{Q_\textrm{int}}}
-\newcommand{\Qearly}{{Q_\textrm{early}}}
-\newcommand{\Qlate}{{Q_\textrm{late}}}
-\newcommand{\Rall}{\R\times\R^n\times\R^n}
+\newcommand{\eigen}[1]{\eta_{#1}} %my eigenfunctions
 \newcommand{\Ctest}{C_c^\infty}
 
 \newcounter{step_count}[section]
@@ -154,19 +151,54 @@ Since $K$ is non-negative, the result follows.
 \end{proof}
 
 \begin{lemma}
+For all functions $f$ in $H_D^1$,
+\[ \int \abs{\grad f}^2 = \int \abs{\Lambda f}^2. \]
+\end{lemma}
+
+\begin{proof}
+Let $\eigen{i}$ and $\eigen{j}$ be two eigenfunctions of the Dirichlet Laplacian on $\Omega$.  Note that these functions are smooth in the interior of $\Omega$.  Because $\Omega$ has Lipschitz boundary, and because $\eigen{i} \grad \eigen{j}$ is smooth on $\Omega$ and countinuous and bounded on $\overline{\Omega}$ vanishing on the boundary, therefore 
+\[ \int_\Omega \div(\eigen{i} \grad \eigen{j}) = \int_{\del \Omega} \eigen{i} \grad \eigen{j}. \]
+But $\eigen{i} \grad \eigen{j}$ vanishes on the boundary, so the right hand side vanishes.  Moreover, $\div(\eigen{i} \grad \eigen{j}) = \grad \eigen{i} \cdot \grad \eigen{j} + \eigen{i} \Laplace \eigen{j}$.  Therefore
+\[ \int \grad \eigen{i} \cdot \grad \eigen{j} = - \int \eigen{i} \Laplace \eigen{j} = \lambda_k \int \eigen{i} \eigen{j}. \]
+Of course, the inner product of two eigenfunctions is 0 unless they are the same eigenfunction, in which case it is 1.  
+
+Consider a function $f = \sum f_k \eigen{k}$ which is an element of $H_D^1$, by which we mean $\sum \lambda_k f_k^2 < \infty$.  Since $\norm{\grad \eigen{k}}_{L^2(\Omega)} = \sqrt{\lambda_k}$, the following sums all converge in $L^2(\Omega)$ and hence the calculation is justified:
+\begin{align*}
+\int \abs{\grad f}^2 &= \int \paren{\sum_i f_i \grad \eigen{i} } \paren{\sum_j f_j \grad \eigen{j}}
+\\ &= \int \sum_{i,j} (f_i f_j) \grad \eigen{i} \cdot \grad \eigen{j}
+\\ &= \sum_{i,j} (f_i f_j) \int \grad \eigen{i} \cdot \grad \eigen{j}.
+\end{align*}
+Since this double-sum vanishes except on the diagonal, we see from [citation] that in fact
+\[ \norm{\grad f}_{L^2(\Omega)} = \norm{\Lambda f}_{L^2(\Omega)}. \]
+
+\end{proof}
+
+\begin{lemma}
 For any function $f$, and any $0 < s < 1$,
 \[ \int \abs{\Lambda^s f}^2 \simeq \int \abs{\paren{-\Laplace}^{s/2} \bar{f}}^2. \]
 Here $\bar{f}$ is the extension of $f$ to $\R^2$ and $\paren{-\Laplace}^s$ is defined in the fourier sense.  
 \end{lemma}
 
 \begin{proof}
-Let $g$ be any $L^2$ function defined on all of $\R^2$, and let $f$ be a function in $H^s_D$.  Define the function
-\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g \overline{\Lambda^{s-z} f}. \]
+Let $g$ be any Schwarz function in $L^2(\R^2)$, and let $f$ be a function in $H^{s+1}_D$.  Let $E:H^1(\Omega) \to H^1(\R^2)$ be a bounded extension operator, where $H^1$ denotes the classical Sobolev space defined using the gradient.  Define the function
+\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g E \Lambda^{s-z} f. \]
 
-When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{\Lambda^s f}_2$.  
+When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{\Lambda^s f}_2$.  Hence
+\[ \Phi(z) \leq \norm{g}_2 \norm{f}_{H^s_D}. \]
 
 When $\Re(z)=1$, then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$ and 
-\[ \norm{\paren{-\Laplace}^{1/2} \overline{\Lambda^{s-z} f}}_2 = \norm{\grad \overline{ \Lambda^{s-z} f} }_2 = \norm{\Lambda \Lambda^{s-z} f}_2\]
+\[ \norm{\paren{-\Laplace}^{1/2} E\Lambda^{s-z} f}_{L^2(\R^2)} = \norm{\grad E \Lambda^{s-z} f}_{L^2(\R^2)} \leq \norm{E} \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)}. \]
+It remains to ask whether $\Lambda^{s-z} f$ is in $H^1_D$ so that we can apply lemma [citation].  However, this is true based on our assumption $f \in H^{1+s}_D$, since the various powers of $\Lambda$ all commute and form a semigroup.  Ergo
+\[ \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)} = \norm{\Lambda \Lambda^{s-z} f}_2 \leq \norm{\Lambda^s f}_2 \]
+and we can bound
+\[ \Phi(z) \leq \norm{E} \norm{g}_2 \norm{f}_{H^s_D}. \]
+
+Now we will bound the derivative of $\Phi(z)$.  Specifically, compute the derivative in $z$ of the integrand, for $0<\Re(z)<1$, and hope that it is integrable.  To this end, we rewrite the integrand of $\Phi$ as
+\[ \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k. \]
+The derivative $\ddz$ commutes with linear operators like $\Four\n$ and $E$, so the derivative is
+\[ \Four\n\paren{ \ln(|\xi|) |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k + \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \frac{-1}{2} \ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} f_k. \]
+
+Since $0<\Re(z)<1$, $\ln(|\xi|)|\xi|$ is bounded as a multiplier operator from Schwarz functions to $L^2$.  
 \end{proof}
 
 
