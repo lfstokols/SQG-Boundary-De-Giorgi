@@ -84,6 +84,7 @@
 
 \newcommand{\eigen}[1]{\eta_{#1}} %my eigenfunctions
 \newcommand{\Ctest}{C_c^\infty}
+\newcommand{\test}{\mathcal{D}}
 
 \newcounter{step_count}[section]
 \newcommand{\step}[1]{\stepcounter{step_count} \smallskip \noindent{\textbf{Step \arabic{step_count}:} #1}}
@@ -153,6 +154,8 @@ Since $K$ is non-negative, the result follows.
 \begin{lemma}
 For all functions $f$ in $H_D^1$,
 \[ \int \abs{\grad f}^2 = \int \abs{\Lambda f}^2. \]
+
+Moreover, if $f \in H_D^1$ then $\trace(f)=0$.  
 \end{lemma}
 
 \begin{proof}
@@ -171,6 +174,11 @@ Consider a function $f = \sum f_k \eigen{k}$ which is an element of $H_D^1$, by 
 Since this double-sum vanishes except on the diagonal, we see from [citation] that in fact
 \[ \norm{\grad f}_{L^2(\Omega)} = \norm{\Lambda f}_{L^2(\Omega)}. \]
 
+To see that $\trace(f)$ vanishes, note that $f = \sum_{k=0}^\infty f_k \eigen{k}$ and that each finite partial sum for this series satisfies the Dirichlet boundary condition.  Since $\trace$ is a bounded operator on $H^1$, we need only show that this series is Cauchy in $H^1$, in which case its $H^1$ limit will exist and be equal to its $L^2$ limit which will be equal to $f$.  
+
+For each $k$,
+\[ \norm{ f_k \eigen{k} }_{H^1} \leq C_\textrm{Poincare} f_k \norm{\grad \eigen{k}}_2 = C f_k \sqrt{\lambda_k}. \]
+This sequence is $\ell^2$ summable, since $f \in H_D^1$ by assumption.  Therefore $f$, being an $H^1$ limit of functions with vanishing trace, also has vanishing trace.  
 \end{proof}
 
 \begin{lemma}
@@ -198,7 +206,20 @@ Now we will bound the derivative of $\Phi(z)$.  Specifically, compute the deriva
 The derivative $\ddz$ commutes with linear operators like $\Four\n$ and $E$, so the derivative is
 \[ \Four\n\paren{ \ln(|\xi|) |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k + \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \frac{-1}{2} \ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} f_k. \]
 
-Since $0<\Re(z)<1$, $\ln(|\xi|)|\xi|$ is bounded as a multiplier operator from Schwarz functions to $L^2$.  
+Since $0<\Re(z)<1$, $\ln(|\xi|)|\xi|$ is bounded as a multiplier operator from Schwarz functions to $L^2$.  Moreover, $\ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} \leq C \lambda_k^{\frac{s-z+\eps}{2}}$ for some $C$ independent of $k$ but dependent on $z$, $\eps$.  Since $f \in H^{1+s}_D$ this sum converges in $L^2$, in fact in $H_D^1$.  This makes our differentiated integrand a sum of two $H^1$ functions with compact support multiplied by two Schwarz functions.  In particular it is integrable, which means we can interchange the integral sign and the derivative $\ddz$ and prove that $\Phi'(z)$ is finite for all $0<\Re(z)<1$. 
+
+This is sufficient now to apply the Hadamard three-lines lemma to our function $\Phi$.  
+
+It follows that for any Schwarz function $g \in L^2(\R^n)$ and $H_D^{s+1}$ function $f$, 
+\[ \int_{\R^2} \paren{-\Laplace}^{s/2} g E f = \Phi(s) \leq \norm{g}_{L^2(\R^2)} \norm{f}_{H_D^s}. \]
+
+Since Schwarz functions are dense in $L^2(\R^2)$, this means by density that 
+\[ \int \abs{ \paren{-\Laplace}^{s/2} E f }^2 \leq \int \abs{\Lambda^s f}^2 \]
+or in other words it means that $E$ is a bounded operator from $H_D^s$ to $H^s$, at least on the subset $H_D^{s+1} \cap H_D^s$.  It remains to extend this bound to the whole space by density.  
+
+We know from [citation] Caffarelli and Stinga that $\test(\Omega)$ is dense in $H_D^s$ for all $0 \leq s < 1$.  In fact, this takes a bit of interpretation, so I ought to illucidate that this is because $H_D^s = H_0^s$ (the latter in the Slobodekij sense) for most $s$ and at $s=1/2$ we get the Lions-Magenes spaces which still has $\test(\Omega)$ dense.  
+
+Surely, right(?), test functions are all inside of $H_D^{1+s}$.  I should meditate on this, but it must be true.  
 \end{proof}
 
 
