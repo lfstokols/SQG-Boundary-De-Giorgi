@@ -409,6 +409,12 @@ For example, we probably want that $\gamma(t) \in \del \Omega$ for all $t$.  Why
 
 Wait, I'm adding $\dot{\gamma}$ to $\upsilon$.  But $\upsilon$ is a scalar, it's the value of $u_\ell$ at 0, while $\dot{\gamma}$ is a vector, it's the time derivative of a moving point in $\R^2$.  That seems off.  No way man, $u$ is vector valued, so $\upsilon$ is too.  All good.  
 
+Let's get to it.  Define
+\[ f(t,x) = -\upsilon(t) + \sum_{j < N} u_j(t,x). \]
+This function is Lipschitz in $x$, with constant $\kappa 2^N$.  Morever, $f(t,0) \leq \kappa N$.  
+
+It's important that $(t,0) \mapsto (\eps t, \gamma(\eps t))$ is on the boundary of $\Omega$.  So we want that $\dot{\gamma}(t)$ is pointing along the boundary of $\Omega$ at $\gamma(t)$.  
+
 
 \end{proof}
 
