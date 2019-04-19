@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.11.15)  17 APR 2019 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.11.15)  18 APR 2019 20:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,7 +538,7 @@ LaTeX Font Info:    Try loading font information for U+euf on input line 194.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [2] [3] [4] [5]
-(./SQG_Boundary.aux) ) 
+[6] (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
  5976 strings out of 493033
  80792 string characters out of 6136454
@@ -547,32 +547,32 @@ Here is how much of TeX's memory you used:
  21421 words of font info for 79 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  38i,9n,43p,657b,257s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/M
-nSymbolC.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.
-enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr
-/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/te
-xlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texlive/tex
-mf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}</usr/share/texlive/texmf-dist/f
-onts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (5 pages, 257134 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymb
+ol/MnSymbolC.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymb
+olS.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{
+/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texlive
+/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}</usr/share/texlive/texmf-di
+st/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on SQG_Boundary.pdf (6 pages, 261048 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
+ 115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

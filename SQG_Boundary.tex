@@ -314,6 +314,24 @@ Taken together,
 \section{Control on $u$}
 Let's assume that our drift term is a sum of $u_j$ for $j \in \Z$ and a constant which is tbd.  Assume that each $u_j$ is an $L^\infty$ function, and that their sum converges to $u$ in $L^2(\Omega)$, and that each $u_j$ specfies the bounds as stated.  First we show that they sum up to $u_h$ and $u_l$ in the ways desired.  Then we show that the properties required are maintained as we zoom.  Then at last we argue that, before any zooming, $u$ really does have this property.  
 
+Firstly, assume that 
+\[ u = \lim_{L^2} \sum_{-N}^N u_j, \]
+\begin{align*} 
+\norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
+\norm{\grad u_j}_\infty &\leq \kappa 2^j. 
+\end{align*}
+We then define
+\[ u_h = \sum_{j=0}^\infty u_j \]
+and 
+\[ u_\ell = \sum_{-\infty}^{j=-1} u_j. \]
+
+Since $u_j \in L^\infty$ in particular they are $L^2$ functions which sum in $L^2$.  Remember that only finitely many negative $j$ have $u_j \neq 0$.  The sequence $u_j$ is thus singly infinite and in particular is a Cauchy sequence, so $u_h$ also converges in $L^2$.  Since $\Lambda^{-1/4}$ is a continuous linear operator, it passes to the partial sums and so
+\[ \Lambda^{-1/4} u = \lim_{L^2} \sum_{j=0}^\infty \Lambda^{-1/4} u_j. \]
+In particular, the sum converges in the sense of distributions, i.e. in $\test(\Omega)'$.  Since test functions are dense in $L^1(\Omega)$, and the partial sums are uniformly bounded in the dual of $L^1(\Omega)$ (namely $L^\infty(\Omega)$), therefore the limit $\Lambda^{-1/4} u_h$ is also bounded in the dual of $L^1(\Omega)$.  
+\[ \norm{\Lambda^{1/4} u}_\infty \leq \sum_{j=0}^\infty \norm{\Lambda^{-1/4} u_j}_\infty \leq \kappa \frac{1}{1-2^{-1/4}}. \]
+
+
+
 
 
 
