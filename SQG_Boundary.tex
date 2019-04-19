@@ -337,35 +337,79 @@ As for $u_\ell$, we have that $\sum_{j < 0} u_j$ converges in $L^2$, and hence a
 Suppose that $\theta$ solves the PDE
 \[ \bracket{\del_t + u\cdot\grad + \Lambda} \theta = 0\]
 where the velocity $u$ satisfies
-\[ u = \gamma(t) + \sum_{j=-\infty}^\infty u_j \]
-with that sum converging in $L^2(\Omega)$.  Suppose that the domain of definition is $(-T,0) \times \Omega$, and $0 \in \del \Omega$.  Suppose that
+\[ u = \upsilon(t) + \sum_{j=-\infty}^\infty u_j \]
+with that sum converging in $L^2(\Omega)$ and with $\upsilon$ being constant in space and $u$ divergence free.  Suppose that the domain of definition is $(-T,0) \times \Omega$, and $0 \in \del \Omega$.  Suppose that
 \begin{align*}
-\gamma(t) &= \sum_{j<0} u_j(0), \\
+\upsilon(t) &= \sum_{j<0} u_j(t,0), \\
 \norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
 \norm{\grad u_j}_\infty &\leq \kappa 2^j.
 \end{align*}
 
-Then for any small constant $\eps$, there exists some $\bar{\gamma}: [-T/\eps ,0] \to \R^2$ such that
-\[ \bar{\theta}(t,x) = \theta(\eps t, \eps x + \bar{\gamma}(\eps t)) \]
+Let $\eps$ be a small constant which is a power of 2, $\eps = 2^{-N}$. Then there exists some $\gamma: [-T/\eps ,0] \to \R^2$ such that
+\[ \bar{\theta}(t,x) = \theta(\eps t, \eps x + \gamma(\eps t)) \]
 satisfies all of the same constraints for $(t,x) \in [-T/\eps, 0]\times \Omega_\eps$.  
 \end{lemma}
 
 \begin{proof}
-Denote $p = (t,x)$ and $\bar{p} = (\eps t, \eps x + \bar{\gamma(t)})$.  
+Denote $p = (t,x)$ and $\bar{p} = (\eps t, \eps x + \gamma(\eps t))$.  
 
 We calculate
-\[ \del_t \bar{\theta}(p) = \eps \del_t \theta(\bar{p}) + \eps \dot{\bar{\gamma}}(\bar{p}) \cdot \grad \theta (\bar{p}) \]
+\[ \del_t \bar{\theta}(p) = \eps \del_t \theta(\bar{p}) + \eps \dot{\gamma}(\bar{p}) \cdot \grad \theta (\bar{p}) \]
 and 
 \[ \grad \bar{\theta}(p) = \eps \grad \theta(\bar{p}) \]
 and
 \[ \Lambda \bar{\theta}(p) = \eps \Lambda \theta(\bar{p}). \]
 
 Thus, if we define
-\[ \bar{u}(p) = u(\bar{p}) - \dot{\bar{\gamma}}(\bar{p}) \]
+\[ \bar{u}(p) = u(\bar{p}) - \dot{\gamma}(\bar{p}) \]
 then it will be the case that, for $p \in [-T/\eps,0]\times \Omega_\eps$, 
 \[ \bracket{\del_t + \bar{u}\cdot\grad + \Lambda} \bar{\theta}(p) = \eps \bracket{\del_t + u\cdot\grad + \Lambda} \theta(\bar{p}). \]
 
 It remains to demonstrate the decomposition of $\bar{u}$ and that $\bar{\gamma}$ still makes $\bar{u}_\ell(0)=0$, let alone that $0$ is still on the boundary of $\Omega_\eps$.  
+
+Recall that for a positive integer $N$, $2^N \eps = 1$.  We define 
+\[ \bar{u}_j(p) := u_{j+N}(\bar{p}), \]
+that is each $u_j$ is scaled appropriately and then the labels are shifted by $N$.  Our new decomposition of $\bar{u}$ is
+\begin{align*} 
+\bar{u}(p) &= u(\bar{p}) - \dot{\gamma}(\bar{p})
+\\ &= \upsilon(\bar{p}) + \sum u_j(\bar{p}) + \dot{\gamma}(\bar{p})
+\\ &= \bracket{\upsilon(\bar{p}) + \dot{\gamma}(\bar{p})} + \sum \bar{u}_j (p)
+\end{align*}
+which means
+\[ \bar{\upsilon}(p) = \upsilon(\bar{p}) + \dot{\gamma}(\bar{p}). \]
+
+We easily bound the $\bar{u}_j$:
+\begin{align*}
+\norm{\Lambda^{-1/4} \bar{u}_j}_\infty &= \eps^{-1/4}\norm{\Lambda^{-1/4} u_{j+N}}_\infty 
+\\ &\leq \eps^{-1/4} \kappa 2^{-(j+N)/4}
+\\ &= (\eps 2^N)^{-1/4} \kappa 2^{-j/4} = \kappa 2^{-j/4}.
+\end{align*}
+Also,
+\begin{align*}
+\norm{\grad \bar{u}_j}_\infty &= \eps \norm{\grad u_{j+N}}_\infty
+\\ &\leq \eps \kappa 2^{j+N} = \kappa 2^j.
+\end{align*}
+
+To confirm the desired properties of $\bar{\upsilon}$, we want to say that
+\[ \bar{\upsilon}(t) = \sum_{j<0} \bar{u}_j(t,0) \]
+or equivalently
+\[ \dot{\gamma}(\eps t) = -\upsilon(\eps t) +  \sum_{j<0} u_{j+N}(\eps t, \gamma(\eps t)). \]
+By the Caratheodory Existence theorem, there exists a function $\gamma$ which satisfies this relationship for a.e. $t \in [-T/\eps, 0]$.  I can choose the initial condition, and I don't know what I want, so how about $\gamma(0)=0$.  
+
+In fact, since $-\upsilon(t) + \sum_{j<-N} u_{j+N}(t,0)$ vanishes by assumption, we can say in fact that 
+\[ -\upsilon(t) +  \sum_{j<0} u_{j+N}(t, 0) = \sum_{j=0}^{N-1} u_j(t,0) \leq N \norm{u_j}_\infty. \]
+Here it's relevant that $\norm{u_j}_\infty$ is independent of $j$, which I know but have not proven or even stated before.  Since $\sum_{j<N} u_j$ is a Lipschitz function, with Lipschitz constant $\kappa 2^N$, we can bound $\gamma$
+\[ \dot{\gamma}(t) \leq N \norm{u_j}_\infty + \kappa 2^N |\gamma(t)|. \]
+That's a Lipschitz bound on $\gamma$.  It becomes a real bound
+\[ \gamma(t) \leq N 2^{-N} (\exp(\kappa 2^N t)-1). \]
+
+All that remains is the most important part.  Showing that our $\gamma$ is small enough and of the correct nature such that the information we get about $\bar{\theta}$ will be useful.  
+
+For example, we probably want that $\gamma(t) \in \del \Omega$ for all $t$.  Why would that be true?  It's actually not.  No matter what $\gamma$ is, the $u_j$ terms point along the boundary and hence they can never turn $\dot{\gamma}$ in a direction so as to go ``off the rails'' so to speak.  On the other hand, $\upsilon$ is only tangential at the origin.  Elsewhere, $\upsilon$ might as well have a tangential component.  
+
+Wait, I'm adding $\dot{\gamma}$ to $\upsilon$.  But $\upsilon$ is a scalar, it's the value of $u_\ell$ at 0, while $\dot{\gamma}$ is a vector, it's the time derivative of a moving point in $\R^2$.  That seems off.  No way man, $u$ is vector valued, so $\upsilon$ is too.  All good.  
+
+
 \end{proof}
 
 
