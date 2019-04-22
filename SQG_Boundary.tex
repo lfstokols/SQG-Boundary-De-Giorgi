@@ -418,6 +418,16 @@ It's important that $(t,0) \mapsto (\eps t, \gamma(\eps t))$ is on the boundary 
 
 \end{proof}
 
+New idea is to drop all the $\gamma$ nonsense.  Instead, we argue that even though $u_\ell(t,0)$ is large in the $L^\infty(L^\infty)$ sense, it is small in the $L^1(L^\infty)$ sense (that's integration in time).  This makes sense, because every time we zoom in by $\eps = 2^N$, we increse the $L^\infty(\Omega)$ norm by $\kappa N$ but we also shrink the time interval by $2^N$.  I believe that this is essentially the property that we exploit in the drift formulation, namely that the correction term $\gamma$ may be large in principle but $\dot{\gamma}$ is small so over small enough time intervals, $\gamma$ is small.  It's important that the $L^1(L^\infty)$ norm not only grow slowly but actually grow in a summable manner, so that after 1 million zooms still the error introduced is bounded.  
+
+Even if we can do all that, how do we formulate that error term and how do we deal with it in the energy inequality?  Well, let's say that
+\[ u_\ell = \tau + \sigma \]
+where $\tau$ is a function of time alone and $\sigma$ is both Lipschitz in space and $\sigma(t,0) = 0$.  The Lipschitz constant of $\sigma$ grows with each zoom, in such a way as to effectively cancel out the gains we get from zooming so the effective $L^\infty$ norm remains constant.  Similarly, the quantitative bound on $\tau$ grows with each zoom in such a way as to cancel out the gains of zooming so that its integral remains constant.  
+
+Now in the energy inequality, we have three terms $u = \tau + \sigma + u_h$.  Remember that the energy inequality contains
+\[ \iint \theta_+ u \cdot \grad \psi. \]
+We bound this integral using the duality pairing, $L^1(L^\infty)$ vs $L^\infty(L^2)$ and absorb the $\theta_+$ into the $\sup \int \theta_+^2$ term on the left hand side.  We do some pro forma nonsense to keep a factor of $\int \chi_+$ involved on the remainder and zoop zop wop we're done.  I'm a genius.  
+
 
 
 
