@@ -465,15 +465,33 @@ The result follows.
 \end{proof}
 
 Since $u_j \in L^2$, we know that
-\[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} \Lambda^{-1/4} P_i u_j. \]
-Define $\bar{P}_j$ a projection which is 1 on the support of $P_j$ (functional calculus-wise).  Then $\bar{P}_j P_j = P_j$.  Then from [citation] IMT-Bilinear Proposition 3.3 and the lemma above, we can see that
-\[ \norm{\Lambda^{-1/4} P_i u_j}_\infty \leq C 2^{-i/4} \norm{P_i u_j}_\infty \leq C 2^{-i/4} \min(2^j,2^i) \norm{\theta}_\infty. \]
-Summing these bounds on the pieces of $\Lambda^{-1/4} u_j$, and noting that
-\[ \sum_{i \in \Z} 2^{-i/4} \min(2^j,2^i) = \sum_{i \leq j} 2^{i 3/4} + 2^j \sum_{i>j} 2^{-i/4} \leq C 2^{j 3/4}, \]
+\[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
+Define $\bar{P}_j$ a projection which is 1 on the support of $P_j$ (functional calculus-wise).  Then $\bar{P}_j P_j = P_j$, and since both types of projections are spectral operators, they both commute with $\Lambda^s$.  We therefore rewrite
+\[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
+We apply sequentially three bounded operators on $L^\infty$.  The outer two operators have bounded norm by [citation] IMT-Bilinear Proposition 3.3, and the inner operator has bounded norm by the above lemma, (and of course the perp operator is an isometry,) so 
+\[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
+%
+% so from [citation] IMT-Bilinear Proposition 3.3 we can see that
+%\[ \norm{\Lambda^{-1/4} P_i u_j}_\infty = \norm{\Lambda^{-1/4} \bar{P}_i P_i u_j}_\infty \leq C 2^{-i/4} \norm{P_i u_j}_\infty \]
+%and also
+%\[ P_i u_j = P_i \grad P_j \Lambda^{-1} \bar{P}_j \theta. \]
+%Thus by the lemma,
+%\[ \norm{\Lambda^{-1/4} P_i u_j}_\infty \leq C 2^{-i/4} \min(2^j,2^i) \norm{\Lambda^{-1} \bar{P}_j \theta}_\infty \leq C 2^{-j} 2^{-i/4} \min(2^j,2^i) \norm{\theta}_\infty. \]
+Summing these bounds on the projections of $\Lambda^{-1/4} u_j$, and noting that
+\[ \sum_{i \in \Z} 2^{-j} 2^{-i/4} \min(2^j,2^i) = 2^{-j} \sum_{i \leq j} 2^{i 3/4} + \sum_{i>j} 2^{-i/4} \leq C 2^{-j/4}, \]
 we obtain
-\[ \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{j 3/4} \norm{\theta}_\infty. \]
+\[ \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{-j/4} \norm{\theta}_\infty. \]
 
-This is wrong because I fucked up the definition of $u$, I dropped the $\Lambda^{-1}$.  I'll fix it in the morning.  
+Lastly, we'll show that $\grad u_j$ is in $L^\infty$.  Equivalently, we'll show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  This is essentially Schauder theory.  We will obtain our $C^{1,1}$ bound by interpolating between a $C^{0,1}$ bound and a $C^{2,\alpha}$ bound.  
+
+The $C^{0,1}$ bound is already known, it's the estimate
+\[ \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty. \]
+The $C^{2,\alpha}$ bound is classical Schauder theory.  For convenience, define 
+\[ F := \Lambda^{-1} P_j \theta \]
+and recall that $F$ is a finite linear combination of Dirichlet eigenfunctions, so in particular it is smooth and vanishes at the boundary.  Moreover, its Laplacian is 
+\[ f := \Laplace F = \Lambda P_j \theta \]
+which is also smooth, vanishes at the boundary, and has various bounds.  Specifically, we want to apply Theorem 6.6 from [citation] Gilbarg and Trudinger, page 98 in my library copy.  It says that since $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
+\[ \sup_{x,y \in \Omega} \frac{\abs{D^2 F(x)- D^2 F(y)}}{|x-y|^\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \sup_{x,y\in\Omega} \frac{\abs{f(x)-f(y)}}{|x-y|^\alpha}. \]
 
 
 
