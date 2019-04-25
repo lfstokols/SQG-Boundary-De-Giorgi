@@ -482,7 +482,7 @@ Summing these bounds on the projections of $\Lambda^{-1/4} u_j$, and noting that
 we obtain
 \[ \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{-j/4} \norm{\theta}_\infty. \]
 
-Lastly, we'll show that $\grad u_j$ is in $L^\infty$.  Equivalently, we'll show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  This is essentially Schauder theory.  We will obtain our $C^{1,1}$ bound by interpolating between a $C^{0,1}$ bound and a $C^{2,\alpha}$ bound.  
+Lastly, we'll show that $\grad u_j$ is in $L^\infty$.  Equivalently, we'll show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  This is essentially Schauder theory.  We will obtain our $C^{1,1}$ bound by interpolating between a $C^{0,1}$ bound and a $C^{2,\alpha}$ bound.  We could also obtain a $C^{1,\alpha}$ bound directly using the main theorem of [citation] Caffarelli-Stinga, but those estimates are not well-articulated in the specific context of our problem (namely, it's hard to make good use of the fact that $f$ near the boundary).  So instead, we use interpolation.  
 
 The $C^{0,1}$ bound is already known, it's the estimate
 \[ \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty. \]
@@ -492,6 +492,47 @@ and recall that $F$ is a finite linear combination of Dirichlet eigenfunctions, 
 \[ f := \Laplace F = \Lambda P_j \theta \]
 which is also smooth, vanishes at the boundary, and has various bounds.  Specifically, we want to apply Theorem 6.6 from [citation] Gilbarg and Trudinger, page 98 in my library copy.  It says that since $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
 \[ \sup_{x,y \in \Omega} \frac{\abs{D^2 F(x)- D^2 F(y)}}{|x-y|^\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \sup_{x,y\in\Omega} \frac{\abs{f(x)-f(y)}}{|x-y|^\alpha}. \]
+
+A lemma with two interpolations:
+\begin{lemma}
+If $f \in L^\infty(\Omega) \cap C^{0,1}(\Omega)$ then for some universal constant $C$,
+\[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
+
+If $f \in C^{0,1}(\Omega) \cap C^{2,\alpha}(\Omega)$ where $\Omega$ satisfies the cone condition, then 
+\[ \norm{D^2 f}_\infty \leq C \norm{\grad f}_\infty^\frac{\alpha}{1+\alpha} \bracket{D^2 f}_\alpha^\frac{1}{1+\alpha}.\]
+This last needs more caveats to be true, I'll list them once I have the proof written down.  
+\end{lemma}
+\begin{proof}
+The first claim is incredibly straigtforward.  We include it for completeness.  
+\begin{align*} 
+\sup_{x,y \in \Omega} \frac{|f(x)-f(y)|}{|x-y|^\alpha} &= \sup |f(x)-f(y)|^{1-\alpha} \paren{\frac{|f(x)-f(y)|}{|x-y|}}^\alpha 
+\\ &\leq \paren{2 \norm{f}_\infty}^{1-\alpha} \paren{ \sup \frac{|f(x)-f(y)|}{|x-y|} }^\alpha
+\\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
+\end{align*}
+
+The second claim is more complicated.  We'll prove the equivalent claim that for $f$ smooth,
+\[ \norm{\grad f}_\infty \leq C \norm{f}_{L^\infty(\bar{\Omega})}^\frac{\alpha}{1+\alpha} \bracket{\grad f}_{\alpha;\bar{\Omega}}^\frac{1}{1+\alpha}.\]
+Since $\Omega$ satisfies the cone condition, we know that there exist positive constants $\ell$ and $a$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $e_1\cdot e_2 \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$, $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle $\cos\n(a)$.  
+
+If we consider the directional derivative $\del_i f$ of $f$ along the direction $e_i$, then observe that for any $0 < \delta \leq \ell$,
+\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau = f(x+\delta e_i) - f(x). \]
+This quantity on the right is bounded by the $L^\infty$ norm of $f$.  
+
+On the other hand, since $\grad f$ and hence $\del_i f$ are continous functions, for any $\tau \in (0,\ell]$
+\[ \abs{\del_i f(x) - \del_i f(x+\tau e_i)} \leq \bracket{\grad f}_\alpha \tau^\alpha. \]
+From this bound, we obtain that
+\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \int_0^\delta \del_i f(x) + \bracket{\grad f}_\alpha \tau^\alpha \,d\tau = \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \]
+and similarly from below, so
+\[ \delta \del_i f(x) - \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \leq \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
+
+What we have shown is that the integral of $\del_i f$ over an interval of length $\delta$ is small, and also it differs not very much from $\delta \del_i f(x)$.  By rearranging, we find that $\del_i f(x)$ must therefore be small:
+\[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
+This is true independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by assumption, by a little linear algebra we can bound $\grad f$ in terms of the $\del_i f$ and obtain that, for all $\delta \in (0,\ell]$,
+\[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
+
+We can minimize this over all eligible $\delta$, but let's hold off for now until we know what we need.  
+
+\end{proof}
 
 
 
