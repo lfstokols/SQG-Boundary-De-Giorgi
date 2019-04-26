@@ -86,6 +86,9 @@
 \newcommand{\Ctest}{C_c^\infty}
 \newcommand{\test}{\mathcal{D}}
 
+\newcommand{\ulow}{u_\flat}
+\newcommand{\uhigh}{u_{\scalebox{0.7}{\#}}}
+
 \newcounter{step_count}[section]
 \newcommand{\step}[1]{\stepcounter{step_count} \smallskip \noindent{\textbf{Step \arabic{step_count}:} #1}}
 
@@ -296,9 +299,36 @@ Combining [citation, like 4 different things are combined] we arrive at
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \lesssim \int \theta_+ (\del_t\psi+u\cdot\grad\psi) + \int \indic{\theta_+>0}.\]
 \end{proof}
 
-We've completed the essential version of the Caccioppoli inequality.  However, much more can be said about the drift-term $u$.  In particular, we can design a cutoff $\psi$ in order to minimize the expression $\del_t \psi + u\cdot\grad\psi$.  
+We've completed the essential version of the Caccioppoli estimate.  However, much more can be said about the drift-term $u$.  In particular, we can design a cutoff $\psi$ in order to minimize the expression $\del_t \psi + u\cdot\grad\psi$.  
 
-For the drift term, let's say that $u$ is broken down into $u_l$ and $u_h$ (standing for high-pass and low-pass) and that they have the desired properties.  
+\begin{lemma}[Energy inequality]
+Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
+\begin{align*}
+\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
+\\ \div u = 0
+\end{align*}
+in the sense of distributions.  Let
+\[ u = \ulow + \uhigh \]
+where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\grad \ulow \in L^\infty(0,T; L^\infty(\Omega))$, and assume that $\ulow(\cdot,0) \in L^\infty(0,T)$.  
+Then there exists a $\psi \in L^\infty(0,T; L^2(\Omega))$ such that
+\[ \theta = \theta_+ + \psi - \theta_- \]
+satisfies the inequality
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \psi + u\cdot\grad\psi) } \]
+with the constant $C$ depending on $\norm{\grad \psi}_\infty$ and $\sup_t \bracket{\psi(t,\cdot)}_\gamma$.  
+\end{lemma}
+
+\begin{proof}
+Define $\gamma(t)$ for $t \in [0,T]$ such that $\gamma(T)=0$ and $\dot{\gamma}(t) = \ulow(t,0)$.  Note that $\gamma$ is Lipschitz and $L^\infty$.  
+
+We'll apply the Caccioppoli estimate with
+\[ \psi(t,x) := \phi(x - \gamma(t)), \]
+\[ \phi(x) := \paren{|x|^{1/4} - 1}_+. \]
+
+Now $\phi(x) = 0$ for $|x|\leq 1$, $\psi(t,\cdot)$ is Lipschitz and H\"{o}lder continuous with exponent $1/4$, and
+\[ \del_t \psi + u\cdot\grad \psi = (u - \ulow(t,0))\cdot \grad \phi(x-\gamma(t)). \]
+
+We arrive at
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\ulow(t,0)) \cdot \grad\phi(x-\gamma(t)) }. \]
 
 For the high-pass term, for each $i = 1,2$,
 \[ \int (u_l)_i \theta_+ \del_i \psi = \int \Lambda^{-1/4} u_l \Lambda^{1/4} (\theta_+ \grad \psi) \leq \paren{\int \abs{\Lambda^{1/4} \theta_+ \grad \psi}^2}^{1/2} \leq \]
@@ -315,6 +345,7 @@ The $B$ part may be a real problem.  The $g$ means it doesn't have a sign, so we
 \\ &\leq \norm{g}_\infty \int \theta_{k-1}^2 B_{1/4}
 \\ &\leq \norm{g}_\infty \int \abs{\Lambda^{1/8} \theta_{k-1}}^2.
 \end{align*} 
+This bound is sufficient because for the $L^2$ theory, it's clear that you can interpolate between $H^s$ for different values of $s$.  Just think about the sum of eigenvectors, the $H^s$ norm is literally defined as a weighted $\ell^2$ norm, and weights interpolate just through H\"{o}lder's inequality. 
 
 Lastly, we have the near part.  
 \begin{align*} 
@@ -325,6 +356,8 @@ Lastly, we have the near part.
 
 Taken together,
 \[ \int \Lambda^{-1/4} \theta_+ u_h \cdot \grad \psi \leq \frac{1}{2} \int \abs{\Lambda^{1/2} \theta_+ \grad \psi} + \int \chi_+ + \int \theta_+ + \int \theta_+ \grad \psi B_{1/4}. \]
+
+\end{proof}
 
 
 \section{Control on $u$}
