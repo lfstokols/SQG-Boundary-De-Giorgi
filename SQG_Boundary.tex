@@ -127,10 +127,14 @@ where $\Laplace_D$ is the Laplacian with Dirichlet boundary condition.
 We're going to linearize the equation by fixing $u$ independent of $\theta$.  What property do we want $u$ to have?  For some constant $\kappa$, we'll want
 \begin{align*} 
 u &= \sum_{j \in \Z} u_j, \\
+\norm{u_j}_\infty \leq \kappa, \\
 \norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
 \norm{\grad u_j}_\infty &\leq \kappa 2^j. 
 \end{align*}
 The convergence of that sum is in, say, weak $L^2$.  
+
+Recall the notation
+\[ \bracket{f}_\alpha := \sup_{x,y \in \Omega, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha}. \]
 
 
 \section{Lemmas}
@@ -229,8 +233,27 @@ First let us derive an energy inequality.
 
 We know a priori that $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_D^{1/2}(\Omega))$.  Let $\psi: \Omega \to \R^+$ be a non-negative function in $H_D^{1/2}$ non-uniformly, and define $\theta = \theta_+ + \psi - \theta_-$.  Since $\theta - \psi$ is in $H_D^{1/2}$, by the lemma above, both $\theta_+$ and $\theta_-$ are in that space as well.  In particular, our weak solution can eat $\theta_+$.  
 
-We end up with
-\[ 0 = \int \theta_+ \bracket{ \ddt + u \cdot \grad + \Lambda } \paren{\theta_+ + \psi - \theta_-} \]
+\begin{lemma}[Caccioppoli Estimate]
+Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
+\begin{align*}
+\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
+\\ \div u = 0
+\end{align*}
+in the sense of distributions.  Let $\psi \in L^\infty(0,T; H_D^{1/2}(\Omega))$ be non-negative, Lipschitz-in-space, and H\"{o}lder continuous-in-space with exponent $\gamma < 1/2$.  Then the decomposition
+\[ \theta = \theta_+ + \psi - \theta_- \]
+satisfies the inequality
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \psi + u\cdot\grad\psi) } \]
+with the constant $C$ depending on $\norm{\grad \psi}_\infty$ and $\sup_t \bracket{\psi(t,\cdot)}_\gamma$.  
+
+\end{lemma}
+
+\begin{proof}
+We decompose $\theta-\psi = \theta_+ - \theta_-$ with both $\theta_+$ and $\theta_-$ non-negative and having disjoint support.  Since at a.e. time $t$ $\theta$ and $\psi$ are both in $H_D^{1/2}$, we can write
+\[ \infty > \int \abs{\Lambda^{1/2}(\theta_+-\theta_-)}^2 = \int \abs{\Lambda^{1/2}\theta_+}^2 + \int \abs{\Lambda^{1/2} \theta_-}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-. \]
+By a lemma proved above, the final term (by disjoint support) is non-positive, hence all three terms are finite and in particular $\theta_+$ and $\theta_-$ are in $H_D^{1/2}$ at a.e. time.  
+
+We can therefore multiply our equation [cite] by $\theta_+$ and integrate in space to obtain
+\[ 0 = \int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\psi$, and $\theta_-$.  We analyze them one at a time.  
 
 Firstly,
@@ -241,8 +264,8 @@ Firstly,
 
 The $\psi$ term produces important error terms:
 \begin{align*} 
-\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \psi &= -\int \theta_+ \dot{\gamma} \cdot \grad \psi + \int \theta_+ u \cdot \grad \psi + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi
-\\ &= \int \theta_+ (u - \dot{\gamma}) \grad \psi + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi
+\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \psi &= \int \theta_+ \del_t \psi + \int \theta_+ u \cdot \grad \psi + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi
+\\ &= \int \theta_+ (\del_t \psi + u \cdot \grad \psi) + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi
 \end{align*}
 
 Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is nonnegative by lemma [citation]:
@@ -252,27 +275,28 @@ Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is no
 \end{align*}
 
 Put together, we arrive at 
-\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \abs{\iint \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi} + \abs{\int \theta_+ (u-\dot{\gamma}) \cdot \grad \psi}. \]
+\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 + \iint \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi \leq \abs{\int \theta_+ (\del_t \psi + u \cdot \grad \psi) \cdot \grad \psi}. \]
 
-Actually, we should break up the $\theta_+ \Lambda \theta$ term using the Caffarelli-Stinga formula, and before we bring that term to the right we should drop the $B$ term because it's non-negative.  This gives us the inequality
-\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \abs{\iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y)} + \abs{\int \theta_+ (u-\dot{\gamma}) \cdot \grad \psi}. \]
-
-This integral is symmetric in $x$ and $y$, and the integrand is only nonzero if one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
+At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi$ term using the formula from [citation] Caffarelli-Stinga.  
+\[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi = \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) + \int \theta_+ \psi B. \]
+Since $B \geq 0$ (see Caff-Stinga [citation]) and $\psi$ is non-negative by assumption, the $B$ term is non-negative and so
+\[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi \geq \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y). \]
+The remaining integral is symmetric in $x$ and $y$, and the integrand is only nonzero if at least one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
 \[ \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) \leq 2 \iint \indic{\theta_+>0}(x) \abs{[\theta_+(x)-\theta_+(y)][\psi_t(x)-\psi_t(y)]} K(x,y). \]
 Now we can break up this integral using the Peter-Paul variant of H\"{o}lder's inequality.  
-\[ \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) \leq \eps \int \abs{\Lambda^{1/2}\theta_+}^2 + \frac{1}{\eps} \iint \indic{\theta_+>0}(x) [\psi(x)-\psi(y)]^2 K(x,y). \]
+\[ \abs{\iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y)} \leq \eps \int \abs{\Lambda^{1/2}\theta_+}^2 + \frac{1}{\eps} \iint \indic{\theta_+>0}(x) [\psi(x)-\psi(y)]^2 K(x,y). \]
 
 It remains to bound the quantity $[\psi(x)-\psi(y)]^2 K(x,y)$.  By Caffarelli-Stinga theorem 2.4 [citation], there is a universal constant $C$ such that
 \[ K(x,y) \leq \frac{C}{|x-y|^{3}}. \]
-The cutoff $\psi$ is Lipschitz, and it grows at a rate $|x|^\gamma$.  Therefore 
+The cutoff $\psi$ is Lipschitz, and H\"{o}lder continuous with exponent $\gamma < 1/2$ by assumption.  Therefore 
 \[ [\psi(x)-\psi(y)]^2 K(x,y) \leq |x-y|^{-1} \wedge |x-y|^{2\gamma-3}. \]
-If $3-2\gamma > 2$ then this quantity is integrable.  Thus
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \lesssim \int \theta_+ (u-\dot{\gamma}) \cdot \grad \psi + \int \indic{\theta_+>0}.\]
+Since $3-2\gamma > 2$, this quantity is integrable.  Thus
+\[ \int \indic{\theta_+>0}(x) \int [\psi(x)-\psi(y)]^2 K(x,y) \,dxdy \leq C(\norm{\psi}_\textrm{Lip}, \bracket{\psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
+Combining [citation, like 4 different things are combined] we arrive at
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \lesssim \int \theta_+ (\del_t\psi+u\cdot\grad\psi) + \int \indic{\theta_+>0}.\]
+\end{proof}
 
-%\begin{align*}
-%\iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) &\leq \eps \iint [\theta_+(x)-\theta_+(y)]^2 K(x,y) + \frac{1}{\eps} \iint_{\theta_+(x) > 0 \textrm{ or } \theta_+(y) > 0} [\psi(x)-\psi(y)]^2 K(x,y)
-%\\ &\leq \eps \int \abs{\Lambda^{1/2} \theta_+}^2 + \frac{2}{\eps} \int \indic{\theta_+>0}(x)\int [\psi(x)-\psi(y)]^2 K(x,y)\,dy\,dx.
-%\end{align*}
+We've completed the essential version of the Caccioppoli inequality.  However, much more can be said about the drift-term $u$.  In particular, we can design a cutoff $\psi$ in order to minimize the expression $\del_t \psi + u\cdot\grad\psi$.  
 
 For the drift term, let's say that $u$ is broken down into $u_l$ and $u_h$ (standing for high-pass and low-pass) and that they have the desired properties.  
 
