@@ -330,6 +330,9 @@ Now $\phi(x) = 0$ for $|x|\leq 1$, $\psi(t,\cdot)$ is Lipschitz and H\"{o}lder c
 We arrive at
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\ulow(t,0)) \cdot \grad\phi(x-\gamma(t)) }. \]
 
+We'll break up $u$ into its constituent parts, and begin by considering the high-pass term.  
+\[ \int \Lambda^{-1/4} \uhigh \cdot \Lambda^{1/4} (\theta_+ \grad \phi) = \iint [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4} \uhigh(y)][\theta_+(x) \grad\phi(x+\gamma) - \theta_+(y)\grad\phi(y+\gamma)] K_{1/4}(x,y) + \int \Lambda^{-1/4} \uhigh \theta_+ \grad\phi B. \]
+
 For the high-pass term, for each $i = 1,2$,
 \[ \int (u_l)_i \theta_+ \del_i \psi = \int \Lambda^{-1/4} u_l \Lambda^{1/4} (\theta_+ \grad \psi) \leq \paren{\int \abs{\Lambda^{1/4} \theta_+ \grad \psi}^2}^{1/2} \leq \]
 
@@ -358,6 +361,20 @@ Taken together,
 \[ \int \Lambda^{-1/4} \theta_+ u_h \cdot \grad \psi \leq \frac{1}{2} \int \abs{\Lambda^{1/2} \theta_+ \grad \psi} + \int \chi_+ + \int \theta_+ + \int \theta_+ \grad \psi B_{1/4}. \]
 
 \end{proof}
+
+Now we have the energy inequality, let's try to do some DG1 and DG2.  
+
+\begin{lemma}
+Let $\theta$ be a function in the correct spaces, and let $u = \uhigh + \ulow$ have the proper bounds.  
+
+Let there be a path $\Gamma:[0,T] \to \R^2$ and assume that 
+\[ \int_0^T \int_{B_2(\Gamma)} \theta_+^2 \leq \delta_0. \]
+
+Assume also that 
+\[ \sup_{[0,T]} \norm{\ulow(t,\cdot) - \dot{\Gamma}(t)}_\infty \leq C. \]
+
+I should work out the scaling before I write this lemma.
+\end{lemma}
 
 
 \section{Control on $u$}
@@ -618,6 +635,14 @@ Set $\delta = 2^{-j} 2^j_0 \ell \leq \ell$.  Then
 \[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\alpha} 2^{j(1+\alpha)}} \norm{\theta} = C(\Omega) 2^j \norm{\theta}. \]
 But $D^2 F = \grad u_j$ so we are done.  
 
+
+\section{Harnack Inequality}
+
+We have a function $\theta$ which is in $L^\infty$, say less than 1, and solves the desired PDE with a drift velocity that decomposes as desired.  Moreover, $\ulow(t,\cdot)$ is a finite sum of $L^\infty$ functions and hence it's $L^\infty$ norm is bounded by a constant $C_0$ that depends only on $\Omega$.  
+
+First we construct a cutoff $\phi$.  Since $\theta \in L^\infty$, we know that $(\theta-\phi)_+$ is supported in a ball of radius 2 around the center $\gamma_0(t)$ of the function $\phi$.  In particular, if we scale down enough times then $\theta_+$ being bounded will lower bound in turn the amount of mass we lose off $\theta_+$ as we scale and eventually we'll get an $L^\infty$ bound of $1-\lambda$ in the ball of radius 1 around $\gamma_0(t)$.  In particular in particular, we get an $L^\infty$ bound on the ball of radius $\eps$ around $0$ for $t \in [0,\frac{1-\eps}{C_0}]$.  
+
+Now we scale down in time and space by $\eps$.  We retain a bound of 1 in the ball of radius $1/\eps$ around $1/\eps \gamma_0(\eps t)$.  It's wholly unclear to me how we keep $\gamma_0$ near $\gamma_1$ since the functions are so nonlinear.  
 
 
 
