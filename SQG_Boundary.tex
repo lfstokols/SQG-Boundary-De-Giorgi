@@ -67,6 +67,7 @@
 \newcommand{\kinet}{\bracket{\del_t + v\cdot \grad_x}}
 \newcommand{\bessel}{\paren{1-\Laplace_v}}
 \newcommand{\loc}{\text{loc}}
+\newcommand{\Lip}{\text{Lip}}
 \newcommand{\ddz}{\frac{d}{dz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\into}{\hookrightarrow}
@@ -88,6 +89,8 @@
 
 \newcommand{\ulow}{u_\flat}
 \newcommand{\uhigh}{u_{\scalebox{0.7}{\#}}}
+
+\newcommand{\Rom}[1]{\MakeUppercase{\romannumeral #1}}
 
 \newcounter{step_count}[section]
 \newcommand{\step}[1]{\stepcounter{step_count} \smallskip \noindent{\textbf{Step \arabic{step_count}:} #1}}
@@ -309,20 +312,21 @@ Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega
 \end{align*}
 in the sense of distributions.  Let
 \[ u = \ulow + \uhigh \]
-where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\grad \ulow \in L^\infty(0,T; L^\infty(\Omega))$, and assume that $\ulow(\cdot,0) \in L^\infty(0,T)$.  
-Then there exists a $\psi \in L^\infty(0,T; L^2(\Omega))$ such that
-\[ \theta = \theta_+ + \psi - \theta_- \]
+where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in L^\infty(0,T; \Lip(\Omega)) \cap L^\infty(0,T; \dot{C}^{3/4}(\Omega)$, and assume that $\ulow(\cdot,0) \in L^\infty(0,T)$.  
+Then there exists a $\phi \in C^2(\Omega)$ and a $\gamma \in \Lip(0,T)$ such that
+\[ \theta = \theta_+ + \phi(\cdot-\gamma) - \theta_- \]
 satisfies the inequality
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \psi + u\cdot\grad\psi) } \]
-with the constant $C$ depending on $\norm{\grad \psi}_\infty$ and $\sup_t \bracket{\psi(t,\cdot)}_\gamma$.  
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
+with the constant $C$ depending on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and on $\phi$.  
 \end{lemma}
 
 \begin{proof}
-Define $\gamma(t)$ for $t \in [0,T]$ such that $\gamma(T)=0$ and $\dot{\gamma}(t) = \ulow(t,0)$.  Note that $\gamma$ is Lipschitz and $L^\infty$.  
+Define $\gamma(t)$ for $t \in [0,T]$ such that $\gamma(T)=0$ and $\dot{\gamma}(t) = \ulow(t,\gamma(t))$.  Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof.  Note that $\gamma$ is Lipschitz and $L^\infty$.  
 
 We'll apply the Caccioppoli estimate with
 \[ \psi(t,x) := \phi(x - \gamma(t)), \]
 \[ \phi(x) := \paren{|x|^{1/4} - 1}_+. \]
+Except we have to smooth out $\phi$ to make it $C^2$.  
 
 Now $\phi(x) = 0$ for $|x|\leq 1$, $\psi(t,\cdot)$ is Lipschitz and H\"{o}lder continuous with exponent $1/4$, and
 \[ \del_t \psi + u\cdot\grad \psi = (u - \ulow(t,0))\cdot \grad \phi(x-\gamma(t)). \]
@@ -330,34 +334,62 @@ Now $\phi(x) = 0$ for $|x|\leq 1$, $\psi(t,\cdot)$ is Lipschitz and H\"{o}lder c
 We arrive at
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\ulow(t,0)) \cdot \grad\phi(x-\gamma(t)) }. \]
 
-For the high-pass term, for each $i = 1,2$,
-\[ \int (u_l)_i \theta_+ \del_i \psi = \int \Lambda^{-1/4} u_l \Lambda^{1/4} (\theta_+ \grad \psi) \leq \paren{\int \abs{\Lambda^{1/4} \theta_+ \grad \psi}^2}^{1/2} \leq \]
+Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  This breaks up, according to the formula of Caffarelli-Stinga [citation], into a $K$-term and a $B$-term.  We consider first the $K$ term
+\[ \iint [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)] K_{1/4}(x,y). \]
 
-We're looking at $\int g \Lambda^{1/4} \theta_+$ where $\Lambda^{1/4} g = u_h$ and $g \in L^\infty$.  This breaks down as
-\[ \iint [g-g^*][\theta_+-\theta_+^*] K_{1/4} + \int g \theta_+ B_{1/4}. \]
-
-For a given parameter $\lambda$, break up into the region where $|x-y|$ is bigger and smaller than $\lambda$.  Considering the bigger part,
-\[ \iint_{\geq \lambda} [g-g^*][\theta_+ - \theta_+^*] K_{1/4} \leq 2 (2 \norm{g}_\infty) \iint_{\geq \lambda} |\theta_+ - \theta_+^*| \frac{dxdx^*}{|x-y|^{2+1/4}} \leq 8 \lambda^{-2.25} \norm{g}_\infty \norm{\theta_+}_1. \]
-
-The $B$ part may be a real problem.  The $g$ means it doesn't have a sign, so we actually have to bound it.  Consider this.  
-\begin{align*}
-\int g \theta_k B_{1/4} &\leq \norm{g}_\infty \int \theta_{k-1} \theta_k B_{1/4}
-\\ &\leq \norm{g}_\infty \int \theta_{k-1}^2 B_{1/4}
-\\ &\leq \norm{g}_\infty \int \abs{\Lambda^{1/8} \theta_{k-1}}^2.
-\end{align*} 
-This bound is sufficient because for the $L^2$ theory, it's clear that you can interpolate between $H^s$ for different values of $s$.  Just think about the sum of eigenvectors, the $H^s$ norm is literally defined as a weighted $\ell^2$ norm, and weights interpolate just through H\"{o}lder's inequality. 
-
-Lastly, we have the near part.  
+Decompose this into the far part $|x-y|>1$ whose integral we call \Rom{1} and the far part $|x-y|\leq 1$ whose integral we call \Rom{2}.  For the far part,
 \begin{align*} 
-\iint_{< \lambda} [g-g^*][\theta_+ - \theta_+^*] K_{1/4} &\leq 2\iint_{<\lambda} \chi_+ [g-g^*]^2 |x-y|^{3/4} K_{1/4} + \iint_{<\lambda} [\theta_+-\theta_+^*]^2 |x-y|^{-3/4} K_{1/4} 
-\\ &\leq 4 \norm{g}_\infty^2 \int \chi_+ \int_{<\lambda} |x-y|^{-1.5} + \iint_{<\lambda} [\theta_+-\theta_+^*]^2 K_1
-\\ &\leq \norm{g}_\infty^2 \lambda^{1/2} \abs{\chi_+} + \int \abs{\Lambda^{1/2} \theta_+}^2
+\Rom{1} &\leq 2 \norm{\Lambda^{-1/4} \uhigh}_\infty \iint_{|x-y|>1} \abs{\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)} \,dxdy
+\\ &\leq 4 \norm{\Lambda^{-1/4} \uhigh}_\infty \int \theta_+\grad\phi \int_{|x-y|>1} \frac{dy}{|x-y|^{2.25}} \,dx
+\\ &\leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\theta_+\grad\phi}_1.
 \end{align*}
 
-Taken together,
-\[ \int \Lambda^{-1/4} \theta_+ u_h \cdot \grad \psi \leq \frac{1}{2} \int \abs{\Lambda^{1/2} \theta_+ \grad \psi} + \int \chi_+ + \int \theta_+ + \int \theta_+ \grad \psi B_{1/4}. \]
+For the near part, recall first that by the upper- and lower-bounds on $K$ in Caffarelli-Stinga [citation], we know that
+\[ K_{1/4}(x,y) \leq C(\Omega) |x-y|^{3/4} K_1(x,y). \]
+In principle the constant relating these quantities may depend on $\Omega$, though since both sides of the inequality scale the same way, the constant must be the same for scalings of $\Omega$.  
 
+Since the integrand of \Rom{2} vanishes unless at least one of $x$ or $y$ is in the support of $\theta_+$, we can say
+\[ \Rom{2} \leq 2 \iint_{|x-y|\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]. \]
+Therefore, applying H\"{o}lder's inequality with Peter-Paul,
+\begin{align*}
+\Rom{2} &\leq \frac{1}{\eps}\iint _{\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)]^2 |x-y|^{3/4} K_{1/4} + \eps \iint_{\leq 1} [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 \frac{K_1}{|x-y|^{3/4}}
+\\ &\leq \frac{C}{\eps} \norm{\Lambda^{-1/4} \uhigh}_\infty \int_{|y|\leq 1} |y|^{-1.5} \,dy \norm{\indic{\theta_+>0}}_1 + \eps \iint_{\R^2\times\R^2} \frac{[\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2}{|x-y|^3} \,dxdy
+\end{align*}
+
+The bounds [cite] and [cite] are sufficient to bound the $K$-term by $\int \theta_+$, $\int \indic{\theta_+>0}$, and the classical $H^{1/2}$ norm of $\theta_+ \grad \phi$ (extended by 0 to a function on $\R^2$).  But for the classical $H^{1/2}$ norm, we have by [citation, product rule] combined with the fact that the $H^{1/2}_D$ norm dominates the $H^{1/2}$ norm
+\[ \norm{\theta_+ \grad \phi}_{H^{1/2}} \leq \norm{\theta_+}_{H^{1/2}_D} \norm{\grad\phi}_\infty + \norm{\theta_+}_\infty \norm{\grad\phi}_{H^{1/2}}. \] 
+
+Alternatively,
+\[ \iint [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1 \leq \iint \theta_+(x)^2 [\grad\phi(x)-\grad\phi(y)]^2 K_1 + \iint \grad\phi(y)^2[\theta_+(x)-\theta_+(y)]^2 K_1 \]
+\[ \leq C(\norm{\grad\phi}_{\textrm{Lip}}, \norm{\grad\phi}_\infty, \eps) \int \theta_+^2 + \eps \norm{\grad\phi}_\infty^2  \norm{\theta_+}_{H_D^{1/2}}^2. \]
+
+Therefore 
+\[ K-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+(x)}^2. \]
+
+For the $B$ part, on the other hand, 
+\[ \int \Lambda^{-1/4} \uhigh \theta_+ \grad\phi B_{1/4} \leq \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\grad\phi}_\infty \int \theta_+ B_{1/4} \]
+and, since $[\theta_+(x)-\theta_+(y)][\indic{\theta_+>0}(x)-\indic{\theta_+>0}(y)] \geq 0$,
+\[ \int \theta_+ B_{1/4} \leq \int \indic{\theta_+>0} \Lambda^{1/4} \theta_+ \leq \frac{1}{\eps} \int \indic{\theta_+>0} + \eps \int \abs{\Lambda^{1/4} \theta_+}^2. \]
+
+Now that we have an $L^2$ norm of $\Lambda^{1/4} \theta_+$, since the $H^s_D$ norm is simply an $\ell^2$ norm of the eigndecomposition and $\lambda_k^{1/4} \leq 1 + \lambda_k^{1/2}$, we can easily bound this $H^{1/4}_D$ norm by interpolation and find
+\[ B-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+
+From [cite] and [cite] we find that for any $\eps > 0$ arbitrarily small and some constant $C$ depending on $\eps$, $\norm{\grad\phi}_\infty$, $\norm{D^2 \phi}_\infty$, and on the shape (but not the size) of $\Omega$,
+\[ \int \uhigh \theta_+ \grad \phi(x - \gamma(t)) \,dx \leq C \norm{\Lambda^{-1/4}\uhigh}_\infty \paren{\int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+
+For the low pass term, we know that $\ulow$ is Lipschitz and hence $\ulow(t,x) - \ulow(t,\gamma(t))$ is small in a neighborhood of $x=0$.  Specifically, if we assume that $\theta_+$ is supported, at each point in time, in a ball of radius $R$ around $\gamma(t)$, then
+\[ \int (\ulow - \ulow(t,\gamma)) \theta_+\grad\phi(x-\gamma) \leq \norm{\ulow}_\Lip \sup_r (r \]
+
+We can actually say that $\ulow$, in addition to being Lipschitz (necessary for Picard-Lindelof) is also H\"{o}lder continuous for any exponent in $(0,1)$ that we want.  In particular, since $\phi$ grows like $|x|^{1/4}$, if $\ulow \in \dot{C}^{3/4}$ then
+\[ [\ulow(t,x) - \ulow(t,\gamma(t))] \grad \phi(x-\gamma(t)) \leq \bracket{\ulow}_{3/4} |x-\gamma|^{3/4} C |x-\gamma|^{-3/4} \leq C \bracket{\ulow}_{3/4}. \]
+
+Therefore, for some constant $C$ depending on $\phi$ (specifically the decay rate of its gradient),
+\[ \int (\ulow - \ulow(t,\gamma)) \theta_+\grad\phi(x-\gamma) \leq C \bracket{\ulow}_{3/4} \int \theta_+. \]
+
+From this the result follows.  
 \end{proof}
+
+
 
 
 \section{Control on $u$}
