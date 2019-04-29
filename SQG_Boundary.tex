@@ -653,4 +653,19 @@ But $D^2 F = \grad u_j$ so we are done.
 
 
 
+
+\[ \dot{\gamma} = \ulow(t,\Gamma + \gamma) \]
+it's lipschitz, $\ulow = u_1 + u_2$ and $\dot{\Gamma} = u_1(t,\Gamma)$ and $u_2 \leq N$
+\[ |\dot{\gamma} - \dot{\Gamma}| \leq |u_2(t,\Gamma + \gamma)| + |u_1(t,\Gamma+\gamma) - u_1(t,\Gamma)|. \]
+Nope.  
+\[ \dot{\gamma} = u_1(t,\Gamma + \gamma) + u_2(t,\Gamma + \gamma) \leq N + \norm{u_1}_\Lip |\gamma| \]
+which means we must solve the ODE
+\[ \int \frac{\gamma'}{N + k \gamma} \,dt = t + C, \]
+\[ \ln(N+k \gamma) = k t + C \]
+\[ N + k \gamma = C e^{k t} \]
+\[ \gamma = C e^{k t} - \frac{N}{k}. \]
+And recall $\gamma(0)=\Gamma(0) = 0$ so
+\[ \gamma(t) \leq \frac{N}{k} e^{kt} - \frac{N}{k}. \]
+Since I'm only considering timescales up to $T$ anyways, that's still bounded.  Is that okay?  I have no idea.  
+
 \end{document}
