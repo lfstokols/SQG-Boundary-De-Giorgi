@@ -397,9 +397,12 @@ Let's assume that our drift term is a sum of $u_j$ for $j \in \Z$ and a constant
 
 Firstly, assume that 
 \[ u = \lim_{L^2} \sum_{-N}^N u_j, \]
+with the $u_j$ satisfying
 \begin{align*} 
+\norm{u_j}_\infty &\leq \kappa, \\
 \norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
-\norm{\grad u_j}_\infty &\leq \kappa 2^j. 
+\norm{\grad u_j}_\infty &\leq \kappa 2^j, \\
+\bracket{u_j}_{3/4} &\leq \kappa 2^{j 3/4}. 
 \end{align*}
 We then define
 \[ u_h = \sum_{j=0}^\infty u_j \]
@@ -524,8 +527,7 @@ Logan: The japanese paper's Lemma 3.6, used extensively here, only applies in th
 In this section we will prove that $u$ breaks up into pieces with various norms under control.  
 
 We know that $\theta \in L^\infty$.  Let $\phi$ be a Schwartz function on $\R$ which is suited to Littlewood-Paley decomposition.  That is, for example, $\phi(2^j x) \phi(2^i x) = 0$ unless $|i-j|\leq 1$ and $\sum \phi(2^j) = 1$.  We have some projections 
-\[ P_j f := \sum_k \phi(2^j f_k) \eigen{k}. \]
-Is that the right formula?  Hmm.  Well, I'll use the functional calculas that I know and clean up the definitions later.  
+\[ P_j f := \sum_k \phi(2^j \lambda_k^{1/2}) f_k \eigen{k}. \]
 
 Recall that $P_j = 0$ for $j$ sufficiently small, because $-\Laplace_D$ has a smallest eigenvalue.  
 
@@ -589,9 +591,9 @@ A lemma with two interpolations:
 If $f \in L^\infty(\Omega) \cap C^{0,1}(\Omega)$ then for some universal constant $C$,
 \[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
 
-If $f \in C^{0,1}(\Omega) \cap C^{2,\alpha}(\Omega)$ where $\Omega$ satisfies the cone condition, then 
-\[ \norm{D^2 f}_\infty \leq C \norm{\grad f}_\infty^\frac{\alpha}{1+\alpha} \bracket{D^2 f}_\alpha^\frac{1}{1+\alpha}.\]
-This last needs more caveats to be true, I'll list them once I have the proof written down.  
+If $f \in C^{0,1}(\Omega) \cap C^{2,\alpha}(\Omega)$ where $\Omega$ satisfies the cone condition, then for some constants $C$ and $\ell$ depending on $\Omega$,
+\[ \norm{D^2 f}_\infty \leq C \delta\n \norm{\grad f}_\infty  + \delta^\alpha \bracket{D^2 f}_\alpha\]
+for all $\delta < \ell$.  
 \end{lemma}
 \begin{proof}
 The first claim is incredibly straigtforward.  We include it for completeness.  
@@ -602,8 +604,10 @@ The first claim is incredibly straigtforward.  We include it for completeness.
 \end{align*}
 
 The second claim is more complicated.  We'll prove the equivalent claim that for $f$ smooth,
-\[ \norm{\grad f}_\infty \leq C \norm{f}_{L^\infty(\bar{\Omega})}^\frac{\alpha}{1+\alpha} \bracket{\grad f}_{\alpha;\bar{\Omega}}^\frac{1}{1+\alpha}.\]
-Since $\Omega$ satisfies the cone condition, we know that there exist positive constants $\ell$ and $a$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $e_1\cdot e_2 \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$, $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle $\cos\n(a)$.  
+\[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
+Since $\Omega$ satisfies the cone condition, we know that there exist positive constants $\ell$ and $a$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $e_1\cdot e_2 \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$, $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
+
+The idea of the proof is that the average of $\grad f$ along an interval is bounded since $f$ is bounded, and the same average is close to the value of $\grad f$ at a point because $\grad f$ is continuous, hence the value of $\grad f$ at any point must be bounded.  By varying the length $\delta$ of the aforementioned interval, we actually get a parameterized family of bounds.  
 
 If we consider the directional derivative $\del_i f$ of $f$ along the direction $e_i$, then observe that for any $0 < \delta \leq \ell$,
 \[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau = f(x+\delta e_i) - f(x). \]
@@ -620,8 +624,6 @@ What we have shown is that the integral of $\del_i f$ over an interval of length
 \[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
 This is true independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by assumption, by a little linear algebra we can bound $\grad f$ in terms of the $\del_i f$ and obtain that, for all $\delta \in (0,\ell]$,
 \[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
-
-We can minimize this over all eligible $\delta$, but let's hold off for now until we know what we need.  
 
 \end{proof}
 
@@ -640,13 +642,10 @@ Combining these estimates with [citation: the Gilbarg-Trudinger thingy] we find
 At long last, the big estimate,
 \[ \norm{D^2 F}_\infty \leq C \paren{\delta\n \norm{\grad F}_\infty + \delta^{\alpha} \bracket{D^2 F}_\alpha}. \]
 
-Since $\Omega$ is bounded, there exists a $j_0$ such that $P_j = 0$ if $j < j_0$.  Therefore we assume withouth loss of generality that $j \geq j_0$.  Thus $2^{-j} \leq 2^{j(1+\alpha)} 2^{-j(2+\alpha)} \leq 2^{j(1+\alpha)} 2^{-j_0(2+\alpha)}$ and similarly $2^j \leq 2^{j(1+\alpha)}2^{-j\alpha} \leq 2^{j(1+\alpha)} 2^{-j_0\alpha}$.  We can therefore say that for all $\delta$ sufficiently small
-\[ \bracket{D^2 F}_\infty \leq C \paren{\delta\n C + \delta^\alpha 2^{j(1+\alpha)}} \norm{\theta}. \]
-We don't actually have to take $\delta$ all that small.  Set $\delta = \ell$.  The real interpolation we need is
-\[ \norm{\grad g}_\infty \leq \norm{g}_\infty + \bracket{\grad g}_\alpha. \]
-No, you idiot, we really need to get rid of all dependence on $\alpha$.  
+Since $\Omega$ is bounded, there exists a $j_0$ such that $P_j = 0$ if $j < j_0$.  Therefore we assume withouth loss of generality that $j \geq j_0$.  Thus $2^{-j} \leq 2^{j(1+\alpha)} 2^{-j(2+\alpha)} \leq 2^{j(1+\alpha)} 2^{-j_0(2+\alpha)}$ and similarly $2^j \leq 2^{j(1+\alpha)}2^{-j\alpha} \leq 2^{j(1+\alpha)} 2^{-j_0\alpha}$.  We can therefore say that for all $\delta \leq \ell$,
+\[ \bracket{D^2 F}_\infty \leq C \paren{\delta\n C + \delta^\alpha 2^{j(1+\alpha)}} \norm{\theta}_\infty. \]
 
-Set $\delta = 2^{-j} 2^j_0 \ell \leq \ell$.  Then
+Set $\delta = 2^{-j} 2^{j_0} \ell \leq \ell$.  Then
 \[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\alpha} 2^{j(1+\alpha)}} \norm{\theta} = C(\Omega) 2^j \norm{\theta}. \]
 But $D^2 F = \grad u_j$ so we are done.  
 
