@@ -87,8 +87,11 @@
 \newcommand{\Ctest}{C_c^\infty}
 \newcommand{\test}{\mathcal{D}}
 
-\newcommand{\ulow}{u_\flat}
-\newcommand{\uhigh}{u_{\scalebox{0.7}{\#}}}
+\newcommand{\ulow}{u_l}
+\newcommand{\uhigh}{u_h}
+\newcommand{\ulowth}[1]{\ulow^{#1}}
+\newcommand{\uhighth}[1]{\uhigh^{#1}}
+\newcommand{\umidth}[1]{u_m^{#1}}
 
 \newcommand{\Rom}[1]{\MakeUppercase{\romannumeral #1}}
 
@@ -650,8 +653,7 @@ Set $\delta = 2^{-j} 2^{j_0} \ell \leq \ell$.  Then
 But $D^2 F = \grad u_j$ so we are done.  
 
 
-
-
+\section{Harnack Inequality}
 
 \[ \dot{\gamma} = \ulow(t,\Gamma + \gamma) \]
 it's lipschitz, $\ulow = u_1 + u_2$ and $\dot{\Gamma} = u_1(t,\Gamma)$ and $u_2 \leq N$
@@ -666,5 +668,67 @@ which means we must solve the ODE
 And recall $\gamma(0)=\Gamma(0) = 0$ so
 \[ \gamma(t) \leq \frac{N}{k} e^{kt} - \frac{N}{k}. \]
 Since I'm only considering timescales up to $T$ anyways, that's still bounded.  Is that okay?  I have no idea.  
+
+%\newcommand{\uhighth}[1]{\uhigh^{#1}}
+%\newcommand{\ulowth}[1]{\ulow^{#1}}
+
+Define
+\begin{align*} 
+\theta_k(t,x) &:= (1-\lambda)^{-k} \theta(\eps^k t, \eps^t x), \\
+\ulowth{0}(t,x) &:= \sum_{j \leq 0} u_j(t,x), \\
+\umidth{0}(t,x) &:= 0, \\
+\uhighth{0}(t,x) &:= \sum_{j > 0} u_j(t,x), \\
+\ulowth{k}(t,x) &:= \sum_{j \leq -(k-1) \ln(\eps)} u_j(\eps^k t, \eps^k x), \qquad k > 0, \\
+\umidth{k}(t,x) &:= \sum_{-(k-1) \ln(\eps) < j \leq - k \ln(\eps)} u_j(\eps^k t, \eps^k x), \qquad k > 0, \\
+\uhighth{k}(t,x) &:= \sum_{j > -k \ln(\eps)} u_j(\eps^k t, \eps^k x), \qquad k > 0, \\
+\Gamma_0(t) &:= 0 \\
+\dot{\gamma}_k(t) &:= (\ulowth{k} + \umidth{k})(t, \Gamma_k(t) + \gamma_k(t)) - \Gamma_k(t) \\
+\gamma_k(0) &:= 0 \\
+\Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t). 
+\end{align*}
+
+The idea is that $u = \ulowth{0} + \uhighth{0}$ but that after zooming $u(\eps^k t, \eps^k x) = \ulowth{k}(t,x) + \umidth{k}(t,x) + \uhighth{k}(t,x)$.  That is, each $u_j$ zooms in as $k$ increases, and that a few of the $u_j$ get peeled out of the high piece and placed into the middle piece, while the old middle piece is added to the new low piece.  It is $\umidth{k}$ and $\ulowth{k}$ together that will be put into the De Giorgi lemmas, acting as $\ulow$.  
+
+Note that
+\[ \ulowth{k+1}(t,x) = \ulowth{k}(\eps t, \eps x) + \umidth{k}(\eps t, \eps x). \]
+
+Maybe instead of any of this ``middle'' nonsense, we introduce the notation
+\[ \sum_k = \sum_{j > - k \ln(\eps)} \]
+while
+\[ \sum^k = \sum_{j \leq -k \ln(\eps)}. \]
+
+Define
+\begin{align*} 
+\theta_k(t,x) &:= (1-\lambda)^{-k} \theta(\eps^k t, \eps^t x), \\
+\ulowth{k}(t,x) &:= \sum^k u_j(\eps^k t, \eps^k x), \\
+\uhighth{k}(t,x) &:= \sum_k u_j(\eps^k t, \eps^k x), \\
+\Gamma_0(t) &:= 0 \\
+\dot{\gamma}_k(t) &:= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \Gamma_k(t) \\
+\gamma_k(0) &:= 0 \\
+\Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t). 
+\end{align*}
+
+I want to claim that 
+\[ \dot{\Gamma}_k(t) = \sum^{k-1} (\eps^k t, \eps^k \Gamma_k(t)). \]
+This makes sense, because $\Gamma_{k+1}(t) = \eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)$.  
+
+Well, $\dot{\gamma}_0(t) = \ulowth{0}(t,\gamma_0(t))$.  Moreover, 
+\[ \ulowth{k}(t,\Gamma_{k+1}(t)) = \ulowth{k}(\eps\n \eps t, \eps\n \bracket{\gamma_k(\eps t) + \Gamma_k(\eps t)}) \]
+or
+\begin{align*} 
+\sum^k u_j(\eps^{k+1} t, \eps^{k+1} \Gamma_{k+1}(t)) &= \sum^k u_j(\eps^k \eps t, \eps^k \bracket{\gamma_k(\eps t) + \Gamma_k(\eps t)})
+\\ &= \ulowth{k}(\eps t, \gamma_k(\eps t) + \Gamma_k(\eps t))
+\\ &= \dot{\gamma}_k(\eps t) + \dot{\Gamma}_k(\eps t)
+\\ &= \del_t \bracket{\eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)}
+\\ &= \dot{\Gamma}_{k+1}(t).
+\end{align*}
+
+In other words,
+\[ \dot{\Gamma}_k(t) = \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t)) \qquad k \geq 5. \]
+I should think more about what exactly happens at the edge case of $j=0,1$.  
+
+
+There's an important distinction between the low and middle section of $u$.  That is, $\Gamma_k$ will only cancel out the portion of $u$ which wasn't just most recently moved into $\ulow$.  How best to notate this?
+
 
 \end{document}
