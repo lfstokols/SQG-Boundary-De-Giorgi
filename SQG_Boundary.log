@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  1 MAY 2019 22:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  2 MAY 2019 11:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,7 +586,7 @@ nSymbolC/m/n/10.95 ^^P \OML/cmm/m/it/10.95 ^^R[]\OMX/MnSymbolE/m/n/10.95 à\OML/
 cmm/m/it/10.95 y\OMX/MnSymbolE/m/n/10.95 ç^^E[]\OML/cmm/m/it/10.95 K[]
  []
 
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
 (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
  5976 strings out of 494985
@@ -595,7 +595,7 @@ Here is how much of TeX's memory you used:
  8909 multiletter control sequences out of 15000+600000
  22122 words of font info for 81 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
- 38i,10n,43p,816b,260s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,43p,816b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymb
 ol/MnSymbolE6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol
 /MnSymbolC6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/M
@@ -623,10 +623,10 @@ ti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (20 pages, 286888 bytes).
+Output written on SQG_Boundary.pdf (21 pages, 291426 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 142 compressed objects within 2 object streams
+ 273 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

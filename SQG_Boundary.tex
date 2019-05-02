@@ -550,6 +550,35 @@ It follows by a well known result [citation] that for $\E_0$ sufficiently small 
 
 This is coming along quite nicely.  We can move on to DG2, the isoperimetric inequality.  
 
+\begin{lemma}
+Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] satisfying the desired bounds.  Let $\Gamma$ and $\gamma$ be paths with the desired properties, in particular
+\[ \dot{\Gamma} +\dot{\gamma} = \ulow(t,\gamma + \Gamma). \]
+
+Suppose that for $t \in [-3,0]$, $\theta(t,x)$ has some tbd growth condition on $|x-\Gamma| > 3$ and $\theta \leq 2$ when $|x-\Gamma| \leq 3$.  
+
+There exists a small constant $\mu$ such that the three conditions
+\[ \abs{\{\theta \geq 1\} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0, \]
+\[ \abs{\{0 < \theta < 1\} \cap [-3,0]\times B_3(\Gamma)} \leq \mu, \]
+\[ \abs{\{\theta \leq 0\} \cap [-3,0]\times B_3(\Gamma)} \geq \frac{3 |B_3|}{2} \]
+cannot simultaneously be met.  
+\end{lemma}
+
+\begin{proof}
+Suppose that $\theta_n$ is a sequence of counterexamples for $\mu = 1/n$.  We wish to show that these counterexamples have a limit which violates basic principles.  
+
+Let $\phi$ be a function which vanishes on $B_2$ but has all the growth and smoothness properties.  In particular assume that $\phi$ exceeds the growth condition (whatever it turns out to be) on $\theta$ for $|x|>3$.  Apply the energy inequality with $\phi(x-\Gamma)$, and find that
+\[ \sup_{[-2,0]} \int \theta_+^2 + \int_{-2}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 \leq C \int_0^3 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \]
+This proves in particular that $\theta_+ \in L^2([-2,0]; H_D^{1/2}(\Omega))$ is uniformly bounded.  Because, by equivalence of $H^s$ and $H^s_D$, this space is compact in $L^2(\Omega)$, this is the first ingredient in applying the Aubin-Lions lemma.  
+
+Since $\theta_n$ solves the desired equation, 
+\[ \del_t \theta_+ + \indic{+}\del_t \phi(\cdot-\Gamma) + u\cdot\grad\theta_+ + \indic{+}u\cdot\grad\phi(\cdot-\Gamma) + \Lambda \theta_+ + \indic{+} \Lambda\phi(\cdot-\Gamma) - \indic{+}\Lambda\theta_- = 0. \]
+
+In fact we can simplify
+\[ -\indic{+} \dot{\Gamma} \cdot\grad\phi + u\cdot\grad\theta_+ + \indic{+} u\cdot\grad\phi + = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+. \]
+Therefore
+\[ -\del_t\theta_+ = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+ + \Lambda \theta_+ + \indic{+}\Lambda\phi - \indic{+}\Lambda \theta_-. \]
+
+\end{proof}
 
 \section{Control on $u$}
 Let's assume that our drift term is a sum of $u_j$ for $j \in \Z$ and a constant which is tbd.  Assume that each $u_j$ is an $L^\infty$ function, and that their sum converges to $u$ in $L^2(\Omega)$, and that each $u_j$ specfies the bounds as stated.  First we show that they sum up to $u_h$ and $u_l$ in the ways desired.  Then we show that the properties required are maintained as we zoom.  Then at last we argue that, before any zooming, $u$ really does have this property.  
