@@ -315,91 +315,6 @@ Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega
 \end{align*}
 in the sense of distributions.  Let
 \[ u = \ulow + \uhigh \]
-where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in L^\infty(0,T; \Lip(\Omega)) \cap L^\infty(0,T; \dot{C}^{3/4}(\Omega)$, and assume that $\ulow(\cdot,0) \in L^\infty(0,T)$.  
-Then there exists a $\phi \in C^2(\Omega)$ and a $\gamma \in \Lip(0,T)$ such that
-\[ \theta = \theta_+ + \phi(\cdot-\gamma) - \theta_- \]
-satisfies the inequality
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
-with the constant $C$ depending on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and on $\phi$.  
-\end{lemma}
-
-\begin{proof}
-Define $\gamma(t)$ for $t \in [0,T]$ such that $\gamma(T)=0$ and $\dot{\gamma}(t) = \ulow(t,\gamma(t))$.  Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof.  Note that $\gamma$ is Lipschitz and $L^\infty$.  
-
-We'll apply the Caccioppoli estimate with
-\[ \psi(t,x) := \phi(x - \gamma(t)), \]
-\[ \phi(x) := \paren{|x|^{1/4} - 1}_+. \]
-Except we have to smooth out $\phi$ to make it $C^2$.  
-
-Now $\phi(x) = 0$ for $|x|\leq 1$, $\psi(t,\cdot)$ is Lipschitz and H\"{o}lder continuous with exponent $1/4$, and
-\[ \del_t \psi + u\cdot\grad \psi = (u - \ulow(t,0))\cdot \grad \phi(x-\gamma(t)). \]
-
-We arrive at
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\ulow(t,0)) \cdot \grad\phi(x-\gamma(t)) }. \]
-
-Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  This breaks up, according to the formula of Caffarelli-Stinga [citation], into a $K$-term and a $B$-term.  We consider first the $K$ term
-\[ \iint [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)] K_{1/4}(x,y). \]
-
-Decompose this into the far part $|x-y|>1$ whose integral we call \Rom{1} and the far part $|x-y|\leq 1$ whose integral we call \Rom{2}.  For the far part,
-\begin{align*} 
-\Rom{1} &\leq 2 \norm{\Lambda^{-1/4} \uhigh}_\infty \iint_{|x-y|>1} \abs{\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)} \,dxdy
-\\ &\leq 4 \norm{\Lambda^{-1/4} \uhigh}_\infty \int \theta_+\grad\phi \int_{|x-y|>1} \frac{dy}{|x-y|^{2.25}} \,dx
-\\ &\leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\theta_+\grad\phi}_1.
-\end{align*}
-
-For the near part, recall first that by the upper- and lower-bounds on $K$ in Caffarelli-Stinga [citation], we know that
-\[ K_{1/4}(x,y) \leq C(\Omega) |x-y|^{3/4} K_1(x,y). \]
-In principle the constant relating these quantities may depend on $\Omega$, though since both sides of the inequality scale the same way, the constant must be the same for scalings of $\Omega$.  
-
-Since the integrand of \Rom{2} vanishes unless at least one of $x$ or $y$ is in the support of $\theta_+$, we can say
-\[ \Rom{2} \leq 2 \iint_{|x-y|\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]. \]
-Therefore, applying H\"{o}lder's inequality with Peter-Paul,
-\begin{align*}
-\Rom{2} &\leq \frac{1}{\eps}\iint _{\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)]^2 |x-y|^{3/4} K_{1/4} + \eps \iint_{\leq 1} [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 \frac{K_1}{|x-y|^{3/4}}
-\\ &\leq \frac{C}{\eps} \norm{\Lambda^{-1/4} \uhigh}_\infty \int_{|y|\leq 1} |y|^{-1.5} \,dy \norm{\indic{\theta_+>0}}_1 + \eps \iint_{\R^2\times\R^2} \frac{[\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2}{|x-y|^3} \,dxdy
-\end{align*}
-
-The bounds [cite] and [cite] are sufficient to bound the $K$-term by $\int \theta_+$, $\int \indic{\theta_+>0}$, and the classical $H^{1/2}$ norm of $\theta_+ \grad \phi$ (extended by 0 to a function on $\R^2$).  But for the classical $H^{1/2}$ norm, we have by [citation, product rule] combined with the fact that the $H^{1/2}_D$ norm dominates the $H^{1/2}$ norm
-\[ \norm{\theta_+ \grad \phi}_{H^{1/2}} \leq \norm{\theta_+}_{H^{1/2}_D} \norm{\grad\phi}_\infty + \norm{\theta_+}_\infty \norm{\grad\phi}_{H^{1/2}}. \] 
-
-Alternatively,
-\[ \iint [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1 \leq \iint \theta_+(x)^2 [\grad\phi(x)-\grad\phi(y)]^2 K_1 + \iint \grad\phi(y)^2[\theta_+(x)-\theta_+(y)]^2 K_1 \]
-\[ \leq C(\norm{\grad\phi}_{\textrm{Lip}}, \norm{\grad\phi}_\infty, \eps) \int \theta_+^2 + \eps \norm{\grad\phi}_\infty^2  \norm{\theta_+}_{H_D^{1/2}}^2. \]
-
-Therefore 
-\[ K-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+(x)}^2. \]
-
-For the $B$ part, on the other hand, 
-\[ \int \Lambda^{-1/4} \uhigh \theta_+ \grad\phi B_{1/4} \leq \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\grad\phi}_\infty \int \theta_+ B_{1/4} \]
-and, since $[\theta_+(x)-\theta_+(y)][\indic{\theta_+>0}(x)-\indic{\theta_+>0}(y)] \geq 0$,
-\[ \int \theta_+ B_{1/4} \leq \int \indic{\theta_+>0} \Lambda^{1/4} \theta_+ \leq \frac{1}{\eps} \int \indic{\theta_+>0} + \eps \int \abs{\Lambda^{1/4} \theta_+}^2. \]
-
-Now that we have an $L^2$ norm of $\Lambda^{1/4} \theta_+$, since the $H^s_D$ norm is simply an $\ell^2$ norm of the eigndecomposition and $\lambda_k^{1/4} \leq 1 + \lambda_k^{1/2}$, we can easily bound this $H^{1/4}_D$ norm by interpolation and find
-\[ B-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
-
-From [cite] and [cite] we find that for any $\eps > 0$ arbitrarily small and some constant $C$ depending on $\eps$, $\norm{\grad\phi}_\infty$, $\norm{D^2 \phi}_\infty$, and on the shape (but not the size) of $\Omega$,
-\[ \int \uhigh \theta_+ \grad \phi(x - \gamma(t)) \,dx \leq C \norm{\Lambda^{-1/4}\uhigh}_\infty \paren{\int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
-
-For the low pass term, we know that $\ulow$ is Lipschitz and hence $\ulow(t,x) - \ulow(t,\gamma(t))$ is small in a neighborhood of $x=0$.  Specifically, if we assume that $\theta_+$ is supported, at each point in time, in a ball of radius $R$ around $\gamma(t)$, then
-\[ \int (\ulow - \ulow(t,\gamma)) \theta_+\grad\phi(x-\gamma) \leq \norm{\ulow}_\Lip \sup_r (r \]
-
-We can actually say that $\ulow$, in addition to being Lipschitz (necessary for Picard-Lindelof) is also H\"{o}lder continuous for any exponent in $(0,1)$ that we want.  In particular, since $\phi$ grows like $|x|^{1/4}$, if $\ulow \in \dot{C}^{3/4}$ then
-\[ [\ulow(t,x) - \ulow(t,\gamma(t))] \grad \phi(x-\gamma(t)) \leq \bracket{\ulow}_{3/4} |x-\gamma|^{3/4} C |x-\gamma|^{-3/4} \leq C \bracket{\ulow}_{3/4}. \]
-
-Therefore, for some constant $C$ depending on $\phi$ (specifically the decay rate of its gradient),
-\[ \int (\ulow - \ulow(t,\gamma)) \theta_+\grad\phi(x-\gamma) \leq C \bracket{\ulow}_{3/4} \int \theta_+. \]
-
-From this the result follows.  
-\end{proof}
-
-\begin{lemma}[Energy inequality, take 2]
-Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
-\begin{align*}
-\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
-\\ \div u = 0
-\end{align*}
-in the sense of distributions.  Let
-\[ u = \ulow + \uhigh \]
 where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in L^\infty(0,T; \Lip(\Omega)) \cap L^\infty(0,T; \dot{C}^{3/4}(\Omega)$.  
 Suppose that $\Gamma, \gamma \in \Lip(0,T)$ satisfy $\norm{\dot{\gamma}}_\infty \leq C_\gamma$ and
 \[ \dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \Gamma(t) + \gamma(t)). \]
@@ -489,7 +404,7 @@ From this the result follows.
 
 At last we can prove the De Giorgi lemmas.  
 
-\begin{lemma}
+\begin{lemma}[First De Giorgi Lemma]
 Suppose that $\theta$ and $u = \ulow + \uhigh$ solve [cite] on $[-T,0]\times \Omega$ for some open $C^{2,\alpha}$ set $\Omega \subseteq \R^2$.  
 
 Suppose that for some $\Gamma:[-T,0]\to \R^2$, 
@@ -550,16 +465,16 @@ It follows by a well known result [citation] that for $\E_0$ sufficiently small 
 
 This is coming along quite nicely.  We can move on to DG2, the isoperimetric inequality.  
 
-\begin{lemma}
+\begin{lemma}[Second De Giorgi Lemma]
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] satisfying the desired bounds.  Let $\Gamma$ and $\gamma$ be paths with the desired properties, in particular
 \[ \dot{\Gamma} +\dot{\gamma} = \ulow(t,\gamma + \Gamma). \]
 
-Suppose that for $t \in [-3,0]$, $\theta(t,x)$ has some tbd growth condition on $|x-\Gamma| > 3$ and $\theta \leq 2$ when $|x-\Gamma| \leq 3$.  
+Suppose that for $t \in [-5,0]$, $\theta(t,x)$ has some tbd growth condition on $|x-\Gamma| > 3$ and $\theta \leq 2$ when $|x-\Gamma| \leq 3$.  
 
 There exists a small constant $\mu$ such that the three conditions
 \[ \abs{\{\theta \geq 1\} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0, \]
-\[ \abs{\{0 < \theta < 1\} \cap [-3,0]\times B_3(\Gamma)} \leq \mu, \]
-\[ \abs{\{\theta \leq 0\} \cap [-3,0]\times B_3(\Gamma)} \geq \frac{3 |B_3|}{2} \]
+\[ \abs{\{0 < \theta < 1\} \cap [-4,0]\times B_4(\Gamma)} \leq \mu, \]
+\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4 |B_4|}{2} \]
 cannot simultaneously be met.  
 \end{lemma}
 
@@ -576,7 +491,20 @@ Since $\theta_n$ solves the desired equation,
 In fact we can simplify
 \[ -\indic{+} \dot{\Gamma} \cdot\grad\phi + u\cdot\grad\theta_+ + \indic{+} u\cdot\grad\phi + = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+. \]
 Therefore
-\[ -\del_t\theta_+ = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+ + \Lambda \theta_+ + \indic{+}\Lambda\phi - \indic{+}\Lambda \theta_-. \]
+\[ -\del_t\theta_+ = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+ + \indic{+}\Lambda \theta_+ + \indic{+}\Lambda\phi - \indic{+}\Lambda \theta_-. \]
+
+This doesn't look great.  Notice though that $\theta_+^2$ is also bounded in $L^2(H_D^{1/2})$ since
+\[ \int \abs{\Lambda^{1/2} \theta_+^2}^2 = \textrm{no} \]
+
+Anyways, assume that we've found that $\theta_{n+}$ is compact on $[-4,0]\times\Omega$, which I will actually prove later when I'm smarter.  Then $\theta_+$ has an $L^2$ limit $f$ which is supported on $B_3(\Gamma)$ and which has the established mass bounds.  Moreover, since $\ddt \int \theta_+^2$ is uniformly bounded, so too is $\ddt \int f^2$ for almost every time.  Note that we mean $\ddt$ to be bounded in the sence that $\int f^2$ doesn't grow much over small intervals.  
+
+Since $H_D^{1/2}$ is a Hilbert space, it is reflexive, and hence for any subsequence of $\theta_n$ there exist a further subsequence such that for every $g \in H_D^{1/2}$, $\chevron{g,\theta_+} \to \chevron{g,\tilde{\theta}}$.  However, since $g \in L^2$ in particular, that subsequential weak limit must be $f$.  Therefore $f$ must be a weak limit of the $\theta_n$ and in particular it must be bounded in $L^2(H_D^{1/2})$.  
+
+It follows, since indicator functions have infinite $H^{1/2}$ norm and hence infinite $H_D^{1/2}$ norm, that at a.e. time slice $f$ is either entirely above or entirely below the interval $(0,1)$.  
+
+In other words, at any time slice either $\theta_n \leq 0$ and $\theta_+ = 0$ or else $\theta_n \geq 1$ and $\int \theta_+^2 \geq |B_2|$.  Moreover, since $\ddt \int \theta_+^2$ is bounded, and at least half of the interval $[-4,0]$ is spent below 0, surely the back half (namely $[-2,0]$) is spent entirely below 0.  But this contradicts our assumption about $\delta_0$, so we conclude that there must exist a minimal $\mu$ for which solutions exist.  
+
+The proof concludes.  Still gotta prove compactness in time though.  
 
 \end{proof}
 
@@ -936,5 +864,18 @@ Note in particular that $C_\gamma$ cannot be made small by altering any quantity
 
 Lastly, let us state for the record that
 \[ \del_t \bracket{\gamma_k(t) + \Gamma_k(t)} = \ulowth{k}(t,\gamma_k(t)+\Gamma_k(t)). \]
+
+
+\section{Waxing Philosophical}
+
+Regarding circularity of constants:
+
+Most of the constraints on $\eps$ can be attained just by adjusting $\lambda$ (the vertical gain).  
+
+First thing we do, we take $\eps$ small enough that $C_\gamma \eps < 1/2$.  At this point both $\eps$ and $C_\gamma$ are fixed, and making $\eps$ any smaller makes $C_\gamma$ bigger which fucks up the energy inequality.  
+
+Now we can calculate the constants $\delta_0$ and $\mu$, and see that if we take $\phi$ small enough then Harnack's inequality will prove that $\theta < 1-\lambda$ on some small region about an updated $\gamma$.  We calculate the sequence of $\gamma$.  
+
+At the first level, $\theta$ is $L^\infty$ bounded so of course it is controlled by the very small $\phi$.  We apply Harnack and find that it gains a bit on, in fact, $B_{1/2}(\Gamma+\gamma)$.  This means that so long as we zoom out by at least $1/10$ or so, we'll move the flat part of the bound out into the slow-growing part and we'll be able to take some $\lambda'$ small enough that $(1-\lambda')\n$ keeps us below the barrier while still giving us some very small gain.  
 
 \end{document}
