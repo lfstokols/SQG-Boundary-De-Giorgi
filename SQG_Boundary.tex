@@ -25,7 +25,7 @@
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\Four}{\mathcal{F}}
 \newcommand{\T}{\mathbb{T}}
-\newcommand{\E}{\mathbb{E}}
+\newcommand{\E}{\mathcal{E}}
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\eps}{\varepsilon}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -392,6 +392,101 @@ Therefore, for some constant $C$ depending on $\phi$ (specifically the decay rat
 From this the result follows.  
 \end{proof}
 
+\begin{lemma}[Energy inequality, take 2]
+Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
+\begin{align*}
+\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
+\\ \div u = 0
+\end{align*}
+in the sense of distributions.  Let
+\[ u = \ulow + \uhigh \]
+where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in L^\infty(0,T; \Lip(\Omega)) \cap L^\infty(0,T; \dot{C}^{3/4}(\Omega)$.  
+Suppose that $\Gamma, \gamma \in \Lip(0,T)$ satisfy $\norm{\dot{\gamma}}_\infty \leq C_\gamma$ and
+\[ \dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \Gamma(t) + \gamma(t)). \]
+
+Then there exists a $\phi \in C^2(\Omega)$ such that
+\[ \theta = \theta_+ + \phi(\cdot-\Gamma) - \theta_- \]
+satisfies the inequality
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
+with the constant $C$ depending on $C_\gamma$ and $T$, on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and $\norm{\ulow}_\Lip$, and on $\norm{D^2 \phi}_\infty$, $\norm{\grad\phi}_\infty$, and $\sup \norm{|x|^{3/4} \grad\phi(x)}_\infty$.  
+\end{lemma}
+
+\begin{proof}
+We'll apply the Caccioppoli estimate with
+\[ \psi(t,x) := \phi(x - \Gamma(t)), \]
+\[ \phi \in C^2(\R^2) \cap \dot{C}^{1/4}(\R^2). \]
+
+Now
+\[ \del_t \psi + u\cdot\grad \psi = (u - \dot{\Gamma})\cdot \grad \phi(x-\Gamma(t)). \]
+
+We arrive at
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\dot{\Gamma}(t)) \cdot \grad\phi(x-\Gamma(t)) }. \]
+
+Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  This breaks up, according to the formula of Caffarelli-Stinga [citation], into a $K$-term and a $B$-term.  We consider first the $K$ term
+\[ \iint [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)] K_{1/4}(x,y). \]
+
+Decompose this into the far part $|x-y|>1$ whose integral we call \Rom{1} and the far part $|x-y|\leq 1$ whose integral we call \Rom{2}.  For the far part,
+\begin{align*} 
+\Rom{1} &\leq 2 \norm{\Lambda^{-1/4} \uhigh}_\infty \iint_{|x-y|>1} \abs{\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)} K_{1/4} \,dxdy
+\\ &\leq 4 \norm{\Lambda^{-1/4} \uhigh}_\infty \int \theta_+\grad\phi \int_{|x-y|>1} \frac{dy}{|x-y|^{2.25}} \,dx
+\\ &\leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\grad\phi}_\infty  \int \theta_+.
+\end{align*}
+
+For the near part, recall first that by the upper- and lower-bounds on $K$ in Caffarelli-Stinga [citation], we know that
+\[ K_{1/4}(x,y) \leq C(\Omega) |x-y|^{3/4} K_1(x,y). \]
+In principle the constant relating these quantities may depend on $\Omega$, though since both sides of the inequality scale the same way, the constant must be the same for scalings of $\Omega$.  
+
+Since the integrand of \Rom{2} vanishes unless at least one of $x$ or $y$ is in the support of $\theta_+$, we can say
+\[ \Rom{2} \leq 2 \iint_{|x-y|\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]. \]
+Therefore, applying H\"{o}lder's inequality with Peter-Paul,
+\begin{align*}
+\Rom{2} &\leq \frac{1}{\eps}\iint _{\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)]^2 |x-y|^{3/4} K_{1/4} + \eps \iint_{\leq 1} [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1
+\\ &\leq \frac{C}{\eps} \norm{\Lambda^{-1/4} \uhigh}_\infty^2 \int_{|y|\leq 1} |y|^{-1.5} \,dy \norm{\indic{\theta_+>0}}_1 + \eps \iint [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1 \,dxdy
+\end{align*}
+
+For this final term,
+\[ \eps \iint [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1 \leq \iint \theta_+(x)^2 [\grad\phi(x)-\grad\phi(y)]^2 K_1 + \iint \grad\phi(y)^2[\theta_+(x)-\theta_+(y)]^2 K_1 \]
+\[ \leq C(\norm{\grad\phi}_{\textrm{Lip}}, \norm{\grad\phi}_\infty, \eps) \int \theta_+^2 + \eps \norm{\grad\phi}_\infty^2  \norm{\theta_+}_{H_D^{1/2}}^2. \]
+
+Therefore 
+\[ K-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+(x)}^2. \]
+
+For the $B$ part, on the other hand, 
+\[ \int \Lambda^{-1/4} \uhigh \theta_+ \grad\phi B_{1/4} \leq \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\grad\phi}_\infty \int \theta_+ B_{1/4} \]
+and, since $[\theta_+(x)-\theta_+(y)][\indic{\theta_+>0}(x)-\indic{\theta_+>0}(y)] \geq 0$,
+\[ \int \theta_+ B_{1/4} \leq \int \indic{\theta_+>0} \Lambda^{1/4} \theta_+ \leq \frac{1}{\eps} \int \indic{\theta_+>0} + \eps \int \abs{\Lambda^{1/4} \theta_+}^2. \]
+
+Now that we have an $L^2$ norm of $\Lambda^{1/4} \theta_+$, since the $H^s_D$ norm is simply an $\ell^2$ norm of the eigndecomposition and $\lambda_k^{1/4} \leq 1 + \lambda_k^{1/2}$, we can easily bound this $H^{1/4}_D$ norm by interpolation and find
+\[ B-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+
+From [cite] and [cite] we find that for any $\eps > 0$ arbitrarily small and some constant $C$ depending on $\eps$, $\norm{\grad\phi}_\infty$, $\norm{D^2 \phi}_\infty$, and on the shape (but not the size) of $\Omega$,
+\[ \int \uhigh \theta_+ \grad \phi(x - \gamma(t)) \,dx \leq C \norm{\Lambda^{-1/4}\uhigh}_\infty \paren{\int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+
+Time for the low pass term.  
+
+Recall that
+\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t, \Gamma+\gamma) \]
+and the low pass term is 
+\[ \int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma). \]
+
+Calculate
+\[ \ulow(t,x) - \dot{\Gamma}(t) = \ulow(t,x) - \ulow(t,\Gamma+\gamma) - \dot{\gamma} \leq |x-\Gamma-\gamma|^{3/4}. \]
+
+It's easy to bound
+\[ \dot{\gamma} \grad\phi(x-\Gamma) \leq C_\gamma \norm{\grad\phi}_\infty. \]
+
+We can bound
+\[ \ulow(t,x) - \ulow(t,\Gamma+\gamma) = (x)-(\Gamma) + (\Gamma)-(\Gamma+\gamma) \leq \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4} + \norm{\ulow}_\Lip |t| C_\gamma. \]
+
+All in all, for $t \in [-T,0]$,
+\[ \abs{(\ulow-\dot{\Gamma}) \grad\phi(x-\Gamma)} \leq C(\phi, C_\gamma, \bracket{\ulow}_{3/4}, \norm{\ulow}_\Lip, T). \]
+
+Thus
+\[ \int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma). \]
+
+From this the result follows.  
+\end{proof}
+
 At last we can prove the De Giorgi lemmas.  
 
 \begin{lemma}
@@ -403,26 +498,57 @@ Suppose also that
 \[ \ulow(t,\Gamma(t)+\gamma(t)) = \dot{\Gamma}(t) + \dot{\gamma}(t) \]
 for some $\gamma$ with Lipschitz norm less than $C_\gamma$.  
 
-Then there exists a constant $\delta_0$ such that
+Then there exist constants $\delta_0>0$ and $\eps > 0$ such that
 \[ \int_{-2}^0 \int_{\Gamma(t)+B_2} \max(\theta,0)^2 \,dxdt \leq \delta_0 \]
 implies that
-\[ \theta(t,x) \leq 1 \qquad \forall (t,x) \in [-1,0]\times B_\eps(\Gamma(t)). \]
+\[ \theta(t,x) \leq 1 \qquad \forall (t,x) \in [-\eps,0]\times B_\eps(\Gamma(t) + \gamma(t)). \]
 
 \end{lemma}
 
 \begin{proof}
-Let $\phi$ be such that $\phi = 0$ on $B_1$ and $\phi(x) \leq |x|^{1/4}$ for $|x|>2$ while $\phi$ is Lipschitz and H\"{o}lder continuous with exponent $1/4$.  
+Let $\phi$ be such that $\phi = 0$ on $B_1$ and $\phi(x) \leq |x|^{1/4}$ for $|x|>2$ while $\phi$ is Lipschitz and $C^2$ and its gradient decays like $|x|^{-3/4}$.  Assume also that $\phi(x) \geq |x|^{1/4}$ for $|x|>2$.
+
+Take $\eps$ small enough that $\eps C_\gamma \leq 1/2$.  Logan: this is circular, since $C_\gamma$ grows as $\eps$ shrinks.  In fact $C_\gamma$ grows logarithmically so the condition is satisfiable, but it must be rewritten eventually. 
 
 Consider the sequence of functions
-\[ \theta_k := (\theta(t,x) - \phi(x - \Gamma(t) - \gamma(t)) - 1 + 2^{-k})_+ \]
+\[ \theta_k := (\theta(t,x) - \phi(x - \Gamma(t)) - 1 + 2^{-k})_+ \]
 and define
 \[ \E_k := \int_{-1-2^{-k}}^0 \int_\Omega \theta_k^2 \,dxdt. \]
 
-Notice that by assumption
-\[ \E_0 = \int_{-2}^0 \int_\Omega (\theta - \phi(x-\Gamma-\gamma))_+ \,dxdt \leq \]
-The question here is, it's hard to utilize the information about $\theta$ near $\Gamma$ since $\Gamma+\gamma$ moves away over such a long time scale.  This is solved on utilizing the output by shrinking the time scale, but how is it solved on the input?  I'm tempted to just use the energy inequality on $\phi$ shifted by $\Gamma$ (not $\Gamma + \gamma$) but that would require at least rewriting the energy inequality.  I also thought about using good bounds on $\phi$, like maybe if it grows slowly everything will just work out.  
+Notice that
+\[ \E_0 = \int_{-2}^0 \int_\Omega (\theta - \phi(x-\Gamma))_+ \,dxdt \leq \delta_0. \]
+Moreover, as $k \to \infty$ we have
+\[ \E_k \to \int_{-1}^0 \int_\Omega (\theta - \phi(x-\Gamma) - 1)_+ \]
+so in particular, if we can show $\E_k \to 0$ then $\theta \leq 1$ for $t \in [-1,0]$ and $x \in B_1(\Gamma)$.  
+%We want to show that $\E_0 \leq \delta_0$.  Certainly, for $|x-\Gamma|\leq 2$ this is the case.  What we need to show is that if $|x-\Gamma| \geq 2$ then $\theta(t,x) \leq \phi(x-\Gamma-\gamma)$.  Recall that in such a circumstance, by assumption, $\theta(t,x) \leq |x-\Gamma|^{1/4}$.  Thus we need to show that $|y|\geq 2$ implies $|y|^{1/4} \leq \phi(y-\gamma)$.  But $\gamma \leq 2 C_\gamma$ and $\phi$ is radially symmetric so $\phi(y-\gamma) \geq \phi(|y|-2 C_\gamma)$.  This is completely impossible, because we know $\phi(0)=0$ but $\gamma$ itself might get outside the region where we have control on the measure of $\theta$.  
+
+
+%The question here is, it's hard to utilize the information about $\theta$ near $\Gamma$ since $\Gamma+\gamma$ moves away over such a long time scale.  This is solved on utilizing the output by shrinking the time scale, but how is it solved on the input?  I'm tempted to just use the energy inequality on $\phi$ shifted by $\Gamma$ (not $\Gamma + \gamma$) but that would require at least rewriting the energy inequality.  I also thought about using good bounds on $\phi$, like maybe if it grows slowly everything will just work out.  
+
+While $t \in [-\eps, 0]$, since $\eps C_\gamma \leq 1/2$, we have
+\[ |x - \gamma - \Gamma| \leq |x-\Gamma| + 1/2 \]
+and hence $x \in B_{1/2}(\Gamma+\gamma)$ implies $x \in B_1(\Gamma)$.  Thus if we can show that $\E_k \to 0$ then
+\[ \theta(t,x) \leq 1 \qquad \forall t,x \in [-\eps,0]\times B_{1/2}(\Gamma+\gamma). \]
+
+That's enough setup, let's argue that $\E_k \to 0$.  Notice that when $\theta_{k+1}>0$, then in particular $\theta_k \geq 2^{-k}$ [or something similar].  Thus for any finite $p$, there exists a constant $C$ so
+\[ \indic{\theta_{k+1}>0} \leq C^k \theta_k^p. \]
+In particular,
+\[ \E_{k+1} \leq C^k \int_{-1-2^{-k}}^0 \int \theta_k^3. \]
+
+Applying the energy inequality $\theta$, $\phi$, and $\Gamma$ we obtain
+\[ \sup_{-1-2^{-k-1}<t<0} \int \theta_{k+1}^2 + \int_{-1-2^{-k-1}}^0 \int \abs{\Lambda^{1/2}\theta_{k+1}}^2 \leq C^k \int_{-1-2^{-k}}^0 \theta_k^2 = \E_k. \]
+
+However, by Sobolev embedding and the fact that $H_D^{1/2}$ controls classical $H^{1/2}$ controls $L^4$,
+\[ \norm{\theta_{k+1}}_{L^3([-1-2^{-k-1},0]\times\Omega)} \leq C^k \E_k^{1/2}. \]
+
+Therefore
+\[ \E_{k+1} \leq C^k \E_k^{3/2}. \]
+
+It follows by a well known result [citation] that for $\E_0$ sufficiently small (say less than $\delta_0$), $\E_k \to 0$ as $k \to \infty$ which we already established is sufficient to obtain our result.  
 \end{proof}
 
+
+This is coming along quite nicely.  We can move on to DG2, the isoperimetric inequality.  
 
 
 \section{Control on $u$}
@@ -737,6 +863,7 @@ Define
 \gamma_k(0) &:= 0 \\
 \Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t). 
 \end{align*}
+Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof.  
 
 Recall the bounds, which will be rephrased to match the proofs above later (the above will be rephrased, that is),
 \[ \norm{\Lambda^{-1/4} \uhighth{k} }_\infty \leq \sum_k \eps^{-k/4} 2^{-j/4} \kappa \leq \eps^{-k/4} C 2^{k \ln_2(\eps) /4} \kappa = C \kappa \]
