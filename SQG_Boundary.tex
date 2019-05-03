@@ -768,6 +768,24 @@ But $D^2 F = \grad u_j$ so we are done.
 
 \section{Harnack Inequality}
 
+We put together DG1 and DG2 [citation] to produce a Harnack inequality.  
+
+\begin{proposition}
+Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lambda^{-1/4} \uhigh \in L^\infty$ while $\ulow \in \Lip \cap L^{3/4}$.  Moreover, let $\gamma$ and $\Gamma$ be such that
+\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
+and $\norm{\dot{\gamma}}_\infty \leq C_\gamma$. 
+
+There exists a number $k_0$ and a small constant $\lambda>0$ such that if for all $t \in [-5,0]$, $x \in \Omega$,
+\[ \theta(t,x) \leq 1 + 2^{-k_0} \bracket{|x-\Gamma(t)|^{1/4}-1}_+ \]
+then for all $t \in [-1,0]$, $x \in B_{1/2}(\Gamma)$ we have
+\[ \theta(t,x) \leq 1-\lambda. \]
+\end{proposition}
+
+Let $\mu$ and $\delta_0$ as in [citation] the lemmas DG1 and DG2, and take $k_0$ large enough that $k_0 \mu > 4 |B_4|$.  
+
+
+\section{H\"{o}lder Continuity}
+
 \[ \dot{\gamma} = \ulow(t,\Gamma + \gamma) \]
 it's lipschitz, $\ulow = u_1 + u_2$ and $\dot{\Gamma} = u_1(t,\Gamma)$ and $u_2 \leq N$
 \[ |\dot{\gamma} - \dot{\Gamma}| \leq |u_2(t,\Gamma + \gamma)| + |u_1(t,\Gamma+\gamma) - u_1(t,\Gamma)|. \]
@@ -864,7 +882,6 @@ Note in particular that $C_\gamma$ cannot be made small by altering any quantity
 
 Lastly, let us state for the record that
 \[ \del_t \bracket{\gamma_k(t) + \Gamma_k(t)} = \ulowth{k}(t,\gamma_k(t)+\Gamma_k(t)). \]
-
 
 \section{Waxing Philosophical}
 
