@@ -408,7 +408,7 @@ At last we can prove the De Giorgi lemmas.
 Suppose that $\theta$ and $u = \ulow + \uhigh$ solve [cite] on $[-T,0]\times \Omega$ for some open $C^{2,\alpha}$ set $\Omega \subseteq \R^2$.  
 
 Suppose that for some $\Gamma:[-T,0]\to \R^2$, 
-\[ \theta(t,x) \leq |x-\Gamma(t)|^{1/4} \qquad \forall x \notin B_2(\Gamma(t)). \]
+\[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \qquad \forall x \notin B_2(\Gamma(t)). \]
 Suppose also that
 \[ \ulow(t,\Gamma(t)+\gamma(t)) = \dot{\Gamma}(t) + \dot{\gamma}(t) \]
 for some $\gamma$ with Lipschitz norm less than $C_\gamma$.  
@@ -421,7 +421,7 @@ implies that
 \end{lemma}
 
 \begin{proof}
-Let $\phi$ be such that $\phi = 0$ on $B_1$ and $\phi(x) \leq |x|^{1/4}$ for $|x|>2$ while $\phi$ is Lipschitz and $C^2$ and its gradient decays like $|x|^{-3/4}$.  Assume also that $\phi(x) \geq |x|^{1/4}$ for $|x|>2$.
+Let $\phi$ be such that $\phi = 0$ on $B_1$ and $\phi(x) \geq 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>2$ while $\phi$ is Lipschitz and $C^2$ and its gradient decays like $|x|^{-3/4}$.  
 
 Take $\eps$ small enough that $\eps C_\gamma \leq 1/2$.  Logan: this is circular, since $C_\gamma$ grows as $\eps$ shrinks.  In fact $C_\gamma$ grows logarithmically so the condition is satisfiable, but it must be rewritten eventually. 
 
@@ -435,10 +435,6 @@ Notice that
 Moreover, as $k \to \infty$ we have
 \[ \E_k \to \int_{-1}^0 \int_\Omega (\theta - \phi(x-\Gamma) - 1)_+ \]
 so in particular, if we can show $\E_k \to 0$ then $\theta \leq 1$ for $t \in [-1,0]$ and $x \in B_1(\Gamma)$.  
-%We want to show that $\E_0 \leq \delta_0$.  Certainly, for $|x-\Gamma|\leq 2$ this is the case.  What we need to show is that if $|x-\Gamma| \geq 2$ then $\theta(t,x) \leq \phi(x-\Gamma-\gamma)$.  Recall that in such a circumstance, by assumption, $\theta(t,x) \leq |x-\Gamma|^{1/4}$.  Thus we need to show that $|y|\geq 2$ implies $|y|^{1/4} \leq \phi(y-\gamma)$.  But $\gamma \leq 2 C_\gamma$ and $\phi$ is radially symmetric so $\phi(y-\gamma) \geq \phi(|y|-2 C_\gamma)$.  This is completely impossible, because we know $\phi(0)=0$ but $\gamma$ itself might get outside the region where we have control on the measure of $\theta$.  
-
-
-%The question here is, it's hard to utilize the information about $\theta$ near $\Gamma$ since $\Gamma+\gamma$ moves away over such a long time scale.  This is solved on utilizing the output by shrinking the time scale, but how is it solved on the input?  I'm tempted to just use the energy inequality on $\phi$ shifted by $\Gamma$ (not $\Gamma + \gamma$) but that would require at least rewriting the energy inequality.  I also thought about using good bounds on $\phi$, like maybe if it grows slowly everything will just work out.  
 
 While $t \in [-\eps, 0]$, since $\eps C_\gamma \leq 1/2$, we have
 \[ |x - \gamma - \Gamma| \leq |x-\Gamma| + 1/2 \]
@@ -469,7 +465,8 @@ This is coming along quite nicely.  We can move on to DG2, the isoperimetric ine
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] satisfying the desired bounds.  Let $\Gamma$ and $\gamma$ be paths with the desired properties, in particular
 \[ \dot{\Gamma} +\dot{\gamma} = \ulow(t,\gamma + \Gamma). \]
 
-Suppose that for $t \in [-5,0]$, $\theta(t,x)$ has some tbd growth condition on $|x-\Gamma| > 3$ and $\theta \leq 2$ when $|x-\Gamma| \leq 3$.  
+Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
+\[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 
 There exists a small constant $\mu$ such that the three conditions
 \[ \abs{\{\theta \geq 1\} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0, \]
@@ -478,10 +475,12 @@ There exists a small constant $\mu$ such that the three conditions
 cannot simultaneously be met.  
 \end{lemma}
 
+In particular, our bound on $\theta$ implies $\theta \leq 3$ on $[-5,0] \times B_3(\Gamma)$.  
+
 \begin{proof}
 Suppose that $\theta_n$ is a sequence of counterexamples for $\mu = 1/n$.  We wish to show that these counterexamples have a limit which violates basic principles.  
 
-Let $\phi$ be a function which vanishes on $B_2$ but has all the growth and smoothness properties.  In particular assume that $\phi$ exceeds the growth condition (whatever it turns out to be) on $\theta$ for $|x|>3$.  Apply the energy inequality with $\phi(x-\Gamma)$, and find that
+Let $\phi$ be a function which vanishes on $B_2$ but has all the growth and smoothness properties.  In particular assume that $\phi$ exceeds $2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  Apply the energy inequality with $\phi(x-\Gamma)$, and find that
 \[ \sup_{[-2,0]} \int \theta_+^2 + \int_{-2}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 \leq C \int_0^3 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \]
 This proves in particular that $\theta_+ \in L^2([-2,0]; H_D^{1/2}(\Omega))$ is uniformly bounded.  Because, by equivalence of $H^s$ and $H^s_D$, this space is compact in $L^2(\Omega)$, this is the first ingredient in applying the Aubin-Lions lemma.  
 
@@ -770,26 +769,26 @@ But $D^2 F = \grad u_j$ so we are done.
 
 We put together DG1 and DG2 [citation] to produce a Harnack inequality.  
 
-\begin{proposition}
+\begin{proposition}[Harnack Inequality]
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lambda^{-1/4} \uhigh \in L^\infty$ while $\ulow \in \Lip \cap L^{3/4}$.  Moreover, let $\gamma$ and $\Gamma$ be such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
 and $\norm{\dot{\gamma}}_\infty \leq C_\gamma$. 
 
 There exists a number $k_0$ and a small constant $\lambda>0$ such that if for all $t \in [-5,0]$, $x \in \Omega$,
-\[ \theta(t,x) \leq 1 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-1}_+ \]
+\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \]
 and
 \[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2} \]
-then for all $t \in [-1,0]$, $x \in B_{1/2}(\Gamma)$ we have
-\[ \theta(t,x) \leq 1-\lambda. \]
+then for all $t \in [-1,0]$, $x \in B_1(\Gamma)$ we have
+\[ \theta(t,x) \leq 2 - \lambda. \]
 \end{proposition}
 
 \begin{proof}
-Let $\mu$ and $\delta_0$ as in [citation] the lemmas DG1 and DG2, and take $k_0$ large enough that $k_0 \mu > 4 |B_4|$.  
+Let $\mu$ and $\delta_0$ as in [citation] the lemmas DG1 and DG2, and take $k_0$ large enough that $(k_0-1) \mu > 4 |B_4|$.  
 
-Consider the sequence of functions
-\[ \theta_k(t,x) := 1 + 2^k (\theta(t,x) - 1). \]
-That is, $\theta_0 = \theta$ and as $k$ increases, we scale vertically by a factor of 2 while keeping 1 fixed.  Note that since $\theta$ satisfies [cite, boundedness], each $\theta_k$ for $k \leq k_0$ and $(t,x) \in [-5,0] \times \Omega$ satisfies
-\[ \theta_k(t,x) \leq 1 + \paren{|x-\Gamma(t)|^{1/4}-1}_+. \]
+Consider the sequence of functions,
+\[ \theta_k(t,x) := 2 + 2^k (\theta(t,x) - 2). \]
+That is, $\theta_0 = \theta$ and as $k$ increases, we scale vertically by a factor of 2 while keeping height 2 as a fixed point.  Note that since $\theta$ satisfies [cite, boundedness], each $\theta_k$ for $k \leq k_0$ and $(t,x) \in [-5,0] \times \Omega$ satisfies
+\[ \theta_k(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 This is precisely the assumption in [cite] DG2.  
 
 Note also that
@@ -798,10 +797,33 @@ is an increasing function of $k$, and hence is greater than $2|B_4|$ for all $k$
 
 Assume, for means of contradiction, that
 \[ \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0 \]
-for $k = k_0$.  This is nonsense, that quantity is trivially 0 by assumption.  
+for $k = k_0-1$.  Since this quantity is decreasing in $k$, it must then exceed $\delta_0$ for all $ k < k_0$ as well.  
 
+Applying [cite] DG2 to each $\theta_k$, we conclude that 
+\[ \abs{\{0 < \theta_k < 1\} \cap [-4,0]\times B_4(\Gamma)} \geq \mu. \]
+In particular, this means that the quantity [cite] increases by atleast $\mu$ every time $k$ increases by 1. By choice of $k_0$ and the fact that quantity [cite] is bounded by $4|B_4|$, we obtain a contradiciton.  Therefore, the assumption [cite] must fail for $k = k_0-1$.  
 
+Therefore $\theta_{k_0}$ must satisfy the assumptions of [cite] DG1.  In particular, we conclude that
+\[ \theta_{k_0}(t,x) \leq 1 \qquad \forall (t,x) \in [-1,0]\times B_1(\Gamma). \]
+
+For the original function $\theta$, this means that for $(t,x) \in [-1,0] \times B_1(\Gamma)$
+\[ \theta(t,x) \leq 2 - 2^{-k_0}. \]
 \end{proof}
+
+That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  
+
+\begin{lemma}[Harnack Inequality, with shift]
+Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
+\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
+and $\norm{\gamma}_\Lip \leq C_\gamma$.  
+
+Let $k_0$ be as in [cite] and assume that for $(t,x) \in [-5,0]\times \Omega$
+\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
+
+Then there exist an $\eps>0$ small enough that 
+\[ \frac{1}{2-2^{-k_0}} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)-\gamma(t)|^{1/4}-2^{1/4}}_+. \]
+Possibly that should be $|\eps x - \Gamma(\eps t) - \gamma(\eps t)|$ or something, look into it.  
+\end{lemma}
 
 \section{H\"{o}lder Continuity}
 
