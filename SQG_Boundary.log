@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  2 MAY 2019 23:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  3 MAY 2019 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,7 +560,7 @@ nSymbolC/m/n/10.95 ^^P \OML/cmm/m/it/10.95 ^^R[]\OMX/MnSymbolE/m/n/10.95 ˆ\OML/
 cmm/m/it/10.95 y\OMX/MnSymbolE/m/n/10.95 ^^E[]\OML/cmm/m/it/10.95 K[]
  []
 
-[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
 (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
  5976 strings out of 494985
@@ -597,10 +597,10 @@ ti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (19 pages, 290183 bytes).
+Output written on SQG_Boundary.pdf (20 pages, 291549 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
+ 272 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -776,13 +776,32 @@ Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lam
 and $\norm{\dot{\gamma}}_\infty \leq C_\gamma$. 
 
 There exists a number $k_0$ and a small constant $\lambda>0$ such that if for all $t \in [-5,0]$, $x \in \Omega$,
-\[ \theta(t,x) \leq 1 + 2^{-k_0} \bracket{|x-\Gamma(t)|^{1/4}-1}_+ \]
+\[ \theta(t,x) \leq 1 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-1}_+ \]
+and
+\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2} \]
 then for all $t \in [-1,0]$, $x \in B_{1/2}(\Gamma)$ we have
 \[ \theta(t,x) \leq 1-\lambda. \]
 \end{proposition}
 
+\begin{proof}
 Let $\mu$ and $\delta_0$ as in [citation] the lemmas DG1 and DG2, and take $k_0$ large enough that $k_0 \mu > 4 |B_4|$.  
 
+Consider the sequence of functions
+\[ \theta_k(t,x) := 1 + 2^k (\theta(t,x) - 1). \]
+That is, $\theta_0 = \theta$ and as $k$ increases, we scale vertically by a factor of 2 while keeping 1 fixed.  Note that since $\theta$ satisfies [cite, boundedness], each $\theta_k$ for $k \leq k_0$ and $(t,x) \in [-5,0] \times \Omega$ satisfies
+\[ \theta_k(t,x) \leq 1 + \paren{|x-\Gamma(t)|^{1/4}-1}_+. \]
+This is precisely the assumption in [cite] DG2.  
+
+Note also that
+\[ \abs{\{\theta_k \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \]
+is an increasing function of $k$, and hence is greater than $2|B_4|$ for all $k$.  
+
+Assume, for means of contradiction, that
+\[ \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0 \]
+for $k = k_0$.  This is nonsense, that quantity is trivially 0 by assumption.  
+
+
+\end{proof}
 
 \section{H\"{o}lder Continuity}
 
