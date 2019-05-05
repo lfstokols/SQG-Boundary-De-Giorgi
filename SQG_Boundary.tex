@@ -235,6 +235,7 @@ We know from [citation] Caffarelli and Stinga that $\test(\Omega)$ is dense in $
 Surely, right(?), test functions are all inside of $H_D^{1+s}$.  I should meditate on this, but it must be true.  
 \end{proof}
 
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 \section{De Giorgi Estimates}
 
@@ -507,6 +508,8 @@ The proof concludes.  Still gotta prove compactness in time though.
 
 \end{proof}
 
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
+
 \section{Control on $u$}
 Let's assume that our drift term is a sum of $u_j$ for $j \in \Z$ and a constant which is tbd.  Assume that each $u_j$ is an $L^\infty$ function, and that their sum converges to $u$ in $L^2(\Omega)$, and that each $u_j$ specfies the bounds as stated.  First we show that they sum up to $u_h$ and $u_l$ in the ways desired.  Then we show that the properties required are maintained as we zoom.  Then at last we argue that, before any zooming, $u$ really does have this property.  
 
@@ -633,7 +636,7 @@ We bound this integral using the duality pairing, $L^1(L^\infty)$ vs $L^\infty(L
 Okay, this has gotten ridiculous.  As of April 24th, the statement of the scaling theorem seems right but the proof is well out of date.  
 
 
-
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 \section{The Japanese Stuff}
 
@@ -764,6 +767,7 @@ Set $\delta = 2^{-j} 2^{j_0} \ell \leq \ell$.  Then
 \[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\alpha} 2^{j(1+\alpha)}} \norm{\theta} = C(\Omega) 2^j \norm{\theta}. \]
 But $D^2 F = \grad u_j$ so we are done.  
 
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 \section{Harnack Inequality}
 
@@ -820,51 +824,94 @@ and $\norm{\gamma}_\Lip \leq C_\gamma$.
 Let $k_0$ be as in [cite] and assume that for $(t,x) \in [-5,0]\times \Omega$
 \[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 
-Then there exist an $\eps>0$ small enough that 
-\[ \frac{1}{2-2^{-k_0}} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)-\gamma(t)|^{1/4}-2^{1/4}}_+. \]
+Then there exist an $\eps>0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
+\[ \frac{2}{2-2^{-k_0}} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
 Possibly that should be $|\eps x - \Gamma(\eps t) - \gamma(\eps t)|$ or something, look into it.  
 \end{lemma}
 
-\section{H\"{o}lder Continuity}
+If we only wish to show that by zooming horizontally by a large amount and zooming vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $C_\gamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The difficulty comes from the fact that $k_0$ itself depends on $C_\gamma$, and as we will see in the next section $C_\gamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $C_\gamma$ is easy to untangle (so long as $\eps C_\gamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
 
-\[ \dot{\gamma} = \ulow(t,\Gamma + \gamma) \]
-it's lipschitz, $\ulow = u_1 + u_2$ and $\dot{\Gamma} = u_1(t,\Gamma)$ and $u_2 \leq N$
-\[ |\dot{\gamma} - \dot{\Gamma}| \leq |u_2(t,\Gamma + \gamma)| + |u_1(t,\Gamma+\gamma) - u_1(t,\Gamma)|. \]
-Nope.  
-\[ \dot{\gamma} = u_1(t,\Gamma + \gamma) + u_2(t,\Gamma + \gamma) \leq N + \norm{u_1}_\Lip |\gamma| \]
-which means we must solve the ODE
-\[ \int \frac{\gamma'}{N + k \gamma} \,dt = t + C, \]
-\[ \ln(N+k \gamma) = k t + C \]
-\[ N + k \gamma = C e^{k t} \]
-\[ \gamma = C e^{k t} - \frac{N}{k}. \]
-And recall $\gamma(0)=\Gamma(0) = 0$ so
-\[ \gamma(t) \leq \frac{N}{k} e^{kt} - \frac{N}{k}. \]
-Since I'm only considering timescales up to $T$ anyways, that's still bounded.  Is that okay?  I have no idea.  
+\begin{proof}
+Denote 
+\[ \bar{\theta}(t,x) := \frac{2}{2-2^{-k_0}} \theta(\eps t, \eps x). \]
 
-%\newcommand{\uhighth}[1]{\uhigh^{#1}}
-%\newcommand{\ulowth}[1]{\ulow^{#1}}
+We already proved that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $\bar{\theta}(t,x) \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
 
-Define
+Similarly, the bound [cite] on $\theta$ becomes the equivalent bound on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
 \begin{align*} 
-\theta_k(t,x) &:= (1-\lambda)^{-k} \theta(\eps^k t, \eps^t x), \\
-\ulowth{0}(t,x) &:= \sum_{j \leq 0} u_j(t,x), \\
-\umidth{0}(t,x) &:= 0, \\
-\uhighth{0}(t,x) &:= \sum_{j > 0} u_j(t,x), \\
-\ulowth{k}(t,x) &:= \sum_{j \leq -(k-1) \ln(\eps)} u_j(\eps^k t, \eps^k x), \qquad k > 0, \\
-\umidth{k}(t,x) &:= \sum_{-(k-1) \ln(\eps) < j \leq - k \ln(\eps)} u_j(\eps^k t, \eps^k x), \qquad k > 0, \\
-\uhighth{k}(t,x) &:= \sum_{j > -k \ln(\eps)} u_j(\eps^k t, \eps^k x), \qquad k > 0, \\
-\Gamma_0(t) &:= 0 \\
-\dot{\gamma}_k(t) &:= (\ulowth{k} + \umidth{k})(t, \Gamma_k(t) + \gamma_k(t)) - \Gamma_k(t) \\
-\gamma_k(0) &:= 0 \\
-\Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t). 
+\bar{\theta}(t,x) &\leq \frac{2}{2-2^{-k_0}} \bracket{2 + 2^{-k_0} \paren{|\eps x - \Gamma(\eps t)|^{1/4} - 2^{1/4}}_+}
+\\ &= \frac{2}{2-2^{-k_0}} \bracket{2 + \eps^{1/4} 2^{-k_0} \paren{|x - \eps\n\Gamma(\eps t)|^{1/4} - (2/\eps)^{1/4}}_+}
 \end{align*}
 
-The idea is that $u = \ulowth{0} + \uhighth{0}$ but that after zooming $u(\eps^k t, \eps^k x) = \ulowth{k}(t,x) + \umidth{k}(t,x) + \uhighth{k}(t,x)$.  That is, each $u_j$ zooms in as $k$ increases, and that a few of the $u_j$ get peeled out of the high piece and placed into the middle piece, while the old middle piece is added to the new low piece.  It is $\umidth{k}$ and $\ulowth{k}$ together that will be put into the De Giorgi lemmas, acting as $\ulow$.  
+For $\eps$ small enough that $\eps C_\gamma \leq 1/2$, we can say that for $t \in [-5,0]$
+\[ |x - \eps\n\Gamma(\eps t)| - 5 C_\gamma \leq |x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)| \leq |x - \eps\n\Gamma(\eps t)| + 5 C_\gamma. \]
 
-Note that
-\[ \ulowth{k+1}(t,x) = \ulowth{k}(\eps t, \eps x) + \umidth{k}(\eps t, \eps x). \]
+If $|x - \bar{\Gamma}-\bar{\gamma}| < 2$ and $t \in [-5,0]$ then $|x - \bar{\Gamma}| < 2 + 5 C_\gamma$.  That means in particular that $\bar{\theta} \leq 2$ so long as $5 < \eps\n$ and $2 + 5 C_\gamma \leq \eps\n$.  Otherwise we have
+\[ \bar{\theta} \leq \cdots \]
 
-Maybe instead of any of this ``middle'' nonsense, we introduce the notation
+Everything is bounded by $2 + \phi(x-\Gamma)$ or something to that effect.  Here $\phi(x) = (|x|^{1/4} - 2^{1/4})_+$.  We can say that $\phi(ax+b) \leq \phi(x)$ if $|ax+b| \leq |x|$.  If $y = x - \eps\n \Gamma(\eps t)$ then what we want to show is that
+\[ \phi(\eps y) \leq \phi(y - \eps\n \gamma(\eps t)) \]
+or equivalently we want to show that for $|y| \geq \eps\n$ and $t \in [-5,0]$
+\[ \eps |y| \leq |y| - 5 C_\gamma. \]
+or
+\[ 5 \eps C_\gamma \leq (1-\eps). \]
+
+More precisely, we want to show that for $|y| \geq \eps\n$ and $t \in [-5,0]$
+\[ (1+\lambda) \bracket{2 + C \phi(\eps y)} \leq 2 + C \phi(y - \eps\n\gamma(\eps t)) \]
+or equivalently
+\[ 2 \frac{\lambda}{C} + \phi(\eps |y|) \leq \phi(|y| - 5 C_\gamma). \]
+
+We can make $2 \lambda/C$ as small as we want, since $\lambda$ might as well be the last thing we define.  Moreover, we assumed already that $5 C_\gamma$ is small (dependent on $\eps$).  So we want to show that for some very small constant $\bar{\lambda}$,
+\[ \bar{\lambda} + \phi(\eps |y|) \leq \phi(|y| - 1 - \eps\n) \]
+holds for all $|y| \geq \eps\n$.  
+
+I believe in my heart that this is true for all $\eps$ sufficiently small, so just define $\eps_0$ to be ``sufficiently small.''  Not good, because for $|y|=\eps\n$ the right hand side is actually 0.  I actually need some slack, so that $5 C_\gamma < \eps\n$ as well as $5 C_\gamma \leq \eps\n - 1$.  In fact, in order to have any slack at all (enough for $\bar{\lambda}$) I need $\eps\n - 5 C_\gamma > 2$.  
+
+Assume that
+\[ \eps\n - 5 C_\gamma \geq 3. \]
+It follows that
+\[ |y| - 5 C_\gamma \geq |y| + 3 - \eps\n. \]
+Then we want to show that for some $\eps_0 > 0$ there exists $\bar{\lambda}$ very small such that, for all $|y| \geq \eps\n$ and $\eps < \eps_0$,
+\[ \bar{\lambda} + \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
+Well, we know that for any $\eps$ at all this is true for $\bar{\lambda} = \phi(3)/2$ at $|y| = \eps\n$ since the RHS is $\phi(3) > 0$ while $\phi(1)=0$.  The RHS also appears to be larger for $|y| ~ \infty$.  
+
+Reparameterize as $z = \eps |y|$.  We want to show that for some $\eps_0 > 0$ there exists $\bar{\lambda}$ very small such that, for all $z \geq 1$ and $\eps < \eps_0$,
+\[ g_\eps(z) := \phi(\eps\n z - \eps\n + 3) - \phi(z) \geq \bar{\lambda}. \]
+For $z = 1$, we have $g_\eps(1) = \phi(3) > 0$.  The difference $\eps\n z - \eps\n - z + 3 = (\eps\n-1) (z-1) + 2$ is always strictly positive, so $g_\eps(z) > 0$.  
+\[ \frac{d}{dz} g_\eps(z) = \eps\n \phi'(\eps\n(z-1)+3) - \phi'(z). \]
+\[ \frac{d}{d\eps} g_\eps(z) = \frac{1-z}{\eps^2} \phi'(\eps\n(z-1)+3) < 0 \]
+so we only have to prove it for $\eps = \eps_0$.  That actually makes things much easier, since I thing $\lim_{z \to \infty} g_\eps(z) = \infty$.  If the limit at infinity is positive, then strict positivity is sufficient and endpoint positivity is sufficient. 
+
+\[ g_\eps(z) = \phi(z) \paren{ \frac{\phi(\eps\n(z-1) + 3)}{\phi(z)} - 1} \]
+while
+\[ \lim \frac{\phi(\eps\n(z-1) + 3)}{\phi(z)} = \lim \frac{(\eps\n (z-1))^{1/4}}{z^{1/4}} = \lim \eps^{-1/4} \]
+so
+\[ \lim_z g_\eps(z) = \lim \phi(z) (\eps^{1/4} - 1) = \infty. \]
+That's enough.  In fact, $\eps_0 = 1$.  
+\end{proof}
+
+\begin{lemma}
+There exist a constant $\bar{\lambda} > 0$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
+\[ \paren{|\eps\n z - \eps\n + 3|^{1/4} - 2^{1/4}}_+ - \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda}. \]
+\end{lemma}
+
+\begin{proof}
+For $z$ fixed, this function is increasing in $\eps$, so it will suffice to show the lemma when $\eps = 1/2$.  Consider
+\[ \paren{|2 z + 1|^{1/4} - 2^{1/4}}_+ - \paren{|z|^{1/4} - 2^{1/4}}_+ \]
+which is clearly non-negative and in fact strictly positive when $z \geq 1$.  The expression is therefore bounded below on any compact interval.  
+
+It remains to show that that the expression does not decrease to 0 at infinity.  
+
+For $z > 2$, the expression reduces to
+\[ (2z+1)^{1/4} - z^{1/4} = z^{1/4} \paren{(2 + 1/z)^{1/4} - 1} \]
+which has an infinite limit as $z \to \infty$.  
+\end{proof}
+
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
+
+\section{H\"{o}lder Continuity}
+
+Denote
 \[ \sum_k = \sum_{j > - k \ln(\eps)} \]
 while
 \[ \sum^k = \sum_{j \leq -k \ln(\eps)}. \]
@@ -923,6 +970,8 @@ Note in particular that $C_\gamma$ cannot be made small by altering any quantity
 
 Lastly, let us state for the record that
 \[ \del_t \bracket{\gamma_k(t) + \Gamma_k(t)} = \ulowth{k}(t,\gamma_k(t)+\Gamma_k(t)). \]
+
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 \section{Waxing Philosophical}
 
