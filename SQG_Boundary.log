@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  4 MAY 2019 19:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  5 MAY 2019 03:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,7 +561,7 @@ cmm/m/it/10.95 y\OMX/MnSymbolE/m/n/10.95 ç^^E[]\OML/cmm/m/it/10.95 K[]
  []
 
 [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-(./SQG_Boundary.aux) ) 
+[22] [23] (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
  5976 strings out of 494985
  80556 string characters out of 6180355
@@ -570,37 +570,37 @@ Here is how much of TeX's memory you used:
  22122 words of font info for 81 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
  38i,10n,43p,952b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymb
-ol/MnSymbolE6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol
-/MnSymbolC6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/M
-nSymbolS10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/Mn
-SymbolA10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnS
-ymbolE8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSym
-bolD8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbo
-lF10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbol
-E10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolC
-8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolA8.
-600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolD10.6
-57pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolC10.65
-7pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (21 pages, 299248 bytes).
+ </home/lstokols/.texmf-var/fonts/pk/ljfour/pub
+lic/MnSymbol/MnSymbolE6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/publi
+c/MnSymbol/MnSymbolC6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/
+MnSymbol/MnSymbolS10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/M
+nSymbol/MnSymbolA10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/Mn
+Symbol/MnSymbolE8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSy
+mbol/MnSymbolD8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymb
+ol/MnSymbolF10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbo
+l/MnSymbolE10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol
+/MnSymbolC8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/M
+nSymbolA8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnS
+ymbolD10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSy
+mbolC10.657pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on SQG_Boundary.pdf (23 pages, 302461 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
+ 281 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -819,32 +819,61 @@ That's the absolute gain.  Now let us consider how this gain can be shifted to o
 \begin{lemma}[Harnack Inequality, with shift]
 Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
-and $\norm{\gamma}_\Lip \leq C_\gamma$.  
+and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
+\[ 5 C_\gamma \leq \eps\n - 3 \]
+then the following holds:
 
 Let $k_0$ be as in [cite] and assume that for $(t,x) \in [-5,0]\times \Omega$
 \[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 
-Then there exist an $\eps>0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
-\[ \frac{2}{2-2^{-k_0}} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
-Possibly that should be $|\eps x - \Gamma(\eps t) - \gamma(\eps t)|$ or something, look into it.  
+Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
+\[ \frac{2}{2-\lambda} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
 \end{lemma}
 
 If we only wish to show that by zooming horizontally by a large amount and zooming vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $C_\gamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The difficulty comes from the fact that $k_0$ itself depends on $C_\gamma$, and as we will see in the next section $C_\gamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $C_\gamma$ is easy to untangle (so long as $\eps C_\gamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
 
 \begin{proof}
-Denote 
-\[ \bar{\theta}(t,x) := \frac{2}{2-2^{-k_0}} \theta(\eps t, \eps x). \]
+Take $\lambda$ such that
+\[ \lambda \leq 2^{-k_0}, \qquad \frac{2}{2-\lambda} \leq 1 + 2^{-k_0} \bar{\lambda} / 2, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
+for $\bar{\lambda}$ and $\alpha$ from lemma [cite].  
 
-We already proved that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $\bar{\theta}(t,x) \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
+Denote 
+\[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \theta(\eps t, \eps x) \]
+and
+\[ \phi(x) = \paren{|x|^{1/4} - 2^{1/4}}_+. \]
+
+We already proved in [cite] that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $\bar{\theta}(t,x) \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
 
 Similarly, the bound [cite] on $\theta$ becomes the equivalent bound on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
-\begin{align*} 
-\bar{\theta}(t,x) &\leq \frac{2}{2-2^{-k_0}} \bracket{2 + 2^{-k_0} \paren{|\eps x - \Gamma(\eps t)|^{1/4} - 2^{1/4}}_+}
-\\ &= \frac{2}{2-2^{-k_0}} \bracket{2 + \eps^{1/4} 2^{-k_0} \paren{|x - \eps\n\Gamma(\eps t)|^{1/4} - (2/\eps)^{1/4}}_+}
-\end{align*}
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
 
-For $\eps$ small enough that $\eps C_\gamma \leq 1/2$, we can say that for $t \in [-5,0]$
-\[ |x - \eps\n\Gamma(\eps t)| - 5 C_\gamma \leq |x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)| \leq |x - \eps\n\Gamma(\eps t)| + 5 C_\gamma. \]
+Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  If $|y| \leq \eps\n$ then
+\[ \bar{\theta}(t,x) \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
+If $|y| \geq \eps\n$ then from the lemma [cite], 
+\[ \bar{\lambda} + \alpha \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
+Thus we rewrite the bound [cite] as
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(\eps |y|)} \]
+\[ \leq 2(1 + 2^{-k_0} \bar{\lambda}/2) + 2^{-k_0} \alpha \phi(\eps |y|) \]
+\[ = 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
+\[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3). \]
+For $t \in [-5,0]$,
+\[ |y| - 5 C_\gamma \leq |y - \eps\n\gamma(\eps t)|. \]
+Thus, since by assumption $5 C_\gamma \leq \eps\n - 3$,
+\[ |y| - \eps\n + 3 \leq |y-\eps\n\gamma(\eps t)|. \]
+
+Therefore, for $|y| \geq \eps\n$,
+\[ \bar{\theta}(t,x) \leq 2 + 2^{-k_0} \phi(|x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)|). \]
+
+This concludes the proof.  
+
+
+We can show that if $x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)$ is less than $2$ then $\bar{\theta}$ is less than 2.  We can show that if $x - \eps\n\Gamma(\eps t)$ is greater than $\eps\n$ then $\bar{\theta}$ is less than $2 + 2^{-k_0} \phi(x-\Gamma-\gamma)$.  What about $|y| < \eps\n$ but $y - \eps\n \gamma(\eps t) > 2$?  
+
+Well we can actually say more.  If $|y| < \eps\n$ then we actually know that $\bar{\theta} \leq 2$ already.  
+
+
+If $y = x - \eps\n \Gamma(\eps t)$ then we want to show that for $t \in [-5,0]$,
+\[ \bar{\theta}(t,x) \leq  \]
 
 If $|x - \bar{\Gamma}-\bar{\gamma}| < 2$ and $t \in [-5,0]$ then $|x - \bar{\Gamma}| < 2 + 5 C_\gamma$.  That means in particular that $\bar{\theta} \leq 2$ so long as $5 < \eps\n$ and $2 + 5 C_\gamma \leq \eps\n$.  Otherwise we have
 \[ \bar{\theta} \leq \cdots \]
@@ -905,6 +934,25 @@ It remains to show that that the expression does not decrease to 0 at infinity.
 For $z > 2$, the expression reduces to
 \[ (2z+1)^{1/4} - z^{1/4} = z^{1/4} \paren{(2 + 1/z)^{1/4} - 1} \]
 which has an infinite limit as $z \to \infty$.  
+\end{proof}
+
+\begin{lemma}
+There exist a constant $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
+\[ \paren{|\eps\n (z - 1) + 3|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda}. \]
+\end{lemma}
+
+\begin{proof}
+For $z$ fixed, this function is increasing as $\eps$ decreases, so it will suffice to show the lemma when $\eps = 1/2$.  Consider
+\[ \paren{|2 z + 1|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+. \]
+When $\alpha = 1$, this quantity is clearly non-negative and in fact strictly positive when $z \geq 1$.  On any compact interval $[0,N]$, the quantity with $\alpha = 1$ is bounded below, and the quantity $\paren{|z|^{1/4} - 2^{1/4}}_+$ is bounded above, so if $\alpha-1$ is less than the ratio of those bounds then the total quantity will be bounded below.  
+
+However, the range of acceptable $\alpha$ depends on $N$, and it is possible that no single $\alpha$ is acceptable for the whole of $z \in [1,\infty)$.  
+
+For $z > 2$, the expression reduces to
+\[ (2z+1)^{1/4} - \alpha z^{1/4} - (\alpha-1) 2^{1/4} = z^{1/4} \paren{(2 + 1/z)^{1/4} - \alpha} - (\alpha-1)2^{1/4}. \]
+This quantity is increasing as $\alpha$ decreases, and for any $\alpha < 2^{1/4}$ it tends to $\infty$ as $z$ increases. 
+
+This is sufficient to show that for some $\alpha > 1$, there exists a lower bound $\bar{\lambda}$ on the quantity [cite], and thus the lemma holds. 
 \end{proof}
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
