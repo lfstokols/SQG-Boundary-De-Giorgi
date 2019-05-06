@@ -14,6 +14,8 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -150,12 +152,12 @@ Recall the notation
 
 \section{Lemmas}
 
-\begin{lemma}
+\begin{lemma} \label{thm:disjoint}
 If $f$ and $g$ are non-negative functions with disjoint support (i.e. $f(x)g(x) = 0$ for all $x$), then 
 \[ \int \Lambda^s f \Lambda^s g \,dx \leq 0. \]
 \end{lemma}
 
-This proves, in particular, that $-\int \theta_+ \Lambda \theta_-$ is a positive term (hence dissipational and extraneous) and that $\int \Lambda^{1/2} (\theta-\psi) \Lambda^{1/2} (\theta-\psi)$ breaks down (bilinearly) into the doubly positive, the doubly negative, and the cross term, all of which are positive and hence each of which is positive.  
+This proves, in particular, that $-\int \theta_+ \Lambda \theta_-$ is a positive term (hence dissipational and extraneous) and that $\int \Lambda^{1/2} (\theta-\psi) \Lambda^{1/2} (\theta-\psi)$ breaks down (bilinearly) into the doubly positive, the doubly negative, and the cross term, all of which are positive and hence each of which is bounded.  
 
 \begin{proof}
 Use the characterization from Caffarelli-Stinga.  There exist non-negative functions $K(x,y)$ and $B(x)$, depending on the parameter $s$, such that
@@ -239,7 +241,7 @@ Surely, right(?), test functions are all inside of $H_D^{1+s}$.  I should medita
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-\section{The Japanese Stuff}
+\section{Littlewood-Paley Theory} \label{sec:littlewood paley}
 
 Logan: The japanese paper's Lemma 3.6, used extensively here, only applies in the case $j \geq 0$. Obviously I need it and use it for $j > j_0$.  This is equivalent, I can see from the proof, but maybe mention the issue somewhere so it doesn't seem like I didn't notice.  
 
@@ -260,7 +262,7 @@ According to [citation] Iwabuchi, Matsuyama, and Tanaguchi's paper Bilinear Esti
 \[ \norm{u_j}_\infty \leq C \norm{\theta}_\infty. \]
 
 We'll need a lemma now,
-\begin{lemma}
+\begin{lemma} \label{thm:grad an proj}
 For any function $f$,
 \[ \norm{P_i \grad P_j f}_\infty \leq C \min(2^j,2^i) \norm{f}_\infty. \]
 \end{lemma}
@@ -306,7 +308,7 @@ which is also smooth, vanishes at the boundary, and has various bounds.  Specifi
 \[ \sup_{x,y \in \Omega} \frac{\abs{D^2 F(x)- D^2 F(y)}}{|x-y|^\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \sup_{x,y\in\Omega} \frac{\abs{f(x)-f(y)}}{|x-y|^\alpha}. \]
 
 A lemma with two interpolations:
-\begin{lemma}
+\begin{lemma} \label{thm:Holder interpolation}
 If $f \in L^\infty(\Omega) \cap C^{0,1}(\Omega)$ then for some universal constant $C$,
 \[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
 
@@ -372,129 +374,103 @@ But $D^2 F = \grad u_j$ so we are done.
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 \section{Control on $u$}
-Let's assume that our drift term is a sum of $u_j$ for $j \in \Z$ and a constant which is tbd.  Assume that each $u_j$ is an $L^\infty$ function, and that their sum converges to $u$ in $L^2(\Omega)$, and that each $u_j$ specfies the bounds as stated.  First we show that they sum up to $u_h$ and $u_l$ in the ways desired.  Then we show that the properties required are maintained as we zoom.  Then at last we argue that, before any zooming, $u$ really does have this property.  
+We've shown that our drift term $u$ is a sum of $u_j$ for $j \in \Z$, $j \geq j_0$.  (Equivalently, $u$ is a sum of $u_j$ for $j \in \Z$ and $u_j = 0$ for $j < j_0$.)  Each $u_j$ is an $L^\infty$ function, and their sum converges in $L^2$ to $u$.  Each $u_j$ satisfies a collection of bounds which are exponential in $j$.  
 
-Firstly, assume that 
-\[ u = \lim_{L^2} \sum_{-N}^N u_j, \]
-with the $u_j$ satisfying
-\begin{align*} 
-\norm{u_j}_\infty &\leq \kappa, \\
-\norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
-\norm{\grad u_j}_\infty &\leq \kappa 2^j, \\
-\bracket{u_j}_{3/4} &\leq \kappa 2^{j 3/4}. 
-\end{align*}
-We then define
-\[ u_h = \sum_{j=0}^\infty u_j \]
-and 
-\[ u_\ell = \sum_{-\infty}^{j=-1} u_j. \]
+In this section, we will first show that these terms sum to two functions $\ulow$ and $\uhigh$ with appropriate bounds.  Then we will show that these bounds remain true as we zoom in space and time.  
 
-Since $u_j \in L^\infty$ in particular they are $L^2$ functions which sum in $L^2$.  Remember that only finitely many negative $j$ have $u_j \neq 0$.  The sequence $u_j$ is thus singly infinite and in particular is a Cauchy sequence, so $u_h$ also converges in $L^2$.  Since $\Lambda^{-1/4}$ is a continuous linear operator, it passes to the partial sums and so
-\[ \Lambda^{-1/4} u = \lim_{L^2} \sum_{j=0}^\infty \Lambda^{-1/4} u_j. \]
-In particular, the sum converges in the sense of distributions, i.e. in $\test(\Omega)'$.  Since test functions are dense in $L^1(\Omega)$, and the partial sums are uniformly bounded in the dual of $L^1(\Omega)$ (namely $L^\infty(\Omega)$), therefore the limit $\Lambda^{-1/4} u_h$ is also bounded in the dual of $L^1(\Omega)$.  
-\[ \norm{\Lambda^{-1/4} u_h}_\infty \leq \sum_{j=0}^\infty \norm{\Lambda^{-1/4} u_j}_\infty \leq \kappa \frac{1}{1-2^{-1/4}}. \]
+We begin by stating what we mean by ``appropriate'' bounds on the $u_j$.  
+\begin{definition}[Calibrated sequence]
+We call a sequence $u_j$ \textbf{calibrated} for a constant $\kappa$ and a center $N$ if each term of the sequence satisfies the following bounds.  
 
-As for $u_\ell$, we have that $\sum_{j < 0} u_j$ converges in $L^2$, and hence also in the sense of distributions $\test(\Omega)'$.  Since $\grad$ is continuous on distributions, also $\sum_{j<0} \grad u_j$ converges to $\grad u_\ell$.  But each partial sum is uniformly bounded in the dual of $L^1(\Omega)$, meaning that the limit $\grad u_\ell$ is also bounded in the dual, $L^\infty(\Omega)$.  
-\[ \norm{\grad u_\ell}_\infty \leq \sum_{j < 0} \norm{\grad u_j}_\infty \leq \kappa \frac{1/2}{1 - 2^{-1}} = \kappa. \]
-
-\begin{lemma}{Scaling}
-Suppose that $\theta$ solves the PDE
-\[ \bracket{\del_t + u\cdot\grad + \Lambda} \theta = 0\]
-where the velocity $u$ satisfies
-\[ u = \sum_{j=-\infty}^\infty u_j \]
-with that sum converging in $L^2(\Omega)$.  Suppose that the domain of definition is $(-T,0) \times \Omega$, and $0 \in \del \Omega$.  Suppose that
 \begin{align*}
 \norm{u_j}_\infty &\leq \kappa, \\
-\norm{\Lambda^{-1/4} u_j}_\infty &\leq \kappa 2^{-j/4}, \\
-\norm{\grad u_j}_\infty &\leq \kappa 2^j.
-\end{align*}
+\norm{\grad u_j}_\infty &\leq 2^{j} 2^{-N} \kappa, \\
+\bracket{u_j}_{3/4} &\leq 2^{j \frac{3}{4}} 2^{- N \frac{3}{4}} \kappa, \\
+\norm{\Lambda^{-1/4} u_j}_\infty &\leq 2^{-j/4} 2^{N/4} \kappa.  
+\end{align*} 
 
-Let $\eps$ be a small constant which is a power of 2, $\eps = 2^{-N}$. Then
-\[ \bar{\theta}(t,x) = \theta(\eps t, \eps x) \]
-satisfies all of the same constraints for $(t,x) \in [-T/\eps, 0]\times \Omega_\eps$.  
+\end{definition}
 
-Moreover, 
-\[ \norm{\sum_{j=-\infty}^0 \bar{u}_j(t,0) - \sum_{j=-\infty}^0 u_j(\eps t, 0)}_\infty \leq \kappa N. \]
+The most important property of a calibrated sequence is that its sum decomposes into two functions, which we call the high-pass term and the low-pass term.  
+
+\begin{proposition} \label{thm:calibration is good}
+Let 
+\[ u = \sum_{j_0}^\infty u_j \]
+with the sum converging the the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\kappa$ and some center.  
+
+Then there exist some universal constants $C_i$ such that
+\[ u = \ulow + \uhigh \]
+with 
+\[ \norm{\ulow}_{\Lip} \leq C_1 \kappa\]
+and
+\[ \bracket{\ulow}_{3/4} \leq C_2 \kappa \]
+and
+\[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq C_3 \kappa. \]
+\end{proposition}
+
+\begin{proof}
+Let $N$ be the center to which $(u_j)_{j \in \Z}$ is calibrated.  
+
+We define
+\[ \uhigh = \sum_{j > N} u_j \]
+and 
+\[ \ulow = \sum_{j \leq N} u_j. \]
+
+Since $u_j \in L^\infty$ in particular they are $L^2$ functions which sum in $L^2$.  Remember that only finitely many negative $j$ have $u_j \neq 0$.  The sequence $u_j$ is thus singly infinite and in particular is a Cauchy sequence, so $\uhigh$ also converges in $L^2$.  Since $\Lambda^{-1/4}$ is a continuous linear operator, it passes to the partial sums and so
+\[ \Lambda^{-1/4} \uhigh = \lim_{L^2} \sum_{j>N} \Lambda^{-1/4} u_j. \]
+In particular, the sum converges in the sense of distributions, i.e. in $\test(\Omega)'$.  Since test functions are dense in $L^1(\Omega)$, and the partial sums are uniformly bounded in the dual of $L^1(\Omega)$ (namely $L^\infty(\Omega)$), therefore the limit $\Lambda^{-1/4} \uhigh$ is also bounded in the dual of $L^1(\Omega)$.  
+\[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq \sum_{j>N} \norm{\Lambda^{-1/4} u_j}_\infty \leq \kappa \frac{2^{-1/4}}{1-2^{-1/4}}. \]
+
+As for $\ulow$, we have that $\sum_{j \leq N} u_j$ is a finite sum of Lipschitz and H\"{o}lder continuous functions.  We can simply bound
+\[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \kappa \frac{1}{1 - 2^{-1}} \]
+and
+\[ \bracket{\ulow}_{3/4} \leq \sum_{j \leq N} \bracket{u_j}_{3/4} \leq \kappa \frac{1}{1 - 2^{-3/4}}. \]
+\end{proof}
+
+We showed in section \ref{sec:littlewood paley} that $u$ is a sum of a calibrated sequence, and now we have shown that the sum of a calibrated sequence is actually a finite sum of functions that are bounded in certain function spaces.  Any bound we place on $u$ directly will blow up as we zoom in, but a calibrated sequence remains calibrated (with increasing center).  In the next lemma, we show that, thanks to this notion of calibration, our PDE is scale-invariant.  
+
+\begin{lemma}[Scaling] \label{thm:scaling}
+Suppose that $\theta$ and $u$ solve the PDE
+\[ \bracket{\del_t + u\cdot\grad + \Lambda} \theta = 0,\]
+\[ \div u = 0, \]
+where the velocity $u$ satisfies
+\[ u = \sum_{j=j_0}^\infty u_j \]
+with that sum converging in $L^2(\Omega)$ and $(u_j)_j$ calibrated with constant $\kappa$ and center $N$.  Suppose that the domain of definition is $(-T,0) \times \Omega$.  
+
+Let $\eps>0$ be a small constant. 
+
+Then
+\[ \bar{\theta}(t,x) := \theta(\eps t, \eps x) \]
+and
+\[ \bar{u}(t,x) := \sum_{j=j_0}^\infty u_j(\eps t, \eps x) \]
+satisfies the same PDE for $(t,x) \in [-T/\eps, 0]\times \Omega_\eps$.  
+
+Moreover, $(u_j)_j$ is calibrated with the same constant $\kappa$ and center $N - \ln_2(\eps)$.  
+
+%\[ \norm{\sum_{j=-\infty}^0 \bar{u}_j(t,0) - \sum_{j=-\infty}^0 u_j(\eps t, 0)}_\infty \leq \kappa N. \]
 \end{lemma}
 
 \begin{proof}
-Denote $p = (t,x)$ and $\bar{p} = (\eps t, \eps x + \gamma(\eps t))$.  
-
 We calculate
-\[ \del_t \bar{\theta}(p) = \eps \del_t \theta(\bar{p}) + \eps \dot{\gamma}(\bar{p}) \cdot \grad \theta (\bar{p}) \]
+\[ \del_t \bar{\theta}(p) = \eps \del_t \theta(\bar{p}) \]
 and 
 \[ \grad \bar{\theta}(p) = \eps \grad \theta(\bar{p}) \]
 and
 \[ \Lambda \bar{\theta}(p) = \eps \Lambda \theta(\bar{p}). \]
 
-Thus, if we define
-\[ \bar{u}(p) = u(\bar{p}) - \dot{\gamma}(\bar{p}) \]
-then it will be the case that, for $p \in [-T/\eps,0]\times \Omega_\eps$, 
-\[ \bracket{\del_t + \bar{u}\cdot\grad + \Lambda} \bar{\theta}(p) = \eps \bracket{\del_t + u\cdot\grad + \Lambda} \theta(\bar{p}). \]
+\& cetera...
 
-It remains to demonstrate the decomposition of $\bar{u}$ and that $\bar{\gamma}$ still makes $\bar{u}_\ell(0)=0$, let alone that $0$ is still on the boundary of $\Omega_\eps$.  
+It remains to show that $(u_j(eps\,\cdot, \eps\,\cdot))_j$ is still calibrated.  Define
+\[ \bar{u}_j(t,x) := u_j(\eps t, \eps x). \]
 
-Recall that for a positive integer $N$, $2^N \eps = 1$.  We define 
-\[ \bar{u}_j(p) := u_{j+N}(\bar{p}), \]
-that is each $u_j$ is scaled appropriately and then the labels are shifted by $N$.  Our new decomposition of $\bar{u}$ is
-\begin{align*} 
-\bar{u}(p) &= u(\bar{p}) - \dot{\gamma}(\bar{p})
-\\ &= \upsilon(\bar{p}) + \sum u_j(\bar{p}) + \dot{\gamma}(\bar{p})
-\\ &= \bracket{\upsilon(\bar{p}) + \dot{\gamma}(\bar{p})} + \sum \bar{u}_j (p)
-\end{align*}
-which means
-\[ \bar{\upsilon}(p) = \upsilon(\bar{p}) + \dot{\gamma}(\bar{p}). \]
+Then
+\[ \norm{\bar{u}_j}_\infty = \norm{u_j}_\infty \leq \kappa \]
+and
+\[ \norm{\grad \bar{u}_j}_\infty = \eps \norm{\grad u_j}_\infty \leq 2^{\ln_2(\eps)} 2^j 2^{-N} \kappa = 2^j 2^{-(N-\ln_2(\eps))} \kappa. \]
 
-We easily bound the $\bar{u}_j$:
-\begin{align*}
-\norm{\Lambda^{-1/4} \bar{u}_j}_\infty &= \eps^{-1/4}\norm{\Lambda^{-1/4} u_{j+N}}_\infty 
-\\ &\leq \eps^{-1/4} \kappa 2^{-(j+N)/4}
-\\ &= (\eps 2^N)^{-1/4} \kappa 2^{-j/4} = \kappa 2^{-j/4}.
-\end{align*}
-Also,
-\begin{align*}
-\norm{\grad \bar{u}_j}_\infty &= \eps \norm{\grad u_{j+N}}_\infty
-\\ &\leq \eps \kappa 2^{j+N} = \kappa 2^j.
-\end{align*}
-
-To confirm the desired properties of $\bar{\upsilon}$, we want to say that
-\[ \bar{\upsilon}(t) = \sum_{j<0} \bar{u}_j(t,0) \]
-or equivalently
-\[ \dot{\gamma}(\eps t) = -\upsilon(\eps t) +  \sum_{j<0} u_{j+N}(\eps t, \gamma(\eps t)). \]
-By the Caratheodory Existence theorem, there exists a function $\gamma$ which satisfies this relationship for a.e. $t \in [-T/\eps, 0]$.  I can choose the initial condition, and I don't know what I want, so how about $\gamma(0)=0$.  
-
-In fact, since $-\upsilon(t) + \sum_{j<-N} u_{j+N}(t,0)$ vanishes by assumption, we can say in fact that 
-\[ -\upsilon(t) +  \sum_{j<0} u_{j+N}(t, 0) = \sum_{j=0}^{N-1} u_j(t,0) \leq N \norm{u_j}_\infty. \]
-Here it's relevant that $\norm{u_j}_\infty$ is independent of $j$, which I know but have not proven or even stated before.  Since $\sum_{j<N} u_j$ is a Lipschitz function, with Lipschitz constant $\kappa 2^N$, we can bound $\gamma$
-\[ \dot{\gamma}(t) \leq N \norm{u_j}_\infty + \kappa 2^N |\gamma(t)|. \]
-That's a Lipschitz bound on $\gamma$.  It becomes a real bound
-\[ \gamma(t) \leq N 2^{-N} (\exp(\kappa 2^N t)-1). \]
-
-All that remains is the most important part.  Showing that our $\gamma$ is small enough and of the correct nature such that the information we get about $\bar{\theta}$ will be useful.  
-
-For example, we probably want that $\gamma(t) \in \del \Omega$ for all $t$.  Why would that be true?  It's actually not.  No matter what $\gamma$ is, the $u_j$ terms point along the boundary and hence they can never turn $\dot{\gamma}$ in a direction so as to go ``off the rails'' so to speak.  On the other hand, $\upsilon$ is only tangential at the origin.  Elsewhere, $\upsilon$ might as well have a tangential component.  
-
-Wait, I'm adding $\dot{\gamma}$ to $\upsilon$.  But $\upsilon$ is a scalar, it's the value of $u_\ell$ at 0, while $\dot{\gamma}$ is a vector, it's the time derivative of a moving point in $\R^2$.  That seems off.  No way man, $u$ is vector valued, so $\upsilon$ is too.  All good.  
-
-Let's get to it.  Define
-\[ f(t,x) = -\upsilon(t) + \sum_{j < N} u_j(t,x). \]
-This function is Lipschitz in $x$, with constant $\kappa 2^N$.  Morever, $f(t,0) \leq \kappa N$.  
-
-It's important that $(t,0) \mapsto (\eps t, \gamma(\eps t))$ is on the boundary of $\Omega$.  So we want that $\dot{\gamma}(t)$ is pointing along the boundary of $\Omega$ at $\gamma(t)$.  
-
+The entire thing is so straightforward I literally can't bring myself to type out the rest.  
 
 \end{proof}
-
-New idea is to drop all the $\gamma$ nonsense.  Instead, we argue that even though $u_\ell(t,0)$ is large in the $L^\infty(L^\infty)$ sense, it is small in the $L^1(L^\infty)$ sense (that's integration in time).  This makes sense, because every time we zoom in by $\eps = 2^N$, we increse the $L^\infty(\Omega)$ norm by $\kappa N$ but we also shrink the time interval by $2^N$.  I believe that this is essentially the property that we exploit in the drift formulation, namely that the correction term $\gamma$ may be large in principle but $\dot{\gamma}$ is small so over small enough time intervals, $\gamma$ is small.  It's important that the $L^1(L^\infty)$ norm not only grow slowly but actually grow in a summable manner, so that after 1 million zooms still the error introduced is bounded.  
-
-Even if we can do all that, how do we formulate that error term and how do we deal with it in the energy inequality?  Well, let's say that
-\[ u_\ell = \tau + \sigma \]
-where $\tau$ is a function of time alone and $\sigma$ is both Lipschitz in space and $\sigma(t,0) = 0$.  The Lipschitz constant of $\sigma$ grows with each zoom, in such a way as to effectively cancel out the gains we get from zooming so the effective $L^\infty$ norm remains constant.  Similarly, the quantitative bound on $\tau$ grows with each zoom in such a way as to cancel out the gains of zooming so that its integral remains constant.  
-
-Now in the energy inequality, we have three terms $u = \tau + \sigma + u_h$.  Remember that the energy inequality contains
-\[ \iint \theta_+ u \cdot \grad \psi. \]
-We bound this integral using the duality pairing, $L^1(L^\infty)$ vs $L^\infty(L^2)$ and absorb the $\theta_+$ into the $\sup \int \theta_+^2$ term on the left hand side.  We do some pro forma nonsense to keep a factor of $\int \chi_+$ involved on the remainder and zoop zop wop we're done.  I'm a genius.  
-
-Okay, this has gotten ridiculous.  As of April 24th, the statement of the scaling theorem seems right but the proof is well out of date.  
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
@@ -505,9 +481,7 @@ Okay, this has gotten ridiculous.  As of April 24th, the statement of the scalin
 
 First let us derive an energy inequality.  
 
-We know a priori that $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_D^{1/2}(\Omega))$.  Let $\psi: \Omega \to \R^+$ be a non-negative function in $H_D^{1/2}$ non-uniformly, and define $\theta = \theta_+ + \psi - \theta_-$.  Since $\theta - \psi$ is in $H_D^{1/2}$, by the lemma above, both $\theta_+$ and $\theta_-$ are in that space as well.  In particular, our weak solution can eat $\theta_+$.  
-
-\begin{lemma}[Caccioppoli Estimate]
+\begin{lemma}[Caccioppoli Estimate] \label{thm:caccioppoli}
 Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
 \begin{align*}
 \del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
@@ -516,13 +490,13 @@ Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega
 in the sense of distributions.  Let $\psi \in L^\infty(0,T; H_D^{1/2}(\Omega))$ be non-negative, Lipschitz-in-space, and H\"{o}lder continuous-in-space with exponent $\gamma < 1/2$.  Then the decomposition
 \[ \theta = \theta_+ + \psi - \theta_- \]
 satisfies the inequality
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \psi + u\cdot\grad\psi) } \]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \psi + u\cdot\grad\psi) } \]
 with the constant $C$ depending on $\norm{\grad \psi}_\infty$ and $\sup_t \bracket{\psi(t,\cdot)}_\gamma$.  
 
 \end{lemma}
 
 \begin{proof}
-We decompose $\theta-\psi = \theta_+ - \theta_-$ with both $\theta_+$ and $\theta_-$ non-negative and having disjoint support.  Since at a.e. time $t$ $\theta$ and $\psi$ are both in $H_D^{1/2}$, we can write
+We decompose $\theta-\psi = \theta_+ - \theta_-$ with both $\theta_+$ and $\theta_-$ non-negative and having disjoint support.  Since at a.e. time $t$, $\theta$ and $\psi$ are both in $H_D^{1/2}$, we can write
 \[ \infty > \int \abs{\Lambda^{1/2}(\theta_+-\theta_-)}^2 = \int \abs{\Lambda^{1/2}\theta_+}^2 + \int \abs{\Lambda^{1/2} \theta_-}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-. \]
 By a lemma proved above, the final term (by disjoint support) is non-positive, hence all three terms are finite and in particular $\theta_+$ and $\theta_-$ are in $H_D^{1/2}$ at a.e. time.  
 
@@ -542,14 +516,14 @@ The $\psi$ term produces important error terms:
 \\ &= \int \theta_+ (\del_t \psi + u \cdot \grad \psi) + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi
 \end{align*}
 
-Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is nonnegative by lemma [citation]:
+Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is nonnegative by Lemma \ref{thm:disjoint}:
 \begin{align*} 
 \int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \theta_- &= (1/2) \int \theta_+ \del_t \theta_- + \int \theta_+ u \cdot \grad \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-
 \\ &= \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq 0.
 \end{align*}
 
 Put together, we arrive at 
-\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 + \iint \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi \leq \abs{\int \theta_+ (\del_t \psi + u \cdot \grad \psi) \cdot \grad \psi}. \]
+\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 + \iint \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi - \chevron{\theta_+,\theta_-}_{1/2} \leq \abs{\int \theta_+ (\del_t \psi + u \cdot \grad \psi) \cdot \grad \psi}. \]
 
 At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi$ term using the formula from [citation] Caffarelli-Stinga.  
 \[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi = \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) + \int \theta_+ \psi B. \]
@@ -567,14 +541,14 @@ The cutoff $\psi$ is Lipschitz, and H\"{o}lder continuous with exponent $\gamma 
 Since $3-2\gamma > 2$, this quantity is integrable.  Thus
 \[ \int \indic{\theta_+>0}(x) \int [\psi(x)-\psi(y)]^2 K(x,y) \,dxdy \leq C(\norm{\psi}_\textrm{Lip}, \bracket{\psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
 Combining [citation, like 4 different things are combined] we arrive at
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \lesssim \int \theta_+ (\del_t\psi+u\cdot\grad\psi) + \int \indic{\theta_+>0}.\]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \lesssim \int \theta_+ (\del_t\psi+u\cdot\grad\psi) + \int \indic{\theta_+>0}.\]
 \end{proof}
 
 We've completed the essential version of the Caccioppoli estimate.  However, much more can be said about the drift-term $u$.  In particular, we can design a cutoff $\psi$ in order to minimize the expression $\del_t \psi + u\cdot\grad\psi$.  
 
 Begin with a lemma, a product rule for $\Lambda$.  
 
-\begin{lemma}
+\begin{lemma} \label{thm:weak product rule}
 For two functions $f \geq 0$ with compact support and $g \in L^\infty \cap \Lip$, their product is bounded
 \[ \norm{\Lambda^{1/4} fg}_{L^1(\Omega)} \leq C \paren{\norm{g}_\infty + \norm{\grad g}_\infty} \paren{\norm{f}_1 + |\supp(f)|^{1/2} \paren{ \norm{f}_{L^2} + \norm{f}_{H_D^{1/2}}}}. \]
 The constant $C$ depends on $\Omega$, but is independent of scaling.  
@@ -627,7 +601,7 @@ From [cite] and [cite] we find that for any $\eps > 0$ arbitrarily small and som
 \[ \int h \Lambda^{1/4} (fg) \,dx \leq C \norm{h}_\infty \paren{\norm{g}_\infty+\norm{g}_\Lip} \paren{ \norm{f}_1 + |\supp(f)|^{1/2} \norm{f}_2 + |\supp(f)|^{1/2} \norm{\Lambda^{1/2}f}_2}. \]
 \end{proof}
 
-\begin{lemma}[Energy inequality]
+\begin{lemma}[Energy inequality] \label{thm:energy inequality}
 Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
 \begin{align*}
 \del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
@@ -642,7 +616,7 @@ Suppose that $\Gamma, \gamma \in \Lip(0,T)$ satisfy $\norm{\dot{\gamma}}_\infty 
 Then there exists a $\phi \in C^2(\Omega)$ such that
 \[ \theta = \theta_+ + \phi(\cdot-\Gamma) - \theta_- \]
 satisfies the inequality
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
 with the constant $C$ depending on $C_\gamma$ and $T$, on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and $\norm{\ulow}_\Lip$, and on $\norm{D^2 \phi}_\infty$, $\norm{\grad\phi}_\infty$, and $\sup \norm{|x|^{3/4} \grad\phi(x)}_\infty$.  
 \end{lemma}
 
@@ -655,47 +629,13 @@ Now
 \[ \del_t \psi + u\cdot\grad \psi = (u - \dot{\Gamma})\cdot \grad \phi(x-\Gamma(t)). \]
 
 We arrive at
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\dot{\Gamma}(t)) \cdot \grad\phi(x-\Gamma(t)) }. \]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\dot{\Gamma}(t)) \cdot \grad\phi(x-\Gamma(t)) }. \]
 
-Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  This breaks up, according to the formula of Caffarelli-Stinga [citation], into a $K$-term and a $B$-term.  We consider first the $K$ term
-\[ \iint [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)] K_{1/4}(x,y). \]
-
-Decompose this into the far part $|x-y|>1$ whose integral we call \Rom{1} and the far part $|x-y|\leq 1$ whose integral we call \Rom{2}.  For the far part,
-\begin{align*} 
-\Rom{1} &\leq 2 \norm{\Lambda^{-1/4} \uhigh}_\infty \iint_{|x-y|>1} \abs{\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)} K_{1/4} \,dxdy
-\\ &\leq 4 \norm{\Lambda^{-1/4} \uhigh}_\infty \int \theta_+\grad\phi \int_{|x-y|>1} \frac{dy}{|x-y|^{2.25}} \,dx
-\\ &\leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\grad\phi}_\infty  \int \theta_+.
-\end{align*}
-
-For the near part, recall first that by the upper- and lower-bounds on $K$ in Caffarelli-Stinga [citation], we know that
-\[ K_{1/4}(x,y) \leq C(\Omega) |x-y|^{3/4} K_1(x,y). \]
-In principle the constant relating these quantities may depend on $\Omega$, though since both sides of the inequality scale the same way, the constant must be the same for scalings of $\Omega$.  
-
-Since the integrand of \Rom{2} vanishes unless at least one of $x$ or $y$ is in the support of $\theta_+$, we can say
-\[ \Rom{2} \leq 2 \iint_{|x-y|\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)][\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]. \]
-Therefore, applying H\"{o}lder's inequality with Peter-Paul,
-\begin{align*}
-\Rom{2} &\leq \frac{1}{\eps}\iint _{\leq 1} \indic{\theta_+>0}(x) [\Lambda^{-1/4} \uhigh(x)-\Lambda^{-1/4}\uhigh(y)]^2 |x-y|^{3/4} K_{1/4} + \eps \iint_{\leq 1} [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1
-\\ &\leq \frac{C}{\eps} \norm{\Lambda^{-1/4} \uhigh}_\infty^2 \int_{|y|\leq 1} |y|^{-1.5} \,dy \norm{\indic{\theta_+>0}}_1 + \eps \iint [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1 \,dxdy
-\end{align*}
-
-For this final term,
-\[ \eps \iint [\theta_+(x)\grad\phi(x)-\theta_+(y)\grad\phi(y)]^2 K_1 \leq \iint \theta_+(x)^2 [\grad\phi(x)-\grad\phi(y)]^2 K_1 + \iint \grad\phi(y)^2[\theta_+(x)-\theta_+(y)]^2 K_1 \]
-\[ \leq C(\norm{\grad\phi}_{\textrm{Lip}}, \norm{\grad\phi}_\infty, \eps) \int \theta_+^2 + \eps \norm{\grad\phi}_\infty^2  \norm{\theta_+}_{H_D^{1/2}}^2. \]
-
-Therefore 
-\[ K-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+(x)}^2. \]
-
-For the $B$ part, on the other hand, 
-\[ \int \Lambda^{-1/4} \uhigh \theta_+ \grad\phi B_{1/4} \leq \norm{\Lambda^{-1/4} \uhigh}_\infty \norm{\grad\phi}_\infty \int \theta_+ B_{1/4} \]
-and, since $[\theta_+(x)-\theta_+(y)][\indic{\theta_+>0}(x)-\indic{\theta_+>0}(y)] \geq 0$,
-\[ \int \theta_+ B_{1/4} \leq \int \indic{\theta_+>0} \Lambda^{1/4} \theta_+ \leq \frac{1}{\eps} \int \indic{\theta_+>0} + \eps \int \abs{\Lambda^{1/4} \theta_+}^2. \]
-
-Now that we have an $L^2$ norm of $\Lambda^{1/4} \theta_+$, since the $H^s_D$ norm is simply an $\ell^2$ norm of the eigndecomposition and $\lambda_k^{1/4} \leq 1 + \lambda_k^{1/2}$, we can easily bound this $H^{1/4}_D$ norm by interpolation and find
-\[ B-\textrm{term} \lesssim \int \indic{\theta_+>0} + \int \theta_+^2 + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
-
-From [cite] and [cite] we find that for any $\eps > 0$ arbitrarily small and some constant $C$ depending on $\eps$, $\norm{\grad\phi}_\infty$, $\norm{D^2 \phi}_\infty$, and on the shape (but not the size) of $\Omega$,
-\[ \int \uhigh \theta_+ \grad \phi(x - \gamma(t)) \,dx \leq C \norm{\Lambda^{-1/4}\uhigh}_\infty \paren{\int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  Integrating by parts (or, since $\Lambda$ is self adjoint) and then applying the Lemma \ref{thm:weak product rule}
+\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\phi) \leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \paren{\norm{\grad\phi}_\infty + \norm{D^2 \phi}_\infty} \paren{\norm{\theta_+}_1 + |\supp(\theta_+)|^{1/2} \paren{ \norm{\theta_+}_{L^2} + \norm{\theta_+}_{H_D^{1/2}}}}. \]
+From H\"{o}lder's inequality with Peter-Paul, we obtain
+%\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\phi) \leq C(\phi,\eps) \norm{\Lambda^{1/4} \uhigh}_\infty \paren{\int \theta_+ + |\{\theta_+>0\}| + \int \theta_+^2 + \eps\n |\{\theta_+ > 0\}| + \eps \int \abs{\Lambda^{1/2} \theta_+}^2 }. \]
+\[ \int \uhigh \theta_+ \grad \phi(x - \gamma(t)) \,dx \leq C(\phi,\eps) \norm{\Lambda^{-1/4}\uhigh}_\infty \paren{\int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
 
 Time for the low pass term.  
 
@@ -724,7 +664,7 @@ From this the result follows.
 
 At last we can prove the De Giorgi lemmas.  
 
-\begin{lemma}[First De Giorgi Lemma]
+\begin{lemma}[First De Giorgi Lemma] \label{thm:DG1}
 Suppose that $\theta$ and $u = \ulow + \uhigh$ solve [cite] on $[-T,0]\times \Omega$ for some open $C^{2,\alpha}$ set $\Omega \subseteq \R^2$.  
 
 Suppose that for some $\Gamma:[-T,0]\to \R^2$, 
@@ -742,8 +682,6 @@ implies that
 
 \begin{proof}
 Let $\phi$ be such that $\phi = 0$ on $B_1$ and $\phi(x) \geq 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>2$ while $\phi$ is Lipschitz and $C^2$ and its gradient decays like $|x|^{-3/4}$.  
-
-Take $\eps$ small enough that $\eps C_\gamma \leq 1/2$.  Logan: this is circular, since $C_\gamma$ grows as $\eps$ shrinks.  In fact $C_\gamma$ grows logarithmically so the condition is satisfiable, but it must be rewritten eventually. 
 
 Consider the sequence of functions
 \[ \theta_k := (\theta(t,x) - \phi(x - \Gamma(t)) - 1 + 2^{-k})_+ \]
@@ -776,7 +714,7 @@ It follows by a well known result [citation] that for $\E_0$ sufficiently small 
 
 This is coming along quite nicely.  We can move on to DG2, the isoperimetric inequality.  
 
-\begin{lemma}[Second De Giorgi Lemma]
+\begin{lemma}[Second De Giorgi Lemma] \label{thm:DG2}
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] satisfying the desired bounds.  Let $\Gamma$ and $\gamma$ be paths with the desired properties, in particular
 \[ \dot{\Gamma} +\dot{\gamma} = \ulow(t,\gamma + \Gamma). \]
 
@@ -833,9 +771,9 @@ For compactness in time, it might be useful to know that $\norm{f^2}_s \leq \nor
 
 \section{Harnack Inequality}
 
-We put together DG1 and DG2 [citation] to produce a Harnack inequality.  
+We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce a Harnack inequality.  
 
-\begin{proposition}[Harnack Inequality]
+\begin{proposition}[Harnack Inequality] \label{thm:harnack general}
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lambda^{-1/4} \uhigh \in L^\infty$ while $\ulow \in \Lip \cap L^{3/4}$.  Moreover, let $\gamma$ and $\Gamma$ be such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
 and $\norm{\dot{\gamma}}_\infty \leq C_\gamma$. 
@@ -849,13 +787,13 @@ then for all $t \in [-1,0]$, $x \in B_1(\Gamma)$ we have
 \end{proposition}
 
 \begin{proof}
-Let $\mu$ and $\delta_0$ as in [citation] the lemmas DG1 and DG2, and take $k_0$ large enough that $(k_0-1) \mu > 4 |B_4|$.  
+Let $\mu$ and $\delta_0$ as in Proposition \ref{thm:DG2}, and take $k_0$ large enough that $(k_0-1) \mu > 4 |B_4|$.  
 
 Consider the sequence of functions,
 \[ \theta_k(t,x) := 2 + 2^k (\theta(t,x) - 2). \]
 That is, $\theta_0 = \theta$ and as $k$ increases, we scale vertically by a factor of 2 while keeping height 2 as a fixed point.  Note that since $\theta$ satisfies [cite, boundedness], each $\theta_k$ for $k \leq k_0$ and $(t,x) \in [-5,0] \times \Omega$ satisfies
 \[ \theta_k(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
-This is precisely the assumption in [cite] DG2.  
+This is precisely the assumption in Proposition \ref{thm:DG2}.  
 
 Note also that
 \[ \abs{\{\theta_k \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \]
@@ -865,71 +803,20 @@ Assume, for means of contradiction, that
 \[ \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0 \]
 for $k = k_0-1$.  Since this quantity is decreasing in $k$, it must then exceed $\delta_0$ for all $ k < k_0$ as well.  
 
-Applying [cite] DG2 to each $\theta_k$, we conclude that 
+Applying Proposition \ref{thm:DG2} to each $\theta_k$, we conclude that 
 \[ \abs{\{0 < \theta_k < 1\} \cap [-4,0]\times B_4(\Gamma)} \geq \mu. \]
 In particular, this means that the quantity [cite] increases by atleast $\mu$ every time $k$ increases by 1. By choice of $k_0$ and the fact that quantity [cite] is bounded by $4|B_4|$, we obtain a contradiciton.  Therefore, the assumption [cite] must fail for $k = k_0-1$.  
 
-Therefore $\theta_{k_0}$ must satisfy the assumptions of [cite] DG1.  In particular, we conclude that
+Therefore $\theta_{k_0}$ must satisfy the assumptions of Proposition \ref{thm:DG1}.  In particular, we conclude that
 \[ \theta_{k_0}(t,x) \leq 1 \qquad \forall (t,x) \in [-1,0]\times B_1(\Gamma). \]
 
 For the original function $\theta$, this means that for $(t,x) \in [-1,0] \times B_1(\Gamma)$
 \[ \theta(t,x) \leq 2 - 2^{-k_0}. \]
 \end{proof}
 
-That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  
+That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  But first, a quice technical lemma:
 
-\begin{lemma}[Harnack Inequality, with shift]
-Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
-\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
-and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
-\[ 5 C_\gamma \leq \eps\n - 3 \]
-then the following holds:
-
-Let $k_0$ be as in [cite] and assume that for $(t,x) \in [-5,0]\times \Omega$
-\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
-
-Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
-\[ \frac{2}{2-\lambda} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
-\end{lemma}
-
-If we only wish to show that by zooming horizontally by a large amount and zooming vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $C_\gamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The difficulty comes from the fact that $k_0$ itself depends on $C_\gamma$, and as we will see in the next section $C_\gamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $C_\gamma$ is easy to untangle (so long as $\eps C_\gamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
-
-\begin{proof}
-Take $\lambda$ such that
-\[ \lambda \leq 2^{-k_0}, \qquad \frac{2}{2-\lambda} \leq 1 + 2^{-k_0} \bar{\lambda} / 2, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
-for $\bar{\lambda}$ and $\alpha$ from lemma [cite].  
-
-Denote 
-\[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \theta(\eps t, \eps x) \]
-and
-\[ \phi(x) = \paren{|x|^{1/4} - 2^{1/4}}_+. \]
-
-We already proved in [cite] that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $\bar{\theta}(t,x) \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
-
-Similarly, the bound [cite] on $\theta$ becomes the equivalent bound on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
-
-Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  If $|y| \leq \eps\n$ then
-\[ \bar{\theta}(t,x) \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
-If $|y| \geq \eps\n$ then from the lemma [cite], 
-\[ \bar{\lambda} + \alpha \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
-Thus we rewrite the bound [cite] as
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(\eps |y|)} \]
-\[ \leq 2(1 + 2^{-k_0} \bar{\lambda}/2) + 2^{-k_0} \alpha \phi(\eps |y|) \]
-\[ = 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
-\[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3). \]
-For $t \in [-5,0]$,
-\[ |y| - 5 C_\gamma \leq |y - \eps\n\gamma(\eps t)|. \]
-Thus, since by assumption $5 C_\gamma \leq \eps\n - 3$,
-\[ |y| - \eps\n + 3 \leq |y-\eps\n\gamma(\eps t)|. \]
-
-Therefore, for $|y| \geq \eps\n$,
-\[ \bar{\theta}(t,x) \leq 2 + 2^{-k_0} \phi(|x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)|). \]
-
-This concludes the proof.  
-\end{proof}
-
-\begin{lemma}
+\begin{lemma} \label{thm:technical scaling of barrier}
 There exist a constant $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
 \[ \paren{|\eps\n (z - 1) + 3|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda}. \]
 \end{lemma}
@@ -946,6 +833,59 @@ For $z > 2$, the expression reduces to
 This quantity is increasing as $\alpha$ decreases, and for any $\alpha < 2^{1/4}$ it tends to $\infty$ as $z$ increases. 
 
 This is sufficient to show that for some $\alpha > 1$, there exists a lower bound $\bar{\lambda}$ on the quantity [cite], and thus the lemma holds. 
+\end{proof}
+
+We are ready to prove the shifted version of the Harnack Inequality.  
+
+\begin{lemma}[Harnack Inequality, with shift] \label{thm:harnack shifted}
+Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
+\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
+and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
+\[ 5 C_\gamma \leq \eps\n - 3 \]
+then the following holds:
+
+Let $k_0$ be as in Lemma \ref{thm:harnack general} and assume that for $(t,x) \in [-5,0]\times \Omega$
+\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
+
+Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
+\[ \frac{2}{2-\lambda} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
+\end{lemma}
+
+If we only wish to show that by zooming horizontally by a large amount and zooming vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $C_\gamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The difficulty comes from the fact that $k_0$ itself depends on $C_\gamma$, and as we will see in the next section $C_\gamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $C_\gamma$ is easy to untangle (so long as $\eps C_\gamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
+
+\begin{proof}
+Take $\lambda$ such that
+\[ \lambda \leq 2^{-k_0}, \qquad \frac{2}{2-\lambda} \leq 1 + 2^{-k_0} \bar{\lambda} / 2, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
+for $\bar{\lambda}$ and $\alpha$ from Lemma \ref{thm:technical scaling of barrier}.  
+
+Denote 
+\[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \theta(\eps t, \eps x) \]
+and
+\[ \phi(x) = \paren{|x|^{1/4} - 2^{1/4}}_+. \]
+
+We already proved in Lemma \ref{thm:harnack general} that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $\bar{\theta}(t,x) \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
+
+Similarly, the bound [cite] on $\theta$ becomes the equivalent bound on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
+
+Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  If $|y| \leq \eps\n$ then
+\[ \bar{\theta}(t,x) \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
+If $|y| \geq \eps\n$ then from Lemma \ref{thm:technical scaling of barrier}, 
+\[ \bar{\lambda} + \alpha \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
+Thus we rewrite the bound [cite] as
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(\eps |y|)} \]
+\[ \leq 2(1 + 2^{-k_0} \bar{\lambda}/2) + 2^{-k_0} \alpha \phi(\eps |y|) \]
+\[ = 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
+\[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3). \]
+For $t \in [-5,0]$,
+\[ |y| - 5 C_\gamma \leq |y - \eps\n\gamma(\eps t)|. \]
+Thus, since by assumption $5 C_\gamma \leq \eps\n - 3$,
+\[ |y| - \eps\n + 3 \leq |y-\eps\n\gamma(\eps t)|. \]
+
+Therefore, for $|y| \geq \eps\n$,
+\[ \bar{\theta}(t,x) \leq 2 + 2^{-k_0} \phi(|x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)|). \]
+
+This concludes the proof.  
 \end{proof}
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
@@ -1016,16 +956,5 @@ Let $\theta$ be a function defined on $[-T,0] \times \Omega$ which satisfies the
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-\section{Waxing Philosophical}
-
-Regarding circularity of constants:
-
-Most of the constraints on $\eps$ can be attained just by adjusting $\lambda$ (the vertical gain).  
-
-First thing we do, we take $\eps$ small enough that $C_\gamma \eps < 1/2$.  At this point both $\eps$ and $C_\gamma$ are fixed, and making $\eps$ any smaller makes $C_\gamma$ bigger which fucks up the energy inequality.  
-
-Now we can calculate the constants $\delta_0$ and $\mu$, and see that if we take $\phi$ small enough then Harnack's inequality will prove that $\theta < 1-\lambda$ on some small region about an updated $\gamma$.  We calculate the sequence of $\gamma$.  
-
-At the first level, $\theta$ is $L^\infty$ bounded so of course it is controlled by the very small $\phi$.  We apply Harnack and find that it gains a bit on, in fact, $B_{1/2}(\Gamma+\gamma)$.  This means that so long as we zoom out by at least $1/10$ or so, we'll move the flat part of the bound out into the slow-growing part and we'll be able to take some $\lambda'$ small enough that $(1-\lambda')\n$ keeps us below the barrier while still giving us some very small gain.  
 
 \end{document}
