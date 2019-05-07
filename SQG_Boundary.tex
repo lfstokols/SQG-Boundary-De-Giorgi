@@ -81,6 +81,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\ith}{^\mathrm{th}}
 \newcommand{\n}{^{-1}}
+\newcommand{\half}{\frac{1}{2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\indic}[1]{\chi_{\{#1\}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -205,7 +206,7 @@ Moreover, if $f \in H_D^1$ then $\trace(f)=0$.
 Let $\eigen{i}$ and $\eigen{j}$ be two eigenfunctions of the Dirichlet Laplacian on $\Omega$.  Note that these functions are smooth in the interior of $\Omega$.  Because $\Omega$ has Lipschitz boundary, and because $\eigen{i} \grad \eigen{j}$ is smooth on $\Omega$ and countinuous and bounded on $\overline{\Omega}$ vanishing on the boundary, therefore 
 \[ \int_\Omega \div(\eigen{i} \grad \eigen{j}) = \int_{\del \Omega} \eigen{i} \grad \eigen{j}. \]
 But $\eigen{i} \grad \eigen{j}$ vanishes on the boundary, so the right hand side vanishes.  Moreover, $\div(\eigen{i} \grad \eigen{j}) = \grad \eigen{i} \cdot \grad \eigen{j} + \eigen{i} \Laplace \eigen{j}$.  Therefore
-\[ \int \grad \eigen{i} \cdot \grad \eigen{j} = - \int \eigen{i} \Laplace \eigen{j} = \lambda_k \int \eigen{i} \eigen{j}. \]
+\[ \int \grad \eigen{i} \cdot \grad \eigen{j} = - \int \eigen{i} \Laplace \eigen{j} = \lambda_j \int \eigen{i} \eigen{j} = \lambda_j \delta_{i=j}. \]
 Of course, the inner product of two eigenfunctions is 0 unless they are the same eigenfunction, in which case it is 1.  
 
 Consider a function $f = \sum f_k \eigen{k}$ which is an element of $H_D^1$, by which we mean $\sum \lambda_k f_k^2 < \infty$.  Since $\norm{\grad \eigen{k}}_{L^2(\Omega)} = \sqrt{\lambda_k}$, the following sums all converge in $L^2(\Omega)$ and hence the calculation is justified:
@@ -217,16 +218,16 @@ Consider a function $f = \sum f_k \eigen{k}$ which is an element of $H_D^1$, by 
 Since this double-sum vanishes except on the diagonal, we see from [citation] that in fact
 \[ \norm{\grad f}_{L^2(\Omega)} = \norm{\Lambda f}_{L^2(\Omega)}. \]
 
-To see that $\trace(f)$ vanishes, note that $f = \sum_{k=0}^\infty f_k \eigen{k}$ and that each finite partial sum for this series satisfies the Dirichlet boundary condition.  Since $\trace$ is a bounded operator on $H^1$, we need only show that this series is Cauchy in $H^1$, in which case its $H^1$ limit will exist and be equal to its $L^2$ limit which will be equal to $f$.  
+To see that $\trace(f)$ vanishes, note that $f = \sum_{k=0}^\infty f_k \eigen{k}$ and that each finite partial sum for this series satisfies the Dirichlet boundary condition.  Since $\trace$ is a bounded operator on $H^1$, we need only show that this series is Cauchy in $H^1$, in which case its $H^1$ limit will exist and be equal to $f$.  
 
 For each $k$,
 \[ \norm{ f_k \eigen{k} }_{H^1} \leq C_\textrm{Poincare} f_k \norm{\grad \eigen{k}}_2 = C f_k \sqrt{\lambda_k}. \]
 This sequence is $\ell^2$ summable, since $f \in H_D^1$ by assumption.  Therefore $f$, being an $H^1$ limit of functions with vanishing trace, also has vanishing trace.  
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{thm:hadamard 3 lines}
 For any function $f$, and any $0 < s < 1$,
-\[ \int \abs{\Lambda^s f}^2 \simeq \int \abs{\paren{-\Laplace}^{s/2} \bar{f}}^2. \]
+\[ \int \abs{\Lambda^s f}^2 \gtrsim \int \abs{\paren{-\Laplace}^{s/2} \bar{f}}^2. \]
 Here $\bar{f}$ is the extension of $f$ to $\R^2$ and $\paren{-\Laplace}^s$ is defined in the fourier sense.  
 \end{lemma}
 
@@ -311,11 +312,11 @@ Qualitatively, we know that $\theta \in L^2$ and hence $u_j \in L^2$.  In fact, 
 
 Firstly, we know by [citation] Fornare, Metafune and Priola that if $\Omega$ is $C^{2,\alpha}$ then
 \[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1. \]
-According to [citation] Iwabuchi, Matsuyama, and Tanaguchi's paper Bilinear Estimates, Lemma 3.6, this is enough to show that
+According to [citation] Iwabuchi, Matsuyama, and Taniguchi's paper Bilinear Estimates, Lemma 3.6, this is enough to show that
 \[ \norm{u_j}_\infty \leq C \norm{\theta}_\infty. \]
 
 We'll need a lemma now,
-\begin{lemma} \label{thm:grad an proj}
+\begin{lemma} \label{thm:grad and proj}
 For any function $f$,
 \[ \norm{P_i \grad P_j f}_\infty \leq C \min(2^j,2^i) \norm{f}_\infty. \]
 \end{lemma}
@@ -335,7 +336,7 @@ Since $u_j \in L^2$, we know that
 \[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
 Define $\bar{P}_j$ a projection which is 1 on the support of $P_j$ (functional calculus-wise).  Then $\bar{P}_j P_j = P_j$, and since both types of projections are spectral operators, they both commute with $\Lambda^s$.  We therefore rewrite
 \[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
-We apply sequentially three bounded operators on $L^\infty$.  The outer two operators have bounded norm by [citation] IMT-Bilinear Proposition 3.3, and the inner operator has bounded norm by the above lemma, (and of course the perp operator is an isometry,) so 
+We apply sequentially three bounded operators on $L^\infty$.  The outer two operators have bounded norm by [citation] IMT-Bilinear Proposition 3.3, and the inner operator has bounded norm by Lemma \ref{thm:grad and proj}, (and of course the perp operator is an isometry,) so 
 \[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
 %
 % so from [citation] IMT-Bilinear Proposition 3.3 we can see that
@@ -797,98 +798,114 @@ There exists a small constant $\mu$ such that the three conditions
 cannot simultaneously be met.  
 \end{lemma}
 
-In particular, our bound on $\theta$ implies $\theta \leq 3$ on $[-5,0] \times B_3(\Gamma)$.  
-
 \begin{proof}
-Suppose that $\theta_n$ is a sequence of counterexamples for $\mu = 1/n$.  We wish to show that these counterexamples have a limit which violates basic principles.  
+Suppose that the theorem is false, i.e. that there exist functions $\theta_n: [-5,0]\times \Omega_n \to \R$ and $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$ which satisfy the desired bounds on $\Omega_n$ some scaling of $\Omega$, namely that
+\[ \dot{\Gamma}_n + \dot{\gamma}_n = \ulow^n(t, \Gamma_n + \gamma_n) \]
+for paths $\Gamma_n:[-5,0] \to \Omega_n$ and $\gamma_n:[-5,0]\to \Omega_n$ satisfying $|\dot{\gamma}| \leq C_\gamma$, but for which
+\[ \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \]
 
-Let $\phi$ be a function which vanishes on $B_2$ but has all the growth and smoothness properties.  In particular assume that $\phi$ exceeds $2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  Apply the energy inequality with $\phi(x-\Gamma)$, and find that
-\[ \sup_{[-2,0]} \int \theta_+^2 + \int_{-2}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 \leq C \int_0^3 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \]
-This proves in particular that $\theta_+ \in L^2([-2,0]; H_D^{1/2}(\Omega))$ is uniformly bounded.  Because, by equivalence of $H^s$ and $H^s_D$, this space is compact in $L^2(\Omega)$, this is the first ingredient in applying the Aubin-Lions lemma.  
+Let $\phi$ be a function which vanishes on $B_2$ but has all the growth and smoothness properties.  In particular assume that $\phi$ exceeds $2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
 
-Since $\theta_n$ solves the desired equation, 
-\[ \del_t \theta_+ + \indic{+}\del_t \phi(\cdot-\Gamma) + u\cdot\grad\theta_+ + \indic{+}u\cdot\grad\phi(\cdot-\Gamma) + \Lambda \theta_+ + \indic{+} \Lambda\phi(\cdot-\Gamma) - \indic{+}\Lambda\theta_- = 0. \]
+Fix $n$ and define 
+\[ \theta_+ := \paren{\theta_n - \phi(x-\Gamma_n)}_+. \]
+Then $\theta_+$ is supported on $B_3(\Gamma_n)$ and is less than $2 + 3^{1/4} - 2^{1/4} \leq 3$ everywhere.  
 
-In fact we can simplify
-\[ -\indic{+} \dot{\Gamma} \cdot\grad\phi + u\cdot\grad\theta_+ + \indic{+} u\cdot\grad\phi + = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+. \]
-Therefore
-\[ -\del_t\theta_+ = \indic{+} (u - \dot{\Gamma})\grad\phi + u\grad\theta_+ + \indic{+}\Lambda \theta_+ + \indic{+}\Lambda\phi - \indic{+}\Lambda \theta_-. \]
+Apply the energy inequality Lemma \ref{thm:energy inequality} with $\phi(x-\Gamma_n)$, and find that
+\[ \sup_{[-4,0]} \int \theta_+^2 + \int_{-4}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 \leq C \int_0^4 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \]
+This proves in particular that $\theta_+ \in L^2([-2,0]; H_D^{1/2}(\Omega))$ is uniformly bounded.  
 
-This doesn't look great.  Notice though that $\theta_+^2$ is also bounded in $L^2(H_D^{1/2})$ since
-\[ \int \abs{\Lambda^{1/2} \theta_+^2}^2 = \textrm{no} \]
-
-Anyways, assume that we've found that $\theta_{n+}$ is compact on $[-4,0]\times\Omega$, which I will actually prove later when I'm smarter.  Then $\theta_+$ has an $L^2$ limit $f$ which is supported on $B_3(\Gamma)$ and which has the established mass bounds.  Moreover, since $\ddt \int \theta_+^2$ is uniformly bounded, so too is $\ddt \int f^2$ for almost every time.  Note that we mean $\ddt$ to be bounded in the sence that $\int f^2$ doesn't grow much over small intervals.  
-
-Since $H_D^{1/2}$ is a Hilbert space, it is reflexive, and hence for any subsequence of $\theta_n$ there exist a further subsequence such that for every $g \in H_D^{1/2}$, $\chevron{g,\theta_+} \to \chevron{g,\tilde{\theta}}$.  However, since $g \in L^2$ in particular, that subsequential weak limit must be $f$.  Therefore $f$ must be a weak limit of the $\theta_n$ and in particular it must be bounded in $L^2(H_D^{1/2})$.  
-
-It follows, since indicator functions have infinite $H^{1/2}$ norm and hence infinite $H_D^{1/2}$ norm, that at a.e. time slice $f$ is either entirely above or entirely below the interval $(0,1)$.  
-
-In other words, at any time slice either $\theta_n \leq 0$ and $\theta_+ = 0$ or else $\theta_n \geq 1$ and $\int \theta_+^2 \geq |B_2|$.  Moreover, since $\ddt \int \theta_+^2$ is bounded, and at least half of the interval $[-4,0]$ is spent below 0, surely the back half (namely $[-2,0]$) is spent entirely below 0.  But this contradicts our assumption about $\delta_0$, so we conclude that there must exist a minimal $\mu$ for which solutions exist.  
-
-The proof concludes.  Still gotta prove compactness in time though.  
-
-We'll actually show compactness for $\theta_+^2$.  
-
-First of all, $\theta_+^2 \in H_D^{1/2}$ because
-
+What's more, $\norm{\theta_+^3}_{H_D^{1/2}(\Omega_n)}$ is uniformly bounded because
 \begin{align*} 
-\norm{\Lambda^{1/2}(\theta_+^2)}_2^2 &= \iint [\theta_+(x)^2 - \theta_+(y)^2]^2 K + \int \theta_+^4 B 
-\\ &\leq \iint \theta_+(x)^2 [\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^2[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^2 \int \theta_+^2 B
-\\ &\leq C.
+\norm{\Lambda^{1/2}(\theta_+^3)}_2^2 &= \iint [\theta_+(x)^3 - \theta_+(y)^3]^2 K + \int \theta_+^6 B 
+\\ &\leq \iint \theta_+(x)^4 [\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^4[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^4 \int \theta_+^2 B
+\\ &\leq \norm{\theta_+}_\infty^4 \norm{\theta_+}_{H_D^{1/2}}^2 \leq C.
 \end{align*}
 
-By multiplying $0 = \del_t \theta + u \cdot \grad \theta + \Lambda \theta$ by $\theta_+$, we obtain
-\[ (1/2) \del_t \theta_+^2 + (1/2) \dot{\Gamma} \cdot \grad \theta_+^2 = -(1/2) (u-\dot{\Gamma}) \cdot \grad \theta_+^2 - \theta_+ \Lambda \theta_+ - \theta_+ (u-\dot{\Gamma})\cdot \grad\phi - \theta_+ \Lambda \phi + \theta_+ \Lambda \theta_-. \]
-We'll seek to bound each term on the right hand side of this equality in $L^\infty(-T,0; H_D^{-2}(\Omega))$.  
+By Lemma \ref{thm:hadamard 3 lines}, if $E \theta_+^3$ is the zero-extension of $\theta_+^3$ from $\Omega_n$ to $\R^2$, then
+\[ \norm{ E \theta_+^3}_{L^2(-5,0; H^{1/2}(\R^2))} \leq C \]
+where $C$ does not depend on $n$.  
 
-In the usual way,
-\[ \int \varphi (\ulow - \dot{\Gamma}) \grad \theta_+^2 \leq C \norm{\div \varphi}_1. \]
+Since $\theta_n$ solves the equation [cite], multiply the equation by $\varphi \theta_+^2$, where $\varphi$ is any function in $C^2(\R^2)$ restricted to $\Omega_n$, and integrate to obtain
+\[ \frac{1}{3} \int \varphi \del_t \theta_+^3 + \frac{1}{3} \int \varphi \dot{\Gamma}_n \cdot \grad \theta_+^3 = \frac{-1}{3} \int \varphi (u^n - \dot{\Gamma}_n) \cdot \grad \theta_+^3 - \int \varphi \theta_+^2 \Lambda \theta_+ - \int \varphi \theta_+^2 (u^n - \dot{\Gamma}_n) \cdot \grad \phi - \int \varphi \theta_+^2 \Lambda \phi + \int \varphi \theta_+^2 \Lambda \theta_-. \]
+We will bound the terms on the right hand side one at a time.  
 
-By Lemma \ref{thm:weak product rule} (the usual way),
-\[ \int \varphi \uhigh \grad \theta_+^2 \leq C (\norm{\grad \varphi}_1 + \norm{D^2 \varphi}_\infty). \]
+Each instance of $C$ in the following bounds is independent of $n$.  
 
-Just calculate
+Recall $|\ulow^n - \dot{\Gamma}_n| \leq C \kappa + 4C_\gamma$ on $[-4,0]\times B_3(\Gamma_n)$ which is precisely the support of $\theta_+$.  Integrating by parts,
+\[ \int \varphi (\ulow^n - \dot{\Gamma}_n) \grad \theta_+^3 = \int \grad\varphi (\ulow^n - \dot{\Gamma}_n) \theta_+^3 \leq C \norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}. \]
+Similarly,
+\[ \int \varphi \theta_+^2 (\ulow^n - \dot{\Gamma}_n) \cdot \grad \phi \leq C \norm{ \grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}. \]
+
+By Lemma \ref{thm:weak product rule},
+\[ \int \varphi \uhigh^n \grad \theta_+^3 = \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4}(\theta_+^3 \grad \varphi) \leq C (\norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))} + \norm{D^2 \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}). \]
+By the same lemma
 \begin{align*}
-\int \varphi \theta_+ \Lambda \theta_+ &= \iint [\varphi(x)\theta_+(x) - \varphi(y)\theta_+(y)][\theta_+(x)-\theta_+(y)] K + \int \varphi \theta_+^2 B
-\\ &= \iint \varphi(x)[\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y) [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K + \iint \varphi \theta_+^2 B
-\\ &\leq C \norm{\varphi}_\infty + \norm{\varphi}_{H^{1/2}_D}.
+\int \varphi \theta_+^2 \uhigh^n \grad \phi &\leq C \paren{\norm{\varphi \grad\phi)}_{L^1(L^\infty)} + \norm{\grad(\varphi \grad\phi)}_{L^1(L^\infty)} }
+\\ &\leq C \paren{\norm{\varphi}_{L^1(-4,0; L^\infty(\Omega_n))} + \norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))} }. 
 \end{align*}
 
-Using the same technique as before but considering $\varphi \grad \phi$,
+This completes both of the drift terms.  The $\Lambda$ terms remain.  These are bounded by relentless use of the Caffarelli-Stinga representation formula.  
+
+For the $\theta_+$ term
 \begin{align*}
-\int \varphi \theta_+ (u - \dot{\Gamma}) \grad \phi &\leq C \paren{\norm{\grad(\varphi \grad\phi)}_\infty + \norm{D^2(\varphi \grad\phi)}_\infty }
-\\ &\leq C (\norm{\varphi}_\infty + \norm{\grad \varphi}_\infty + \norm{D^2 \varphi}_\infty). 
+\int \varphi \theta_+^2 \Lambda \theta_+ &= \iint [\varphi(x)\theta_+(x)^2 - \varphi(y)\theta_+(y)^2][\theta_+(x)-\theta_+(y)] K + \int \varphi \theta_+^3 B
+\\ &= \iint \varphi(x)(\theta_+(x)+\theta_+(y))[\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K + \iint \varphi \theta_+^3 B
+\\ &\leq C \norm{\varphi}_{L^1(-4,0; L^\infty(\Omega_n))} + C \norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}
 \end{align*}
 
-For any non-negative $\varphi$ we know by Lemma \ref{thm:disjoint} that
-\[ \int \varphi \theta_+ \Lambda \theta_- \leq 0 \]
-so that term is pointwise non-positive.  Moreover, its integral is
-\[ -\int \theta_+ \Lambda \theta_- \leq C \]
-so the term itself is bounded in $\mathcal{M}(\Omega)$ which can eat anything in $L^\infty \cap \Lip$.  
+For any non-negative function $f$ we know by Lemma \ref{thm:disjoint} that
+\[ \int f \theta_+^2 \Lambda \theta_- \leq 0. \]
+It follows that $-\theta_+^2 \Lambda \theta_-$ is a pointwise non-negative distribution.  If we can bound its integral, then we will have bounded it as an element of $L^\infty(\mathcal{M}(\Omega_n))$.  
+From [cite], its integral is simply
+\[ -\int \theta_+^2 \Lambda \theta_- \leq - \norm{\theta_+}_\infty \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C. \]
+Since $\varphi$ is continuous, 
+\[ \int \varphi \theta_+^2 \Lambda \theta_- \leq \norm{\varphi}_\infty \norm{\theta_+^2 \Lambda \theta_-}_{\mathcal{M}(\Omega_n)} \leq C \norm{\varphi}_{L^1(-4,0; L^\infty(\Omega_n))}. \]
 
 Lastly, 
 \begin{align*} 
-\int \varphi \theta_+ \Lambda \phi &= \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\phi(x)-\phi(y)] K + \int \varphi \theta_+ \phi B
-\\ &= \iint \varphi(x) [\theta_+(x) - \theta_+(y)][\phi(x)-\phi(y)] K + \iint \theta_+(y)[\varphi(x) - \varphi(y)][\phi(x)-\phi(y)] K + \int \varphi \theta_+ \phi B
-\\ &\leq C\paren{\iint \varphi(x)^2 [\phi(x)-\phi(y)]^2 K}^{1/2} + \norm{\varphi}_{H_D^{1/2}} \iint \theta_+(y)^2 [\phi(x)-\phi(y)]^2 K + \int \varphi \theta_+ \phi B
-\\ &\leq C \norm{\phi}_{L^2} + C \norm{\varphi}_{H_D^{1/2}} + \norm{\phi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{H_D^{1/2}} \norm{\varphi}_{H_D^{1/2}}
-\\ &= C \norm{\phi}_{L^2} + C \norm{\varphi}_{H_D^{1/2}}.
+\int \varphi \theta_+^2 \Lambda \phi &= \iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\phi(x)-\phi(y)] K + \int \varphi \theta_+^2 \phi B
+\\ &= \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\phi(x)-\phi(y)] K + \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\phi(x)-\phi(y)] K + \int \varphi \theta_+^2 \phi B
+\\ &\leq C\paren{\iint \varphi(x)^2 [\phi(x)-\phi(y)]^2 K}^{1/2} + \paren{ \norm{\varphi}_\infty + \norm{\grad \varphi}_\infty } \int \theta_+(y)^2 \,dy + \int \varphi \theta_+^2 \phi B
+\\ &\leq C \norm{\varphi}_{L^2} + C \norm{\varphi}_{\infty} + C \norm{\grad \varphi}_\infty + \norm{\phi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{H_D^{1/2}}^2 \norm{\varphi}_{\infty}
+\\ &= C \norm{\phi}_{L^\infty(-4,0; L^2(\Omega_n))} + C \norm{\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + C \norm{\grad\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}.
 \end{align*}
 
-In other words, $\del_t\theta_+^2 + \dot{\Gamma} \grad \theta_+^2$ can eat test functions $\varphi$ and the result is bounded by a constant times
-\[ \norm{\varphi}_{C^2} + \norm{\varphi}_{H_D^{1/2}}. \]
-If we take the closure of such spaces norms on $\test(\Omega)$, we get a banach space $X$, and $\del_t \theta_+^2 + \dot{\Gamma} \grad \theta_+^2 \in X^*$.  Clearly $L^2 \subseteq X^*$.  Note that $X^*$ is translation-invariant, except it's really not.  
+Taken all together, we conclude that there exists a constant $C$ indepnendent of $n$ such that, for any $\varphi \in L^\infty(-4,0; C^2(\R^2)) \cap L^\infty(-4,0; L^2(\R^2))$, 
+\[ \int_{-4}^0 \int_{\Omega_n} \paren{ \del_t \theta_+^3 + \dot{\Gamma}_n \cdot \grad \theta_+^3 } \varphi \,dxdt \leq C \norm{\varphi}_{L^\infty(-4,0; C^2(\R^2))} + C \norm{\varphi}_{L^\infty(-4,0; L^2(\R^2))}. \]
 
-If we define $v(t,x) = \theta_+(t, x + \Gamma(t))^2$, then $v \in L^2(0,T; H_D^{1/2}(\Gamma(t)+\Omega)$ and $\del_t v \in L^\infty(X^*)$.  This is quite a mess.  
+Over time, the support of $\theta_+^3$ moves around in $\Omega_n$ following the path $\Gamma_n$.  If we try to take a limit, that limit will vanish except at points where infinitely many $\Gamma$ pass nearby, which is generally unhelpful.  Instead, we extend each $\theta_+^3$ to a function on $\R^2$ and then shift them around to remain supported near the origin.  To that end, define a new function on $[-4,0] \times \R^2$ by
+\[ v_n(t,x) := \begin{cases}
+\theta_+^3(t, x + \Gamma_n(t)), & x + \Gamma_n(t) \in \Omega_n, \\
+0, & x + \Gamma_n(t) \notin \Omega_n.
+\end{cases} \]
 
+Let $X \subseteq C^2(\R^2)$ be the Banach space of $C^2$ functions with norm $\norm{\cdot}_X = \norm{\cdot}_{C^2(\R^2)} + \norm{\cdot}_{L^2(\R^2)}$ finite.  Note that
+\[ \del_t v_n(t,x) = \del_t \theta_+^3(t,x+\Gamma_n) + \dot{\Gamma}_n \cdot \grad \theta_+^3(t,x+\Gamma_n). \]
+
+We know that
+\[ \norm{ v_n }_{L^2(-4,0; H^{1/2}(\R^2)} \leq C \]
+and
+\[ \norm{ \del_t v_n }_{L^1(-4,0; X^*)} \leq C. \]
+
+Moreover, 
+\[ \ddt \int_{\R^2} v_n^{2/3} \,dx = \ddt \int_{\Omega_n} \theta_+^3 \,dx \leq C. \]
+
+Finally, from [cite],
+\[ \abs{\{v_n \geq 1\} \cap [-2,0]\times B_2(0)} \geq \delta_0, \]
+\[ \abs{\{0 < v_n < [1-\phi(x)]^3\} \cap [-4,0]\times B_4(0} \leq 1/n, \]
+\[ \abs{\{v_n \leq 0\} \cap [-4,0]\times B_4(0)} \geq \frac{4 |B_4|}{2}. \]
+
+By [cite], [cite], and the Aubin-Lions lemma, the set $\{v_n\}_n$ is compactly embedded in $L^2(-4,0; L^2(\R^2))$.  Up to a subsequence, there is a function $v \in L^2(-4,0; L^2(\R^2))$ such that
+\[ v_n \to v. \]
+By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, $v \in L^2(H^{1/2})$ and 
+\begin{equation} \label{ddt v bounded} \ddt \int v(t,\cdot)^{2/3} \leq C. \end{equation} 
+Also, the properties [cite] hold still in the limit.  
+
+For any $(t,x) \in [-4,0]\times B_4(0)$, either $v(t,x) \geq [1 - \phi(x)]^3$ or else $v(t,x) = 0$.  In fact, since $\norm{v(t,\cdot)}_{H^{1/2}} < \infty$ for almost every $t$ and $H^{1/2}$ does not cantain functions with jump discontinuities, the function $v$ is either identically 0 or else $\geq [1-\phi(x)]^3$ at each $t$.  
+
+Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\phi(x)]^3 \,dx > 0$ at each $t$.  By \eqref{ddt v bounded} and [cite, mass bounds], $v$ must be identically zero for all $t > -2$.  This contradicts [cite], so our assumption that the sequence $\theta_n$ exists must have been false.  The proposition must be true.  
 
 \end{proof}
-
-For compactness in time, it might be useful to know that $\norm{f^2}_s \leq \norm{f}_\infty \norm{f}_s$.  
-
-\[ \norm{\Lambda^{1/2}(f^2)}_2^2 = \iint [f(x)^2 - f(y)^2]^2 K + \int f^4 B \]
-\[ \leq \iint f(x)^2 [f(x)-f(y)]^2 K + \iint f(y)^2[f(x)-f(y)]^2 K + \norm{f}_\infty^2 \int f^2 B \]
-\[ \leq \norm{f}_\infty^2 \int |\Lambda^{1/2} f|^2. \]
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
