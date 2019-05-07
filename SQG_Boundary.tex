@@ -70,6 +70,7 @@
 \newcommand{\bessel}{\paren{1-\Laplace_v}}
 \newcommand{\loc}{\text{loc}}
 \newcommand{\Lip}{\text{Lip}}
+%\newcommand{\BMO}{\text{BMO}}
 \newcommand{\ddz}{\frac{d}{dz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\into}{\hookrightarrow}
@@ -94,6 +95,9 @@
 \newcommand{\ulowth}[1]{\ulow^{#1}}
 \newcommand{\uhighth}[1]{\uhigh^{#1}}
 \newcommand{\umidth}[1]{u_m^{#1}}
+
+\newcommand{\HD}[2]{\int \abs{\Lambda^{#1} #2}^2}
+\newcommand{\HDh}[1]{\HD{1/2}{#1}}
 
 \newcommand{\Rom}[1]{\MakeUppercase{\romannumeral #1}}
 
@@ -128,14 +132,36 @@
 \tableofcontents
 
 We're gonna consider the equation 
-\begin{equation}
-\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
-\\ u = \grad^\perp \Lambda\n \theta.
-\end{equation}
+\begin{align} \label{eq:main nonlinear}
+\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0 \qquad (0,T) \times \Omega,
+\\ u = \grad^\perp \Lambda\n \theta \qquad [0,T] \times \Omega,
+\\ \theta = \theta_0 \qquad \{0\} \times \Omega
+\end{align}
+on an open domain $\Omega \subseteq \R^2$ and a time interval $[0,T]$, with given initial data $\theta_0$.  
 
 Here the operator 
 \[ \Lambda := \sqrt{-\Laplace_D} \]
-where $\Laplace_D$ is the Laplacian with Dirichlet boundary condition.  
+is the square root of $-\Laplace_D$, the Laplacian on $\Omega$ with Dirichlet boundary condition.  More specifically, if $(\eigen{k})_{k \in \Z}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$, then
+\[ \Lambda f := \sum_{k=0}^\infty \sqrt{\lambda_k} \chevron{f,\eigen{k}}_{L^2(\Omega)} \eigen{k}. \]
+
+Our main result will be to show that $\theta$ is H\"{o}lder continuous.  
+
+\begin{theorem} \label{thm:main continuity}
+Let $\theta_0 \in L^2(\Omega)$ and let $\Omega \subseteq \R^2$ be an open set and $T > 0$ a time.  Then there exist functions $\theta, u \in L^\infty(0,T; L^2(\Omega))$ which solve \eqref{eq:main nonlinear}.  Moreover, for any $t \in (0,T)$, $\theta$ is H\"{o}lder continuous uniformly on $(t,T)\times\Omega$.  
+
+In fact, for some $\alpha \in (0,1)$ depending only on $\Omega$ and some constant $C$ depending only on $\Omega$, $T$, and $t$
+\[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
+\end{theorem}
+
+The existence of a weak solution (meaning solution in the sense of distributions) $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_D^{1/2}(\Omega))$ is proven in [citation, Constantin and Ignatova].  
+
+The technique to prove this is, like in [citation, Caff \& Vasseur], to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a Harnack inequality for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the Harnack inequality again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
+
+The difficulty is in finding a bound on $u$ which remains bounded no matter how much we zoom in.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can show the Harnack inequality with $\BMO$ drift using De Giorgi's method with a shifting refrence frame.  
+
+In the case of bounded domains, it is not known that the Riesz operator is bounded $L^\infty \to \BMO$.  Another well known scaling invariant function space is the Besov space $B^0_{\infty,\infty}$, and this is closer to what we want.  
+
+finish writing later.  
 
 We're going to linearize the equation by fixing $u$ independent of $\theta$.  What property do we want $u$ to have?  For some constant $\kappa$, we'll want
 \begin{align*} 
@@ -237,6 +263,33 @@ or in other words it means that $E$ is a bounded operator from $H_D^s$ to $H^s$,
 We know from [citation] Caffarelli and Stinga that $\test(\Omega)$ is dense in $H_D^s$ for all $0 \leq s < 1$.  In fact, this takes a bit of interpretation, so I ought to illucidate that this is because $H_D^s = H_0^s$ (the latter in the Slobodekij sense) for most $s$ and at $s=1/2$ we get the Lions-Magenes spaces which still has $\test(\Omega)$ dense.  
 
 Surely, right(?), test functions are all inside of $H_D^{1+s}$.  I should meditate on this, but it must be true.  
+\end{proof}
+
+\begin{lemma}
+Let $g:\Omega \to \R$ be a non-negative function on $\Omega$ a bounded Lipschitz domain such that, for some $s \in (0,2)$,
+\[ \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+s}} < \infty. \]
+
+Then for any $f \in H_D^s(\Omega)$, the function $(f-g)_+ \in H_D^s(\Omega)$ as well.  
+\end{lemma}
+
+A similar result can be proven using the Cordoba-Cordoba pointwise inequality $\Lambda^s (f)_+ \leq \indic{f>0} \Lambda^s f$.  Normally, if we can assume regularity on $g$, we could apply this inequality to the function $f-g$ and obtain the result. Here, we do not assume that $g$ vanishes at the boundary, which means $f-g$ does not have finite $H_D^{1/2}$ norm.  In the proof below, such an assumption would show up in the $B$ term, which we bound instead using the alternative assumption that $g \geq 0$.  
+
+\begin{proof}
+Consider
+\[ \HDh{(f-g)_+} = \iint [(f(x)-g(x))_+ - (f(y)-g(y))_+]^2 K + \int (f-g)_+^2 B. \]
+
+Because $\max(0,\cdot)$ is a contraction on $\R$ and $g$ is non-negative, we can say that $\abs{(f-g)_+(x)-(f-g)_+(y)} \leq \abs{(f-g)(x)-(f-g)(y)}$ and also $0 \leq (f-g)_+ \leq f$.  
+
+Looking at the integrand of the $K$ term, because $\max(0,\cdot)$ is a contraction on $\R$ we can bound
+\[ [(f(x)-g(x))_+ - (f(y)-g(y))_+]^2 \leq [f(x)-g(x) - f(y) + g(y)]^2 \leq [f(x)-f(y)]^2 + [g(x)-g(y)]^2. \]
+
+Thus
+\[ \HDh{(f-g)_+} \leq \iint [f(x)-f(y)]^2 K + \iint [g(x)-g(y)]^2 K + \int f^2 B = \iint [g(x)-g(y)]^2 K + \HD{s}{f}. \]
+
+%Since $g$ is continuous with two moduli of continuity,
+%\[ |g(x)-g(x)| \leq C\paren{\norm{g}_\Lip + \bracket{g}_{\gamma} } |x-y| \wedge |x-y|^\gamma. \]
+%Since $K(x,y) \leq C_{s} |x-y|^{-2-s}$,
+%\[ \iint [g(x)-g(y)]^2 K \leq C\paren{\norm{g}_\Lip + \bracket{g}_{\gamma} }^2 \iint \frac{|x-y|^2 \wedge |x-y|^{2\gamma}}{|x-y|^{2+s}}. \]
 \end{proof}
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
@@ -487,7 +540,7 @@ Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega
 \del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
 \\ \div u = 0
 \end{align*}
-in the sense of distributions.  Let $\psi \in L^\infty(0,T; H_D^{1/2}(\Omega))$ be non-negative, Lipschitz-in-space, and H\"{o}lder continuous-in-space with exponent $\gamma < 1/2$.  Then the decomposition
+in the sense of distributions.  Let $\psi: [-T,0]\times \Omega \to \R$ be non-negative, Lipschitz-in-space, and H\"{o}lder continuous-in-space with exponent $\gamma < 1/2$.  Then the decomposition
 \[ \theta = \theta_+ + \psi - \theta_- \]
 satisfies the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \psi + u\cdot\grad\psi) } \]
@@ -496,11 +549,7 @@ with the constant $C$ depending on $\norm{\grad \psi}_\infty$ and $\sup_t \brack
 \end{lemma}
 
 \begin{proof}
-We decompose $\theta-\psi = \theta_+ - \theta_-$ with both $\theta_+$ and $\theta_-$ non-negative and having disjoint support.  Since at a.e. time $t$, $\theta$ and $\psi$ are both in $H_D^{1/2}$, we can write
-\[ \infty > \int \abs{\Lambda^{1/2}(\theta_+-\theta_-)}^2 = \int \abs{\Lambda^{1/2}\theta_+}^2 + \int \abs{\Lambda^{1/2} \theta_-}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-. \]
-By a lemma proved above, the final term (by disjoint support) is non-positive, hence all three terms are finite and in particular $\theta_+$ and $\theta_-$ are in $H_D^{1/2}$ at a.e. time.  
-
-We can therefore multiply our equation [cite] by $\theta_+$ and integrate in space to obtain
+From Lemma \ref{thm:cutoff in sobolev}, we know that $\theta_+$ is in $H_D^{1/2}(\Omega)$ for a.e. $t \in [0,T]$.  We can therefore multiply our equation [cite] by $\theta_+$ and integrate in space to obtain
 \[ 0 = \int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\psi$, and $\theta_-$.  We analyze them one at a time.  
 
@@ -523,7 +572,7 @@ Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is no
 \end{align*}
 
 Put together, we arrive at 
-\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 + \iint \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi - \chevron{\theta_+,\theta_-}_{1/2} \leq \abs{\int \theta_+ (\del_t \psi + u \cdot \grad \psi) \cdot \grad \psi}. \]
+\[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2}\theta_+ \Lambda^{1/2} \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi \leq \abs{\int \theta_+ (\del_t \psi + u \cdot \grad \psi) \cdot \grad \psi}. \]
 
 At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi$ term using the formula from [citation] Caffarelli-Stinga.  
 \[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi = \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) + \int \theta_+ \psi B. \]
@@ -542,6 +591,26 @@ Since $3-2\gamma > 2$, this quantity is integrable.  Thus
 \[ \int \indic{\theta_+>0}(x) \int [\psi(x)-\psi(y)]^2 K(x,y) \,dxdy \leq C(\norm{\psi}_\textrm{Lip}, \bracket{\psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
 Combining [citation, like 4 different things are combined] we arrive at
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \lesssim \int \theta_+ (\del_t\psi+u\cdot\grad\psi) + \int \indic{\theta_+>0}.\]
+\end{proof}
+
+This is sufficient to prove that a solution to [cite] the PDE with $L^2$ initial data is $L^\infty$ in finite time.  
+
+Logan: I haven't completed this proof at all, I'm sure it's possible but I'm putting my energy elsewhere, especially since it's not strictly necessary.  
+
+\begin{proposition}[$L^2$ to $L^\infty$] \label{thm:L2 to Linfty}
+If $\theta$ and $u$ solve [cite] on $[0,T] \times \Omega$ and $\theta_0 \in L^2$, then for any time $t \in (0,T)$ there exists a constant $C$ such that
+\[ \norm{\theta}_{L^\infty([t,T]\times \Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
+\end{proposition}
+
+\begin{proof}
+Apply Cacciopoli's inequality (Lemma \ref{thm:caccioppoli}) to $\theta$ with cutoff $\psi = h$ for some constant $h \in \R$ and then integrate in time from $s \in [0,T)$ to $T$ to obtain
+\[ \int (\theta-h)_+^2(T) + \int_s^T \HDh{(\theta-h)_+} \leq \int (\theta-h)_+^2(s) + C \int_s^T |\{\theta > h\}|. \]
+
+Note that we know a priori that $\norm{\theta}_{L^2(\Omega)}$ is non-increasing in time.  By Chebyshev's inequality, we can bound $|\{\theta > h\}|$ by the $L^2$ norm in any time slice, which is actually just the $L^2$ norm of the initial data
+\[ |\{\theta(t,\cdot) > h\}| \leq h^{-2} \norm{\theta_0}_2^2. \]
+
+Thus our bound becomes, if $f_h(s) = \int (\theta-h)_+^2(s)$ then
+\[ f_h(T) \leq C h^{-2} (T-s) + f_h(s). \]
 \end{proof}
 
 We've completed the essential version of the Caccioppoli estimate.  However, much more can be said about the drift-term $u$.  In particular, we can design a cutoff $\psi$ in order to minimize the expression $\del_t \psi + u\cdot\grad\psi$.  
@@ -757,6 +826,10 @@ It follows, since indicator functions have infinite $H^{1/2}$ norm and hence inf
 In other words, at any time slice either $\theta_n \leq 0$ and $\theta_+ = 0$ or else $\theta_n \geq 1$ and $\int \theta_+^2 \geq |B_2|$.  Moreover, since $\ddt \int \theta_+^2$ is bounded, and at least half of the interval $[-4,0]$ is spent below 0, surely the back half (namely $[-2,0]$) is spent entirely below 0.  But this contradicts our assumption about $\delta_0$, so we conclude that there must exist a minimal $\mu$ for which solutions exist.  
 
 The proof concludes.  Still gotta prove compactness in time though.  
+
+By multiplying $0 = \del_t \theta + u \cdot \grad \theta + \Lambda \theta$ by $\theta_+$, we obtain
+\[ (1/2) \del_t \theta_+^2 + (1/2) \dot{\Gamma} \cdot \grad \theta_+^2 = -(1/2) (u-\dot{\Gamma}) \cdot \grad \theta_+^2 - \theta_+ \Lambda \theta_+ - \theta_+ (u-\dot{\Gamma})\cdot \grad\phi - \theta_+ \Lambda \phi + \theta_+ \Lambda \theta_-. \]
+We'll seek to bound each term on the right hand side of this equality in $L^\infty(-T,0; H_D^{-2}(\Omega))$.  
 
 \end{proof}
 
