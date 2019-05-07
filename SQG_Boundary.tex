@@ -827,9 +827,60 @@ In other words, at any time slice either $\theta_n \leq 0$ and $\theta_+ = 0$ or
 
 The proof concludes.  Still gotta prove compactness in time though.  
 
+We'll actually show compactness for $\theta_+^2$.  
+
+First of all, $\theta_+^2 \in H_D^{1/2}$ because
+
+\begin{align*} 
+\norm{\Lambda^{1/2}(\theta_+^2)}_2^2 &= \iint [\theta_+(x)^2 - \theta_+(y)^2]^2 K + \int \theta_+^4 B 
+\\ &\leq \iint \theta_+(x)^2 [\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^2[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^2 \int \theta_+^2 B
+\\ &\leq C.
+\end{align*}
+
 By multiplying $0 = \del_t \theta + u \cdot \grad \theta + \Lambda \theta$ by $\theta_+$, we obtain
 \[ (1/2) \del_t \theta_+^2 + (1/2) \dot{\Gamma} \cdot \grad \theta_+^2 = -(1/2) (u-\dot{\Gamma}) \cdot \grad \theta_+^2 - \theta_+ \Lambda \theta_+ - \theta_+ (u-\dot{\Gamma})\cdot \grad\phi - \theta_+ \Lambda \phi + \theta_+ \Lambda \theta_-. \]
 We'll seek to bound each term on the right hand side of this equality in $L^\infty(-T,0; H_D^{-2}(\Omega))$.  
+
+In the usual way,
+\[ \int \varphi (\ulow - \dot{\Gamma}) \grad \theta_+^2 \leq C \norm{\div \varphi}_1. \]
+
+By Lemma \ref{thm:weak product rule} (the usual way),
+\[ \int \varphi \uhigh \grad \theta_+^2 \leq C (\norm{\grad \varphi}_1 + \norm{D^2 \varphi}_\infty). \]
+
+Just calculate
+\begin{align*}
+\int \varphi \theta_+ \Lambda \theta_+ &= \iint [\varphi(x)\theta_+(x) - \varphi(y)\theta_+(y)][\theta_+(x)-\theta_+(y)] K + \int \varphi \theta_+^2 B
+\\ &= \iint \varphi(x)[\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y) [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K + \iint \varphi \theta_+^2 B
+\\ &\leq C \norm{\varphi}_\infty + \norm{\varphi}_{H^{1/2}_D}.
+\end{align*}
+
+Using the same technique as before but considering $\varphi \grad \phi$,
+\begin{align*}
+\int \varphi \theta_+ (u - \dot{\Gamma}) \grad \phi &\leq C \paren{\norm{\grad(\varphi \grad\phi)}_\infty + \norm{D^2(\varphi \grad\phi)}_\infty }
+\\ &\leq C (\norm{\varphi}_\infty + \norm{\grad \varphi}_\infty + \norm{D^2 \varphi}_\infty). 
+\end{align*}
+
+For any non-negative $\varphi$ we know by Lemma \ref{thm:disjoint} that
+\[ \int \varphi \theta_+ \Lambda \theta_- \leq 0 \]
+so that term is pointwise non-positive.  Moreover, its integral is
+\[ -\int \theta_+ \Lambda \theta_- \leq C \]
+so the term itself is bounded in $\mathcal{M}(\Omega)$ which can eat anything in $L^\infty \cap \Lip$.  
+
+Lastly, 
+\begin{align*} 
+\int \varphi \theta_+ \Lambda \phi &= \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\phi(x)-\phi(y)] K + \int \varphi \theta_+ \phi B
+\\ &= \iint \varphi(x) [\theta_+(x) - \theta_+(y)][\phi(x)-\phi(y)] K + \iint \theta_+(y)[\varphi(x) - \varphi(y)][\phi(x)-\phi(y)] K + \int \varphi \theta_+ \phi B
+\\ &\leq C\paren{\iint \varphi(x)^2 [\phi(x)-\phi(y)]^2 K}^{1/2} + \norm{\varphi}_{H_D^{1/2}} \iint \theta_+(y)^2 [\phi(x)-\phi(y)]^2 K + \int \varphi \theta_+ \phi B
+\\ &\leq C \norm{\phi}_{L^2} + C \norm{\varphi}_{H_D^{1/2}} + \norm{\phi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{H_D^{1/2}} \norm{\varphi}_{H_D^{1/2}}
+\\ &= C \norm{\phi}_{L^2} + C \norm{\varphi}_{H_D^{1/2}}.
+\end{align*}
+
+In other words, $\del_t\theta_+^2 + \dot{\Gamma} \grad \theta_+^2$ can eat test functions $\varphi$ and the result is bounded by a constant times
+\[ \norm{\varphi}_{C^2} + \norm{\varphi}_{H_D^{1/2}}. \]
+If we take the closure of such spaces norms on $\test(\Omega)$, we get a banach space $X$, and $\del_t \theta_+^2 + \dot{\Gamma} \grad \theta_+^2 \in X^*$.  Clearly $L^2 \subseteq X^*$.  Note that $X^*$ is translation-invariant, except it's really not.  
+
+If we define $v(t,x) = \theta_+(t, x + \Gamma(t))^2$, then $v \in L^2(0,T; H_D^{1/2}(\Gamma(t)+\Omega)$ and $\del_t v \in L^\infty(X^*)$.  This is quite a mess.  
+
 
 \end{proof}
 
