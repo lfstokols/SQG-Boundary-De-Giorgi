@@ -321,7 +321,7 @@ Thus
 %\[ \iint [g(x)-g(y)]^2 K \leq C\paren{\norm{g}_\Lip + \bracket{g}_{\gamma} }^2 \iint \frac{|x-y|^2 \wedge |x-y|^{2\gamma}}{|x-y|^{2+s}}. \]
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{thm:product rule}
 Let $s \in (0,1)$.  If $g \in L^\infty \cap \Lip(\Omega)$ then
 \[ \int \Lambda^s (fg) \Lambda^s h \leq \norm{g}_\infty \int \Lambda^s f \Lambda^s h \,dx + \norm{f}_1 \norm{h}_{H_D^s} \sup_x \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+s}} \,dy. \]
 
@@ -329,76 +329,22 @@ Also
 \[ \norm{fg}_{H_D^s} \leq \norm{g}_\infty \norm{f}_{H_D^s} + \norm{f}_\infty \norm{g}_{H_D^s}. \]
 
 Also
-\[ \norm{fg}_{H_D^s} \leq \norm{g}_\infty \norm{f}_{H_D^s} + \norm{f}_2 \sup_x \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dy. \]
+\[ \norm{fg}_{H_D^s} \leq \norm{g}_\infty \norm{f}_{H_D^s} + \norm{f}_2 \sup_y \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dx. \]
+
+In particular, 
+\[  \norm{fg}_{H_D^s} \leq \norm{g}_\infty \norm{f}_{H_D^s} + \norm{f}_2 \paren{\norm{g}_\infty + \norm{g}_\Lip}. \]
 
 I can prove any of these, if they are worth citing.  
 \end{lemma}
 
 \begin{proof}
 \[ \int |\Lambda^s (fg)|^2 = \iint \paren{g(x)[f(x)-f(y)] + f(y)[g(x)-g(x)]}^2 K + \int f^2 g^2 B \]
-\[ \leq \norm{g}_\infty^2 \norm{f}_{H_D^s}^2 + \norm{f}_\infty^2 \norm{g}_{H_D^s}^2 + \norm{g}_\infty^2 \norm{f}_{H_D^s}^2. \]
+\[ \leq \norm{g}_\infty^2 \norm{f}_{H_D^s}^2 + \int f(y)^2 \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}}. \]
 \end{proof}
 
-\begin{lemma} \label{thm:weak product rule}
-For two functions $f \geq 0$ with compact support and $g \in L^\infty \cap \Lip$, their product is bounded
-\[ \norm{\Lambda^{1/4} fg}_{L^1(\Omega)} \leq C \paren{\norm{g}_\infty + \norm{\grad g}_\infty} \paren{\norm{f}_1 + |\supp(f)|^{1/2} \paren{ \norm{f}_{L^2} + \norm{f}_{H_D^{1/2}}}}. \]
-The constant $C$ depends on $\Omega$, but is independent of scaling.  
-
-Logan: you don't actually prove $L^1$ because you don't know the quantity is a function.  As proven, it could contain a dirac or a Banach limit. 
-\end{lemma}
-
-\begin{proof}
-Consider some $L^\infty$ test function $h$.  To determine the $L^1$ norm of $\Lambda^{1/4} fg$ we consider the integral
-\[ \int h \Lambda^{1/4} (fg) = \iint [h(x)-h(y)][f(x)g(x) - f(y)g(y)] K_{1/4} \,dxdy + \int hfg B_{1/4} \,dx. \]
-This breaks up, according to the formula of Caffarelli-Stinga [citation], into a $K$-term and a $B$-term.  We consider first the $K$ term.  
-
-Decompose this into the far part $|x-y|>1$ whose integral we call \Rom{1} and the far part $|x-y|\leq 1$ whose integral we call \Rom{2}.  For the far part,
-\begin{align*} 
-\Rom{1} &\leq 2 \norm{h}_\infty \iint_{|x-y|>1} \abs{f(x)g(x)-f(y)g(y)} K_{1/4} \,dxdy
-\\ &\leq 4 \norm{h}_\infty \int fg \int_{|x-y|>1} \frac{C_{1/4} dy}{|x-y|^{2.25}} \,dx
-\\ &\leq C \norm{h}_\infty \norm{g}_\infty  \norm{f}_1.
-\end{align*}
-
-For the near part, recall first that by the upper- and lower-bounds on $K$ in Caffarelli-Stinga [citation], we know that
-\[ K_{1/4}(x,y) \leq C(\Omega) |x-y|^{3/4} K_1(x,y). \]
-In principle the constant relating these quantities may depend on $\Omega$, though since both sides of the inequality scale the same way, the constant must be the same for scalings of $\Omega$.  
-
-Since the integrand of \Rom{2} vanishes unless at least one of $x$ or $y$ is in the support of $\theta_+$, we can say
-\[ \Rom{2} \leq 2 \iint_{|x-y|\leq 1} \indic{f\neq0}(x) [h(x)-h(y)][f(x)g(x)-f(y)g(y)]. \]
-Therefore, applying H\"{o}lder's inequality,
-\begin{align*}
-\Rom{2} &\leq C \paren{\iint _{\leq 1} \indic{f>0}(x) [h(x)-h(y)]^2 |x-y|^{3/4} K_{1/4}}^{1/2} \paren{\iint_{\leq 1} [f(x)g(x) - f(y)g(y)]^2 K_1}^{1/2}
-\\ &\leq \norm{h}_\infty \paren{\int_{|y|\leq 1} |y|^{-1.5} \,dy |\supp(f)|}^{1/2} \paren{ \iint [f(x)g(x)-f(y)g(y)]^2 K_1 \,dxdy}^{1/2}
-\\ &= C\norm{h}_\infty |\supp(f)|^{1/2} \paren{\iint [f(x)g(x)-f(y)g(y)]^2 K_1 \,dxdy}^{1/2}.
-\end{align*}
-
-For this final term,
-\[ \iint [f(x)g(x)-f(y)g(y)]^2 K_1 \leq \iint f(x)^2 [g(x)-g(y)]^2 K_1 + \iint g(y)^2[f(x)-f(y)]^2 K_1 \]
-\[ \leq C \int f(x)^2 \int \frac{\norm{g}_\Lip^2|x-y|^2 \wedge 2 \norm{g}_\infty^2 }{|x-y|^3} \,dxdy + \norm{g}_\infty^2 \iint [f(x)-f(y)]^2 K_1 \,dxdy \]
-\[ \leq C(\norm{g}_\Lip^2 + \norm{g}_\infty^2) \norm{f}_2^2 + \norm{g}_\infty^2  \norm{f}_{H_D^{1/2}}^2. \]
-
-Therefore 
-\[ K-\textrm{term} \lesssim \norm{h}_\infty \paren{\norm{g}_\infty+\norm{g}_\Lip} \paren{ \norm{f}_1 + |\supp(f)|^{1/2} \norm{f}_2 + |\supp(f)|^{1/2} \norm{\Lambda^{1/2}f}_2}. \]
-
-For the $B$ part, on the other hand, 
-\[ \int h f g B_{1/4} \leq \norm{h}_\infty \norm{g}_\infty \int f B_{1/4} \]
-and, since $[f(x)-f(y)][\indic{f\neq0}(x)-\indic{f\neq0}(y)] \geq 0$,
-\[ \int f B_{1/4} \leq \int \indic{f>0} \Lambda^{1/4} f \leq |\supp(f)|^{1/2} \paren{\int \abs{\Lambda^{1/4} f}^2}^{1/2}. \]
-
-Now that we have an $L^2$ norm of $\Lambda^{1/4} f$, since the $H^s_D$ norm is simply an $\ell^2$ norm of the eigndecomposition and $\lambda_k^{1/4} \leq 1 + \lambda_k^{1/2}$, we can easily bound this $H^{1/4}_D$ norm by interpolation and find
-\[ B-\textrm{term} \lesssim \norm{h}_\infty \norm{g}_\infty |\supp(f)|^{1/2} \paren{\norm{f}_2 + \norm{f}_{H_D^{1/2}}}. \]
-
-From [cite] and [cite] we find that for any $\eps > 0$ arbitrarily small and some constant $C$ depending on $\eps$, $\norm{g}_\infty$, $\norm{g}_\Lip$, and on the shape (but not the size) of $\Omega$,
-\[ \int h \Lambda^{1/4} (fg) \,dx \leq C \norm{h}_\infty \paren{\norm{g}_\infty+\norm{g}_\Lip} \paren{ \norm{f}_1 + |\supp(f)|^{1/2} \norm{f}_2 + |\supp(f)|^{1/2} \norm{\Lambda^{1/2}f}_2}. \]
-\end{proof}
-
-\begin{lemma}
-Let $g$ an $L^\infty$ function and $f \in H^{2s}$.  Then
-\[ \int \Lambda^s g \Lambda^s f \leq C \norm{g}_2 \paren{ \norm{f}_2 + \norm{f}_{H_D^{2s}}}. \]
-Logan: this is trivial.  Super duper trivial.  
-
-Additionally, if $f$ is non-negative and has compact support, then 
-\[ \int \Lambda^s g \Lambda^s f \leq C \norm{g}_\infty |\supp(f)| \paren{ \norm{f}_2 + \norm{f}_{H_D^{2s}}}. \]
+\begin{lemma} \label{thm:L1 of Lambda bounded}
+Let $g$ an $L^\infty$ function and $f \in H^{2s}$ be non-negative with compact support.  Then
+\[ \int \Lambda^s g \Lambda^s f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{H_D^{2s}}}. \]
 \end{lemma}
 
 \begin{proof}
@@ -418,24 +364,37 @@ From \eqref{K bounded between orders} and the fact that $[f(x)-f(y)]$ vanishes u
 \[ \abs{\Rom{1}} \leq 2 \iint \indic{f \neq 0}(x) [g(x)-g(y)] [f(x)-f(y)] |x-y|^s K_{2s}. \]
 The term $|x-y|^2$ can be rewritten $[1 \wedge |x-y|^s] [1 \vee |x-y|^s]$ so we can break this up by Holder's inequality
 \[ \Rom{1} \leq C \paren{\iint \indic{f \neq 0}(x) [g(x)-g(y)]^2 (1 \wedge |x-y|^{2s}) K_{2s} }^{1/2} \paren{\iint [f(x)-f(y)]^2 (1 \vee |x-y|^{2s}) K_{2s} }^{1/2}. \]
-The kernel $(1 \wedge |x-y|^{2s}) K_{2s}$ is integrable in $y$ for $x$ fixed, and $(1 \vee |x-y|^{2s}) K_{2s}$ is $K_{2s}$ plus a function which is integrable in $y$ for $x$ fixed.  
+The kernel $(1 \wedge |x-y|^{2s}) K_{2s}$ is integrable in $y$ for $x$ fixed, and $(1 \vee |x-y|^{2s}) K_{2s}$ is $K_{2s}$ plus a function which is integrable in $y$ for $x$ fixed.  Therefore
+\begin{equation} \label{K of L1 less than L2 stuff} \Rom{1} \leq C \paren{ 2\norm{g}_\infty^2 \int C \indic{f\neq 0}(x) \,dx }^{1/2} \paren{ \norm{f}_{H^{2s}_D}^2 + C \int f(x)^2 \,dx + C \int f(y)^2 \,dy}^{1/2}. \end{equation}
 
-If $g \in L^\infty$ and $f$ has compact support then we say
-\[ \iint \indic{f \neq 0}(x) [g(x)-g(y)]^2 (1 \wedge |x-y|^{2s}) K_{2s} \,dydx \leq 2 \norm{g}_\infty^2 \int \indic{f \neq 0}(x) \int (1 \wedge |x-y|^{2s}) K_{2s} \,dydx = C \norm{g}_\infty^2 |\supp(f)| \]
-while if $g \in L^2$ we say
-\[ \iint \indic{f \neq 0}(x) [g(x)-g(y)]^2 (1 \wedge |x-y|^{2s}) K_{2s} \,dydx \leq C \int g(x)^2 \int (1 \wedge |x-y|^{2s}) K_{2s} \,dydx \leq C \int g^2. \]
+For the boundary term \Rom{2}, 
+\[ \Rom{2} \leq \norm{g}_\infty \int\indic{f\neq 0} f B. \]
+Since $f \geq 0$, $[f(x)-f(y)][\indic{f \neq 0}(x) - \indic{f \neq 0}(y)] \geq 0$.  Therefore
+\[ \int \indic{f \neq 0} f B \leq \int \Lambda^s \indic{f \neq 0} \Lambda^s f = \int \indic{f\neq 0} \Lambda^{2s} f. \]
+Applying H\"{o}lder's inequality, we arrive at
+\[ \Rom{2} \leq \norm{g}_\infty |\supp(f)|^{1/2} \norm{f}_{H_D^{2s}}. \]
+This combined with \eqref{K of L1 less than L2 stuff} proves the lemma.  
+\end{proof}
 
-In either case, 
-\[ \iint [f(x)-f(y)]^2 (1 \vee |x-y|^{2s}) K_{2s} \leq \iint [f(x)-f(y)]^2 K_{2s} + C \int f(x)^2. \]
+\begin{lemma} \label{thm:weak product rule}
+For two functions $f \geq 0$ with compact support and $g \in L^\infty \cap \Lip$, their product is bounded
+\[ \norm{\Lambda^{1/4} fg}_{L^1(\Omega)} \leq C \paren{\norm{g}_\infty + \norm{\grad g}_\infty} \paren{\norm{f}_1 + |\supp(f)|^{1/2} \paren{ \norm{f}_{L^2} + \norm{f}_{H_D^{1/2}}}}. \]
+The constant $C$ depends on $\Omega$, but is independent of scaling.  
 
-Thus \Rom{1} is bounded as desired.  
+Logan: you don't actually prove $L^1$ because you don't know the quantity is a function.  As proven, it could contain a dirac or a Banach limit. 
+\end{lemma}
 
-For the boundary term \Rom{2},if $f$ is compactly supported and $g \in L^\infty$ then
-\[ \Rom{2} \leq \norm{g}_\infty \int\indic{f\neq 0} |f| B \leq \norm{g}_\infty \int \indic{f\neq 0} \Lambda^{2s} |f| \leq \norm{g}_\infty |\supp(f)|^{1/2} \norm{|f|}_{H_D^{2s}}. \]
-Only really works if $f \geq 0$.  
+\begin{proof}
+Consider some $L^\infty$ test function $h$.  To determine the $L^1$ norm of $\Lambda^{1/4} fg$ we consider the integral
+\[ \int h \Lambda^{1/4} (fg) = \iint [h(x)-h(y)][f(x)g(x) - f(y)g(y)] K_{1/4} \,dxdy + \int hfg B_{1/4} \,dx. \]
 
-If instead $g$ is in $L^2$ then
-\[ \Rom{2} \leq \]
+By the result of a lemma I wrote,
+\[ \uparrow \leq \norm{h}_\infty |\supp(f)|^{1/2} \paren{\norm{fg}_2 + \norm{fg}_{H_D^{1/2}} }. \]
+
+By the other lemma,
+\[ \norm{fg}_{H_D^{1/2}} \leq \norm{g}_\infty \norm{f}_{H_D^{1/2}} + \norm{f}_2 \sup_x \int \frac{|g(x)-g(y)|^2}{|x-y|^3} \,dy. \]
+
+But $|g(x)-g(y)|^2 \leq (\norm{g}_\infty + \norm{g}_\Lip) (1 \wedge |x-y|^2)$.  The result follows.  
 \end{proof}
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
@@ -945,16 +904,16 @@ We will bound the terms on the right hand side one at a time.
 Each instance of $C$ in the following bounds is independent of $n$.  
 
 Recall $|\ulow^n - \dot{\Gamma}_n| \leq C \kappa + 4C_\gamma$ on $[-4,0]\times B_3(\Gamma_n)$ which is precisely the support of $\theta_+$.  Integrating by parts,
-\[ \int \varphi (\ulow^n - \dot{\Gamma}_n) \grad \theta_+^3 = \int \grad\varphi (\ulow^n - \dot{\Gamma}_n) \theta_+^3 \leq C \norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}. \]
+\[ \int \varphi (\ulow^n - \dot{\Gamma}_n) \grad \theta_+^3 = \int \grad\varphi (\ulow^n - \dot{\Gamma}_n) \theta_+^3 \leq C \norm{\grad \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}. \]
 Similarly,
-\[ \int \varphi \theta_+^2 (\ulow^n - \dot{\Gamma}_n) \cdot \grad \phi \leq C \norm{ \grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}. \]
+\[ \int \varphi \theta_+^2 (\ulow^n - \dot{\Gamma}_n) \cdot \grad \phi \leq C \norm{ \grad \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}. \]
 
-By Lemma \ref{thm:weak product rule},
-\[ \int \varphi \uhigh^n \grad \theta_+^3 = \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4}(\theta_+^3 \grad \varphi) \leq C (\norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))} + \norm{D^2 \varphi}_{L^1(-4,0; L^\infty(\Omega_n))}). \]
-By the same lemma
+By Lemmas \ref{thm:L1 of Lambda bounded} and \ref{thm:product rule}
+\[ \int \varphi \uhigh^n \grad \theta_+^3 = \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4}(\theta_+^3 \grad \varphi) \leq C (\norm{\grad \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + \norm{D^2 \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}). \]
+By the same lemmas,
 \begin{align*}
 \int \varphi \theta_+^2 \uhigh^n \grad \phi &\leq C \paren{\norm{\varphi \grad\phi)}_{L^1(L^\infty)} + \norm{\grad(\varphi \grad\phi)}_{L^1(L^\infty)} }
-\\ &\leq C \paren{\norm{\varphi}_{L^1(-4,0; L^\infty(\Omega_n))} + \norm{\grad \varphi}_{L^1(-4,0; L^\infty(\Omega_n))} }. 
+\\ &\leq C \paren{\norm{\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + \norm{\grad \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} }. 
 \end{align*}
 
 This completes both of the drift terms.  The $\Lambda$ terms remain.  These are bounded by relentless use of the Caffarelli-Stinga representation formula.  
@@ -1099,7 +1058,7 @@ and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
 then the following holds:
 
 Let $k_0$ be as in Lemma \ref{thm:harnack general} and assume that for $(t,x) \in [-5,0]\times \Omega$
-\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
+\[ |\theta(t,x)| \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 
 Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
 \[ \frac{2}{2-\lambda} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
@@ -1151,6 +1110,15 @@ In this section we prove the main theorem.
 \begin{proof}
 We'll show that if $\theta \in L^\infty([-5,0] \times \Omega)$ solves \eqref{eq:main nonlinear} on $[-5,0]\times \Omega$ then $\theta$ is H\"{o}lder continuous at the point $(0,0)$ (assuming $0 \in \bar{\Omega}$.  Up to translation and scaling, this will be sufficient to show continuity at all points in the domain, with a constant depending on $\Omega$ and on the time we wait.  
 
+From Section \ref{sec:littlewood paley}, we know that 
+\[ \R^\perp \theta = \sum_{j=j_0}^\infty u_j \]
+for a sequence $(u_j)_j$ calibrated with some constant $\kappa = \kappa(\Omega)$ and center 0.  
+
+Choose a constant $0 < \eps < 1/5$ such that
+\begin{equation}\label{eps is small enough for Cgamma} 
+5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \leq \eps\n - 3. 
+\end{equation}
+
 Denote
 \[ \sum_k = \sum_{j > - k \ln(\eps)} \]
 while
@@ -1159,6 +1127,7 @@ while
 Define
 \begin{align*} 
 \theta_k(t,x) &:= (1-\lambda)^{-k} \theta(\eps^k t, \eps^t x), \\
+\Omega_k &:= \{x \in \R^2: \eps^k x \in \Omega\}, \\
 \ulowth{k}(t,x) &:= \sum^k u_j(\eps^k t, \eps^k x), \\
 \uhighth{k}(t,x) &:= \sum_k u_j(\eps^k t, \eps^k x), \\
 \Gamma_0(t) &:= 0 \\
@@ -1167,6 +1136,12 @@ Define
 \Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t). 
 \end{align*}
 Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof.  
+
+From Lemma \ref{thm:scaling}, we know that $\theta_k$ and the calibrated sequence $(u_j(\eps^k \cdot, \eps^k \cdot))_j$ solve \eqref{eq:main linear}.  By Lemma~\ref{thm:calibration is good}, we know that independently of $k$
+\[ \norm{\Lambda^{-1/4} \uhighth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq C \kappa \]
+etc.  
+Particularly
+\[ \norm{\grad \ulowth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq 2 \kappa. \]
 
 Recall the bounds, which will be rephrased to match the proofs above later (the above will be rephrased, that is),
 \[ \norm{\Lambda^{-1/4} \uhighth{k} }_\infty \leq \sum_k \eps^{-k/4} 2^{-j/4} \kappa \leq \eps^{-k/4} C 2^{k \ln_2(\eps) /4} \kappa = C \kappa \]
@@ -1190,8 +1165,7 @@ or
 \end{align*}
 
 In other words,
-\[ \dot{\Gamma}_k(t) = \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t)) \qquad k \geq 5. \]
-I should think more about what exactly happens at the edge case of $j=0,1$.  
+\[ \dot{\Gamma}_k(t) = \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t)) \qquad k \geq 2. \]
 
 With this in hand, we can bound the size of $\gamma_k$.  Namely,
 \begin{align*}
@@ -1199,23 +1173,30 @@ With this in hand, we can bound the size of $\gamma_k$.  Namely,
 \\ &= \sum^k u_j(\eps^k t, \eps^k \Gamma_k(t) + \eps^k \gamma_k(t)) - \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t))
 \\ &= \sum^{k-1} \bracket{u_j(\eps^k t, \eps^k \Gamma_k(t)+\eps^k \gamma_k(t)) - u_j(\eps^k t, \eps^k \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots).
 \end{align*}
-The sum $\sum^{k-1} u_j(\eps^k \cdot, \eps^k \cdot) = \ulowth{k-1}(\eps \, \cdot, \eps \, \cdot)$ is Lipschitz in space, with Lipschitz constant less than $\eps C \kappa$.  Moreover, each $u_j$ has $\norm{u_j}_\infty \leq \kappa$.  Thus both terms of $\dot{\gamma}_k(t)$ are bounded
-\[ |\dot{\gamma}_k(t)| \leq \eps C \kappa |\gamma_k(t)| - \kappa \ln_2(\eps). \]
-This, by Gronwall's inequality, tells us that for $t \in [-T,0]$,
-\[ |\gamma_k(t)| \leq \frac{-\ln_2(\eps)}{\eps C} \paren{ e^{ \eps C \kappa T} - 1} \]
+The sum $\sum^{k-1} u_j(\eps^k \cdot, \eps^k \cdot) = \ulowth{k-1}(\eps \, \cdot, \eps \, \cdot)$ is Lipschitz in space, with Lipschitz constant less than $2 \eps \kappa$.  Moreover, each $u_j$ has $\norm{u_j}_\infty \leq \kappa$.  Thus both terms of $\dot{\gamma}_k(t)$ are bounded
+\[ |\dot{\gamma}_k(t)| \leq 2 \eps \kappa |\gamma_k(t)| - \kappa \ln_2(\eps). \]
+This, by Gronwall's inequality, tells us that for $t \in [-5,0]$,
+\[ |\gamma_k(t)| \leq \frac{-\ln_2(\eps)}{2 \eps} \paren{ e^{10 \eps \kappa} - 1} \]
 and hence
-\[ |\dot{\gamma}_k(t)| \leq -\kappa \ln_2(\eps) e^{\eps C \kappa T} = C_\gamma = C_\gamma(T,\eps,\kappa). \]
-Note in particular that $C_\gamma$ cannot be made small by altering any quantity that we have fine control over.  Since we may have trouble making the same argument for $\gamma_0$, we can if necessary take the max of $C_\gamma$ as defined above and $C \kappa j_0$.  The key is that the $\gamma_k$ are uniformly Lipschitz.  Trivially
-\[ |\dot{\Gamma}_k(t)| \leq k C_\gamma. \]
+\[ |\dot{\gamma}_k(t)| \leq -\kappa \ln_2(\eps) e^{10\eps \kappa}. \]
+
+To account for $\gamma_0$, define
+\[ C_\gamma = \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \]
+so that for all $k \geq 0$ and $t \in [-5,0]$
+\[ |\dot{\gamma}_k(t)| \leq C_\gamma. \]
 
 Lastly, let us state for the record that
 \[ \del_t \bracket{\gamma_k(t) + \Gamma_k(t)} = \ulowth{k}(t,\gamma_k(t)+\Gamma_k(t)). \]
 
-Let $\theta$ be a function defined on $[-T,0] \times \Omega$ which satisfies the PDE.  
+Once I get this trimmed down to be readable, I should be able to apply the Harnack inequality to each $\theta_k$ which proves the result.  The only concern is that when I have to flip it upside down, have I proved that the bound from below is maintained?  Surely I was supposed to add something, or else I'm proving that the function is 0 at the point in question.  If I never have to flip, that would be true.  Oh lord I really missed something.  
 
 \end{proof}
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
+\section{Waxing Philosophical}
+
+Our equation is
+\[ \del_t \theta + \ulow \cdot \grad \theta + \Lambda^{1/4} f \cdot \grad \theta + \Lambda \theta = 0. \]
 
 \end{document}
