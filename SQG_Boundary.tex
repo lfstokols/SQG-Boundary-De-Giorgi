@@ -482,9 +482,9 @@ The first claim is incredibly straigtforward.  We include it for completeness.
 \\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
 \end{align*}
 
-The second claim is more complicated.  We'll prove the equivalent claim that for $f$ smooth,
+The second claim is more complicated.  We'll prove the sufficient claim that for $f$ smooth,
 \[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
-Since $\Omega$ satisfies the cone condition, we know that there exist positive constants $\ell$ and $a$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $e_1\cdot e_2 \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$, $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
+Since $\Omega$ satisfies the cone condition, we know that there exist positive constants $\ell$ and $a<1$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $|e_1\cdot e_2| \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$, $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
 
 The idea of the proof is that the average of $\grad f$ along an interval is bounded since $f$ is bounded, and the same average is close to the value of $\grad f$ at a point because $\grad f$ is continuous, hence the value of $\grad f$ at any point must be bounded.  By varying the length $\delta$ of the aforementioned interval, we actually get a parameterized family of bounds.  
 
@@ -496,8 +496,8 @@ On the other hand, since $\grad f$ and hence $\del_i f$ are continous functions,
 \[ \abs{\del_i f(x) - \del_i f(x+\tau e_i)} \leq \bracket{\grad f}_\alpha \tau^\alpha. \]
 From this bound, we obtain that
 \[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \int_0^\delta \del_i f(x) + \bracket{\grad f}_\alpha \tau^\alpha \,d\tau = \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \]
-and similarly from below, so
-\[ \delta \del_i f(x) - \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \leq \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
+and a similar bound holds from below, so
+\[ \abs{ \delta \del_i f(x) - \int_0^\delta \del_i f(x + \tau e_i) \,d\tau} \leq \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
 
 What we have shown is that the integral of $\del_i f$ over an interval of length $\delta$ is small, and also it differs not very much from $\delta \del_i f(x)$.  By rearranging, we find that $\del_i f(x)$ must therefore be small:
 \[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
@@ -988,7 +988,7 @@ Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\phi(x)]^3 \,dx 
 
 We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce a Harnack inequality.  
 
-\begin{proposition}[Harnack Inequality] \label{thm:harnack general}
+\begin{proposition}[Oscillation Lemma] \label{thm:oscillation general}
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lambda^{-1/4} \uhigh \in L^\infty$ while $\ulow \in \Lip \cap L^{3/4}$.  Moreover, let $\gamma$ and $\Gamma$ be such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
 and $\norm{\dot{\gamma}}_\infty \leq C_\gamma$. 
@@ -1052,7 +1052,7 @@ This is sufficient to show that for some $\alpha > 1$, there exists a lower boun
 
 We are ready to prove the shifted version of the Harnack Inequality.  
 
-\begin{lemma}[Harnack Inequality, with shift] \label{thm:harnack shifted}
+\begin{lemma}[Oscillation Lemma, with shift] \label{thm:oscillation shifted}
 Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
 and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
@@ -1060,36 +1060,41 @@ and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
 then the following holds:
 
 Let $k_0$ be as in Lemma \ref{thm:harnack general} and assume that for $(t,x) \in [-5,0]\times \Omega$
-\[ |\theta(t,x)| \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
+\[ |\theta(t,x)| \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \]
+and
+\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2}. \]
 
 Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
-\[ \frac{2}{2-\lambda} \theta(\eps t, \eps x) \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
+\[ \abs{\frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda}} \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
 \end{lemma}
 
 If we only wish to show that by zooming horizontally by a large amount and zooming vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $C_\gamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The difficulty comes from the fact that $k_0$ itself depends on $C_\gamma$, and as we will see in the next section $C_\gamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $C_\gamma$ is easy to untangle (so long as $\eps C_\gamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
 
 \begin{proof}
 Take $\lambda$ such that
-\[ \lambda \leq 2^{-k_0}, \qquad \frac{2}{2-\lambda} \leq 1 + 2^{-k_0} \bar{\lambda} / 2, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
+\[ 2\lambda \leq 2^{-k_0}, \qquad \frac{2}{2-\lambda} \leq 1 + 2^{-k_0} \bar{\lambda} / 2, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
 for $\bar{\lambda}$ and $\alpha$ from Lemma \ref{thm:technical scaling of barrier}.  
 
 Denote 
-\[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \theta(\eps t, \eps x) \]
+\[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda} \]
 and
 \[ \phi(x) = \paren{|x|^{1/4} - 2^{1/4}}_+. \]
 
-We already proved in Lemma \ref{thm:harnack general} that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $\bar{\theta}(t,x) \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
+We already proved in Lemma \ref{thm:oscillation general} that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $|\bar{\theta}(t,x)| \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
 
 Similarly, the bound [cite] on $\theta$ becomes the equivalent bound on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}, \]
+\[ \bar{\theta}(t,x) \geq \frac{2}{2-\lambda} \bracket{\lambda - 2 - 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
 
 Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  If $|y| \leq \eps\n$ then
 \[ \bar{\theta}(t,x) \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
 If $|y| \geq \eps\n$ then from Lemma \ref{thm:technical scaling of barrier}, 
 \[ \bar{\lambda} + \alpha \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
+We assume that
+\[ (2+\lambda)(\frac{2}{2-\lambda}) \leq 2 + 2^{-k_0} \bar{\lambda}, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
 Thus we rewrite the bound [cite] as
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + 2^{-k_0} \phi(\eps |y|)} \]
-\[ \leq 2(1 + 2^{-k_0} \bar{\lambda}/2) + 2^{-k_0} \alpha \phi(\eps |y|) \]
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(\eps |y|)} \]
+\[ \leq 2 + 2^{-k_0} \bar{\lambda} + 2^{-k_0} \alpha \phi(\eps |y|) \]
 \[ = 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
 \[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3). \]
 For $t \in [-5,0]$,
@@ -1099,6 +1104,13 @@ Thus, since by assumption $5 C_\gamma \leq \eps\n - 3$,
 
 Therefore, for $|y| \geq \eps\n$,
 \[ \bar{\theta}(t,x) \leq 2 + 2^{-k_0} \phi(|x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)|). \]
+
+On the other hand, 
+\[ -\bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 -\lambda + 2^{-k_0} \phi(\eps |y|)} \]
+\[ \leq 2 + 2^{-k_0} \alpha \phi(\eps |y|) \]
+\[ \leq 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
+\[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3) \]
+\[ \leq 2 + 2^{-k_0} \phi(|y-\eps\n\gamma(\eps t)|). \]
 
 This concludes the proof.  
 \end{proof}
@@ -1128,7 +1140,6 @@ For integers $k \geq 0$ consider the domains
 \[ \Omega_k := \{x \in \R^2: \eps^k x \in \Omega\} \]
 and define the following functions on $[-5,0]\times \Omega_k$:
 \begin{align*} 
-\theta_k(t,x) &:= (1-\lambda)^{-k} \theta(\eps^k t, \eps^t x), \\
 \ulowth{k}(t,x) &:= \sum^k u_j(\eps^k t, \eps^k x), \\
 \uhighth{k}(t,x) &:= \sum_k u_j(\eps^k t, \eps^k x).  
 \end{align*}
@@ -1142,7 +1153,7 @@ For $t \in [-5,0]$ and $k \geq 0$ define $\Gamma_k, \gamma_k: [-5,0] \to \R^2$ b
 \end{align*}
 Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof to prove that these $\gamma$ exist.  Each $\ulowth{k}$ is a Lipschitz-in-space vector field, and each $\Gamma_k + \gamma_k$ is a flow along that vector field which ends up at the origin at $t=0$.  In particular, since  $\ulowth{k}$ is tangential to the boundary of $\Omega_k$ and has unique flows, the flow $\Gamma_k + \gamma_k$ cannot exit the region $\Omega_k$ and so our expressions remain well-defined.  
 
-From Lemma \ref{thm:scaling}, we know that $\theta_k$ and the calibrated sequence $(u_j(\eps^k \cdot, \eps^k \cdot))_j$ solve \eqref{eq:main linear}.  By Lemma~\ref{thm:calibration is good}, we know that independently of $k$
+By Lemmas \ref{thm:scaling} and \ref{thm:calibration is good}, we know the sequence $(u_j(\eps^k \cdot, \eps^k \cdot))_j$ is calibrated and hence that independently of $k$
 \[ \norm{\Lambda^{-1/4} \uhighth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq C \kappa \]
 etc.  
 Particularly
@@ -1194,6 +1205,15 @@ To account for $\gamma_0$, define
 so that for all $k \geq 0$ and $t \in [-5,0]$
 \[ |\dot{\gamma}_k(t)| \leq C_\gamma. \]
 
+Let us now produce a sequence of solutions $\theta_k$.  Define
+\[ \theta_0(t,x) := \theta(t,x) \]
+and for each $k \geq 0$, if $|\{\theta_k \leq 0\} \cap [-5,0]\times B_4(\Gamma_k(t))| \geq 2|B_4|$ then set
+\[ \theta_{k+1}(t,x) := \frac{2}{2-\lambda} \bracket{\theta_k(\eps t, \eps x) + \lambda}. \]
+Otherwise, set
+\[ \theta_{k+1}(t,x) := \frac{1}{1-\lambda} \bracket{\theta_k(\eps t, \eps x) - \lambda}. \]
+
+From Lemma \ref{thm:scaling}, we know that $\theta_k$ and the calibrated sequence $(u_j(\eps^k \cdot, \eps^k \cdot))_j$ solve \eqref{eq:main linear}.  
+
 We will now show that
 \begin{equation}\label{thetak below the barrier}
 |\theta_k| \leq 2 + 2^{-k_0} \paren{|x-\Gamma_k(t)|^{1/4} - 2^{1/4}}_+
@@ -1202,7 +1222,14 @@ holds for all $k \geq 0$.
 
 Since $|\theta_0|\leq 2$ by assumption, we know in particular that \eqref{thetak below the barrier} holds at $k=0$.  
 
-This is sufficient for us to apply Lemma \ref{thm:harnack shifted} to each $\theta_k$ in order.  
+This is sufficient for us to apply Lemma \ref{thm:harnack shifted} to each $\theta_k$ (or to $-\theta_k$ as appropriate) in order.  We conclude that \eqref{thetak below the barrier} holds for all $k \geq 0$.  
+%\[ \abs{\theta_{k+1}(t,x)} \leq 2 + 2^{-k_0} \paren{|x-\Gamma_{k+1}(t)|^{1/4} - 2^{1/4}}_+. \]
+
+Each $\theta_k$ is between $-2$ and 2 on $[-5,0]\times B_2(\Gamma_k)$.  But recall that each $\Gamma_k$ is Lipschitz with constant $k C_\gamma$.  Thus $|\Gamma_k(t)|\leq 1$ for $t \in [-(k C_\gamma)\n, 0]$.  On that time interval, 
+\[ \abs{\theta_k(t,x)} \leq 2 \qquad \forall x \in B_1(0). \]
+
+We conclude that
+\[ \abs{ \sup_{[-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) - \inf_{[-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) } \leq 4 \paren{\frac{2}{2-\lambda}}^{-k}. \]
 
 \end{proof}
 
