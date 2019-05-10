@@ -744,7 +744,7 @@ We've completed the essential version of the Caccioppoli estimate.  However, muc
 
 
 \begin{lemma}[Energy inequality] \label{thm:energy inequality}
-Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve
+Let $\theta \in L^2(-T,0; H_D^{1/2}(\Omega))$ and $u \in L^\infty(-T,0; L^2(\Omega))$ solve
 \begin{align*}
 \del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0,
 \\ \div u = 0
@@ -752,12 +752,12 @@ Let $\theta \in L^2(0,T; H_D^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega
 in the sense of distributions.  Let
 \[ u = \ulow + \uhigh \]
 where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in L^\infty(0,T; \Lip(\Omega)) \cap L^\infty(0,T; \dot{C}^{3/4}(\Omega)$.  
-Suppose that $\Gamma, \gamma \in \Lip(0,T)$ satisfy $\norm{\dot{\gamma}}_\infty \leq C_\gamma$ and
+Suppose that $\Gamma, \gamma \in \Lip([-T,0])$ satisfy $\norm{\dot{\gamma}}_\infty \leq C_\gamma$, $\gamma(0)=0$, and
 \[ \dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \Gamma(t) + \gamma(t)). \]
 
-Then there exists a $\phi \in C^2(\Omega)$ such that
-\[ \theta = \theta_+ + \phi(\cdot-\Gamma) - \theta_- \]
-satisfies the inequality
+Then for any $\phi \in C^2(\Omega)$ such that $|x|^{3/4} \grad \phi(x)| \in L^\infty$, the functions
+\[ \theta_+ := \paren{\theta - \phi(\cdot-\Gamma)}_+, \qquad \theta_- := \paren{\phi(\cdot-\Gamma) - \theta}_+ \]
+satisfy the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
 with the constant $C$ depending on $C_\gamma$ and $T$, on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and $\norm{\ulow}_\Lip$, and on $\norm{D^2 \phi}_\infty$, $\norm{\grad\phi}_\infty$, and $\sup \norm{|x|^{3/4} \grad\phi(x)}_\infty$.  
 \end{lemma}
@@ -783,23 +783,25 @@ Time for the low pass term.
 
 Recall that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t, \Gamma+\gamma) \]
-and the low pass term is 
-\[ \int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma). \]
+so
+\[ \ulow(t,x) - \dot{\Gamma}(t) = \ulow(t,x) - \ulow(t,\Gamma+\gamma) + \dot{\gamma}. \]
 
-Calculate
-\[ \ulow(t,x) - \dot{\Gamma}(t) = \ulow(t,x) - \ulow(t,\Gamma+\gamma) - \dot{\gamma} \leq |x-\Gamma-\gamma|^{3/4}. \]
+By assumption, $|\dot{\gamma}|\leq C_\gamma$ and so for $t \in [-T,0]$ we have $|\gamma(t)| \leq T C_\gamma$.  
 
-It's easy to bound
-\[ \dot{\gamma} \grad\phi(x-\Gamma) \leq C_\gamma \norm{\grad\phi}_\infty. \]
+Since $\ulow$ is Lipschitz and H\"{o}lder continuous,
+\begin{align*} 
+|\ulow(t,x) - \ulow(t,\Gamma+\gamma)| &\leq  |\ulow(t,x)-\ulow(t,\Gamma)| + |\ulow(t,\Gamma) - \ulow(t,\Gamma+\gamma)| 
+\\ &\leq \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4} + \norm{\ulow}_\Lip T C_\gamma. 
+\end{align*}
 
-We can bound
-\[ \ulow(t,x) - \ulow(t,\Gamma+\gamma) = (x)-(\Gamma) + (\Gamma)-(\Gamma+\gamma) \leq \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4} + \norm{\ulow}_\Lip |t| C_\gamma. \]
+Plugging these bounds int [cite] we obtain
+\[ \abs{\ulow(t,x) - \dot{\Gamma}(t)} \leq (1+\norm{\grad\ulow}_\infty T) C_\gamma + \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4}. \]
 
-All in all, for $t \in [-T,0]$,
-\[ \abs{(\ulow-\dot{\Gamma}) \grad\phi(x-\Gamma)} \leq C(\phi, C_\gamma, \bracket{\ulow}_{3/4}, \norm{\ulow}_\Lip, T). \]
-
-Thus
-\[ \int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma). \]
+Now we can bound the low pass term
+\begin{align*}
+\int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma) &\leq (1+\norm{\grad\ulow}_\infty T) C_\gamma \int |\grad\phi(x-\Gamma)| \theta_+ \,dx +  \bracket{\ulow}_{3/4} \int |x-\Gamma|^{3/4} \theta_+ |\grad \phi(x-\Gamma)| \,dx
+\\ &\leq (1+\norm{\grad\ulow}_\infty T) C_\gamma \norm{\grad\phi}_\infty \int \theta_+ \,dx +  \bracket{\ulow}_{3/4} \norm{|x|^{3/4} \grad\phi(x)}_\infty \int \theta_+ \,dx.
+\end{align*}
 
 From this the result follows.  
 \end{proof}
@@ -1108,7 +1110,7 @@ This concludes the proof.
 In this section we prove the main theorem.  
 
 \begin{proof}
-We'll show that if $\theta \in L^\infty([-5,0] \times \Omega)$ solves \eqref{eq:main nonlinear} on $[-5,0]\times \Omega$ then $\theta$ is H\"{o}lder continuous at the point $(0,0)$ (assuming $0 \in \bar{\Omega}$.  Up to translation and scaling, this will be sufficient to show continuity at all points in the domain, with a constant depending on $\Omega$ and on the time we wait.  
+We'll show that if $\theta$ with $\norm{\theta}_{L^\infty([-5,0] \times \Omega)} \leq 2$ solves \eqref{eq:main nonlinear} on $[-5,0]\times \Omega$ then $\theta$ is H\"{o}lder continuous at the point $(0,0)$ (with possibly $0 \in \bar{\Omega}$).  Up to translation and scaling, this will be sufficient to show continuity at all points in the domain, with a constant depending on $\Omega$ and on the time we wait.  
 
 From Section \ref{sec:littlewood paley}, we know that 
 \[ \R^\perp \theta = \sum_{j=j_0}^\infty u_j \]
@@ -1116,26 +1118,29 @@ for a sequence $(u_j)_j$ calibrated with some constant $\kappa = \kappa(\Omega)$
 
 Choose a constant $0 < \eps < 1/5$ such that
 \begin{equation}\label{eps is small enough for Cgamma} 
-5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \leq \eps\n - 3. 
+5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps\n - 3. 
 \end{equation}
 
-Denote
-\[ \sum_k = \sum_{j > - k \ln(\eps)} \]
-while
-\[ \sum^k = \sum_{j \leq -k \ln(\eps)}. \]
+For notational convenience, denote
+\[ \sum_k = \sum_{j > - k \ln(\eps)}, \qquad \sum^k = \sum_{j \leq -k \ln(\eps)}. \]
 
-Define
+For integers $k \geq 0$ consider the domains
+\[ \Omega_k := \{x \in \R^2: \eps^k x \in \Omega\} \]
+and define the following functions on $[-5,0]\times \Omega_k$:
 \begin{align*} 
 \theta_k(t,x) &:= (1-\lambda)^{-k} \theta(\eps^k t, \eps^t x), \\
-\Omega_k &:= \{x \in \R^2: \eps^k x \in \Omega\}, \\
 \ulowth{k}(t,x) &:= \sum^k u_j(\eps^k t, \eps^k x), \\
-\uhighth{k}(t,x) &:= \sum_k u_j(\eps^k t, \eps^k x), \\
-\Gamma_0(t) &:= 0 \\
-\dot{\gamma}_k(t) &:= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \dot{\Gamma}_k(t) \\
-\gamma_k(0) &:= 0 \\
-\Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t). 
+\uhighth{k}(t,x) &:= \sum_k u_j(\eps^k t, \eps^k x).  
 \end{align*}
-Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof.  
+
+For $t \in [-5,0]$ and $k \geq 0$ define $\Gamma_k, \gamma_k: [-5,0] \to \R^2$ by the following ODEs:
+\begin{align*}
+\Gamma_0(t) &:= 0, \\
+\gamma_k(0) &:= 0, \\
+\dot{\gamma}_k(t) &:= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \dot{\Gamma}_k(t) \\
+\Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t), \qquad k \geq 1.
+\end{align*}
+Use [citation] some lemma from Bahouri-Chemin-Danchin that's a generalization of Picard-Lindelof to prove that these $\gamma$ exist.  Each $\ulowth{k}$ is a Lipschitz-in-space vector field, and each $\Gamma_k + \gamma_k$ is a flow along that vector field which ends up at the origin at $t=0$.  In particular, since  $\ulowth{k}$ is tangential to the boundary of $\Omega_k$ and has unique flows, the flow $\Gamma_k + \gamma_k$ cannot exit the region $\Omega_k$ and so our expressions remain well-defined.  
 
 From Lemma \ref{thm:scaling}, we know that $\theta_k$ and the calibrated sequence $(u_j(\eps^k \cdot, \eps^k \cdot))_j$ solve \eqref{eq:main linear}.  By Lemma~\ref{thm:calibration is good}, we know that independently of $k$
 \[ \norm{\Lambda^{-1/4} \uhighth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq C \kappa \]
@@ -1143,35 +1148,39 @@ etc.
 Particularly
 \[ \norm{\grad \ulowth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq 2 \kappa. \]
 
-Recall the bounds, which will be rephrased to match the proofs above later (the above will be rephrased, that is),
-\[ \norm{\Lambda^{-1/4} \uhighth{k} }_\infty \leq \sum_k \eps^{-k/4} 2^{-j/4} \kappa \leq \eps^{-k/4} C 2^{k \ln_2(\eps) /4} \kappa = C \kappa \]
-for some universal constant $C$ (it's literally a decimal, it's that universal).  Similarly, for some different universal constant,
-\[ \norm{\grad \uhighth{k} }_\infty \leq \sum^k \eps^{k} 2^{j} \kappa \leq \eps^{k} C 2^{-k \ln_2(\eps)} \kappa = C \kappa. \]
-For each norm of interest, there's a constant corresponding to that norm such that, for $\ulow$ and $\uhigh$, it's less than $C \kappa$.  Note that these bounds do not depend on $k$.  
+%I want to claim that 
+%\[ \dot{\Gamma}_k(t) = \sum^{k-1} (\eps^k t, \eps^k \Gamma_k(t)). \]
 
-I want to claim that 
-\[ \dot{\Gamma}_k(t) = \sum^{k-1} (\eps^k t, \eps^k \Gamma_k(t)). \]
-This makes sense, because $\Gamma_{k+1}(t) = \eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)$.  
-
-Well, $\dot{\gamma}_0(t) = \ulowth{0}(t,\gamma_0(t))$.  Moreover, 
-\[ \ulowth{k}(t,\Gamma_{k+1}(t)) = \ulowth{k}(\eps\n \eps t, \eps\n \bracket{\gamma_k(\eps t) + \Gamma_k(\eps t)}) \]
-or
+%Notice that $\dot{\gamma}_0(t) = \ulowth{0}(t,\Gamma_0(t) + \gamma_0(t))$.  
+By construction, for $k \geq 0$ we have $\Gamma_{k+1}(t) = \eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)$.  Therefore
 \begin{align*} 
-\sum^k u_j(\eps^{k+1} t, \eps^{k+1} \Gamma_{k+1}(t)) &= \sum^k u_j(\eps^k \eps t, \eps^k \bracket{\gamma_k(\eps t) + \Gamma_k(\eps t)})
-\\ &= \ulowth{k}(\eps t, \gamma_k(\eps t) + \Gamma_k(\eps t))
+\dot{\Gamma}_{k+1}(t) &= \del_t \bracket{\eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)}
 \\ &= \dot{\gamma}_k(\eps t) + \dot{\Gamma}_k(\eps t)
-\\ &= \del_t \bracket{\eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)}
-\\ &= \dot{\Gamma}_{k+1}(t).
+\\ &= \ulowth{k}(\eps t, \gamma_k(\eps t) + \Gamma_k(\eps t))
+\\ &= \ulowth{k}(\eps t, \eps \Gamma_{k+1}(t)).  
 \end{align*}
 
-In other words,
-\[ \dot{\Gamma}_k(t) = \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t)) \qquad k \geq 2. \]
+%Well, $\dot{\gamma}_0(t) = \ulowth{0}(t,\gamma_0(t))$.  Moreover, 
+%\[ \ulowth{k}(t,\Gamma_{k+1}(t)) = \ulowth{k}(\eps\n \eps t, \eps\n \bracket{\gamma_k(\eps t) + \Gamma_k(\eps t)}) \]
+%or
+%\begin{align*} 
+%\sum^k u_j(\eps^{k+1} t, \eps^{k+1} \Gamma_{k+1}(t)) &= \sum^k u_j(\eps^k \eps t, \eps^k \bracket{\gamma_k(\eps t) + \Gamma_k(\eps t)})
+%\\ &= \ulowth{k}(\eps t, \gamma_k(\eps t) + \Gamma_k(\eps t))
+%\\ &= \dot{\gamma}_k(\eps t) + \dot{\Gamma}_k(\eps t)
+%\\ &= \del_t \bracket{\eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)}
+%\\ &= \dot{\Gamma}_{k+1}(t).
+%\end{align*}
+%
+%In other words,
+%\[ \dot{\Gamma}_k(t) = \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t)) \qquad k \geq 2. \]
 
-With this in hand, we can bound the size of $\gamma_k$.  Namely,
+With this in hand, we can bound the size of $\gamma_k$.  Namely, for $k \geq 1$, 
 \begin{align*}
 \dot{\gamma}_k(t) &= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \dot{\Gamma}_k(t)
+\\ &= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \ulowth{k-1}(\eps t, \eps \Gamma_k(t))
 \\ &= \sum^k u_j(\eps^k t, \eps^k \Gamma_k(t) + \eps^k \gamma_k(t)) - \sum^{k-1} u_j(\eps^k t, \eps^k \Gamma_k(t))
-\\ &= \sum^{k-1} \bracket{u_j(\eps^k t, \eps^k \Gamma_k(t)+\eps^k \gamma_k(t)) - u_j(\eps^k t, \eps^k \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots).
+\\ &= \sum^{k-1} \bracket{u_j(\eps^k t, \eps^k \Gamma_k(t)+\eps^k \gamma_k(t)) - u_j(\eps^k t, \eps^k \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots)
+\\ &= \bracket{\ulowth{k-1}\big(\eps t, \eps \Gamma_k(t)+\eps \gamma_k(t)\big) - \ulowth{k-1}(\eps t, \eps \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots).
 \end{align*}
 The sum $\sum^{k-1} u_j(\eps^k \cdot, \eps^k \cdot) = \ulowth{k-1}(\eps \, \cdot, \eps \, \cdot)$ is Lipschitz in space, with Lipschitz constant less than $2 \eps \kappa$.  Moreover, each $u_j$ has $\norm{u_j}_\infty \leq \kappa$.  Thus both terms of $\dot{\gamma}_k(t)$ are bounded
 \[ |\dot{\gamma}_k(t)| \leq 2 \eps \kappa |\gamma_k(t)| - \kappa \ln_2(\eps). \]
@@ -1185,10 +1194,15 @@ To account for $\gamma_0$, define
 so that for all $k \geq 0$ and $t \in [-5,0]$
 \[ |\dot{\gamma}_k(t)| \leq C_\gamma. \]
 
-Lastly, let us state for the record that
-\[ \del_t \bracket{\gamma_k(t) + \Gamma_k(t)} = \ulowth{k}(t,\gamma_k(t)+\Gamma_k(t)). \]
+We will now show that
+\begin{equation}\label{thetak below the barrier}
+|\theta_k| \leq 2 + 2^{-k_0} \paren{|x-\Gamma_k(t)|^{1/4} - 2^{1/4}}_+
+\end{equation}
+holds for all $k \geq 0$.  
 
-Once I get this trimmed down to be readable, I should be able to apply the Harnack inequality to each $\theta_k$ which proves the result.  The only concern is that when I have to flip it upside down, have I proved that the bound from below is maintained?  Surely I was supposed to add something, or else I'm proving that the function is 0 at the point in question.  If I never have to flip, that would be true.  Oh lord I really missed something.  
+Since $|\theta_0|\leq 2$ by assumption, we know in particular that \eqref{thetak below the barrier} holds at $k=0$.  
+
+This is sufficient for us to apply Lemma \ref{thm:harnack shifted} to each $\theta_k$ in order.  
 
 \end{proof}
 
