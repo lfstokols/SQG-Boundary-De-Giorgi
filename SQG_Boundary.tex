@@ -1130,8 +1130,11 @@ for a sequence $(u_j)_j$ calibrated with some constant $\kappa = \kappa(\Omega)$
 
 Choose a constant $0 < \eps < 1/5$ such that
 \begin{equation}\label{eps is small enough for Cgamma} 
-5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps\n - 3. 
+5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps\n - 3,
 \end{equation}
+
+%\[ 5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps^{-a k}/k \qquad \forall k\geq 0. \]
+%critical point at $k = -1/(a \ln(\eps))$, at that point the bound is $\leq -a \ln(\eps) \eps^{1/\ln(\eps)} = - a \ln(\eps) e$
 
 For notational convenience, denote
 \[ \sum_k = \sum_{j > - k \ln(\eps)}, \qquad \sum^k = \sum_{j \leq -k \ln(\eps)}. \]
@@ -1230,6 +1233,20 @@ Each $\theta_k$ is between $-2$ and 2 on $[-5,0]\times B_2(\Gamma_k)$.  But reca
 
 We conclude that
 \[ \abs{ \sup_{[-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) - \inf_{[-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) } \leq 4 \paren{\frac{2}{2-\lambda}}^{-k}. \]
+
+In particular, for some positive constant $C$ such that
+\[ \eps^{C k} \leq (k C_\gamma)\n \qquad \forall k \geq 0, \]
+we can say that
+\[ |t|^2 + |x|^2 \leq \eps^{(1+C)k} \]	
+implies that $(t,x) \in [-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)$ which in turn implies that
+\[ \abs{\theta(t,x) - \theta(0,0)} \leq  4 \paren{\frac{2}{2-\lambda}}^{-k}. \]
+
+In other words,
+\begin{align*} 
+\abs{\theta(t,x) - \theta(0,0)} &\leq 4 \paren{\frac{2}{2-\lambda}}^{ -\frac{1}{1+C} \log_\eps(|t|^2 - |x|^2)  + 1} 
+\\ &= 4 \paren{\frac{2}{2-\lambda}} \exp\bracket{\ln\paren{\frac{2}{2-\lambda}} \frac{\ln(|t|^2 + |x|^2)}{-(1+C)\ln(\eps)}}
+\\ &= \frac{8}{2-\lambda} (|t|^2 + |x|^2)^{-\frac{\ln(2) - \ln(2-\lambda)}{(1+C)\ln(\eps)}}.
+\end{align*}
 
 \end{proof}
 
