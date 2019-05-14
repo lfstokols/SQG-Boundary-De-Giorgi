@@ -162,7 +162,7 @@ The existence of a weak solution (meaning solution in the sense of distributions
 
 The technique to prove this is, like in [citation, Caff \& Vasseur], to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a Harnack inequality for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the Harnack inequality again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
 
-The difficulty is in finding a bound on $u$ which remains bounded no matter how much we zoom in.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can show the Harnack inequality with $\BMO$ drift using De Giorgi's method with a shifting refrence frame.  
+The difficulty is in finding a bound on $u$ which remains bounded no matter how much we zoom in.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can show the Harnack inequality with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
 
 In the case of bounded domains, it is not known that the Riesz operator is bounded $L^\infty \to \BMO$.  Another well known scaling invariant function space is the Besov space $B^0_{\infty,\infty}$, and this is closer to what we want.  
 
@@ -212,7 +212,7 @@ If $f$ and $g$ are non-negative functions with disjoint support (i.e. $f(x)g(x) 
 \[ \int \Lambda^s f \Lambda^s g \,dx \leq 0. \]
 \end{lemma}
 
-This proves, in particular, that $-\int \theta_+ \Lambda \theta_-$ is a positive term (hence dissipational and extraneous) and that $\int \Lambda^{1/2} (\theta-\psi) \Lambda^{1/2} (\theta-\psi)$ breaks down (bilinearly) into the doubly positive, the doubly negative, and the cross term, all of which are positive and hence each of which is bounded.  
+This proves, in particular, that $-\int \theta_+ \Lambda \theta_-$ is a positive term (hence dissipational and extraneous). 
 
 \begin{proof}
 Use the characterization from Caffarelli-Stinga.  There exist non-negative functions $K(x,y)$ and $B(x)$, depending on the parameter $s$, such that
@@ -223,7 +223,7 @@ Since $f$ and $g$ are non-negative and disjoint, the $B$ term vanishes.  Moreove
 Since $K$ is non-negative, the result follows.  
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{thm:H1 and H1}
 For all functions $f$ in $H_D^1$,
 \[ \int \abs{\grad f}^2 = \int \abs{\Lambda f}^2. \]
 
@@ -260,15 +260,15 @@ Here $\bar{f}$ is the extension of $f$ to $\R^2$ and $\paren{-\Laplace}^s$ is de
 \end{lemma}
 
 \begin{proof}
-Let $g$ be any Schwarz function in $L^2(\R^2)$, and let $f$ be a function in $H^{s+1}_D$.  Let $E:H^1(\Omega) \to H^1(\R^2)$ be a bounded extension operator, where $H^1$ denotes the classical Sobolev space defined using the gradient.  Define the function
-\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g E \Lambda^{s-z} f. \]
+Let $g$ be any Schwarz function in $L^2(\R^2)$, and let $f$ be a function in $H^{s+1}_D$.  Let $E:H^1_D(\Omega) \to H^1(\R^2)$ be a the extension-by-zero operator, where $H^1$ denotes the classical Sobolev space defined using the gradient.  Define the function
+\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g E \Lambda^{s-z} f, \qquad z \in \C, \Re(z) \in [0,1]. \]
 
-When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{\Lambda^s f}_2$.  Hence
+When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{\Lambda^s f}_2$ since $\Lambda^{i t}$ is a unitary operator on $L^2$ for any $t \in \R$.  Hence
 \[ \Phi(z) \leq \norm{g}_2 \norm{f}_{H^s_D}. \]
 
 When $\Re(z)=1$, then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$ and 
 \[ \norm{\paren{-\Laplace}^{1/2} E\Lambda^{s-z} f}_{L^2(\R^2)} = \norm{\grad E \Lambda^{s-z} f}_{L^2(\R^2)} \leq \norm{E} \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)}. \]
-It remains to ask whether $\Lambda^{s-z} f$ is in $H^1_D$ so that we can apply lemma [citation].  However, this is true based on our assumption $f \in H^{1+s}_D$, since the various powers of $\Lambda$ all commute and form a semigroup.  Ergo
+It remains to ask whether $\Lambda^{s-z} f$ is in $H^1_D$ so that we can apply Lemma~\ref{thm:H1 and H1}.  However, this is true based on our assumption $f \in H^{1+s}_D$, since the various powers of $\Lambda$ all commute and form a semigroup.  Ergo
 \[ \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)} = \norm{\Lambda \Lambda^{s-z} f}_2 \leq \norm{\Lambda^s f}_2 \]
 and we can bound
 \[ \Phi(z) \leq \norm{E} \norm{g}_2 \norm{f}_{H^s_D}. \]
@@ -282,7 +282,7 @@ Since $0<\Re(z)<1$, $\ln(|\xi|)|\xi|$ is bounded as a multiplier operator from S
 
 This is sufficient now to apply the Hadamard three-lines lemma to our function $\Phi$.  
 
-It follows that for any Schwarz function $g \in L^2(\R^n)$ and $H_D^{s+1}$ function $f$, 
+It follows that for any Schwarz function $g \in L^2(\R^n)$ and any $f \in H_D^{s+1}$,
 \[ \int_{\R^2} \paren{-\Laplace}^{s/2} g E f = \Phi(s) \leq \norm{g}_{L^2(\R^2)} \norm{f}_{H_D^s}. \]
 
 Since Schwarz functions are dense in $L^2(\R^2)$, this means by density that 
@@ -296,7 +296,7 @@ Surely, right(?), test functions are all inside of $H_D^{1+s}$.  I should medita
 
 \begin{lemma}
 Let $g:\Omega \to \R$ be a non-negative function on $\Omega$ a bounded Lipschitz domain such that, for some $s \in (0,2)$,
-\[ \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+s}} < \infty. \]
+\[ \iint \frac{|g(x)-g(y)|^2}{|x-y|^{2+s}} \,dxdy < \infty. \]
 
 Then for any $f \in H_D^s(\Omega)$, the function $(f-g)_+ \in H_D^s(\Omega)$ as well.  
 \end{lemma}
@@ -310,10 +310,10 @@ Consider
 Because $\max(0,\cdot)$ is a contraction on $\R$ and $g$ is non-negative, we can say that $\abs{(f-g)_+(x)-(f-g)_+(y)} \leq \abs{(f-g)(x)-(f-g)(y)}$ and also $0 \leq (f-g)_+ \leq f$.  
 
 Looking at the integrand of the $K$ term, because $\max(0,\cdot)$ is a contraction on $\R$ we can bound
-\[ [(f(x)-g(x))_+ - (f(y)-g(y))_+]^2 \leq [f(x)-g(x) - f(y) + g(y)]^2 \leq [f(x)-f(y)]^2 + [g(x)-g(y)]^2. \]
+\[ [(f(x)-g(x))_+ - (f(y)-g(y))_+]^2 \leq [f(x)-g(x) - f(y) + g(y)]^2 \leq 2\paren{[f(x)-f(y)]^2 + [g(x)-g(y)]^2}. \]
 
 Thus
-\[ \HDh{(f-g)_+} \leq \iint [f(x)-f(y)]^2 K + \iint [g(x)-g(y)]^2 K + \int f^2 B = \iint [g(x)-g(y)]^2 K + \HD{s}{f}. \]
+\[ \HDh{(f-g)_+} \leq 2\iint [f(x)-f(y)]^2 K + 2\iint [g(x)-g(y)]^2 K + \int f^2 B = 2\iint [g(x)-g(y)]^2 K + 2\HD{s}{f}. \]
 
 %Since $g$ is continuous with two moduli of continuity,
 %\[ |g(x)-g(x)| \leq C\paren{\norm{g}_\Lip + \bracket{g}_{\gamma} } |x-y| \wedge |x-y|^\gamma. \]
@@ -361,7 +361,7 @@ We know from [citation, Caff \& Stinga] that for any $\Omega$
 Ostencibly this constant $C$ depends on $s$ and $\Omega$.  However, because both sides of the inequality scale the same way, this constant must depend only on the shape of Omega.  
 
 From \eqref{K bounded between orders} and the fact that $[f(x)-f(y)]$ vanishes unless at least one of $f(x)$ or $f(y)$ is non-zero,
-\[ \abs{\Rom{1}} \leq 2 \iint \indic{f \neq 0}(x) [g(x)-g(y)] [f(x)-f(y)] |x-y|^s K_{2s}. \]
+\[ \abs{\Rom{1}} \leq 2 \iint \indic{f \neq 0}(x) \abs{g(x)-g(y)} \cdot \abs{f(x)-f(y)} \cdot |x-y|^s K_{2s}. \]
 The term $|x-y|^2$ can be rewritten $[1 \wedge |x-y|^s] [1 \vee |x-y|^s]$ so we can break this up by Holder's inequality
 \[ \Rom{1} \leq C \paren{\iint \indic{f \neq 0}(x) [g(x)-g(y)]^2 (1 \wedge |x-y|^{2s}) K_{2s} }^{1/2} \paren{\iint [f(x)-f(y)]^2 (1 \vee |x-y|^{2s}) K_{2s} }^{1/2}. \]
 The kernel $(1 \wedge |x-y|^{2s}) K_{2s}$ is integrable in $y$ for $x$ fixed, and $(1 \vee |x-y|^{2s}) K_{2s}$ is $K_{2s}$ plus a function which is integrable in $y$ for $x$ fixed.  Therefore
@@ -554,7 +554,7 @@ The most important property of a calibrated sequence is that its sum decomposes 
 \begin{proposition} \label{thm:calibration is good}
 Let 
 \[ u = \sum_{j_0}^\infty u_j \]
-with the sum converging the the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\kappa$ and some center.  
+with the sum converging in the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\kappa$ and some center.  
 
 Then there exist some universal constants $C_i$ such that
 \[ u = \ulow + \uhigh \]
@@ -679,7 +679,7 @@ At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi$ term
 Since $B \geq 0$ (see Caff-Stinga [citation]) and $\psi$ is non-negative by assumption, the $B$ term is non-negative and so
 \[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \psi \geq \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y). \]
 The remaining integral is symmetric in $x$ and $y$, and the integrand is only nonzero if at least one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
-\[ \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) \leq 2 \iint \indic{\theta_+>0}(x) \abs{[\theta_+(x)-\theta_+(y)][\psi_t(x)-\psi_t(y)]} K(x,y). \]
+\[ \iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y) \leq 2 \iint \indic{\theta_+>0}(x) \abs{\theta_+(x)-\theta_+(y)} \cdot \abs{\psi_t(x)-\psi_t(y)} K(x,y). \]
 Now we can break up this integral using the Peter-Paul variant of H\"{o}lder's inequality.  
 \[ \abs{\iint [\theta_+(x)-\theta_+(y)][\psi(x)-\psi(y)] K(x,y)} \leq \eps \int \abs{\Lambda^{1/2}\theta_+}^2 + \frac{1}{\eps} \iint \indic{\theta_+>0}(x) [\psi(x)-\psi(y)]^2 K(x,y). \]
 
@@ -694,8 +694,6 @@ Combining [citation, like 4 different things are combined] we arrive at
 \end{proof}
 
 This is sufficient to prove that a solution to [cite] the PDE with $L^2$ initial data is $L^\infty$ in finite time.  
-
-Logan: I haven't completed this proof at all, I'm sure it's possible but I'm putting my energy elsewhere, especially since it's not strictly necessary.  
 
 \begin{proposition}[$L^2$ to $L^\infty$] \label{thm:L2 to Linfty}
 If $\theta$ and $u$ solve [cite] on $[0,T] \times \Omega$ and $\theta_0 \in L^2$, then for any time $S \in (0,T)$ there exists a constant $C = C(S)$ such that
@@ -755,7 +753,7 @@ where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in
 Suppose that $\Gamma, \gamma \in \Lip([-T,0])$ satisfy $\norm{\dot{\gamma}}_\infty \leq C_\gamma$, $\gamma(0)=0$, and
 \[ \dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \Gamma(t) + \gamma(t)). \]
 
-Then for any $\phi \in C^2(\Omega)$ such that $|x|^{3/4} \grad \phi(x)| \in L^\infty$, the functions
+Then for any $\phi \in C^2(\Omega)$ such that $|x|^{3/4} \grad \phi(x) \in L^\infty$, the functions
 \[ \theta_+ := \paren{\theta - \phi(\cdot-\Gamma)}_+, \qquad \theta_- := \paren{\phi(\cdot-\Gamma) - \theta}_+ \]
 satisfy the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
@@ -773,7 +771,7 @@ Now
 We arrive at
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (u-\dot{\Gamma}(t)) \cdot \grad\phi(x-\Gamma(t)) }. \]
 
-Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  Integrating by parts (or, since $\Lambda$ is self adjoint) and then applying the Lemma \ref{thm:weak product rule}
+Consider the high pass term $\int \theta_+ \uhigh\cdot\grad\phi$.  By inserting $\Lambda^{1/4}\Lambda^{-1/4}$ and then integrating by parts, we can apply Lemma \ref{thm:weak product rule} and obtain
 \[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\phi) \leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \paren{\norm{\grad\phi}_\infty + \norm{D^2 \phi}_\infty} \paren{\norm{\theta_+}_1 + |\supp(\theta_+)|^{1/2} \paren{ \norm{\theta_+}_{L^2} + \norm{\theta_+}_{H_D^{1/2}}}}. \]
 From H\"{o}lder's inequality with Peter-Paul, we obtain
 %\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\phi) \leq C(\phi,\eps) \norm{\Lambda^{1/4} \uhigh}_\infty \paren{\int \theta_+ + |\{\theta_+>0\}| + \int \theta_+^2 + \eps\n |\{\theta_+ > 0\}| + \eps \int \abs{\Lambda^{1/2} \theta_+}^2 }. \]
@@ -844,9 +842,9 @@ In particular,
 \[ \E_{k+1} \leq C^k \int_{-1-2^{-k}}^0 \int \theta_k^3. \]
 
 Applying the energy inequality $\theta$, $\phi$, and $\Gamma$ we obtain
-\[ \sup_{-1-2^{-k-1}<t<0} \int \theta_{k+1}^2 + \int_{-1-2^{-k-1}}^0 \int \abs{\Lambda^{1/2}\theta_{k+1}}^2 \leq C^k \int_{-1-2^{-k}}^0 \theta_k^2 = \E_k. \]
+\[ \sup_{-1-2^{-k-1}<t<0} \int \theta_{k+1}^2 + \int_{-1-2^{-k-1}}^0 \int \abs{\Lambda^{1/2}\theta_{k+1}}^2 \leq C^k \int_{-1-2^{-k}}^0 \int \theta_k^2 = \E_k. \]
 
-However, by Sobolev embedding and the fact that $H_D^{1/2}$ controls classical $H^{1/2}$ controls $L^4$,
+However, by Sobolev embedding and the fact that $H_D^{1/2}$ controls classical $H^{1/2}$ controls $L^4$, we know from Reisz-Thorin that the left side of the energy inequality controls the $L^3$ norm of $\theta_{k+1}$ so
 \[ \norm{\theta_{k+1}}_{L^3([-1-2^{-k-1},0]\times\Omega)} \leq C^k \E_k^{1/2}. \]
 
 Therefore
