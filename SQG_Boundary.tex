@@ -100,6 +100,8 @@
 \newcommand{\HD}[2]{\int \abs{\Lambda^{#1} #2}^2}
 \newcommand{\HDh}[1]{\HD{1/2}{#1}}
 
+\newcommand{\Cgamma}{C_g}
+
 \newcommand{\Rom}[1]{\MakeUppercase{\romannumeral #1}}
 
 \newcounter{step_count}[section]
@@ -750,14 +752,14 @@ Let $\theta \in L^2(-T,0; H_D^{1/2}(\Omega))$ and $u \in L^\infty(-T,0; L^2(\Ome
 in the sense of distributions.  Let
 \[ u = \ulow + \uhigh \]
 where $\Lambda^{-1/4} \uhigh \in L^\infty(0,T; L^\infty(\Omega))$ and $\ulow \in L^\infty(0,T; \Lip(\Omega)) \cap L^\infty(0,T; \dot{C}^{3/4}(\Omega)$.  
-Suppose that $\Gamma, \gamma \in \Lip([-T,0])$ satisfy $\norm{\dot{\gamma}}_\infty \leq C_\gamma$, $\gamma(0)=0$, and
+Suppose that $\Gamma, \gamma \in \Lip([-T,0])$ satisfy $\norm{\dot{\gamma}}_\infty \leq \Cgamma$, $\gamma(0)=0$, and
 \[ \dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \Gamma(t) + \gamma(t)). \]
 
 Then for any $\phi \in C^2(\Omega)$ such that $|x|^{3/4} \grad \phi(x) \in L^\infty$, the functions
 \[ \theta_+ := \paren{\theta - \phi(\cdot-\Gamma)}_+, \qquad \theta_- := \paren{\phi(\cdot-\Gamma) - \theta}_+ \]
 satisfy the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 } \]
-with the constant $C$ depending on $C_\gamma$ and $T$, on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and $\norm{\ulow}_\Lip$, and on $\norm{D^2 \phi}_\infty$, $\norm{\grad\phi}_\infty$, and $\sup \norm{|x|^{3/4} \grad\phi(x)}_\infty$.  
+with the constant $C$ depending on $\Cgamma$ and $T$, on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and $\norm{\ulow}_\Lip$, and on $\norm{D^2 \phi}_\infty$, $\norm{\grad\phi}_\infty$, and $\sup \norm{|x|^{3/4} \grad\phi(x)}_\infty$.  
 \end{lemma}
 
 \begin{proof}
@@ -784,21 +786,21 @@ Recall that
 so
 \[ \ulow(t,x) - \dot{\Gamma}(t) = \ulow(t,x) - \ulow(t,\Gamma+\gamma) + \dot{\gamma}. \]
 
-By assumption, $|\dot{\gamma}|\leq C_\gamma$ and so for $t \in [-T,0]$ we have $|\gamma(t)| \leq T C_\gamma$.  
+By assumption, $|\dot{\gamma}|\leq \Cgamma$ and so for $t \in [-T,0]$ we have $|\gamma(t)| \leq T \Cgamma$.  
 
 Since $\ulow$ is Lipschitz and H\"{o}lder continuous,
 \begin{align*} 
 |\ulow(t,x) - \ulow(t,\Gamma+\gamma)| &\leq  |\ulow(t,x)-\ulow(t,\Gamma)| + |\ulow(t,\Gamma) - \ulow(t,\Gamma+\gamma)| 
-\\ &\leq \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4} + \norm{\ulow}_\Lip T C_\gamma. 
+\\ &\leq \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4} + \norm{\ulow}_\Lip T \Cgamma. 
 \end{align*}
 
 Plugging these bounds int [cite] we obtain
-\[ \abs{\ulow(t,x) - \dot{\Gamma}(t)} \leq (1+\norm{\grad\ulow}_\infty T) C_\gamma + \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4}. \]
+\[ \abs{\ulow(t,x) - \dot{\Gamma}(t)} \leq (1+\norm{\grad\ulow}_\infty T) \Cgamma + \bracket{\ulow}_{3/4} |x-\Gamma|^{3/4}. \]
 
 Now we can bound the low pass term
 \begin{align*}
-\int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma) &\leq (1+\norm{\grad\ulow}_\infty T) C_\gamma \int |\grad\phi(x-\Gamma)| \theta_+ \,dx +  \bracket{\ulow}_{3/4} \int |x-\Gamma|^{3/4} \theta_+ |\grad \phi(x-\Gamma)| \,dx
-\\ &\leq (1+\norm{\grad\ulow}_\infty T) C_\gamma \norm{\grad\phi}_\infty \int \theta_+ \,dx +  \bracket{\ulow}_{3/4} \norm{|x|^{3/4} \grad\phi(x)}_\infty \int \theta_+ \,dx.
+\int (\ulow - \dot{\Gamma}) \theta_+ \grad\phi(x-\Gamma) &\leq (1+\norm{\grad\ulow}_\infty T) \Cgamma \int |\grad\phi(x-\Gamma)| \theta_+ \,dx +  \bracket{\ulow}_{3/4} \int |x-\Gamma|^{3/4} \theta_+ |\grad \phi(x-\Gamma)| \,dx
+\\ &\leq (1+\norm{\grad\ulow}_\infty T) \Cgamma \norm{\grad\phi}_\infty \int \theta_+ \,dx +  \bracket{\ulow}_{3/4} \norm{|x|^{3/4} \grad\phi(x)}_\infty \int \theta_+ \,dx.
 \end{align*}
 
 From this the result follows.  
@@ -813,7 +815,7 @@ Suppose that for some $\Gamma:[-T,0]\to \R^2$,
 \[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \qquad \forall x \notin B_2(\Gamma(t)). \]
 Suppose also that
 \[ \ulow(t,\Gamma(t)+\gamma(t)) = \dot{\Gamma}(t) + \dot{\gamma}(t) \]
-for some $\gamma$ with Lipschitz norm less than $C_\gamma$.  
+for some $\gamma$ with Lipschitz norm less than $\Cgamma$.  
 
 Then there exist constants $\delta_0>0$ and $\eps > 0$ such that
 \[ \int_{-2}^0 \int_{B_2(\Gamma(t))} \max(\theta,0)^2 \,dxdt \leq \delta_0 \]
@@ -863,7 +865,7 @@ Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] satisfying the desi
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
 \[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 
-There exists a small constant $\mu$ such that the three conditions
+There exists a small constant $\mu > 0$ such that the three conditions
 \[ \abs{\{\theta \geq 1\} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0, \]
 \[ \abs{\{0 < \theta < 1\} \cap [-4,0]\times B_4(\Gamma)} \leq \mu, \]
 \[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4 |B_4|}{2} \]
@@ -873,7 +875,7 @@ cannot simultaneously be met.
 \begin{proof}
 Suppose that the theorem is false, i.e. that there exist functions $\theta_n: [-5,0]\times \Omega_n \to \R$ and $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$ which satisfy the desired bounds on $\Omega_n$ some scaling of $\Omega$, namely that
 \[ \dot{\Gamma}_n + \dot{\gamma}_n = \ulow^n(t, \Gamma_n + \gamma_n) \]
-for paths $\Gamma_n:[-5,0] \to \Omega_n$ and $\gamma_n:[-5,0]\to \Omega_n$ satisfying $|\dot{\gamma}| \leq C_\gamma$, but for which
+for paths $\Gamma_n:[-5,0] \to \Omega_n$ and $\gamma_n:[-5,0]\to \Omega_n$ satisfying $|\dot{\gamma}| \leq \Cgamma$, but for which
 \[ \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \]
 
 Let $\phi$ be a function which vanishes on $B_2$ but has all the growth and smoothness properties.  In particular assume that $\phi$ exceeds $2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
@@ -889,8 +891,8 @@ This proves in particular that $\theta_+ \in L^2([-2,0]; H_D^{1/2}(\Omega))$ is 
 What's more, $\norm{\theta_+^3}_{H_D^{1/2}(\Omega_n)}$ is uniformly bounded because
 \begin{align*} 
 \norm{\Lambda^{1/2}(\theta_+^3)}_2^2 &= \iint [\theta_+(x)^3 - \theta_+(y)^3]^2 K + \int \theta_+^6 B 
-\\ &\leq \iint \theta_+(x)^4 [\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^4[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^4 \int \theta_+^2 B
-\\ &\leq \norm{\theta_+}_\infty^4 \norm{\theta_+}_{H_D^{1/2}}^2 \leq C.
+\\ &\leq 2\iint \theta_+(x)^4 [\theta_+(x)-\theta_+(y)]^2 K + 2\iint \theta_+(y)^4[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^4 \int \theta_+^2 B
+\\ &\leq C \norm{\theta_+}_\infty^4 \norm{\theta_+}_{H_D^{1/2}}^2 \leq C.
 \end{align*}
 
 By Lemma \ref{thm:hadamard 3 lines}, if $E \theta_+^3$ is the zero-extension of $\theta_+^3$ from $\Omega_n$ to $\R^2$, then
@@ -903,7 +905,7 @@ We will bound the terms on the right hand side one at a time.
 
 Each instance of $C$ in the following bounds is independent of $n$.  
 
-Recall $|\ulow^n - \dot{\Gamma}_n| \leq C \kappa + 4C_\gamma$ on $[-4,0]\times B_3(\Gamma_n)$ which is precisely the support of $\theta_+$.  Integrating by parts,
+Recall $|\ulow^n - \dot{\Gamma}_n| \leq C \kappa + 4\Cgamma$ on $[-4,0]\times B_3(\Gamma_n)$ which is precisely the support of $\theta_+$.  Integrating by parts,
 \[ \int \varphi (\ulow^n - \dot{\Gamma}_n) \grad \theta_+^3 = \int \grad\varphi (\ulow^n - \dot{\Gamma}_n) \theta_+^3 \leq C \norm{\grad \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}. \]
 Similarly,
 \[ \int \varphi \theta_+^2 (\ulow^n - \dot{\Gamma}_n) \cdot \grad \phi \leq C \norm{ \grad \varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}. \]
@@ -989,14 +991,14 @@ We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce a Harnac
 \begin{proposition}[Oscillation Lemma] \label{thm:oscillation general}
 Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lambda^{-1/4} \uhigh \in L^\infty$ while $\ulow \in \Lip \cap L^{3/4}$.  Moreover, let $\gamma$ and $\Gamma$ be such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
-and $\norm{\dot{\gamma}}_\infty \leq C_\gamma$. 
+and $\norm{\dot{\gamma}}_\infty \leq \Cgamma$. 
 
-There exists a number $k_0$ and a small constant $\lambda>0$ such that if for all $t \in [-5,0]$, $x \in \Omega$,
+There exists a number $k_0$ such that if for all $t \in [-5,0]$, $x \in \Omega$,
 \[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \]
 and
 \[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2} \]
 then for all $t \in [-1,0]$, $x \in B_1(\Gamma)$ we have
-\[ \theta(t,x) \leq 2 - \lambda. \]
+\[ \theta(t,x) \leq 2 - 2^{-k_0}. \]
 \end{proposition}
 
 \begin{proof}
@@ -1027,7 +1029,7 @@ For the original function $\theta$, this means that for $(t,x) \in [-1,0] \times
 \[ \theta(t,x) \leq 2 - 2^{-k_0}. \]
 \end{proof}
 
-That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  But first, a quice technical lemma:
+That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  But first, a quick technical lemma:
 
 \begin{lemma} \label{thm:technical scaling of barrier}
 There exist a constant $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
@@ -1053,8 +1055,8 @@ We are ready to prove the shifted version of the Harnack Inequality.
 \begin{lemma}[Oscillation Lemma, with shift] \label{thm:oscillation shifted}
 Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
-and $\norm{\gamma}_\Lip \leq C_\gamma$.  If $0 < \eps < 1/5$ is such that
-\[ 5 C_\gamma \leq \eps\n - 3 \]
+and $\norm{\gamma}_\Lip \leq \Cgamma$.  If $0 < \eps < 1/5$ is such that
+\begin{equation} \label{Cgamma and eps for harnack} 5 \Cgamma \leq \eps\n - 3 \end{equation}
 then the following holds:
 
 Let $k_0$ be as in Lemma \ref{thm:harnack general} and assume that for $(t,x) \in [-5,0]\times \Omega$
@@ -1066,11 +1068,15 @@ Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \
 \[ \abs{\frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda}} \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
 \end{lemma}
 
-If we only wish to show that by zooming horizontally by a large amount and zooming vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $C_\gamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The difficulty comes from the fact that $k_0$ itself depends on $C_\gamma$, and as we will see in the next section $C_\gamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $C_\gamma$ is easy to untangle (so long as $\eps C_\gamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
+If we only wish to show that by zooming horizontally by a large amount and zooming and translating vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $\Cgamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The important thing to pay attention for is the dependence of $\eps$ and $\Cgamma$ and $k_0$ on eachother.  
+
+As we will see in Section~\ref{sec:holder} when we apply this lemma, the constant $\Cgamma$ depends on $\eps$ and $k_0$ depends on $\Cgamma$.  In the following proof, the constant $\eps$ will need to be small relative to $\Cgamma$.  The assumption \eqref{Cgamma and eps for harnack} in this lemma turns out to be satisfiable, and now we must prove that it is sufficient.  
+
+%from the fact that $k_0$ itself depends on $\Cgamma$, and as we will see in the next section $\Cgamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $\Cgamma$ is easy to untangle (so long as $\eps \Cgamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
 
 \begin{proof}
 Take $\lambda$ such that
-\[ 2\lambda \leq 2^{-k_0}, \qquad \frac{2}{2-\lambda} \leq 1 + 2^{-k_0} \bar{\lambda} / 2, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
+\begin{equation} \label{lambda smallness assumptions} 2\lambda \leq 2^{-k_0}, \qquad (2+\lambda)(\frac{2}{2-\lambda}) \leq 2 + 2^{-k_0} \bar{\lambda}, \qquad \frac{2}{2-\lambda} \leq \alpha. \end{equation}
 for $\bar{\lambda}$ and $\alpha$ from Lemma \ref{thm:technical scaling of barrier}.  
 
 Denote 
@@ -1078,26 +1084,33 @@ Denote
 and
 \[ \phi(x) = \paren{|x|^{1/4} - 2^{1/4}}_+. \]
 
-We already proved in Lemma \ref{thm:oscillation general} that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that $|\bar{\theta}(t,x)| \leq 2$ when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$.  
+We already proved in Lemma \ref{thm:oscillation general} that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$,
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2-2^{-k_0}+\lambda} \leq \frac{2}{2-\lambda} \bracket{2-\lambda} = 2 \]
+and
+\[ \bar{\theta}(t,x) \geq \frac{2}{2-\lambda} \bracket{-2+\lambda} = -2. \]
 
-Similarly, the bound [cite] on $\theta$ becomes the equivalent bound on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}, \]
+Similarly, the bound [cite] on $\theta$ becomes the equivalent bounds on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
+\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)} \]
+and
 \[ \bar{\theta}(t,x) \geq \frac{2}{2-\lambda} \bracket{\lambda - 2 - 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
 
-Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  If $|y| \leq \eps\n$ then
-\[ \bar{\theta}(t,x) \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
+It remains to show that these various bounds on $\bar{\theta}$ imply the bound stipulated by the proposition.  
+
+Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  
+
+If $|y| \leq \eps\n$ then
+\[ \abs{\bar{\theta}(t,x)} \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
 If $|y| \geq \eps\n$ then from Lemma \ref{thm:technical scaling of barrier}, 
 \[ \bar{\lambda} + \alpha \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
-We assume that
-\[ (2+\lambda)(\frac{2}{2-\lambda}) \leq 2 + 2^{-k_0} \bar{\lambda}, \qquad \frac{2}{2-\lambda} \leq \alpha. \]
-Thus we rewrite the bound [cite] as
+
+From the assumptions \eqref{lambda smallness assumptions}, we can rewrite the bound [cite] as
 \[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(\eps |y|)} \]
 \[ \leq 2 + 2^{-k_0} \bar{\lambda} + 2^{-k_0} \alpha \phi(\eps |y|) \]
 \[ = 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
 \[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3). \]
 For $t \in [-5,0]$,
-\[ |y| - 5 C_\gamma \leq |y - \eps\n\gamma(\eps t)|. \]
-Thus, since by assumption $5 C_\gamma \leq \eps\n - 3$,
+\[ |y| - 5 \Cgamma \leq |y - \eps\n\gamma(\eps t)|. \]
+Thus, with assumption \eqref{Cgamma and eps for harnack},
 \[ |y| - \eps\n + 3 \leq |y-\eps\n\gamma(\eps t)|. \]
 
 Therefore, for $|y| \geq \eps\n$,
@@ -1202,9 +1215,9 @@ and hence
 \[ |\dot{\gamma}_k(t)| \leq -\kappa \ln_2(\eps) e^{10\eps \kappa}. \]
 
 To account for $\gamma_0$, define
-\[ C_\gamma = \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \]
+\[ \Cgamma = \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \]
 so that for all $k \geq 0$ and $t \in [-5,0]$
-\[ |\dot{\gamma}_k(t)| \leq C_\gamma. \]
+\[ |\dot{\gamma}_k(t)| \leq \Cgamma. \]
 
 Let us now produce a sequence of solutions $\theta_k$.  Define
 \[ \theta_0(t,x) := \theta(t,x) \]
@@ -1226,17 +1239,17 @@ Since $|\theta_0|\leq 2$ by assumption, we know in particular that \eqref{thetak
 This is sufficient for us to apply Lemma \ref{thm:harnack shifted} to each $\theta_k$ (or to $-\theta_k$ as appropriate) in order.  We conclude that \eqref{thetak below the barrier} holds for all $k \geq 0$.  
 %\[ \abs{\theta_{k+1}(t,x)} \leq 2 + 2^{-k_0} \paren{|x-\Gamma_{k+1}(t)|^{1/4} - 2^{1/4}}_+. \]
 
-Each $\theta_k$ is between $-2$ and 2 on $[-5,0]\times B_2(\Gamma_k)$.  But recall that each $\Gamma_k$ is Lipschitz with constant $k C_\gamma$.  Thus $|\Gamma_k(t)|\leq 1$ for $t \in [-(k C_\gamma)\n, 0]$.  On that time interval, 
+Each $\theta_k$ is between $-2$ and 2 on $[-5,0]\times B_2(\Gamma_k)$.  But recall that each $\Gamma_k$ is Lipschitz with constant $k \Cgamma$.  Thus $|\Gamma_k(t)|\leq 1$ for $t \in [-(k \Cgamma)\n, 0]$.  On that time interval, 
 \[ \abs{\theta_k(t,x)} \leq 2 \qquad \forall x \in B_1(0). \]
 
 We conclude that
-\[ \abs{ \sup_{[-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) - \inf_{[-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) } \leq 4 \paren{\frac{2}{2-\lambda}}^{-k}. \]
+\[ \abs{ \sup_{[-\eps^k (k \Cgamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) - \inf_{[-\eps^k (k \Cgamma)\n, 0] \times B_{\eps^k}(0)} \theta(t,x) } \leq 4 \paren{\frac{2}{2-\lambda}}^{-k}. \]
 
 In particular, for some positive constant $C$ such that
-\[ \eps^{C k} \leq (k C_\gamma)\n \qquad \forall k \geq 0, \]
+\[ \eps^{C k} \leq (k \Cgamma)\n \qquad \forall k \geq 0, \]
 we can say that
 \[ |t|^2 + |x|^2 \leq \eps^{(1+C)k} \]	
-implies that $(t,x) \in [-\eps^k (k C_\gamma)\n, 0] \times B_{\eps^k}(0)$ which in turn implies that
+implies that $(t,x) \in [-\eps^k (k \Cgamma)\n, 0] \times B_{\eps^k}(0)$ which in turn implies that
 \[ \abs{\theta(t,x) - \theta(0,0)} \leq  4 \paren{\frac{2}{2-\lambda}}^{-k}. \]
 
 In other words,
@@ -1250,9 +1263,7 @@ In other words,
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-\section{Waxing Philosophical}
+%\section{Waxing Philosophical}
 
-Our equation is
-\[ \del_t \theta + \ulow \cdot \grad \theta + \Lambda^{1/4} f \cdot \grad \theta + \Lambda \theta = 0. \]
 
 \end{document}
