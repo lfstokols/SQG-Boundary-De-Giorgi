@@ -474,7 +474,7 @@ Recall that $-\Laplace_D$ has some smallest eigenvalue $\lambda_0$ (depending on
 
 Our goal in this section is to prove the following proposition:
 
-\begin{lemma}
+\begin{lemma} \label{thm:u is calibrated}
 Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\gamma}$ boundary for some $\gamma \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists a calibrated sequence of functions $(u_j)_{j \in \Z}$ for some constant $\kappa = \kappa(\Omega)$ with center 0 (see Definition~\ref{def:calibrated}) such that
 \[ \grad^\perp \Lambda^{-1} \theta = \sum_{j \in \Z} u_j \]
 with the infinite sum converging in the sense of $L^2$.  
@@ -484,17 +484,31 @@ Moreover there exists some $j_0 \in \Z$ such that $u_j = 0$ for all $j < j_0$.
 
 Before we can prove this, we state a few important lemmas.  
 
-From IMT [citation] we have the following two lemmas
-\begin{lemma}
-IMT 3.6
+First we restate a known result from the literature.  
+\begin{lemma} \label{thm:IMT stuff}
+There exists a constant $C$ depending on $\Omega$ and on $\phi$ such that the following hold:
+
+For any $\alpha \in \R$ and $j \in \Z$
+\[ \norm{\Lambda^\alpha P_j f}_{L^\infty(\Omega)} \leq C 2^{\alpha j} \norm{f}_{L^\infty(\Omega)}. \]
+
+For any $\alpha \in \R$ and $j \geq j_0$
+\[ \norm{\grad \Lambda^\alpha P_j f}_{L^\infty(\Omega)} \leq C 2^{(1+\alpha) j} \norm{f}_{L^\infty(\Omega)}. \]
 \end{lemma}
 
-Possibly another lemma
-\begin{lemma}
-IMT 3.5?  3.3?
-\end{lemma}
+\begin{proof}
+The first claim is \cite{IMTbilinear} Lemma 3.5, and it is also an immediate corollary of \cite{IMT-schrodinger} Theorem 1.1.  
 
-The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  Classically, if a function is supported in fourier space in a single dyadic ring, then after taking the gradient it remains supported in that same dyadic ring.  In the case of our adapted Littlewood-Paley theory, the gradient operator may take a function with small support in frequency space and ``smear it out'' over all frequencies.  We prove below that while the gradient may increase the high frequencies, it is much more constrained on the low frequencies.  Logan: that's bad writing, fix it.  
+The second claim follows from \cite{IMTbilinear} Lemma 3.6.  This lemma requires that
+\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1 \]
+and only states the result for $j > 0$.  
+
+In \cite{FMP} it is proved that that if $\Omega$ is $C^{2,\alpha}$ then
+\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq T \]
+which, by a trivial modification of the proof in \cite{IMT bilinear}, is enough to prove the result stated here.  
+\end{proof}
+
+The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  Classically, if a function is supported in fourier space in a single dyadic ring, then after taking the gradient it remains supported in that same dyadic ring.  In the case of our adapted Littlewood-Paley theory, the gradient operator may take a function supported on a small range of freqencies and ``smear it out'' over all of freqency space, particularly over the high frequencies.  We prove below that if a function is supported on a small range of frequencies, its gradient will at least decay quickly on low frequencies.  
+
 \begin{lemma} \label{thm:grad and proj}
 For any function $f$,
 \[ \norm{P_i \grad P_j f}_\infty \leq C \min(2^j,2^i) \norm{f}_\infty. \]
@@ -502,11 +516,11 @@ For any function $f$,
 \begin{proof}
 Let $g$ be an $L^1$ function.  Then
 \[ \int g P_i \grad P_j f = \int (P_i g) \grad P_j f \leq C 2^j \norm{g}_1 \norm{f}_\infty \]
-from [citation] IMT-Bilinear, Lemma 3.6 and Proposition 3.3 (which is also IMT Boundedness of Spectral Multiplies for Schrodinger Operators on Open Sets, Theorem 1.1).  
+by Lemma \ref{thm:IMT stuff}.  
 
 Further integrating by parts,
 \[ \int g P_i \grad P_j f = - \int (\grad P_i g) P_j f \leq C 2^i \norm{g}_1 \norm{f}_\infty. \]
-This follows from the same theorems as above.  
+This also follows from Lemma \ref{thm:IMT stuff}.  
 
 The result follows.  
 \end{proof}
@@ -553,21 +567,20 @@ This is true independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by
 
 \end{proof}
 
-
+We are now ready to prove Proposition \ref{thm:u is calibrated}.  
 
 \begin{proof}
 For each $j \in \Z$, we define $u_j$ to be the rotation of the Riesz transform of the $j\ith$ Littlewood-Paley projection of $\theta$:
 \[ u_j := \grad^\perp \Lambda^{-1} P_j \theta. \]
 Qualitatively, we know that $\theta \in L^2$ and hence $u_j \in L^2$.  In fact, $u = \sum u_j$ in the $L^2$ sense.  
 
-Firstly, we know by [citation] Fornare, Metafune and Priola that if $\Omega$ is $C^{2,\alpha}$ then
-\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1. \]
-According to [citation] Iwabuchi, Matsuyama, and Taniguchi's paper Bilinear Estimates, Lemma 3.6, this is enough to show that
+By straightforward application of Lemma~\ref{thm:IMT stuff} we know that
 \[ \norm{u_j}_\infty \leq C \norm{\theta}_\infty. \]
 
 Since $u_j \in L^2$, we know that
 \[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
-Define $\bar{P}_j$ a projection which is 1 on the support of $P_j$ (functional calculus-wise).  Then $\bar{P}_j P_j = P_j$, and since both types of projections are spectral operators, they both commute with $\Lambda^s$.  We therefore rewrite
+
+Define $\bar{P}_j := P_{j-1} + P_j + P_{j+1}$.  Then $\bar{P}_j P_j = P_j$, and since the projections $P_i$ are spectral operators, they commute with $\Lambda^s$.  We therefore rewrite
 \[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
 We apply sequentially three bounded operators on $L^\infty$.  The outer two operators have bounded norm by [citation] IMT-Bilinear Proposition 3.3, and the inner operator has bounded norm by Lemma \ref{thm:grad and proj}, (and of course the perp operator is an isometry,) so 
 \[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
@@ -1362,5 +1375,6 @@ In other words,
 
 %\section{Waxing Philosophical}
 
+\bibliography{SQG-references.bib}
 
 \end{document}
