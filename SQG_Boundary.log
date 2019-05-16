@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  16 MAY 2019 00:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  16 MAY 2019 03:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,31 +571,35 @@ LaTeX Warning: Citation `FMP' on page 8 undefined on input line 505.
 
 LaTeX Warning: Citation `IMT bilinear' on page 8 undefined on input line 507.
 
-[8] [9] [10] [11] [12]
+[8] [9]
+
+LaTeX Warning: Citation `gt' on page 10 undefined on input line 601.
+
+[10] [11] [12]
 
 LaTeX Warning: Reference `thm:cutoff in sobolev' on page 13 undefined on input 
-line 757.
+line 738.
 
 [13] [14] [15]
 
 LaTeX Warning: Reference `thm:weak product rule' on page 16 undefined on input 
-line 890.
+line 871.
 
 
-Overfull \hbox (17.12846pt too wide) detected at line 891
+Overfull \hbox (17.12846pt too wide) detected at line 872
 [] \OT1/cmr/m/n/10.95 ^^C[]\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 ^^C[]\OMX/
 MnSymbolE/m/n/10.95 ˆ\OML/cmm/m/it/10.95 ^^R[]\U/MnSymbolC/m/n/10.95 ©\OML/cmm/
 m/it/10.95 ^^^\OMX/MnSymbolE/m/n/10.95  \U/MnSymbolD/m/n/10.95 B \OML/cmm/m/it
 /10.95 C [][] [] [] :
  []
 
-[16]
-Overfull \hbox (6.54076pt too wide) in paragraph at lines 918--918
+
+Overfull \hbox (6.54076pt too wide) in paragraph at lines 899--899
 [] 
  []
 
-[17] [18]
-Overfull \hbox (35.3384pt too wide) detected at line 1013
+[16] [17]
+Overfull \hbox (35.3384pt too wide) detected at line 994
 [] [] \OML/cmm/m/it/10.95 '@[]^^R[] \U/MnSymbolC/m/n/10.95 ^^T [] [] \OML/cmm/m
 /it/10.95 '[] \U/MnSymbolC/m/n/10.95 ^^@ ©\OML/cmm/m/it/10.95 ^^R[] \U/MnSymbol
 D/m/n/10.95 ^^@ [] [] \OML/cmm/m/it/10.95 '\OMX/MnSymbolE/m/n/10.95 ˆ\OML/cmm/m
@@ -610,18 +614,18 @@ olC/m/n/10.95 ^^T [] \OML/cmm/m/it/10.95 '^^R[]\OT1/cmr/m/n/10.95 ^^C\OML/cmm/m
 /it/10.95 ^^R[]:
  []
 
+[18]
+Overfull \hbox (64.1371pt too wide) in paragraph at lines 1019--1019
+[] 
+ []
 
-Overfull \hbox (64.1371pt too wide) in paragraph at lines 1038--1038
+
+Overfull \hbox (48.16107pt too wide) in paragraph at lines 1036--1036
 [] 
  []
 
 [19]
-Overfull \hbox (48.16107pt too wide) in paragraph at lines 1055--1055
-[] 
- []
-
-
-Overfull \hbox (25.49677pt too wide) in paragraph at lines 1082--1083
+Overfull \hbox (25.49677pt too wide) in paragraph at lines 1063--1064
 []\OT1/cmr/m/n/10.95 By [cite], [cite], and the Aubin-Lions lemma, the set $\OM
 X/MnSymbolE/m/n/10.95 ˜\OML/cmm/m/it/10.95 v[]\OMX/MnSymbolE/m/n/10.95 []$ \OT
 1/cmr/m/n/10.95 is com-pactly em-bed-ded in $\OML/cmm/m/it/10.95 L[]\OMX/MnSymb
@@ -633,23 +637,26 @@ sb/m/n/10.95 R[]\OMX/MnSymbolE/m/n/10.95 $\OT1/cmr/m/n/10.95 .
 [20] [21]
 
 LaTeX Warning: Reference `thm:harnack general' on page 22 undefined on input li
-ne 1172.
+ne 1153.
 
-[22] [23] [24] [25]
+[22] [23] [24]
 
-LaTeX Warning: Reference `thm:harnack shifted' on page 26 undefined on input li
-ne 1349.
+LaTeX Warning: Reference `thm:harnack shifted' on page 25 undefined on input li
+ne 1330.
 
-(./SQG_Boundary.bbl) [26] (./SQG_Boundary.aux)
+[25] (./SQG_Boundary.bbl) [26] (./SQG_Boundary.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 6042 strings out of 494985
- 81748 string characters out of 6180355
+ 6043 strings out of 494985
+ 81752 string characters out of 6180355
  135845 words of memory out of 5000000
- 8969 multiletter control sequences out of 15000+600000
+ 8970 multiletter control sequences out of 15000+600000
  22122 words of font info for 81 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
  38i,13n,43p,707b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -681,7 +688,7 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (26 pages, 332617 bytes).
+Output written on SQG_Boundary.pdf (26 pages, 330644 bytes).
 PDF statistics:
  308 PDF objects out of 1000 (max. 8388607)
  159 compressed objects within 2 object streams

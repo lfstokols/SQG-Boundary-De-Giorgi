@@ -580,79 +580,60 @@ By straightforward application of Lemma~\ref{thm:IMT stuff} we know that
 Since $u_j \in L^2$, we know that
 \[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
 
-Define $\bar{P}_j := P_{j-1} + P_j + P_{j+1}$.  Then $\bar{P}_j P_j = P_j$, and since the projections $P_i$ are spectral operators, they commute with $\Lambda^s$.  We therefore rewrite
+Define $\bar{P}_k := P_{k-1} + P_k + P_{k+1}$.  Then $\bar{P}_k P_k = P_k$, and since the projections $P_k$ are spectral operators, they commute with $\Lambda^s$.  We therefore rewrite
 \[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
-We apply sequentially three bounded operators on $L^\infty$.  The outer two operators have bounded norm by [citation] IMT-Bilinear Proposition 3.3, and the inner operator has bounded norm by Lemma \ref{thm:grad and proj}, (and of course the perp operator is an isometry,) so 
+We apply sequentially three bounded operators on $L^\infty$.  The first operator has norm $C 2^{-j}(2^{1}+2^0+2^{-1})$ by Lemma~\ref{thm:IMT stuff}.  The second operator has norm $C \min(2^j, 2^i)$ by Lemma~\ref{thm:grad and proj}.  The third operator has norm $C 2^{-i/4}(2^{1/4} + 2^0 + 2^{-1/4})$ by Lemma~\ref{thm:IMT stuff}.  (Of course, the perp operator is an isometry.)  Therefore
 \[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
-%
-% so from [citation] IMT-Bilinear Proposition 3.3 we can see that
-%\[ \norm{\Lambda^{-1/4} P_i u_j}_\infty = \norm{\Lambda^{-1/4} \bar{P}_i P_i u_j}_\infty \leq C 2^{-i/4} \norm{P_i u_j}_\infty \]
-%and also
-%\[ P_i u_j = P_i \grad P_j \Lambda^{-1} \bar{P}_j \theta. \]
-%Thus by the lemma,
-%\[ \norm{\Lambda^{-1/4} P_i u_j}_\infty \leq C 2^{-i/4} \min(2^j,2^i) \norm{\Lambda^{-1} \bar{P}_j \theta}_\infty \leq C 2^{-j} 2^{-i/4} \min(2^j,2^i) \norm{\theta}_\infty. \]
+
 Summing these bounds on the projections of $\Lambda^{-1/4} u_j$, and noting that
 \[ \sum_{i \in \Z} 2^{-j} 2^{-i/4} \min(2^j,2^i) = 2^{-j} \sum_{i \leq j} 2^{i 3/4} + \sum_{i>j} 2^{-i/4} \leq C 2^{-j/4}, \]
 we obtain
 \[ \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{-j/4} \norm{\theta}_\infty. \]
 
-Lastly, we'll show that $\grad u_j$ is in $L^\infty$.  Equivalently, we'll show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  This is essentially Schauder theory.  We will obtain our $C^{1,1}$ bound by interpolating between a $C^{0,1}$ bound and a $C^{2,\alpha}$ bound.  We could also obtain a $C^{1,\alpha}$ bound directly using the main theorem of [citation] Caffarelli-Stinga, but those estimates are not well-articulated in the specific context of our problem (namely, it's hard to make good use of the fact that $f$ near the boundary).  So instead, we use interpolation.  
+Lastly, we'll show that $\grad u_j$ is in $L^\infty$.  Equivalently, we'll show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  The method of proof is standard Schauder theory.  
 
-The $C^{0,1}$ bound is already known, it's the estimate
-\[ \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty. \]
-The $C^{2,\alpha}$ bound is classical Schauder theory.  For convenience, define 
+For convenience, define 
 \[ F := \Lambda^{-1} P_j \theta \]
 and recall that $F$ is a finite linear combination of Dirichlet eigenfunctions, so in particular it is smooth and vanishes at the boundary.  Moreover, its Laplacian is 
 \[ f := \Laplace F = \Lambda P_j \theta \]
-which is also smooth, vanishes at the boundary, and has various bounds.  Specifically, we want to apply Theorem 6.6 from [citation] Gilbarg and Trudinger, page 98 in my library copy.  It says that since $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
-\[ \sup_{x,y \in \Omega} \frac{\abs{D^2 F(x)- D^2 F(y)}}{|x-y|^\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \sup_{x,y\in\Omega} \frac{\abs{f(x)-f(y)}}{|x-y|^\alpha}. \]
+which is also smooth and vanishes at the boundary.
 
+We apply the standard Schauder estimate from \cite{gt} Theorem 6.6, which says that since, for some $\alpha$, $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
+\[ \bracket{D^2 F}_{\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \bracket{f}_{\alpha}. \]
 
-
-Let's bound the terms of the Gilbarg-Trudinger inequality.  By [citation] IMT-Bilinear Proposition 3.3
+By Lemma \ref{thm:IMT stuff},
+\[ \norm{F}_\infty = \norm{\Lambda^{-1} P_j \theta}_\infty \leq C 2^{-j} \norm{\theta}_\infty \]
+and
 \[ \norm{f}_\infty = \norm{\Lambda P_j \theta}_\infty \leq C 2^j \norm{\theta}_\infty \]
-while by [citation] IMT-Bilinear Lemma 3.6
+and
 \[ \norm{\grad f}_\infty = \norm{\grad \Lambda P_j \theta}_\infty \leq C 2^{2j} \norm{\theta}_\infty. \]
-Therefore we can interpolate
+Therefore we can interpolate by Lemma~\ref{thm:Holder interpolation} to obtain
 \[ \bracket{f}_\alpha \leq C 2^{j(1+\alpha)} \norm{\theta}_\infty. \]
-And of course, by [citation] IMT-Bilinear Proposition 3.3
-\[ \norm{F}_\infty = \norm{\Lambda^{-1} P_j \theta}_\infty \leq C 2^{-j} \norm{\theta}_\infty. \]
-
-Combining these estimates with [citation: the Gilbarg-Trudinger thingy] we find
+Plugging these estimates into [cite] yields
 \[ \bracket{D^2 F}_\alpha \leq C \paren{2^{-j} + 2^j + 2^{j(1+\alpha)}} \norm{\theta}_\infty. \]
 
-At long last, the big estimate,
-\[ \norm{D^2 F}_\infty \leq C \paren{\delta\n \norm{\grad F}_\infty + \delta^{\alpha} \bracket{D^2 F}_\alpha}. \]
+Recall that without loss of generality we can assume $j \geq j_0$.  Therefore up to a constant depending on $j_0$, the term $2^{j(1+\alpha)}$ bounds $2^j$ and $2^{-j}$ so we can write
+\[ \bracket{D^2 F}_\alpha \leq C 2^{j(1+\alpha)} \norm{\theta}_\infty. \]
 
-Since $\Omega$ is bounded, there exists a $j_0$ such that $P_j = 0$ if $j < j_0$.  Therefore we assume withouth loss of generality that $j \geq j_0$.  Thus $2^{-j} \leq 2^{j(1+\alpha)} 2^{-j(2+\alpha)} \leq 2^{j(1+\alpha)} 2^{-j_0(2+\alpha)}$ and similarly $2^j \leq 2^{j(1+\alpha)}2^{-j\alpha} \leq 2^{j(1+\alpha)} 2^{-j_0\alpha}$.  We can therefore say that for all $\delta \leq \ell$,
-\[ \bracket{D^2 F}_\infty \leq C \paren{\delta\n C + \delta^\alpha 2^{j(1+\alpha)}} \norm{\theta}_\infty. \]
+Using this estimate and the fact that $\norm{\grad F}_\infty = \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty$ we can use Lemma~\ref{thm:Holder interpolation} to interpolate.  For some constant $\ell$ depending on $\Omega$, for any $\delta \leq \ell$ we have
+\begin{align*}
+\norm{D^2 F}_\infty &\leq C \paren{\delta\n \norm{\grad F}_\infty + \delta^{\alpha} \bracket{D^2 F}_\alpha}
+\\ &\leq C \paren{\delta\n C + \delta^\alpha C 2^{j(1+\alpha)}} \norm{\theta}_\infty.  
+\end{align*}
 
 Set $\delta = 2^{-j} 2^{j_0} \ell \leq \ell$.  Then
-\[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\alpha} 2^{j(1+\alpha)}} \norm{\theta} = C(\Omega) 2^j \norm{\theta}. \]
-But $D^2 F = \grad u_j$ so we are done.  
+\[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\alpha} 2^{j(1+\alpha)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
 
+Since $D^2 F = \grad u_j$, this estimate together with [cite], [cite], and [cite] complete the proof.  
 \end{proof}
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-\section{Properties of Calibrated Functions} \label{sec:calibrated functions}
-We've shown that our drift term $u$ is a sum of $u_j$ for $j \in \Z$, $j \geq j_0$.  (Equivalently, $u$ is a sum of $u_j$ for $j \in \Z$ and $u_j = 0$ for $j < j_0$.)  Each $u_j$ is an $L^\infty$ function, and their sum converges in $L^2$ to $u$.  Each $u_j$ satisfies a collection of bounds which are exponential in $j$.  
+\section{Properties of Calibrated Sequences} \label{sec:calibrated functions}
+We've shown in the previous section that our drift term $u$ is a sum of a calibrated sequence $(u_j)_{j \in \Z}$. 
 
 In this section, we will first show that these terms sum to two functions $\ulow$ and $\uhigh$ with appropriate bounds.  Then we will show that these bounds remain true as we zoom in space and time.  
-
-We begin by stating what we mean by ``appropriate'' bounds on the $u_j$.  
-\begin{definition}[Calibrated sequence]
-We call a sequence $u_j$ \textbf{calibrated} for a constant $\kappa$ and a center $N$ if each term of the sequence satisfies the following bounds.  
-
-\begin{align*}
-\norm{u_j}_\infty &\leq \kappa, \\
-\norm{\grad u_j}_\infty &\leq 2^{j} 2^{-N} \kappa, \\
-\bracket{u_j}_{3/4} &\leq 2^{j \frac{3}{4}} 2^{- N \frac{3}{4}} \kappa, \\
-\norm{\Lambda^{-1/4} u_j}_\infty &\leq 2^{-j/4} 2^{N/4} \kappa.  
-\end{align*} 
-
-\end{definition}
 
 The most important property of a calibrated sequence is that its sum decomposes into two functions, which we call the high-pass term and the low-pass term.  
 
@@ -664,9 +645,9 @@ with the sum converging in the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a
 Then there exist some universal constants $C_i$ such that
 \[ u = \ulow + \uhigh \]
 with 
-\[ \norm{\ulow}_{\Lip} \leq C_1 \kappa\]
+\[ \norm{\grad \ulow}_{L^\infty(-T,0)\times \Omega} \leq C_1 \kappa\]
 and
-\[ \bracket{\ulow}_{3/4} \leq C_2 \kappa \]
+\[ \bracket{\ulow}_{3/4} \leq 2 \kappa \]
 and
 \[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq C_3 \kappa. \]
 \end{proposition}
