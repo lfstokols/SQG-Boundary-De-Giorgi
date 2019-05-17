@@ -162,7 +162,7 @@ In fact, for some $\alpha \in (0,1)$ depending only on $\Omega$ and some constan
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-The existence of a weak solution (meaning solution in the sense of distributions) $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; \HD^{1/2}(\Omega))$ is proven in [citation, Constantin and Ignatova].  
+The existence of a weak solution (meaning solution in the sense of distributions) $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; \HD^{1/2}(\Omega))$ is proven in \cite{CoIg.fraclap}.  
 
 The technique to prove this is, like in [citation, Caff \& Vasseur], to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a Harnack inequality for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the Harnack inequality again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
 
@@ -231,10 +231,10 @@ Finally, there exists a function $\tilde{K}(x,y)$ depending on $\Omega$ but inde
 \end{proposition}
 
 \begin{proof}
-See [citation] Theorems 2.3 and 2.4.  
+See \cite{CaSt} Theorems 2.3 and 2.4.  
 \end{proof}
 
-From the explicit formulae given in [cite], we see that $K_{2s}$ is roughly equal to the standard kernel for the $\R^2$ fractional Laplacian when both $x$ and $y$ are in the interior of $\Omega$ or when $x$ and $y$ are extremely close together, but decays to zero when one point is in the interior and the other is near the boundary.  The kernel $B_{2s}$ is well-behaved in the interior but has a singularity at the boundary $\del \Omega$.  This justifies our thinking of the $K_{2s}$ term as the interior term and $B_{2s}$ as a boundary term.  
+From the explicit formulae given in Proposition~\ref{thm:Caff Stinga representation}, we see that $K_{2s}$ is roughly equal to the standard kernel for the $\R^2$ fractional Laplacian when both $x$ and $y$ are in the interior of $\Omega$ or when $x$ and $y$ are extremely close together, but decays to zero when one point is in the interior and the other is near the boundary.  The kernel $B_{2s}$ is well-behaved in the interior but has a singularity at the boundary $\del \Omega$.  This justifies our thinking of the $K_{2s}$ term as the interior term and $B_{2s}$ as a boundary term.  
 
 When comparing the computations in this paper to corresponding computations on $\R^2$, it is convenient to say that the interior term behaves roughly the same as in the unbounded case, while the boundary term behaves roughly like a lower order term (in the sense that it is easily localized).  
 
@@ -260,7 +260,7 @@ Then
 \[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{\HD^{2s}}}. \]
 
 \item \label{thm:L1 of Lambda1/4 bounded} Let $g$ an $L^\infty$ function and $f \in \HD^{1/2}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
-\begin{equation} \label{K bounded between orders} K_s(x,y) \leq C |x-y|^{3s} K_{4s}(x,y). \end{equation}
+\[ K_s(x,y) \leq C |x-y|^{3s} K_{4s}(x,y). \]
 
 Then
 \[ \int g \Lambda^{1/4} f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{\HD^{1/2}}}. \]
@@ -398,7 +398,7 @@ This is an immediate application of the \eqref{thm:L1 of Lambda bounded}.
 
 Let us consider the relationship between the norm $\HD^s$ and the classical $H^s$ norm.  
 
-It is known (see [citation] and [citation]) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ and that elements of $\HD^s$ have trace zero for $s \in [1/2,1]$.  
+It is known (see \cite{CoIg.sqg} and \cite{CaSt}) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ and that elements of $\HD^s$ have trace zero for $s \in [1/2,1]$.  
 
 The most important fact for us is that the fractional Sobolev norms defined in terms of extension (for which we have access to a variety of theorems regarding compactness and Sobolev embeddings) are dominated by our $\HD^s$ norm with a constant that is independent of $\Omega$.  
 
@@ -428,7 +428,7 @@ Consider a function $f = \sum f_k \eigen{k}$ which is an element of $\HD^1$, by 
 \\ &= \int \sum_{i,j} (f_i f_j) \grad \eigen{i} \cdot \grad \eigen{j}
 \\ &= \sum_{i,j} (f_i f_j) \int \grad \eigen{i} \cdot \grad \eigen{j}.
 \end{align*}
-Since this double-sum vanishes except on the diagonal, we see from [citation] that in fact
+From the calculation [cite], we see that this is equal to the $\HD^1$ norm so
 \[ \norm{\grad f}_{L^2(\Omega)} = \norm{\Lambda f}_{L^2(\Omega)}. \]
 \end{proof}
 
@@ -695,7 +695,7 @@ with the constant $C$ depending on $\norm{\grad \Psi}_\infty$ and $\sup_t \brack
 \end{lemma}
 
 \begin{proof}
-From Lemma \ref{thm:cutoff in sobolev}, we know that $\theta_+$ is in $\HD^{1/2}(\Omega)$ for a.e. $t \in [0,T]$.  We can therefore multiply our equation [cite] by $\theta_+$ and integrate in space to obtain
+We multiply \eqref{eq:main linear} by $\theta_+$ and integrate in space to obtain
 \[ 0 = \int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  We analyze them one at a time.  
 
@@ -720,9 +720,9 @@ Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is no
 Put together, we arrive at 
 \[ (1/2) \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2}\theta_+ \Lambda^{1/2} \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \leq \abs{\int \theta_+ (\del_t \Psi + u \cdot \grad \Psi) \cdot \grad \Psi}. \]
 
-At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi$ term using the formula from [citation] Caffarelli-Stinga.  
+At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi$ term using the formula from Proposition~\ref{thm:Caff Stinga representation}.  
 \[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi = \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y) + \int \theta_+ \Psi B. \]
-Since $B \geq 0$ (see Caff-Stinga [citation]) and $\Psi$ is non-negative by assumption, the $B$ term is non-negative and so
+Since $B \geq 0$ and $\Psi$ is non-negative by assumption, the $B$ term is non-negative and so
 \[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \geq \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y). \]
 The remaining integral is symmetric in $x$ and $y$, and the integrand is only nonzero if at least one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
 \[ \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y) \leq 2 \iint \indic{\theta_+>0}(x) \abs{\theta_+(x)-\theta_+(y)} \cdot \abs{\Psi_t(x)-\Psi_t(y)} K(x,y). \]
@@ -800,19 +800,6 @@ To that end, we shall consider a family of functions $\theta$, $\ulow$, and $\uh
 \end{cases} \end{equation}
 
 Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  The reason for breaking up the velocity into two functions $\ulow$ and $\uhigh$, and for breaking up the flow $\Gamma + \gamma$ into two functions, is that we will make different types of assumptions about these different parts.  Generally speaking $\ulow$ and $\gamma$ will be Lipschitz functions while $\uhigh$ is merely in a weak space $W^{-1/4,\infty}$ and $\Gamma$ will trace out points in $\Omega$ where $\theta$ is well behaved by assumption.  
-
- sets $\Omega \subseteq \R^2$ and collections of functions $\theta$, $\ulow$, and $\uhigh:[-T,0]\times \Omega \to \R$, and paths $\Gamma$ and $\gamma:[-5,0] \to \R^2$ which satisfy
-
-
-Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  We assume also that $\Omega$ is bounded with $C^{2,\alpha}$ boundary for some $\alpha \in (0,1)$, and that for some constant  $\Comega$ we have
-\[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
-
-For some constant $\kappa$ we will assume
-\[ \norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega}, \norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)}, \norm{\bracket{\ulow}_{3/4; \Omega} }_{L^\infty([-5,0])} \leq 2 \kappa \]
-and for some constant $\Cgamma$ we will assume
-\[ \norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma. \]
-
-Note that we make no assumptions about the size of $\Gamma$.  Generally we will assume something about the size of $\theta$ when $|x-\Gamma|$ is small, though the form of that assumption will vary from lemma to lemma.  
 
 
 
@@ -936,10 +923,12 @@ Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main line
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
 \[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 
-There exists a small constant $\mu > 0$ such that the three conditions
-\[ \abs{\{\theta \geq 1\} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0/4, \]
-\[ \abs{\{0 < \theta < 1\} \cap [-4,0]\times B_4(\Gamma)} \leq \mu, \]
-\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq 2 |B_4| \]
+Then the three conditions
+\begin{align} 
+\abs{\{\theta \geq 1\} \cap [-2,0]\times B_2(\Gamma)} &\geq \delta_0/4, \label{mass assumption above} \\
+\abs{\{0 < \theta < 1\} \cap [-4,0]\times B_4(\Gamma)} &\leq \mu, \nonumber \\
+\abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} &\geq 2 |B_4| \label{mass assumption below}
+\end{align}
 cannot simultaneously be met.  
 \end{lemma}
 
@@ -947,9 +936,9 @@ Here $\delta_0$ is the constant from Lemma~\ref{thm:DG1}, which of course depend
 
 \begin{proof}
 Suppose that the theorem is false.  Then there must exist, for each $n \in \N$, a bounded $C^{2,\alpha}$ set $\Omega_n$ and function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our lemma (with the same constants $\kappa$, $\Cgamma$, and $\Comega$), except that
-\[ \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \]
+\begin{equation} \label{mass assumption between} \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \end{equation}
 
-Let $\psi:\R^2 \to \R$ be a smooth function which vanishes on $B_2$ such that $\psi(x) \geq 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
+Let $\psi:\R^2 \to \R$ be a smooth function which vanishes on $B_2$ such that $\psi(x) = 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
 
 Fix $n$ and define 
 \[ \theta_+ := \paren{\theta_n - \psi(x-\Gamma_n)}_+. \]
@@ -957,8 +946,10 @@ Then $\theta_+$ is supported on $\Omega \cap B_3(\Gamma_n)$ and is less than $2 
 
 Our goal is to bound the derivatives of $\theta_+^3$ so that we can apply a compactness argument to the sequence $\theta_n$.  (For the curious reader, we will point out the steps below in which it is important to consider $\theta_+^3$ instead of $\theta_+$.)  
 
-Apply the energy inequality Lemma \ref{thm:energy inequality} to $\theta$ and $\psi(x-\Gamma_n)$, and find that
-\begin{equation}\label{DG2 energy} \sup_{[-4,0]} \int \theta_+^2 + \int_{-4}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 + \int_{-4}^0 \int \Lambda^{1/2}\theta_+ \Lambda^{1/2}\theta_- \leq C \int_0^5 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \end{equation}
+Apply the energy inequality Lemma \ref{thm:energy inequality} to $\theta$ and $\psi(x-\Gamma_n)$, and find that for some $C$ independent of $n$
+\begin{equation} \label{ddt theta bounded} \ddt \int \theta_+^2 \leq C \end{equation}
+and moreover that
+\begin{equation}\label{DG2 energy} \sup_{[-4,0]} \int \theta_+^2 + \int_{-4}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 + \int_{-4}^0 \int \Lambda^{1/2}\theta_+ \Lambda^{1/2}\theta_- \leq C. \end{equation}
 This proves in particular that $\theta_+ \in L^2(-4,0; \HD^{1/2}(\Omega))$ is uniformly bounded.  
 
 What's more, $\norm{\theta_+^3}_{L^2(-4,0;\HD^{1/2}(\Omega_n))}$ is uniformly bounded because
@@ -969,7 +960,7 @@ What's more, $\norm{\theta_+^3}_{L^2(-4,0;\HD^{1/2}(\Omega_n))}$ is uniformly bo
 \end{align*}
 
 By Lemma \ref{thm:hadamard 3 lines}, if $E \theta_+^3$ is the zero-extension of $\theta_+^3$ from $\Omega_n$ to $\R^2$, then
-\[ \norm{ E \theta_+^3}_{L^2(-4,0; H^{1/2}(\R^2))} \leq C \]
+\begin{equation} \label{theta3 compact in space} \norm{ E \theta_+^3}_{L^2(-4,0; H^{1/2}(\R^2))} \leq C \end{equation}
 where $C$ does not depend on $n$.  
 
 Since $\theta_n$ solves the equation
@@ -999,9 +990,12 @@ Each instance of $C$ in the following bounds is independent of $n$.
 
 \item Consider the $\Lambda \theta_+$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x)\theta_+(x)^2 - \varphi(y)\theta_+(y)^2][\theta_+(x)-\theta_+(y)] K$ which decomposes as
 \[ \iint \varphi(x)(\theta_+(x)+\theta_+(y))[\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K. \]
-The first part is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$ and the square of the $\HD^{1/2}$ norm of $\theta_+$, while the second part is bounded (using H\"{o}lder's inequality) by the $L^\infty$ and $\HD^{1/2}$ norms of $\theta_+$ and the square root of $\sup_y \int [\varphi(x)-\varphi(y)]^2/|x-y|^3 \,dx$.  This last quantity is in turn bounded by the $C^1$ norm of $\varphi$.  
+The first part is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$ and the square of the $\HD^{1/2}$ norm of $\theta_+$, while the second part is bounded
+\[ \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K \leq \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} \sqrt{\int \theta_+(y)^2 \int \frac{[\varphi(x)-\varphi(y)]^2}{|x-y|^3} dx \,dy}\]
+which is bounded by the $C^1$ norm of $\varphi$ and the $\HD^{1/2}$ norm of $\theta_+$.  
+% (using H\"{o}lder's inequality) by the $L^\infty$ and $\HD^{1/2}$ norms of $\theta_+$ and the square root of $\sup_y \int [\varphi(x)-\varphi(y)]^2/|x-y|^3 \,dx$.  This last quantity is in turn bounded by the $C^1$ norm of $\varphi$.  
 
-The boundary term $\int \varphi \theta_+^3 B$ is bounded, because we have raised $\theta_+$ to a power of at least two, by the $L^\infty$ norms of $\varphi$ and $\theta_+$, and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}$.  Taken together we have
+The boundary term $\int \varphi \theta_+^3 B$ is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$, and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}$.  Taken together we have
 \[ \int \varphi \theta_+^2 \Lambda \theta_+ \leq C \paren{ \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 + \norm{\varphi(t,\cdot)}_{C^1(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} }. \]
 
 \item Consider the $\Lambda\theta_-$ term.  For any non-negative function $f$ we know by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint} that $\int f \theta_+ \Lambda \theta_- \leq 0$.  
@@ -1009,17 +1003,22 @@ It follows that $-\theta_+ \Lambda \theta_-$ is a pointwise non-negative distrib
 \[ \int_{-4}^0 \int \varphi \theta_+^2 \Lambda \theta \leq \norm{\theta_+}_\infty \norm{\theta_+\Lambda\theta_-}_{\mathcal{M}} \norm{\varphi}_{C^0} \leq C \norm{\varphi}_{L^\infty([-4,0]\times\Omega)}. \]
 
 \item Consider the $\Lambda \psi$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K$ which decomposes as
-\[ \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \theta_+(y)^2\int[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K. \]
-The first part is bounded (using H\"{o}lder's inequality) by the $L^2$ norm of $\varphi$ since $\psi$ is Lipschitz and $\theta_+^2 \in \HD^{1/2}$, while the second part is bounded by the $C^1$ norms of $\varphi$ and $\psi$ and the $L^2$ norm of $\theta_+$.  
+\[ \int \theta_+(y)^2\int[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K. \]
+The first part is bounded by the $C^1$ norms of $\varphi$ and $\psi$ and the $L^2$ norm of $\theta_+$, while the second part is bounded
+\[ \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K \leq \norm{\theta_+^2(t,\cdot)}_{\HD^{1/2}} \sqrt{ \int \varphi(x)^2 \int \frac{[\psi(x)-\psi(y)]^2}{|x-y|^3}dy \,dx} \]
+which is bounded, because $\psi$ is smooth and globally $1/4$-H\"{o}lder continuous, by $L^2$ norm of $\varphi$ and the $\HD^{1/2}$ norm of $\theta_+$.  
 
- Lastly, 
-\begin{align*} 
-\int \varphi \theta_+^2 \Lambda \psi &= \iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
-\\ &= \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
-\\ &\leq C\paren{\iint \varphi(x)^2 [\psi(x)-\psi(y)]^2 K}^{1/2} + \paren{ \norm{\varphi}_\infty + \norm{\grad \varphi}_\infty } \int \theta_+(y)^2 \,dy + \int \varphi \theta_+^2 \psi B
-\\ &\leq C \norm{\varphi}_{L^2} + C \norm{\varphi}_{\infty} + C \norm{\grad \varphi}_\infty + \norm{\psi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{\HD^{1/2}}^2 \norm{\varphi}_{\infty}
-\\ &= C \norm{\psi}_{L^\infty(-4,0; L^2(\Omega_n))} + C \norm{\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + C \norm{\grad\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}.
-\end{align*}
+The boundary term $\int \varphi \theta_+^2 \psi B$ is bounded by the $L^\infty$ norms of $\varphi$ and $\psi \indic{\theta_+>0}$ and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2$.  Taken together we have
+\[ \int \varphi \theta_+^2 \Lambda \psi \leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{L^2(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 }. \]
+%
+% Lastly, 
+%\begin{align*} 
+%\int \varphi \theta_+^2 \Lambda \psi &= \iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
+%\\ &= \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
+%\\ &\leq C\paren{\iint \varphi(x)^2 [\psi(x)-\psi(y)]^2 K}^{1/2} + \paren{ \norm{\varphi}_\infty + \norm{\grad \varphi}_\infty } \int \theta_+(y)^2 \,dy + \int \varphi \theta_+^2 \psi B
+%\\ &\leq C \norm{\varphi}_{L^2} + C \norm{\varphi}_{\infty} + C \norm{\grad \varphi}_\infty + \norm{\psi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{\HD^{1/2}}^2 \norm{\varphi}_{\infty}
+%\\ &= C \norm{\psi}_{L^\infty(-4,0; L^2(\Omega_n))} + C \norm{\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + C \norm{\grad\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}.
+%\end{align*}
 
 \end{itemize}
 
@@ -1027,40 +1026,50 @@ The first part is bounded (using H\"{o}lder's inequality) by the $L^2$ norm of $
 We are attempting to bound $\del_t \theta_+^3$.  If we had attempted to bound $\del_t \theta_+^p$ instead, the final three terms above would have been problematic for $p=1$ and the very final term would have been problematic for $p=2$.  
 \end{remark}
 
-Taken all together, we conclude that there exists a constant $C$ indepnendent of $n$ such that, for any $\varphi \in L^\infty(-4,0; C^2(\R^2)) \cap L^\infty(-4,0; L^2(\R^2))$, 
-\[ \int_{-4}^0 \int_{\Omega_n} \paren{ \del_t \theta_+^3 + \dot{\Gamma}_n \cdot \grad \theta_+^3 } \varphi \,dxdt \leq C \norm{\varphi}_{L^\infty(-4,0; C^2(\R^2))} + C \norm{\varphi}_{L^\infty(-4,0; L^2(\R^2))}. \]
+Combining all of these bounds, and using the fact that $\theta_+ \in L^2(-4,0; \HD^{1/2})$ uniformly, we conclude that there exists a constant $C$ independent of $n$ such that, for any $\varphi \in L^\infty(-4,0; C^2(\R^2)) \cap L^\infty(-4,0; L^2(\R^2))$, 
+\begin{equation} \label{theta3 compact in time} \int_{-4}^0 \int_{\Omega_n} \paren{ \del_t \theta_+^3 + \dot{\Gamma}_n \cdot \grad \theta_+^3 } \varphi \,dxdt \leq C \norm{\varphi}_{L^\infty(-4,0; C^2(\R^2))} + C \norm{\varphi}_{L^\infty(-4,0; L^2(\R^2))}. \end{equation}
 
-Over time, the support of $\theta_+^3$ moves around in $\Omega_n$ following the path $\Gamma_n$.  If we try to take a limit, that limit will vanish except at points where infinitely many $\Gamma$ pass nearby, which is generally unhelpful.  Instead, we extend each $\theta_+^3$ to a function on $\R^2$ and then shift them around to remain supported near the origin.  To that end, define a new function on $[-4,0] \times \R^2$ by
+Over time, the support of $\theta_+^3$ moves around in $\Omega_n$ following the path $\Gamma_n$.  In order to take a meaningful limit in $n$, we must shift these functions so that their supports remain in a compact set.  To that end, define a new function on $[-4,0] \times \R^2$ by
 \[ v_n(t,x) := \begin{cases}
-\theta_+^3(t, x + \Gamma_n(t)), & x + \Gamma_n(t) \in \Omega_n, \\
+\theta_+(t, x + \Gamma_n(t))^3, & x + \Gamma_n(t) \in \Omega_n, \\
 0, & x + \Gamma_n(t) \notin \Omega_n.
 \end{cases} \]
+In other words,
+\begin{equation} \label{definition of v_n} v_n(t,x) = \paren{\theta_n(t, x + \Gamma_n(t)) - \psi(x)}_+^3 \end{equation}
+when the right hand side is defined.
 
 Let $X \subseteq C^2(\R^2)$ be the Banach space of $C^2$ functions with norm $\norm{\cdot}_X = \norm{\cdot}_{C^2(\R^2)} + \norm{\cdot}_{L^2(\R^2)}$ finite.  Note that
 \[ \del_t v_n(t,x) = \del_t \theta_+^3(t,x+\Gamma_n) + \dot{\Gamma}_n \cdot \grad \theta_+^3(t,x+\Gamma_n). \]
 
-We know that
+We know from \eqref{theta3 compact in space} that
 \[ \norm{ v_n }_{L^2(-4,0; H^{1/2}(\R^2)} \leq C \]
-and
+and from \eqref{theta3 compact in time} that
 \[ \norm{ \del_t v_n }_{L^1(-4,0; X^*)} \leq C. \]
 
-Moreover, 
-\[ \ddt \int_{\R^2} v_n^{2/3} \,dx = \ddt \int_{\Omega_n} \theta_+^3 \,dx \leq C. \]
-
-Finally, from [cite],
-\[ \abs{\{v_n \geq 1\} \cap [-2,0]\times B_2(0)} \geq \delta_0, \]
-\[ \abs{\{0 < v_n < [1-\psi(x)]^3\} \cap [-4,0]\times B_4(0} \leq 1/n, \]
-\[ \abs{\{v_n \leq 0\} \cap [-4,0]\times B_4(0)} \geq \frac{4 |B_4|}{2}. \]
-
-By [cite], [cite], and the Aubin-Lions lemma, the set $\{v_n\}_n$ is compactly embedded in $L^2(-4,0; L^2(\R^2))$.  Up to a subsequence, there is a function $v \in L^2(-4,0; L^2(\R^2))$ such that
+According to the Aubin-Lions Lemma, the set $\{v_n\}_n$ is therefore compactly embedded in $L^2(-4,0; L^2(\R^2))$.  Up to a subsequence, there is a function $v \in L^2(-4,0; L^2(\R^2))$ such that
 \[ v_n \to v. \]
-By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, $v \in L^2(H^{1/2})$ and 
-\begin{equation} \label{ddt v bounded} \ddt \int v(t,\cdot)^{2/3} \leq C. \end{equation} 
-Also, the properties [cite] hold still in the limit.  
+By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, and $v \in L^2(H^{1/2})$.  
 
-For any $(t,x) \in [-4,0]\times B_4(0)$, either $v(t,x) \geq [1 - \psi(x)]^3$ or else $v(t,x) = 0$.  In fact, since $\norm{v(t,\cdot)}_{H^{1/2}} < \infty$ for almost every $t$ and $H^{1/2}$ does not cantain functions with jump discontinuities, the function $v$ is either identically 0 or else $\geq [1-\psi(x)]^3$ at each $t$.  
+By \eqref{ddt theta bounded}
+\begin{equation} \label{ddt v bounded} \ddt \int_{\R^2} v_n^{2/3} \,dx = \ddt \int_{\Omega_n} \theta_+^2 \,dx \leq C \end{equation}
+so the same must be true of $v$.
 
-Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx > 0$ at each $t$.  By \eqref{ddt v bounded} and [cite, mass bounds], $v$ must be identically zero for all $t > -2$.  This contradicts [cite], so our assumption that the sequence $\theta_n$ exists must have been false.  The proposition must be true.  
+By \eqref{mass assumption above}, \eqref{mass assumption between}, and \eqref{mass assumption below} applied to $v_n$ (recalling the relation \eqref{definition of v_n}), we conclude that
+\begin{equation} \label{mass assumptions v} \begin{cases} 
+\abs{\{v \geq 1\} \cap [-2,0]\times B_2(0)} &\geq \delta_0/4, \\
+\abs{\{0 < v < [1-\psi]^3\} \cap [-4,0]\times B_4(0)} &\leq 0, \\
+\abs{\{v \leq 0\} \cap [-4,0]\times B_4(0)} &\geq 2|B_4|
+\end{cases} \end{equation}
+
+%\begin{align} 
+%\abs{\{v_n \geq 1\} \cap [-2,0]\times B_2(0)} &\geq \delta_0, \\
+%\abs{\{0 < v_n < [1-\psi(x)]^3\} \cap [-4,0]\times B_4(0)} &\leq 1/n, \\
+%\abs{\{v_n \leq 0\} \cap [-4,0]\times B_4(0)} &\geq 2|B_4|
+%\end{align}
+
+For any $(t,x) \in [-4,0]\times B_4(0)$, either $v(t,x) \geq [1 - \psi(x)]^3$ or else $v(t,x) = 0$.  In fact, since $\norm{v(t,\cdot)}_{H^{1/2}} < \infty$ for almost every $t$ and $H^{1/2}$ does not contain functions with jump discontinuities, the function $v$ is either identically 0 or else $\geq [1-\psi(x)]^3$ at each $t$.  
+
+Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx > 0$ at each $t$.  By \eqref{ddt v bounded} and \eqref{mass assumptions v}, $v$ must be identically zero for all $t > -2$ but also must be non-zero for some $t > -2$, which is a contradiction.  Our assumption that the sequence $\theta_n$ exists must have been false.  The proposition must be true.  
 
 \end{proof}
 
@@ -1072,15 +1081,20 @@ Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx 
 We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce an Oscillation lemma.  It allows us to improve a bound on the supremum of a function based on information about its positive support.  
 
 \begin{proposition}[Oscillation Lemma] \label{thm:oscillation general}
-Let $\theta$ and $u = \ulow + \uhigh$ be solutions to [cite] the PDE.  Let $\Lambda^{-1/4} \uhigh \in L^\infty$ while $\ulow \in \Lip \cap L^{3/4}$.  Moreover, let $\gamma$ and $\Gamma$ be such that
-\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
-and $\norm{\dot{\gamma}}_\infty \leq \Cgamma$. 
+Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
 
-There exists a number $k_0$ such that if for all $t \in [-5,0]$, $x \in \Omega$,
-\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \]
-and
-\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2} \]
-then for all $t \in [-1,0]$, $x \in B_1(\Gamma)$ we have
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
+
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+
+
+Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
+\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+, \]
+and that
+\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2}. \]
+
+Then for all $t \in [-1,0]$, $x \in \Omega \cap B_1(\Gamma)$ we have
 \[ \theta(t,x) \leq 2 - 2^{-k_0}. \]
 \end{proposition}
 
@@ -1098,24 +1112,24 @@ Note also that
 is an increasing function of $k$, and hence is greater than $2|B_4|$ for all $k$.  
 
 Assume, for means of contradiction, that
-\[ \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0 \]
-for $k = k_0-1$.  Since this quantity is decreasing in $k$, it must then exceed $\delta_0$ for all $ k < k_0$ as well.  
+\[ \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0/4 \]
+for $k = k_0-1$.  Since this quantity is decreasing in $k$, it must then exceed $\delta_0/4$ for all $ k < k_0$ as well.  
 
 Applying Proposition \ref{thm:DG2} to each $\theta_k$, we conclude that 
 \[ \abs{\{0 < \theta_k < 1\} \cap [-4,0]\times B_4(\Gamma)} \geq \mu. \]
 In particular, this means that the quantity [cite] increases by atleast $\mu$ every time $k$ increases by 1. By choice of $k_0$ and the fact that quantity [cite] is bounded by $4|B_4|$, we obtain a contradiciton.  Therefore, the assumption [cite] must fail for $k = k_0-1$.  
 
 Therefore $\theta_{k_0}$ must satisfy the assumptions of Proposition \ref{thm:DG1}.  In particular, we conclude that
-\[ \theta_{k_0}(t,x) \leq 1 \qquad \forall (t,x) \in [-1,0]\times B_1(\Gamma). \]
+\[ \theta_{k_0}(t,x) \leq 1 \qquad \forall t \in [-1,0], x \in \Omega \cap B_1(\Gamma). \]
 
-For the original function $\theta$, this means that for $(t,x) \in [-1,0] \times B_1(\Gamma)$
-\[ \theta(t,x) \leq 2 - 2^{-k_0}. \]
+For the original function $\theta$, this means that
+\[ \theta(t,x) \leq 2 - 2^{-k_0} \qquad \forall t \in [-1,0], x \in \Omega \cap B_1(\Gamma). \]
 \end{proof}
 
 That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  But first, a quick technical lemma:
 
 \begin{lemma} \label{thm:technical scaling of barrier}
-There exist a constant $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
+There exist constants $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
 \[ \paren{|\eps\n (z - 1) + 3|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda}. \]
 \end{lemma}
 
@@ -1136,19 +1150,23 @@ This is sufficient to show that for some $\alpha > 1$, there exists a lower boun
 We are ready to prove the shifted version of the Harnack Inequality.  
 
 \begin{lemma}[Oscillation Lemma, with shift] \label{thm:oscillation shifted}
-Let $\theta$ and $u = \ulow + \uhigh$ be as desired.  Let $\Gamma$ and $\gamma$ be paths such that
-\[ \dot{\Gamma} + \dot{\gamma} = \ulow(t,\Gamma+\gamma) \]
-and $\norm{\gamma}_\Lip \leq \Cgamma$.  If $0 < \eps < 1/5$ is such that
+Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
+
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
+
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+
+Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
+\begin{equation} \label{theta bounded everywhere} |\theta(t,x)| \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \end{equation}
+and that
+\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq 2|B_4|. \]
+
+Then for any $\eps \in (0,1/5)$ such that
 \begin{equation} \label{Cgamma and eps for harnack} 5 \Cgamma \leq \eps\n - 3 \end{equation}
-then the following holds:
-
-Let $k_0$ be as in Lemma \ref{thm:harnack general} and assume that for $(t,x) \in [-5,0]\times \Omega$
-\[ |\theta(t,x)| \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \]
-and
-\[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2}. \]
-
-Then there exist a $\lambda > 0$ small enough that for $(t,x) \in [-5,0]\times \eps\n \Omega$
+we have
 \[ \abs{\frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda}} \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
+for all $t \in [-5,0]$ and $x$ such that $\eps x \in \Omega$.  
 \end{lemma}
 
 If we only wish to show that by zooming horizontally by a large amount and zooming and translating vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $\Cgamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The important thing to pay attention for is the dependence of $\eps$ and $\Cgamma$ and $k_0$ on eachother.  
@@ -1164,47 +1182,54 @@ for $\bar{\lambda}$ and $\alpha$ from Lemma \ref{thm:technical scaling of barrie
 
 Denote 
 \[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda} \]
+defined for $t \in [-5/\eps,0]$ and 
+\[ x \in \Omega_\eps := \{x\in \R^2: \eps x \in \Omega\} \]
+and denote
+\[ \phi(x) := \paren{|x|^{1/4} - 2^{1/4}}_+. \]
+
+We already proved in Lemma \ref{thm:oscillation general} that $\theta \leq 2 - 2^{-k_0}$ for $t \in [-1,0]$ and $x \in \Omega\cap B_1(\Gamma)$.  On this same set, $\theta \geq -2$ by assumption.  For $\bar{\theta}$, this means that when $t \in [-1/\eps, 0]$ and $x \in \Omega \cap B_{1/\eps}(\eps\n \Gamma(\eps t))$,
+\begin{equation}\label{bar theta bounded basin} \begin{cases}
+\bar{\theta}(t,x) &\leq \frac{2}{2-\lambda} \bracket{2-2^{-k_0}+\lambda} \leq \frac{2}{2-\lambda} \bracket{2-\lambda} = 2. \\
+\bar{\theta}(t,x) &\geq \frac{2}{2-\lambda} \bracket{-2+\lambda} = -2.
+\end{cases} \end{equation}
+
+Similarly, the bound \eqref{theta bounded everywhere} on $\theta$ becomes the equivalent bounds on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \Omega_\eps$
+\begin{equation} \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)} \label{bar theta bounded above everywhere} \end{equation}
 and
-\[ \phi(x) = \paren{|x|^{1/4} - 2^{1/4}}_+. \]
+\begin{equation} \bar{\theta}(t,x) \geq \frac{2}{2-\lambda} \bracket{- 2 + \lambda - 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \label{bar theta bounded below everywhere} \end{equation}
 
-We already proved in Lemma \ref{thm:oscillation general} that $\theta \leq 2 - 2^{-k_0}$ on $[-1,0] \times B_1(\Gamma)$.  For $\bar{\theta}$, this means that when $(t,x) \in [-1/\eps, 0] \times B_{1/\eps}(\eps\n \Gamma(\eps t))$,
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2-2^{-k_0}+\lambda} \leq \frac{2}{2-\lambda} \bracket{2-\lambda} = 2 \]
-and
-\[ \bar{\theta}(t,x) \geq \frac{2}{2-\lambda} \bracket{-2+\lambda} = -2. \]
+It remains to show that these bounds \eqref{bar theta bounded basin}, \eqref{bar theta bounded above everywhere}, and \eqref{bar theta bounded below everywhere} on $\bar{\theta}$ imply the bound stipulated by the proposition.  
 
-Similarly, the bound [cite] on $\theta$ becomes the equivalent bounds on $\bar{\theta}$, for all $(t,x) \in [-5/\eps,0] \times \eps\n \Omega$
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)} \]
-and
-\[ \bar{\theta}(t,x) \geq \frac{2}{2-\lambda} \bracket{\lambda - 2 - 2^{-k_0} \phi(|\eps x - \Gamma(\eps t)|)}. \]
+Let $t \in [-5,0]$ and $x \in \Omega_\eps$, and define 
+\[ y := x - \eps\n \Gamma(\eps t). \]
 
-It remains to show that these various bounds on $\bar{\theta}$ imply the bound stipulated by the proposition.  
+From \eqref{bar theta bounded above everywhere} and the assumptions \eqref{lambda smallness assumptions}, we can bound
+\begin{align*} 
+\bar{\theta}(t,x) &\leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(\eps |y|)}
+\\ &\leq 2 + 2^{-k_0} \bar{\lambda} + 2^{-k_0} \alpha \phi(\eps |y|)
+\\ &= 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)}.
+\end{align*}
 
-Let $t \in [-5,0]$ and $x \in \eps\n \Omega$, and define $y = x - \eps\n \Gamma(\eps t)$.  
+From \eqref{bar theta bounded below everywhere} and the assumptions \eqref{lambda smallness assumptions}, we can bound
+\begin{align*}
+-\bar{\theta}(t,x) &\leq \frac{2}{2-\lambda} \bracket{2 -\lambda + 2^{-k_0} \phi(\eps |y|)}
+\\ &\leq 2 + 2^{-k_0} \alpha \phi(\eps |y|)
+\\ &\leq 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)}.
+\end{align*}
 
-If $|y| \leq \eps\n$ then
-\[ \abs{\bar{\theta}(t,x)} \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)). \]
-If $|y| \geq \eps\n$ then from Lemma \ref{thm:technical scaling of barrier}, 
-\[ \bar{\lambda} + \alpha \phi(\eps |y|) \leq \phi(|y| - \eps\n + 3). \]
+Therefore
+\begin{equation} \label{bar theta bounded everywhere} \abs{\bar{\theta}(t,x)} \leq 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)}. \end{equation}
 
-From the assumptions \eqref{lambda smallness assumptions}, we can rewrite the bound [cite] as
-\[ \bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 + \lambda + 2^{-k_0} \phi(\eps |y|)} \]
-\[ \leq 2 + 2^{-k_0} \bar{\lambda} + 2^{-k_0} \alpha \phi(\eps |y|) \]
-\[ = 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
-\[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3). \]
-For $t \in [-5,0]$,
-\[ |y| - 5 \Cgamma \leq |y - \eps\n\gamma(\eps t)|. \]
-Thus, with assumption \eqref{Cgamma and eps for harnack},
-\[ |y| - \eps\n + 3 \leq |y-\eps\n\gamma(\eps t)|. \]
+If $|y| \leq \eps\n$ then from \eqref{bar theta bounded basin} we have
+\[ \abs{\bar{\theta}(t,x)} \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)) \]
+and the proof would be complete.  Therefore assume without loss of generality that $|y|\geq \eps\n$.  In this case we can apply Lemma \ref{thm:technical scaling of barrier} so
+\[ 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \leq 2 + 2^{-k_0} \phi(|y|-\eps\n + 3). \]
 
-Therefore, for $|y| \geq \eps\n$,
-\[ \bar{\theta}(t,x) \leq 2 + 2^{-k_0} \phi(|x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)|). \]
+For $t \in [-5,0]$, we have by assumption \eqref{Cgamma and eps for harnack}
+\[ |y|-\eps\n+3 \leq |y| - 5 \Cgamma \leq |y - \eps\n\gamma(\eps t)|. \]
 
-On the other hand, 
-\[ -\bar{\theta}(t,x) \leq \frac{2}{2-\lambda} \bracket{2 -\lambda + 2^{-k_0} \phi(\eps |y|)} \]
-\[ \leq 2 + 2^{-k_0} \alpha \phi(\eps |y|) \]
-\[ \leq 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \]
-\[ \leq 2 + 2^{-k_0} \phi(|y| - \eps\n + 3) \]
-\[ \leq 2 + 2^{-k_0} \phi(|y-\eps\n\gamma(\eps t)|). \]
+The estimate \eqref{bar theta bounded everywhere} becomes
+\[ \abs{\bar{\theta}(t,x)} \leq 2 + 2^{-k_0} \phi(|x - \eps\n\Gamma(\eps t) - \eps\n\gamma(\eps t)|). \]
 
 This concludes the proof.  
 \end{proof}
@@ -1366,7 +1391,7 @@ holds for all $k \geq 0$.
 
 Since $|\theta_0|\leq 2$ by assumption, we know in particular that \eqref{thetak below the barrier} holds at $k=0$.  
 
-This is sufficient for us to apply Lemma \ref{thm:harnack shifted} to each $\theta_k$ (or to $-\theta_k$ as appropriate) in order.  We conclude that \eqref{thetak below the barrier} holds for all $k \geq 0$.  
+This is sufficient for us to apply Lemma \ref{thm:oscillation shifted} to each $\theta_k$ (or to $-\theta_k$ as appropriate) in order.  We conclude that \eqref{thetak below the barrier} holds for all $k \geq 0$.  
 %\[ \abs{\theta_{k+1}(t,x)} \leq 2 + 2^{-k_0} \paren{|x-\Gamma_{k+1}(t)|^{1/4} - 2^{1/4}}_+. \]
 
 Each $\theta_k$ is between $-2$ and 2 on $[-5,0]\times B_2(\Gamma_k)$.  But recall that each $\Gamma_k$ is Lipschitz with constant $k \Cgamma$.  Thus $|\Gamma_k(t)|\leq 1$ for $t \in [-(k \Cgamma)\n, 0]$.  On that time interval, 
