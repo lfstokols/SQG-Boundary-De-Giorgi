@@ -958,7 +958,7 @@ Then $\theta_+$ is supported on $\Omega \cap B_3(\Gamma_n)$ and is less than $2 
 Our goal is to bound the derivatives of $\theta_+^3$ so that we can apply a compactness argument to the sequence $\theta_n$.  (For the curious reader, we will point out the steps below in which it is important to consider $\theta_+^3$ instead of $\theta_+$.)  
 
 Apply the energy inequality Lemma \ref{thm:energy inequality} to $\theta$ and $\psi(x-\Gamma_n)$, and find that
-\[ \sup_{[-4,0]} \int \theta_+^2 + \int_{-4}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 \leq C \int_0^5 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \]
+\begin{equation}\label{DG2 energy} \sup_{[-4,0]} \int \theta_+^2 + \int_{-4}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 + \int_{-4}^0 \int \Lambda^{1/2}\theta_+ \Lambda^{1/2}\theta_- \leq C \int_0^5 \int \paren{\indic{\theta_+>0} + \theta_+ + \theta_+^2}. \end{equation}
 This proves in particular that $\theta_+ \in L^2(-4,0; \HD^{1/2}(\Omega))$ is uniformly bounded.  
 
 What's more, $\norm{\theta_+^3}_{L^2(-4,0;\HD^{1/2}(\Omega_n))}$ is uniformly bounded because
@@ -1004,15 +1004,15 @@ The first part is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$ an
 The boundary term $\int \varphi \theta_+^3 B$ is bounded, because we have raised $\theta_+$ to a power of at least two, by the $L^\infty$ norms of $\varphi$ and $\theta_+$, and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}$.  Taken together we have
 \[ \int \varphi \theta_+^2 \Lambda \theta_+ \leq C \paren{ \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 + \norm{\varphi(t,\cdot)}_{C^1(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} }. \]
 
-\item Consider the $\Lambda\theta_-$ term.  For any non-negative function $f$ we know by Lemma~\ref{thm:Lambda stuff} part \ref{thm:disjoint} that
-\[ \int f \theta_+^2 \Lambda \theta_- \leq 0. \]
-It follows that $-\theta_+^2 \Lambda \theta_-$ is a pointwise non-negative distribution.  If we can bound its integral, then we will have bounded it as an element of $L^\infty(\mathcal{M}(\Omega_n))$.  
-From [cite], its integral is simply
-\[ -\int \theta_+^2 \Lambda \theta_- \leq - \norm{\theta_+}_\infty \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C. \]
-Since $\varphi$ is continuous, 
-\[ \int \varphi \theta_+^2 \Lambda \theta_- \leq \norm{\varphi}_\infty \norm{\theta_+^2 \Lambda \theta_-}_{\mathcal{M}(\Omega_n)} \leq C \norm{\varphi}_{L^1(-4,0; L^\infty(\Omega_n))}. \]
+\item Consider the $\Lambda\theta_-$ term.  For any non-negative function $f$ we know by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint} that $\int f \theta_+ \Lambda \theta_- \leq 0$.  
+It follows that $-\theta_+ \Lambda \theta_-$ is a pointwise non-negative distribution.  Moreover, the integral over $[-4,0]\times\Omega$ of $-\theta_+\Lambda\theta_-$ is bounded by \eqref{DG2 energy}.  Thus $\theta_+\Lambda\theta_-$ is a measure with bounded total-variation norm.  In fact, because $\varphi$ is a continuous function,
+\[ \int_{-4}^0 \int \varphi \theta_+^2 \Lambda \theta \leq \norm{\theta_+}_\infty \norm{\theta_+\Lambda\theta_-}_{\mathcal{M}} \norm{\varphi}_{C^0} \leq C \norm{\varphi}_{L^\infty([-4,0]\times\Omega)}. \]
 
-\item Lastly, 
+\item Consider the $\Lambda \psi$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K$ which decomposes as
+\[ \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \theta_+(y)^2\int[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K. \]
+The first part is bounded (using H\"{o}lder's inequality) by the $L^2$ norm of $\varphi$ since $\psi$ is Lipschitz and $\theta_+^2 \in \HD^{1/2}$, while the second part is bounded by the $C^1$ norms of $\varphi$ and $\psi$ and the $L^2$ norm of $\theta_+$.  
+
+ Lastly, 
 \begin{align*} 
 \int \varphi \theta_+^2 \Lambda \psi &= \iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
 \\ &= \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
@@ -1022,6 +1022,10 @@ Since $\varphi$ is continuous,
 \end{align*}
 
 \end{itemize}
+
+\begin{remark}
+We are attempting to bound $\del_t \theta_+^3$.  If we had attempted to bound $\del_t \theta_+^p$ instead, the final three terms above would have been problematic for $p=1$ and the very final term would have been problematic for $p=2$.  
+\end{remark}
 
 Taken all together, we conclude that there exists a constant $C$ indepnendent of $n$ such that, for any $\varphi \in L^\infty(-4,0; C^2(\R^2)) \cap L^\infty(-4,0; L^2(\R^2))$, 
 \[ \int_{-4}^0 \int_{\Omega_n} \paren{ \del_t \theta_+^3 + \dot{\Gamma}_n \cdot \grad \theta_+^3 } \varphi \,dxdt \leq C \norm{\varphi}_{L^\infty(-4,0; C^2(\R^2))} + C \norm{\varphi}_{L^\infty(-4,0; L^2(\R^2))}. \]
@@ -1063,7 +1067,7 @@ Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-\section{The Oscillation Lemmas} \label{sec:harnack}
+\section{A Decrease in Oscillation} \label{sec:harnack}
 
 We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce an Oscillation lemma.  It allows us to improve a bound on the supremum of a function based on information about its positive support.  
 
