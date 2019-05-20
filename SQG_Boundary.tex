@@ -144,39 +144,31 @@ The surface quasigeostrophic equation (SQG), proposed by [Constantin, Majda, Tab
 
 %originates in the study of weather patterns.  It is also important because it is similar to the 2D Navier-Stokes.  The case $\nu > 0$ is called the dissipative SQG, the case $s =1/2$ is called the critical SQG, and $s<1/2$ and $1/2<s<1$ are called super-critical and sub-critical respectively.  Regularity was obtained by \cite{CaVa} and later re-proved and improved upon in [citations].  
 
-In this paper, we consider critical SQG on a bounded domain.  For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$ and 
-
-In \cite{CoIg.fraclap} and \cite{CoIg.fraclap}, Constantin and Ignatova consider the version of SQG on bounded domains.  For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, they consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$ and 
-\begin{align} \label{eq:main nonlinear}
-\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0 \qquad (0,T) \times \Omega,
-\\ u = \grad^\perp \Lambda\n \theta \qquad [0,T] \times \Omega,
-\\ \theta = \theta_0 \qquad \{0\} \times \Omega
-\end{align}
-on an open domain $\Omega \subseteq \R^2$ and a time interval $[0,T]$, with given initial data $\theta_0$.  
-
-Here the operator 
-\[ \Lambda := \sqrt{-\Laplace_D} \]
-is the square root of $-\Laplace_D$, the Laplacian on $\Omega$ with Dirichlet boundary condition.  More specifically, if $(\eigen{k})_{k \in \Z}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$, then
+In this paper, we consider critical SQG on a bounded domain.  For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$.  If $(\eigen{k})_{k \in \N}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in increasing order, define
 \[ \Lambda f := \sum_{k=0}^\infty \sqrt{\lambda_k} \chevron{f,\eigen{k}}_{L^2(\Omega)} \eigen{k}. \]
+The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)$ is
+\begin{equation} \label{eq:main nonlinear} \begin{cases}
+\del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0 & (0,T) \times \Omega,
+\\ u = \grad^\perp \Lambda\n \theta & [0,T] \times \Omega,
+\\ \theta = \theta_0 & \{0\} \times \Omega.
+\end{cases} \end{equation}
 
-In \cite{CoIg.fraclap} existence is shown.  In \cite{CoIg.sqg}, it is proven that smooth solutions to \eqref{eq:main nonlinear} are regular in the interior of $\Omega$.  The method of proof is by nonlinear maximum principles [give details].  However, these formulae blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
+This problem was considered by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.fraclap}, showing existence of weak solutions and interior regularity for smooth solutions, respectively.  The method of proof for interior regularity is by nonlinear maximum principles, formulas derived from the pointwise Cordoba-Cordoba inequality which allow us to control the dissipation of solutions near spatial maxima.  However, the bounds blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
 
 Our main result will be to show that $\theta$ is H\"{o}lder continuous.  
 
 \begin{theorem} \label{thm:main continuity}
-Let $\theta_0 \in L^2(\Omega)$ and let $\Omega \subseteq \R^2$ be an open set and $T > 0$ a time.  Then there exist functions $\theta, u \in L^\infty(0,T; L^2(\Omega))$ which solve \eqref{eq:main nonlinear}.  Moreover, for any $t \in (0,T)$, $\theta$ is H\"{o}lder continuous uniformly on $(t,T)\times\Omega$.  
+Let $\theta$ be a smooth solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
 
-In fact, for some $\alpha \in (0,1)$ depending only on $\Omega$ and some constant $C$ depending only on $\Omega$, $T$, and $t$
+Moreover, for any $t \in (0,T)$, $\theta$ is H\"{o}lder continuous uniformly on $(t,T)\times\Omega$.  
+
+In fact, for some $\alpha \in (0,1)$ depending only on $\Omega$ and $\norm{\theta_0}_{L^2(\Omega)}$ and some constant $C$ depending only on $\Omega$ and $t$
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-The existence of a weak solution (meaning solution in the sense of distributions) $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; \HD^{1/2}(\Omega))$ is proven in \cite{CoIg.fraclap}.  
+The technique to prove this is, like in \cite{CaVa}, to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a decrease-in-oscillation lemma for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the oscillation lemma again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
 
-The basic theory of the operators $\Lambda^s$ is well studied, but a few sources we find particularly helpful were \cite{CoIg.fraclap}, \cite{CaSt}, \cite{IMTb}, and [citation: Jerison and Kenig].  Specifically, the recent papers \cite{CaSt} and \cite{IMTb} develop singular integral formulations and a Littlewood-Paley theory, respectively, adapted to bounded domains.  These results are new and essential to the present paper.  
-
-The technique to prove this is, like in \cite{CaVa}, to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a Harnack inequality for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the Harnack inequality again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
-
-The difficulty is in finding a bound on $u$ which remains bounded no matter how much we zoom in.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can show the Harnack inequality with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
+The difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
 
 In the case of bounded domains, it is not known that the Riesz operator is bounded $L^\infty \to \BMO$.  Another well known scaling invariant function space is the Besov space $B^0_{\infty,\infty}$, and this is closer to what we want.  
 
@@ -184,7 +176,7 @@ One complication is that, on bounded domains, we have no access to the Fourier t
 
 What's more, instead of considering the Littlewood-Paley projections of the Riesz transform of $\theta$, we will actually seek to control the Riesz transforms of the Littlewood-Paley projections of $\theta$.  Because the Dirichlet Laplacian is not translation invariant, the gradient is not a spectral operator and the Riesz transform does not commute with the Littlewood-Paley projection operators.  For this reason we cannot utilize the theory of Besov spaces, but the bounds on $u$ that we do utilize are computationally similar.  
 
-Finally, because the gradient does not commute with the Dirichlet Laplacian, saying that $u$ is bounded in this way which is analogous to $B^0_{\infty,\infty}$ is not equivalent to saying that $\Lambda^{-1/4} u$ is bounded in a way analogous to the space $B^{1/4}_{\infty,\infty}$ or that $\grad u$ is bounded in a way analogous to $B^{-1}_{\infty,\infty}$.  Therefore we must bound $u$ in each sense indendently, though in the classical case all of these bounds would be identical.  
+Finally, because the gradient does not commute with the Dirichlet Laplacian, saying that $u$ is bounded in this way which is analogous to $B^0_{\infty,\infty}$ is not equivalent to saying that $\Lambda^{-1/4} u$ is bounded in a way analogous to the space $B^{1/4}_{\infty,\infty}$ or that $\grad u$ is bounded in a way analogous to $B^{-1}_{\infty,\infty}$.  Therefore we must bound $u$ in each sense independently, though in the classical case all of these bounds would be identical.  
 
 We make this notion precise with the following definition.  
 
@@ -194,7 +186,6 @@ We call a sequence $u_j$ \textbf{calibrated} for a constant $\kappa$ and a cente
 \begin{align*}
 \norm{u_j}_\infty &\leq \kappa, \\
 \norm{\grad u_j}_\infty &\leq 2^{j} 2^{-N} \kappa, \\
-\bracket{u_j}_{3/4} &\leq 2^{j \frac{3}{4}} 2^{- N \frac{3}{4}} \kappa, \\
 \norm{\Lambda^{-1/4} u_j}_\infty &\leq 2^{-j/4} 2^{N/4} \kappa.  
 \end{align*} 
 
@@ -207,21 +198,26 @@ In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in
 \del_t \theta + u \cdot \grad \theta + \Lambda \theta = 0, \\
 \div u = 0
 \end{cases} \end{equation}
-where $u$ is assumed to be calibrated.  In sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show a Harnack inequality for solutions to \eqref{eq:main linear}.  
+where $u$ is assumed to be calibrated.  In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear} with calibrated velocity are $L^\infty$, and in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  
 
 Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
+
+The basic theory of the operators $\Lambda^s$ is well studied, but a few sources we find particularly helpful were \cite{CoIg.fraclap}, \cite{CaSt}, \cite{IMTb}, and [citation: Jerison and Kenig].  Specifically, the recent papers \cite{CaSt} and \cite{IMTb} develop singular integral formulations and a Littlewood-Paley theory, respectively, adapted to bounded domains.  These results are new and essential to the present paper.  
+
+\textbf{Notation.}
+If $f = \sum_k f_k \eigen{k}$ then
+\begin{align*} 
+\norm{f}_{\HD^s} &:= \paren{\sum_k \lambda_k^{s} f_k^2}^{1/2} 
+\\ &= \HDint{s}{f}. 
+\end{align*}
+We suppress the dependence on $\Omega$, though in fact the $\lambda_k$ and $\Lambda$ are defined in terms of the domain $\Omega$.  The relevant domain will be clear from context.  This is in fact a norm, not a seminorm, since $\norm{f}_{L^2(\Omega)} \leq \lambda_0^{s/2} \norm{f}_{\HD^s}$.  
 
 Recall the notation
 \[ \bracket{f}_\alpha := \sup_{x,y \in \Omega, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha}. \]
 
-Throughout, we will use the notation $(x)_+ := \max(0,x)$.  When the parentheses are ommited, the subscript $+$ is merely a label.  
+We will use the notation $(x)_+ := \max(0,x)$.  When the parentheses are ommited, the subscript $+$ is merely a label.  
 
-We will denote
-\[ \norm{f}_{\HD^s} = \HDint{s}{f}. \]
-We suppress the dependence on $\Omega$, though in fact $\Omega$ is defined in terms of $\Omega$ in a way that will be clear from context.  This norm is in fact a norm, not a seminorm, for $s \geq 1/2$, because any $f \in \HD^s$ vanishes at the boundary so $\norm{f}_{L^2(\Omega)} \leq C \norm{f}_{\HD^s}$ but the constant depends on $\Omega$.  
-
-If $f = \sum_k f_k \eigen{k}$ then
-\[ \norm{f}_{\HD^s} = \paren{\sum_k \lambda_k^{s} f_k^2}^{1/2}. \]
+Throughout this paper, if an integral sign is written $\int$ without a specified domain, the domain is implied to be $\Omega$, with $\Omega$ defined in context.  
 
 
 \section{Properties of $\Lambda$} \label{sec:lemmas}

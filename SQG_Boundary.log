@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  20 MAY 2019 00:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  20 MAY 2019 01:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -535,25 +535,16 @@ e
 \openout3 = `SQG_Boundary.toc'.
 
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (16.34103pt too wide) in paragraph at lines 173--174
-[]\OT1/cmr/m/n/10.95 The ex-is-tence of a weak so-lu-tion (mean-ing so-lu-tion 
-in the sense of dis-tri-bu-tions) $\OML/cmm/m/it/10.95 ^^R \U/MnSymbolD/m/n/10.
-95 > \OML/cmm/m/it/10.95 L[]\OMX/MnSymbolE/m/n/10.95 à\OT1/cmr/m/n/10.95 0\OML/
-cmm/m/it/10.95 ; T\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 L[]\OMX/MnSymbolE/m/
-n/10.95 à\OT1/cmr/m/n/10.95 
-\OMX/MnSymbolE/m/n/10.95 çç \U/MnSymbolC/m/n/10.95 9
- []
 
-
-LaTeX Warning: Citation `CaVa' on page 2 undefined on input line 177.
+LaTeX Warning: Citation `CaVa' on page 2 undefined on input line 169.
 
 [2] [3] [4] [5]
-LaTeX Font Info:    Try loading font information for U+euf on input line 450.
+LaTeX Font Info:    Try loading font information for U+euf on input line 446.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 [6] [7] [8] [9] [10] [11] [12] [13] [14]
-Overfull \hbox (33.69313pt too wide) in paragraph at lines 824--825
+Overfull \hbox (33.69313pt too wide) in paragraph at lines 820--821
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -566,7 +557,7 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 
-Overfull \hbox (20.13213pt too wide) detected at line 844
+Overfull \hbox (20.13213pt too wide) detected at line 840
 [] \OT1/cmr/m/n/10.95 ^^C[]\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 ^^C[]\OMX/
 MnSymbolE/m/n/10.95 à\OML/cmm/m/it/10.95 ^^R[]\U/MnSymbolC/m/n/10.95 ©\OML/cmm/
 m/it/10.95  \OMX/MnSymbolE/m/n/10.95 ç \U/MnSymbolD/m/n/10.95 B \OML/cmm/m/it/1
@@ -574,7 +565,7 @@ m/it/10.95  \OMX/MnSymbolE/m/n/10.95 ç \U/MnSymbolD/m/n/10.95 B \OML/cmm/m/it/1
  []
 
 [15]
-Overfull \hbox (29.04279pt too wide) in paragraph at lines 882--883
+Overfull \hbox (29.04279pt too wide) in paragraph at lines 878--879
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -587,7 +578,7 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 [16]
-Overfull \hbox (29.04279pt too wide) in paragraph at lines 933--934
+Overfull \hbox (29.04279pt too wide) in paragraph at lines 929--930
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -600,14 +591,14 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 [17]
-Overfull \hbox (45.23463pt too wide) detected at line 1000
+Overfull \hbox (45.23463pt too wide) detected at line 996
 [] \OT1/cmr/m/n/10.95 ^^C[]\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 ^^C[] [] \
 U/MnSymbolD/m/n/10.95 B \OML/cmm/m/it/10.95 C^^T\OMX/MnSymbolE/m/n/10.95 S []à\
 OML/cmm/m/it/10.95 ^^R[]\OMX/MnSymbolE/m/n/10.95 çS[] [] \OML/cmm/m/it/10.95 :
  []
 
 [18] [19]
-Overfull \hbox (43.35135pt too wide) in paragraph at lines 1061--1062
+Overfull \hbox (43.35135pt too wide) in paragraph at lines 1057--1058
 []\OT1/cmr/m/n/10.95 According to the Aubin-Lions Lemma, the set $\OMX/MnSymbol
 E/m/n/10.95 ò\OML/cmm/m/it/10.95 v[]\OMX/MnSymbolE/m/n/10.95 ù[]$ \OT1/cmr/m/n/
 10.95 is there-fore com-pactly em-bed-ded in $\OML/cmm/m/it/10.95 L[]\OMX/MnSym
@@ -617,7 +608,7 @@ msb/m/n/10.95 R[]\OMX/MnSymbolE/m/n/10.95 çç$\OT1/cmr/m/n/10.95 .
  []
 
 [20]
-Overfull \hbox (29.04279pt too wide) in paragraph at lines 1101--1102
+Overfull \hbox (29.04279pt too wide) in paragraph at lines 1097--1098
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -630,7 +621,7 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 [21]
-Overfull \hbox (29.04279pt too wide) in paragraph at lines 1170--1171
+Overfull \hbox (29.04279pt too wide) in paragraph at lines 1166--1167
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -646,24 +637,27 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  6060 strings out of 494985
  82057 string characters out of 6180355
- 137064 words of memory out of 5000000
+ 137062 words of memory out of 5000000
  8987 multiletter control sequences out of 15000+600000
  22122 words of font info for 81 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
  38i,13n,43p,707b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolC6.600pk>
  </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolE6.600pk> <
-/home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolS8.600pk> </h
-ome/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolA10.657pk> </ho
-me/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolS10.657pk> </hom
-e/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolE8.600pk> </home/
-lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolF10.657pk> </home/l
-stokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolD8.600pk> </home/lst
-okols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolA8.600pk> </home/lstok
+/home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolS10.657pk> </
+home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolS8.600pk> </ho
+me/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolA10.657pk> </hom
+e/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolA8.600pk> </home/
+lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolE8.600pk> </home/ls
+tokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolF10.657pk> </home/lst
+okols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolD8.600pk> </home/lstok
 ols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolC10.657pk> </home/lstoko
 ls/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolE10.657pk> </home/lstokol
 s/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolD10.657pk> </home/lstokols
@@ -683,7 +677,7 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (27 pages, 356858 bytes).
+Output written on SQG_Boundary.pdf (27 pages, 356438 bytes).
 PDF statistics:
  316 PDF objects out of 1000 (max. 8388607)
  161 compressed objects within 2 object streams
