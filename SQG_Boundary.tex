@@ -140,7 +140,13 @@
 
 \tableofcontents
 
-We're gonna consider the equation 
+The surface quasigeostrophic equation (SQG), proposed by [Constantin, Majda, Tabak], is interesting both because of its connection to meteorology and because of its similarities with the incompressible 2D Navier-Stokes equations.  The question of global well-posedness has been answered by [Caffarelli, Vasseur] and by [Kiselev, Nazarov, Volberg].  Two important classes of techniques used in their study is the De Giorgi style techniques utilized by [Caffarelli, Vasseur] for SQG and by [Novak, Vasseur] for the Quasigeostrophic function, and the nonlinear maximum principle techniques utilized by [Constantin, Vicol] and [Constantin, Vicol, Tarfulea].  
+
+%originates in the study of weather patterns.  It is also important because it is similar to the 2D Navier-Stokes.  The case $\nu > 0$ is called the dissipative SQG, the case $s =1/2$ is called the critical SQG, and $s<1/2$ and $1/2<s<1$ are called super-critical and sub-critical respectively.  Regularity was obtained by \cite{CaVa} and later re-proved and improved upon in [citations].  
+
+In this paper, we consider critical SQG on a bounded domain.  For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$ and 
+
+In \cite{CoIg.fraclap} and \cite{CoIg.fraclap}, Constantin and Ignatova consider the version of SQG on bounded domains.  For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, they consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$ and 
 \begin{align} \label{eq:main nonlinear}
 \del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0 \qquad (0,T) \times \Omega,
 \\ u = \grad^\perp \Lambda\n \theta \qquad [0,T] \times \Omega,
@@ -153,6 +159,8 @@ Here the operator
 is the square root of $-\Laplace_D$, the Laplacian on $\Omega$ with Dirichlet boundary condition.  More specifically, if $(\eigen{k})_{k \in \Z}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$, then
 \[ \Lambda f := \sum_{k=0}^\infty \sqrt{\lambda_k} \chevron{f,\eigen{k}}_{L^2(\Omega)} \eigen{k}. \]
 
+In \cite{CoIg.fraclap} existence is shown.  In \cite{CoIg.sqg}, it is proven that smooth solutions to \eqref{eq:main nonlinear} are regular in the interior of $\Omega$.  The method of proof is by nonlinear maximum principles [give details].  However, these formulae blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
+
 Our main result will be to show that $\theta$ is H\"{o}lder continuous.  
 
 \begin{theorem} \label{thm:main continuity}
@@ -164,7 +172,9 @@ In fact, for some $\alpha \in (0,1)$ depending only on $\Omega$ and some constan
 
 The existence of a weak solution (meaning solution in the sense of distributions) $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; \HD^{1/2}(\Omega))$ is proven in \cite{CoIg.fraclap}.  
 
-The technique to prove this is, like in [citation, Caff \& Vasseur], to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a Harnack inequality for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the Harnack inequality again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
+The basic theory of the operators $\Lambda^s$ is well studied, but a few sources we find particularly helpful were \cite{CoIg.fraclap}, \cite{CaSt}, \cite{IMTb}, and [citation: Jerison and Kenig].  Specifically, the recent papers \cite{CaSt} and \cite{IMTb} develop singular integral formulations and a Littlewood-Paley theory, respectively, adapted to bounded domains.  These results are new and essential to the present paper.  
+
+The technique to prove this is, like in \cite{CaVa}, to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a Harnack inequality for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the Harnack inequality again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
 
 The difficulty is in finding a bound on $u$ which remains bounded no matter how much we zoom in.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can show the Harnack inequality with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
 
@@ -198,6 +208,8 @@ In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in
 \div u = 0
 \end{cases} \end{equation}
 where $u$ is assumed to be calibrated.  In sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show a Harnack inequality for solutions to \eqref{eq:main linear}.  
+
+Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
 
 Recall the notation
 \[ \bracket{f}_\alpha := \sup_{x,y \in \Omega, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha}. \]
@@ -607,7 +619,7 @@ and recall that $F$ is a finite linear combination of Dirichlet eigenfunctions, 
 \[ f := \Laplace F = \Lambda P_j \theta \]
 which is also smooth and vanishes at the boundary.
 
-We apply the standard Schauder estimate from \cite{gt} Theorem 6.6, which says that since, for some $\alpha$, $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
+We apply the standard Schauder estimate from \cite{GiTr} Theorem 6.6, which says that since, for some $\alpha$, $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
 \[ \bracket{D^2 F}_{\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \bracket{f}_{\alpha}. \]
 
 By Lemma \ref{thm:IMT stuff},
