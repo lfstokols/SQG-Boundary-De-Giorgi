@@ -114,7 +114,7 @@
 
 %\newcommand{\draftnum}{1}%-----------------------------UPDATE DRAFT NUM----------------------------------------
 
-\title{SQG Boundary, \today}
+\title{Holder regularity up to the boundary for critical SQG on bounded domains, \today}
 
 \author[Stokols]{Logan F. Stokols} 
 \address[L. F. Stokols]{\newline Department of Mathematics, \newline The University of Texas at Austin, Austin, TX 78712, USA}
@@ -126,21 +126,24 @@
 
 \date{\today}
 
-%\subjclass[2010]{35H10,35B65,47G20,35Q84} % hypoellptic, regularity, integro-differential, fokker-planck
-%\keywords{Fokker-Planck Equation, Fractional Laplacian, H\"older regularity,  De Giorgi method}
+\subjclass[2010]{35Q35,35Q86} % hypoellptic, regularity, integro-differential, fokker-planck
+%Logan: think about keyword for Japanese thing
+\keywords{SQG, Bounded domain, Besov spaces on bounded domains, H\"older regularity,  De Giorgi method}
 
 %\thanks{\textbf{Acknowledgment.} This work was partially supported by the NSF Grant DMS 1614918. }
 
 \begin{document}
 
-
+\begin{abstract}
+Logan: write this
+\end{abstract}
 
 
 \maketitle \centerline{\date}
 
 \tableofcontents
 
-The surface quasigeostrophic equation (SQG), proposed by [Constantin, Majda, Tabak], is interesting both because of its connection to meteorology and because of its similarities with the incompressible 2D Navier-Stokes equations.  The question of global well-posedness has been answered by [Caffarelli, Vasseur] and by [Kiselev, Nazarov, Volberg].  Two important classes of techniques used in their study is the De Giorgi style techniques utilized by [Caffarelli, Vasseur] for SQG and by [Novak, Vasseur] for the Quasigeostrophic function, and the nonlinear maximum principle techniques utilized by [Constantin, Vicol] and [Constantin, Vicol, Tarfulea].  
+The surface quasigeostrophic equation (SQG), proposed by [Constantin, Majda, Tabak], is interesting both because of its connection to meteorology and because of its similarities with the incompressible 2D Navier-Stokes equations.  The question of global well-posedness has been answered by [Caffarelli, Vasseur] and by [Kiselev, Nazarov, Volberg].  Two important classes of techniques used in their study is the De Giorgi style techniques utilized by [Caffarelli, Vasseur] for SQG and by [Novak, Vasseur] for the Quasigeostrophic system of equations, and the nonlinear maximum principle techniques utilized by [Constantin, Vicol] and [Constantin, Vicol, Tarfulea].  
 
 %originates in the study of weather patterns.  It is also important because it is similar to the 2D Navier-Stokes.  The case $\nu > 0$ is called the dissipative SQG, the case $s =1/2$ is called the critical SQG, and $s<1/2$ and $1/2<s<1$ are called super-critical and sub-critical respectively.  Regularity was obtained by \cite{CaVa} and later re-proved and improved upon in [citations].  
 
@@ -153,22 +156,22 @@ The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)
 \\ \theta = \theta_0 & \{0\} \times \Omega.
 \end{cases} \end{equation}
 
-This problem was considered by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.fraclap}, showing existence of weak solutions and interior regularity for smooth solutions, respectively.  The method of proof for interior regularity is by nonlinear maximum principles, formulas derived from the pointwise Cordoba-Cordoba inequality which allow us to control the dissipation of solutions near spatial maxima.  However, the bounds blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
+This problem was considered by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.fraclap}, showing existence of weak solutions and interior regularity for smooth solutions, respectively.  The method of proof for interior regularity is by nonlinear maximum principles, formulas which refine the pointwise Cordoba-Cordoba inequality and allow them to control the dissipation of solutions near spatial maxima.  However, the bounds blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
 
-Our main result will be to show that $\theta$ is H\"{o}lder continuous.  
+Our main result will be to show that $\theta$ is globally H\"{o}lder continuous.  
 
 \begin{theorem} \label{thm:main continuity}
 Let $\theta$ be a smooth solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
 
-Moreover, for any $t \in (0,T)$, $\theta$ is H\"{o}lder continuous uniformly on $(t,T)\times\Omega$.  
+Then for any $t \in (0,T)$, $\theta$ is H\"{o}lder continuous uniformly on $(t,T)\times\bar{\Omega}$.  
 
-In fact, for some $\alpha \in (0,1)$ depending only on $\Omega$ and $\norm{\theta_0}_{L^2(\Omega)}$ and some constant $C$ depending only on $\Omega$ and $t$
+More precisely, there exists $\alpha \in (0,1)$ depending only on $\Omega$ and $\norm{\theta_0}_{L^2(\Omega)}$, and some constant $C$ depending only on $\Omega$ and $t$, such that
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-The technique to prove this is, like in \cite{CaVa}, to linearize the equation by forgetting the dependence of $u$ on $\theta$, and then prove a decrease-in-oscillation lemma for fractional diffusion equations with ``bounded'' drift.  Then we zoom in on the solution and apply the oscillation lemma again.  By iterating this process, we can show that $\theta$ is H\"{o}lder continuous.  
+The technique to prove this, as in \cite{CaVa}, is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
 
-The difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffareli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
+The difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffarelli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
 
 In the case of bounded domains, it is not known that the Riesz operator is bounded $L^\infty \to \BMO$.  Another well known scaling invariant function space is the Besov space $B^0_{\infty,\infty}$, and this is closer to what we want.  
 
@@ -181,24 +184,26 @@ Finally, because the gradient does not commute with the Dirichlet Laplacian, say
 We make this notion precise with the following definition.  
 
 \begin{definition}[Calibrated sequence] \label{def:calibrated}
-We call a sequence $u_j$ \textbf{calibrated} for a constant $\kappa$ and a center $N$ if each term of the sequence satisfies the following bounds.  
+Let $\Omega\subseteq \R^2$ be any bounded open set and $0<T\in\R$.  We call a function $u\in L^2([0,T]\times\Omega)$ \textbf{calibrated} if it can be decomposed as the sum of a calibrated sequence
+\[ u = \sum_{j \in \Z} u_j \]
+with each $u_j \in L^2([0,T]\times\Omega)$ and the infinite sum converging in the sense of $L^2$.  
+
+We call a sequence $(u_j)_{j\in\Z}$ \textbf{calibrated} for a constant $\kappa$ and a center $N$ if each term of the sequence satisfies the following bounds.  
 
 \begin{align*}
-\norm{u_j}_\infty &\leq \kappa, \\
-\norm{\grad u_j}_\infty &\leq 2^{j} 2^{-N} \kappa, \\
-\norm{\Lambda^{-1/4} u_j}_\infty &\leq 2^{-j/4} 2^{N/4} \kappa.  
+\norm{u_j}_{L^\infty([0,T]\times\Omega)} &\leq \kappa, \\
+\norm{\grad u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{j} 2^{-N} \kappa, \\
+\norm{\Lambda^{-1/4} u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{-j/4} 2^{N/4} \kappa.  
 \end{align*} 
-
-We call a function \textbf{calibrated} if it is the sum of a calibrated sequence, with the infinite sum converging in the sense of $L^2$.  
 
 \end{definition}
 
-In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in Section \ref{sec:holder} we will show that it remains calibrated at all scales.  Therefore we will consider the linear equation
+In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in Section \ref{sec:holder} we will show that it remains calibrated at all scales (specifically, with fixed constant $\kappa$ but not always with the same center $N$).  Therefore we will consider the linear equation
 \begin{equation} \label{eq:main linear} \begin{cases}
-\del_t \theta + u \cdot \grad \theta + \Lambda \theta = 0, \\
-\div u = 0
+\del_t \theta + u \cdot \grad \theta + \Lambda \theta = 0, & [-T,0]\times\Omega \\
+\div u = 0 & [-T,0]\times\Omega.
 \end{cases} \end{equation}
-where $u$ is assumed to be calibrated.  In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear} with calibrated velocity are $L^\infty$, and in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  
+In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, with minimally regular velocity and $L^2$ initial data, become $L^\infty$ instantly, and in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  
 
 Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
 
@@ -213,18 +218,21 @@ If $f = \sum_k f_k \eigen{k}$ then
 We suppress the dependence on $\Omega$, though in fact the $\lambda_k$ and $\Lambda$ are defined in terms of the domain $\Omega$.  The relevant domain will be clear from context.  This is in fact a norm, not a seminorm, since $\norm{f}_{L^2(\Omega)} \leq \lambda_0^{s/2} \norm{f}_{\HD^s}$.  
 
 Recall the notation
-\[ \bracket{f}_\alpha := \sup_{x,y \in \Omega, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha}. \]
+\begin{align*}
+\bracket{f}_\alpha &:= \sup_{x,y \in \Omega, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha},  &\alpha \in (0,1], \\
+\norm{f}_{C^\alpha} &:= \norm{f}_\infty + \bracket{f}_\alpha, & \alpha \in (0,1], \\
+\norm{f}_{C^{k,\alpha}} &:= \sum_{n=0}^k \norm{D^n f}_\infty + \bracket{D^k f}_\alpha, & \alpha \in (0,1], k \in \N.
+\end{align*}
 
-We will use the notation $(x)_+ := \max(0,x)$.  When the parentheses are ommited, the subscript $+$ is merely a label.  
-
+We will use the notation $(x)_+ := \max(0,x)$.  When the parentheses are ommited, the subscript~$+$ is merely a label.  
 Throughout this paper, if an integral sign is written $\int$ without a specified domain, the domain is implied to be $\Omega$, with $\Omega$ defined in context.  
-
+For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$, and by $\grad^\perp$ we mean $(-\del_y, \del_x)$.  
 
 \section{Properties of $\Lambda$} \label{sec:lemmas}
 
 We begin by recounting the result of \cite{CaSt} which gives us a singular integral representation of the $\HD^s$ norm.  
-\begin{proposition} \label{thm:Caff Stinga representation}
-Let $f,g \in \HD^{s}$ on a bounded $C^{2,\alpha}$ domain $\Omega \subseteq \R^2$.  Then
+\begin{proposition}[Caffarelli-Stinga Representation] \label{thm:Caff Stinga representation}
+Let $s \in (0,1)$ and $f,g \in \HD^{s}$ on a bounded $C^{2,\alpha}$ domain $\Omega \subseteq \R^2$.  Then
 \[ \int_\Omega \Lambda^s f \Lambda^s g \,dx = \iint_{\Omega^2} [f(x)-f(y)][g(x)-g(y)] K_{2s}(x,y) \,dxdy + \int_{\Omega} f(x) g(x) B_{2s}(x) \,dx \]
 for kernels $K_{2s}$ and $B_{2s}$ which depend on the parameter $s$ and the domain $\Omega$.  
 
@@ -234,41 +242,47 @@ for all $x \neq y \in \Omega$ and
 \[ 0 \leq B_{2s}(x) \]
 for all $x \in \Omega$.  
 
-Finally, there exists a function $\tilde{K}(x,y)$ depending on $\Omega$ but independent of $s$, and a constant $c_s$ depending on $s$ and $\Omega$, such that for all $x\neq y \in \Omega$
-\[ 0 \leq \tilde{K}(x,y) \frac{c_s}{|x-y|^{2+2s}} \leq K_{2s}(x,y). \]
+Finally, for any $s,t \in (0,2)$ there exists a constant $c = c(s,t,\Omega)$ such that for all $x\neq y \in \Omega$
+\begin{equation} \label{relationship Kt and Ks} K_{t}(x,y) \leq |x-y|^{s-t} K_{s}(x,y). \end{equation}
 \end{proposition}
 
 \begin{proof}
 See \cite{CaSt} Theorems 2.3 and 2.4.  
+
+Theorem 2.4 in \cite{CaSt} does not explicitly state the result \eqref{relationship Kt and Ks}.  However, it does state that for each kernel $K_s$ there exists a constant $c_s$ dependent on $s$ and $\Omega$ such that 
+\[ \frac{1}{c_s} |x-y|^{2+s} K_s(x,y) \leq \min\paren{1,\frac{\eigen{0}(x)\eigen{0}(y)}{|x-y|^2}} \leq c_s |x-y|^{2+s} K_s(x,y). \]
+Since the middle term does not depend on $s$, we can say that
+\[ |x-y|^{2+t} K_t(x,y) \leq c_t c_s |x-y|^{2+s} K_s(x,y) \]
+from which \eqref{relationship Kt and Ks} follows.  
 \end{proof}
 
-From the explicit formulae given in Proposition~\ref{thm:Caff Stinga representation}, we see that $K_{2s}$ is roughly equal to the standard kernel for the $\R^2$ fractional Laplacian when both $x$ and $y$ are in the interior of $\Omega$ or when $x$ and $y$ are extremely close together, but decays to zero when one point is in the interior and the other is near the boundary.  The kernel $B_{2s}$ is well-behaved in the interior but has a singularity at the boundary $\del \Omega$.  This justifies our thinking of the $K_{2s}$ term as the interior term and $B_{2s}$ as a boundary term.  
+From the explicit formulae given in \cite{CaSt}, we see that $K_{2s}$ is roughly equal to the standard kernel for the $\R^2$ fractional Laplacian $(-\Laplace)^s$ when both $x$ and $y$ are in the interior of $\Omega$ or when $x$ and $y$ are extremely close together, but decays to zero when one point is in the interior and the other is near the boundary.  The kernel $B_{2s}$ is well-behaved in the interior but has a singularity at the boundary $\del \Omega$.  This justifies our thinking of the $K_{2s}$ term as the interior term and $B_{2s}$ as a boundary term.  
 
 When comparing the computations in this paper to corresponding computations on $\R^2$, it is convenient to say that the interior term behaves roughly the same as in the unbounded case, while the boundary term behaves roughly like a lower order term (in the sense that it is easily localized).  
 
-We will now prove a collection of lemmas which follow from the Caffarelli-Stinga representation.  
+Many useful results can be derived from Caffarelli-Stinga representation formula, including the following:
 
 \begin{lemma} \label{thm:Lambda stuff}
-We present 4 elementary corallaries of the representation of the Caffarelli-Stinga representation.  
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary.  
 
 \begin{enumerate}[(a)]
-\item \label{thm:disjoint} If $f$ and $g$ are non-negative functions with disjoint support (i.e. $f(x)g(x) = 0$ for all $x$), then 
+\item \label{thm:disjoint} Let $s \in (0,1)$.  If $f$ and $g$ are non-negative functions with disjoint support (i.e. $f(x)g(x) = 0$ for all $x$), then 
 \[ \int \Lambda^s f \Lambda^s g \,dx \leq 0. \]
 
-\item \label{thm:product rule} Let $s \in (0,1)$.  If $g \in L^\infty \cap \Lip(\Omega)$ then
-\[ \norm{fg}_{\HD^s} \leq \norm{g}_\infty \norm{f}_{\HD^s} + \norm{f}_2 \sup_y \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dx. \]
+\item \label{thm:product rule} Let $s \in (0,1)$.  If $g \in C^{0,1}(\Omega)$ then
+\[ \norm{fg}_{\HD^s} \leq 2 \norm{g}_\infty \norm{f}_{\HD^s} + 2 \norm{f}_2 \sup_y \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dx. \]
 
-\item \label{thm:extra product rule} Let $s \in (0,1)$.  If $g \in L^\infty \cap \Lip(\Omega)$ then for some constant $C=C(s)$
-\[  \norm{fg}_{\HD^s} \leq C \paren{\norm{g}_\infty + \norm{g}_\Lip} \paren{\norm{f}_2 + \norm{f}_{\HD^s}}. \]
+\item \label{thm:extra product rule} Let $s \in (0,1)$.  If $g \in C^{0,1}(\Omega)$ then for some constant $C=C(s)$
+\[  \norm{fg}_{\HD^s} \leq C \norm{g}_{C^{0,1}(\Omega)} \paren{\norm{f}_2 + \norm{f}_{\HD^s}}. \]
 
-\item \label{thm:L1 of Lambda bounded} Let $g$ an $L^\infty$ function and $f \in \HD^{2s}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
-\begin{equation} \label{K bounded between orders} K_s(x,y) \leq C |x-y|^{3s} K_{4s}(x,y). \end{equation}
+\item \label{thm:L1 of Lambda bounded} Let $s\in(0,1/2)$.  Let $g$ an $L^\infty(\Omega)$ function and $f \in \HD^{2s}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
+\begin{equation} \label{K bounded between orders} K_s(x,y) \leq \Comega |x-y|^{3s} K_{4s}(x,y). \end{equation}
 
 Then
 \[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{\HD^{2s}}}. \]
 
-\item \label{thm:L1 of Lambda1/4 bounded} Let $g$ an $L^\infty$ function and $f \in \HD^{1/2}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
-\[ K_s(x,y) \leq C |x-y|^{3s} K_{4s}(x,y). \]
+\item \label{thm:L1 of Lambda1/4 bounded} Let $g$ an $L^\infty(\Omega)$ function and $f \in \HD^{1/2}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
 
 Then
 \[ \int g \Lambda^{1/4} f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{\HD^{1/2}}}. \]
@@ -288,8 +302,9 @@ Since $f$ and $g$ are non-negative and disjoint, the $B$ term vanishes.  Moreove
 Since $K$ is non-negative, the result follows.  
 
 \textbf{Proof of \eqref{thm:product rule}:}
+From Proposition \ref{thm:Caff Stinga representation}
 \[ \int |\Lambda^s (fg)|^2 = \iint \paren{g(x)[f(x)-f(y)] + f(y)[g(x)-g(x)]}^2 K + \int f^2 g^2 B \]
-\[ \leq \norm{g}_\infty^2 \norm{f}_{\HD^s}^2 + \int f(y)^2 \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}}. \]
+\[ \leq 2 \norm{g}_\infty^2 \norm{f}_{\HD^s}^2 + 2 \int f(y)^2 \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}}. \]
 
 \textbf{Proof of \eqref{thm:extra product rule}:}
 This follows immediately from \eqref{thm:product rule}.  
@@ -304,14 +319,14 @@ where
 \Rom{2} &:= \int f g B_s. 
 \end{align*}
 
-First we estimate $\Rom{1}_<$.  From \eqref{K bounded between orders} and the fact that $[f(x)-f(y)]$ vanishes unless at least one of $f(x)$ or $f(y)$ is non-zero,
+First we estimate $\Rom{1}_<$.  From \eqref{K bounded between orders} and from the symmetry of the integrand and the fact that $[f(x)-f(y)]$ vanishes unless at least one of $f(x)$ or $f(y)$ is non-zero,
 \[ \abs{\Rom{1}_<} \leq 2 \iint_{|x-y| < 1} \indic{f > 0}(x) \abs{g(x)-g(y)} \cdot \abs{f(x)-f(y)} \cdot |x-y|^{3s} K_{4s}. \]
 We can break this up by Holder's inequality
 \[ \abs{\Rom{1}_<} \leq 2 \paren{\iint_{|x-y| < 1} \indic{f > 0}(x) [g(x)-g(y)]^2 |x-y|^{6s} K_{4s} }^{1/2} \paren{\iint [f(x)-f(y)]^2 K_{4s} }^{1/2}. \]
 The kernel $|x-y|^{6s} K_{4s} \indic{|x-y| < 1}$ is integrable in $y$ for $x$ fixed.  Therefore
 \begin{equation} \label{K near of L1 less than L2 stuff} \abs{\Rom{1}_<} \leq 2 \paren{ 2\norm{g}_\infty^2 \int C \indic{f > 0}(x) \,dx }^{1/2} \paren{ \norm{f}_{\HD^{2s}}^2}^{1/2}. \end{equation}
 
-To estimate $\Rom{1}_\geq$,
+For the term $\Rom{1}_\geq$, by the symmetry of the integrand we have
 \[ \abs{\Rom{1}_\geq} \leq  2\norm{g}_\infty 2\int |f(x)| \int_{|x-y|\geq 1} K_s(x,y)dy \,dx. \]
 Since $K_s \indic{|x-y|\geq 1}$ is integrable in $y$ for $x$ fixed,
 \begin{equation} \label{K far of L1 less than L2 stuff}
@@ -325,130 +340,73 @@ Since $f \geq 0$, $[f(x)-f(y)][\indic{f > 0}(x) - \indic{f > 0}(y)] \geq 0$.  Th
 Applying H\"{o}lder's inequality, we arrive at
 \[ \abs{\Rom{2}} \leq \norm{g}_\infty |\supp(f)|^{1/2} \norm{f}_{\HD^{s}}. \]
 This combined with \eqref{K near of L1 less than L2 stuff} and \eqref{K far of L1 less than L2 stuff} gives us 
-\[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty \paren{\norm{f}_1 + |\supp(f)|^{1/2} \norm{f}_{\HD^s} + \norm{f}_{\HD^{2s}}}. \]
+\[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty \paren{|\supp(f)|^{1/2} \norm{f}_{\HD^{2s}} + \norm{f}_1 + |\supp(f)|^{1/2} \norm{f}_{\HD^s}}. \]
 
 The lemma follows since $\norm{f}_1 \leq |\supp(f)|^{1/2} \norm{f}_2$ and since $\norm{f}_{\HD^s} \leq \norm{f}_{L^2} + \norm{f}_{\HD^{2s}}$.  
 
 \textbf{Proof of \eqref{thm:L1 of Lambda1/4 bounded}:}
-This is an immediate application of the \eqref{thm:L1 of Lambda bounded}.  
+This is an immediate application of part \eqref{thm:L1 of Lambda bounded}.  
 
 \end{proof}
 
-%\begin{lemma} \label{thm:product rule}
-%Let $s \in (0,1)$.  If $g \in L^\infty \cap \Lip(\Omega)$ then
-%\[ \int \Lambda^s (fg) \Lambda^s h \leq \norm{g}_\infty \int \Lambda^s f \Lambda^s h \,dx + \norm{f}_1 \norm{h}_{\HD^s} \sup_x \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+s}} \,dy. \]
-%
-%Also
-%\[ \norm{fg}_{\HD^s} \leq \norm{g}_\infty \norm{f}_{\HD^s} + \norm{f}_\infty \norm{g}_{\HD^s}. \]
-%
-%Also
-%\[ \norm{fg}_{\HD^s} \leq \norm{g}_\infty \norm{f}_{\HD^s} + \norm{f}_2 \sup_y \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dx. \]
-%
-%In particular, 
-%\[  \norm{fg}_{\HD^s} \leq \norm{g}_\infty \norm{f}_{\HD^s} + \norm{f}_2 \paren{\norm{g}_\infty + \norm{g}_\Lip}. \]
-%
-%I can prove any of these, if they are worth citing.  
-%\end{lemma}
-%
-%\begin{proof}
-%\[ \int |\Lambda^s (fg)|^2 = \iint \paren{g(x)[f(x)-f(y)] + f(y)[g(x)-g(x)]}^2 K + \int f^2 g^2 B \]
-%\[ \leq \norm{g}_\infty^2 \norm{f}_{\HD^s}^2 + \int f(y)^2 \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}}. \]
-%\end{proof}
-%
-%\begin{lemma} \label{thm:L1 of Lambda bounded}
-%Let $g$ an $L^\infty$ function and $f \in H^{2s}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
-%\begin{equation} \label{K bounded between orders} K_s(x,y) \leq C |x-y|^{3s} K_{4s}(x,y). \end{equation}
-%
-%Then
-%\[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{\HD^{2s}}}. \]
-%\end{lemma}
-%
-%Recall
-%\[ \int \Lambda^s f \Lambda^s g = \iint [f(x)-f(y)][g(x)-g(y)] K_{2s}(x,y) \,dxdy + \int f g B_{2s} \,dx \]
-%and
-%\[ K_{s}(x,y) \leq C |x-y|^{-(2+s)}. \]
-%
-%\begin{proof}
-%Break up the integral according to the Caff \& Stinga decomposition [cite]
-%\[ \int \Lambda^{s/2} g \Lambda^{s/2} f = \Rom{1}_< + \Rom{1}_\geq + \Rom{2} \]
-%where
-%\begin{align*} 
-%\Rom{1}_< &:= \iint_{|x-y| < 1} [g(x)-g(y)][f(x)-f(y)] K_s, \\
-%\Rom{1}_\geq &:= \iint_{|x-y|\geq 1} [g(x)-g(y)][f(x)-f(y)] K_s, \\
-%\Rom{2} &:= \int f g B_s. 
-%\end{align*}
-%
-%First we estimate $\Rom{1}_<$.  From \eqref{K bounded between orders} and the fact that $[f(x)-f(y)]$ vanishes unless at least one of $f(x)$ or $f(y)$ is non-zero,
-%\[ \abs{\Rom{1}_<} \leq 2 \iint_{|x-y| < 1} \indic{f > 0}(x) \abs{g(x)-g(y)} \cdot \abs{f(x)-f(y)} \cdot |x-y|^{3s} K_{4s}. \]
-%We can break this up by Holder's inequality
-%\[ \abs{\Rom{1}_<} \leq 2 \paren{\iint_{|x-y| < 1} \indic{f > 0}(x) [g(x)-g(y)]^2 |x-y|^{6s} K_{4s} }^{1/2} \paren{\iint [f(x)-f(y)]^2 K_{4s} }^{1/2}. \]
-%The kernel $|x-y|^{6s} K_{4s} \indic{|x-y| < 1}$ is integrable in $y$ for $x$ fixed.  Therefore
-%\begin{equation} \label{K near of L1 less than L2 stuff} \abs{\Rom{1}_<} \leq 2 \paren{ 2\norm{g}_\infty^2 \int C \indic{f > 0}(x) \,dx }^{1/2} \paren{ \norm{f}_{\HD^{2s}}^2}^{1/2}. \end{equation}
-%
-%To estimate $\Rom{1}_\geq$,
-%\[ \abs{\Rom{1}_\geq} \leq  2\norm{g}_\infty 2\int |f(x)| \int_{|x-y|\geq 1} K_s(x,y)dy \,dx. \]
-%Since $K_s \indic{|x-y|\geq 1}$ is integrable in $y$ for $x$ fixed,
-%\begin{equation} \label{K far of L1 less than L2 stuff}
-%\abs{\Rom{1}_\geq} \leq C \norm{g}_\infty \norm{f}_1.  
-%\end{equation}
-%
-%For the boundary term \Rom{2}, 
-%\[ \abs{\Rom{2}} \leq \norm{g}_\infty \int\indic{f>0} f B_s. \]
-%Since $f \geq 0$, $[f(x)-f(y)][\indic{f > 0}(x) - \indic{f > 0}(y)] \geq 0$.  Therefore
-%\[ \int \indic{f > 0} f B_s \leq \int \Lambda^{s/2} \indic{f>0} \Lambda^{s/2} f = \int \indic{f>0} \Lambda^{s} f. \]
-%Applying H\"{o}lder's inequality, we arrive at
-%\[ \abs{\Rom{2}} \leq \norm{g}_\infty |\supp(f)|^{1/2} \norm{f}_{\HD^{s}}. \]
-%This combined with \eqref{K near of L1 less than L2 stuff} and \eqref{K far of L1 less than L2 stuff} gives us 
-%\[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty \paren{\norm{f}_1 + |\supp(f)|^{1/2} \norm{f}_{\HD^s} + \norm{f}_{\HD^{2s}}}. \]
-%
-%The lemma follows since $\norm{f}_1 \leq |\supp(f)|^{1/2} \norm{f}_2$ and since $\norm{f}_{\HD^s} \leq \norm{f}_{L^2} + \norm{f}_{\HD^{2s}}$.  
-%\end{proof}
-
 Let us consider the relationship between the norm $\HD^s$ and the classical $H^s$ norm.  
 
-It is known (see \cite{CoIg.sqg} and \cite{CaSt}) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ and that elements of $\HD^s$ have trace zero for $s \in [1/2,1]$.  
+It is known (see \cite{CoIg.sqg} and \cite{CaSt}) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain subsets of $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ and that elements of $\HD^s$ have trace zero for $s \in [\frac{1}{2},1]$.  
 
 The most important fact for us is that the fractional Sobolev norms defined in terms of extension (for which we have access to a variety of theorems regarding compactness and Sobolev embeddings) are dominated by our $\HD^s$ norm with a constant that is independent of $\Omega$.  
 
-\begin{lemma} \label{thm:hadamard 3 lines}
-For any function $f$, and any $1/2 \leq s < 1$,
-\[ \int_\Omega \abs{\Lambda^s f}^2 \geq \int_{\R^2} \abs{\paren{-\Laplace}^{s/2} \bar{f}}^2. \]
-Here $\bar{f}$ is the extension-by-zero of $f$ to $\R^2$ and $\paren{-\Laplace}^s$ is defined in the fourier sense.  
-\end{lemma}
+Consider the extension-by-zero operator $E:L^2(\Omega) \to L^2(\R^2)$
+\[ E f (x) = \begin{cases} f(x) & x \in \Omega, \\ 0 & x \in \R^2 \setminus \Omega. \end{cases} \]
 
-We will prove this by interpolating between $s = 0$ and $s=1$.  Before we can do this, we must prove the 
+\begin{proposition} \label{thm:hadamard 3 lines}
+Let $\Omega \subseteq \R^2$ be any bounded open set with Lipschitz boundary.  For any $s \in [\frac{1}{2},1]$ and function $f \in \HD^s$,
+\[ \int_{\R^2} \abs{\paren{-\Laplace}^{s/2} E f}^2 \leq \int_\Omega \abs{\Lambda^s f}^2. \]
+Here $\paren{-\Laplace}^s$ is defined in the fourier sense.  
+\end{proposition}
+
+We will prove this proposition by interpolating between $s = 0$ and $s=1$.  Before we can do this, we must prove the same in the $s=1$ case.  
 
 \begin{lemma} \label{thm:H1 and H1}
-For all functions $f$ in $\HD^1$,
+Let $\Omega \subseteq \R^2$ be any bounded open set with Lipschitz boundary.  For all functions $f$ in $\HD^1$,
 \[ \int_\Omega \abs{\grad f}^2 = \int_\Omega \abs{\Lambda f}^2. \]
 \end{lemma}
 
 \begin{proof}
-Let $\eigen{i}$ and $\eigen{j}$ be two eigenfunctions of the Dirichlet Laplacian on $\Omega$.  Note that these functions are smooth in the interior of $\Omega$.  Because $\Omega$ has Lipschitz boundary, and because $\eigen{i} \grad \eigen{j}$ is smooth on $\Omega$ and countinuous and bounded on $\overline{\Omega}$ vanishing on the boundary, therefore 
-\[ \int_\Omega \div(\eigen{i} \grad \eigen{j}) = \int_{\del \Omega} \eigen{i} \grad \eigen{j}. \]
-But $\eigen{i} \grad \eigen{j}$ vanishes on the boundary, so the right hand side vanishes.  Moreover, $\div(\eigen{i} \grad \eigen{j}) = \grad \eigen{i} \cdot \grad \eigen{j} + \eigen{i} \Laplace \eigen{j}$.  Therefore
+Let $\eigen{i}$ and $\eigen{j}$ be two eigenfunctions of the Dirichlet Laplacian on $\Omega$.  Note that these functions are smooth in the interior of $\Omega$ and vanish at the boundary, so we can apply the divergence theorem and find
 \[ \int \grad \eigen{i} \cdot \grad \eigen{j} = - \int \eigen{i} \Laplace \eigen{j} = \lambda_j \int \eigen{i} \eigen{j} = \lambda_j \delta_{i=j}. \]
-Of course, the inner product of two eigenfunctions is 0 unless they are the same eigenfunction, in which case it is 1.  
+%Because $\Omega$ has Lipschitz boundary, and because $\eigen{i} \grad \eigen{j}$ is smooth on $\Omega$ and countinuous and bounded on $\overline{\Omega}$ vanishing on the boundary, therefore 
+%\[ \int_\Omega \div(\eigen{i} \grad \eigen{j}) = \int_{\del \Omega} \eigen{i} \grad \eigen{j}. \]
+%But $\eigen{i} \grad \eigen{j}$ vanishes on the boundary, so the right hand side vanishes.  Moreover, $\div(\eigen{i} \grad \eigen{j}) = \grad \eigen{i} \cdot \grad \eigen{j} + \eigen{i} \Laplace \eigen{j}$.  Therefore
+%\[ \int \grad \eigen{i} \cdot \grad \eigen{j} = - \int \eigen{i} \Laplace \eigen{j} = \lambda_j \int \eigen{i} \eigen{j} = \lambda_j \delta_{i=j}. \]
+%Of course, the inner product of two eigenfunctions is 0 unless they are the same eigenfunction, in which case it is 1.  
 
 Consider a function $f = \sum f_k \eigen{k}$ which is an element of $\HD^1$, by which we mean $\sum \lambda_k f_k^2 < \infty$.  Since $\norm{\grad \eigen{k}}_{L^2(\Omega)} = \sqrt{\lambda_k}$, the following sums all converge in $L^2(\Omega)$ and hence the calculation is justified:
 \begin{align*}
 \int \abs{\grad f}^2 &= \int \paren{\sum_i f_i \grad \eigen{i} } \paren{\sum_j f_j \grad \eigen{j}}
 \\ &= \int \sum_{i,j} (f_i f_j) \grad \eigen{i} \cdot \grad \eigen{j}
-\\ &= \sum_{i,j} (f_i f_j) \int \grad \eigen{i} \cdot \grad \eigen{j}.
+\\ &= \sum_{i,j} (f_i f_j) \int \grad \eigen{i} \cdot \grad \eigen{j}
+\\ &= \sum_j \lambda_j f_j^2.
 \end{align*}
-From the calculation [cite], we see that this is equal to the $\HD^1$ norm so
-\[ \norm{\grad f}_{L^2(\Omega)} = \norm{\Lambda f}_{L^2(\Omega)}. \]
+From this the result follows.
 \end{proof}
+
+\renewcommand{\Re}{\operatorname{Re}}
 
 We come now to the proof of Proposition \ref{thm:hadamard 3 lines}.  
 \begin{proof}
-Let $g$ be any Schwarz function in $L^2(\R^2)$, and let $f$ be a function in $\HD^s$.  Let $E:\HD^1(\Omega) \to H^1(\R^2)$ be a the extension-by-zero operator, where $H^1$ denotes the classical Sobolev space defined using the gradient.  Define the function
+Let $g$ be any Schwartz function in $L^2(\R^2)$, and let $f$ be a function in $\HD^s$.  
+%Let $E:\HD^1(\Omega) \to H^1(\R^2)$ be a the extension-by-zero operator, where $H^1$ denotes the classical Sobolev space defined using the gradient.  
+Define the function
 \[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g E \Lambda^{s-z} f, \qquad z \in \C, \Re(z) \in [0,1]. \]
 
-When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{\Lambda^s f}_2$ since $\Lambda^{i t}$ is a unitary operator on $L^2$ for any $t \in \R$.  Hence
+Recall [citation] that when $t \in \R$, $(-\Laplace)^{i t}$ is a unitary transformation on $L^2(\R^2)$, and $\Lambda^{i t}$ is a unitary transformation on $L^2(\Omega)$.  
+
+When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{f}_{\HD^s}$.  Hence
 \[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}. \]
 
-When $\Re(z)=1$, then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$ and 
+When $\Re(z)=1$, integrate by parts to obtain
+\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{(z-1)/2} g \ldots \]
+then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$ and 
 \[ \norm{\paren{-\Laplace}^{1/2} E\Lambda^{s-z} f}_{L^2(\R^2)} = \norm{\grad E \Lambda^{s-z} f}_{L^2(\R^2)} \leq \norm{E} \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)}. \]
 Since $\Lambda^s f \in L^2(\Omega)$, $\Lambda^{s-z} f \in \HD^1$ so we can apply Lemma~\ref{thm:H1 and H1}.  Ergo
 \[ \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)} = \norm{\Lambda \Lambda^{s-z} f}_2 \leq \norm{\Lambda^s f}_2 \]
