@@ -148,7 +148,11 @@ The surface quasigeostrophic equation (SQG), proposed by [Constantin, Majda, Tab
 
 %originates in the study of weather patterns.  It is also important because it is similar to the 2D Navier-Stokes.  The case $\nu > 0$ is called the dissipative SQG, the case $s =1/2$ is called the critical SQG, and $s<1/2$ and $1/2<s<1$ are called super-critical and sub-critical respectively.  Regularity was obtained by \cite{CaVa} and later re-proved and improved upon in [citations].  
 
-In this paper, we consider critical SQG on a bounded domain.  For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$.  If $(\eigen{k})_{k \in \N}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in increasing order, define
+In this paper, we consider critical SQG on a bounded domain.  There are several distinct ways to define SQG on a bounded domain, which generally correspond to alternative definitions of the half-Laplacian.  Kriventsov [citation, Dennis Kriventsov] considered a two-phase problem which satisfied SQG only in a region, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In [citation, Matt and Vasseur], the authors model the full 3D inviscit Qasigeostrophic system in an impermeable cylinder and obtain boundary conditions which, when passed into the SQG submodel, result in a nonlocal operator which is not well understood.  
+
+We will consider the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}:
+
+For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$.  If $(\eigen{k})_{k \in \N}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in increasing order, define
 \[ \Lambda f := \sum_{k=0}^\infty \sqrt{\lambda_k} \chevron{f,\eigen{k}}_{L^2(\Omega)} \eigen{k}. \]
 The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)$ is
 \begin{equation} \label{eq:main nonlinear} \begin{cases}
@@ -157,9 +161,9 @@ The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)
 \\ \theta = \theta_0 & \{0\} \times \Omega.
 \end{cases} \end{equation}
 
-This problem was considered by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.fraclap}, showing existence of weak solutions and interior regularity for smooth solutions, respectively.  The method of proof for interior regularity is by nonlinear maximum principles, formulas which refine the pointwise Cordoba-Cordoba inequality and allow them to control the dissipation of solutions near spatial maxima.  However, the bounds blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
+Existence of weak solutions for this problem is proven in \cite{CoIg.fraclap}, and interior regularity is proven in \cite{CoIg.fraclap}.  The method of proof for interior regularity is by nonlinear maximum principles, formulas which refine the pointwise Cordoba-Cordoba inequality and allow them to control the dissipation of solutions near spatial maxima.  However, the bounds blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
 
-Our main result will be to show that $\theta$ is globally H\"{o}lder continuous.  
+Our main result will be to show that $\theta$ is globally H\"{o}lder continuous.  In \cite{CoIg.sqg} Remark 1, the question of global regularity was proposed, citing both $C^\alpha(\bar{\Omega})$ bounds and the $C^\alpha(\bar{\Omega}) \implies C^\infty(\bar{\Omega})$ implication as open problems.  To quote Remark 1, these questions are unsolved ``due to the fact that the commutator between normal derivatives and the fractional Dirichlet Laplacian is not controlled uniformly up to the boundary.''  
 
 \begin{theorem} \label{thm:main continuity}
 Let $\theta$ be a smooth solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
@@ -170,9 +174,13 @@ More precisely, there exists $\alpha \in (0,1)$ depending only on $\Omega$ and $
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-The technique to prove this, as in \cite{CaVa.sqg}, is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
+Our method of proof will be the De Giorgi method.  Introduced by De Giorgi in \cite{DG}, the method was applied to the SQG problem in \cite{CaVa.sqg} and to the 3D Quasigeostrophic problem in [citation, Matt Vasseur].  The underlying idea is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
 
-The difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffarelli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
+
+
+In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$.  Previous applications of the De Giorgi method generally make extensive use of either an extension representation \cite{CaVa.sqg} or a singular-integral representation [citation matt, vasseur], so this theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand.  In the present paper, we lean heavily on the singular integral representation (see Section~\ref{sec:lemmas}).  
+
+The last difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffarelli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
 
 In the case of bounded domains, it is not known that the Riesz operator is bounded $L^\infty \to \BMO$.  Another well known scaling invariant function space is the Besov space $B^0_{\infty,\infty}$, and this is closer to what we want.  
 
@@ -611,6 +619,7 @@ The result follows.
 
 
 This final lemma allows us to interpolate using H\"{o}lder seminorms.  The results are not presumed to be novel, but since their proofs were difficult to find in the literature we include them below.  
+
 \begin{lemma} \label{thm:Holder interpolation}
 Let $\alpha \in (0,1)$.  There exists a constant $C = C(\alpha)$ such that, for any set $\Omega$ and any $f \in C^{0,1}(\Omega)$,
 \[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
@@ -621,38 +630,6 @@ Let $\alpha \in (0,1)$ and $\Omega$ a set that satisfies the cone condition.  Th
 \[ \norm{D^2 f}_\infty \leq C \paren{ \delta\n \norm{\grad f}_\infty  + \delta^\alpha \bracket{D^2 f}_\alpha }\]
 for all $\delta < \ell$.  
 \end{lemma}
-\begin{proof}
-The first claim is straigtforward.  
-\begin{align*} 
-\sup_{x,y \in \Omega} \frac{|f(x)-f(y)|}{|x-y|^\alpha} &= \sup |f(x)-f(y)|^{1-\alpha} \paren{\frac{|f(x)-f(y)|}{|x-y|}}^\alpha 
-\\ &\leq \paren{2 \norm{f}_\infty}^{1-\alpha} \paren{ \sup \frac{|f(x)-f(y)|}{|x-y|} }^\alpha
-\\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
-\end{align*}
-
-The second claim is more complicated.  We will prove the stronger claim that for $f \in C^{1,\alpha}$
-\[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
-
-The idea of the proof is to average $\grad f$ along an interval of length $\delta$ with endpoint $x$.  The magnitude of the average will be small, since $f \in L^\infty$, and the average will differ not very much from $\grad f(x)$ since $\grad f \in C^{1,\alpha}$.  
-
-Since $\Omega$ satisfies the cone condition, there exist positive constants $\ell$ and $a<1$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $|e_1\cdot e_2| \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$ and $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
-
-Consider the directional derivative $\del_i f$ of $f$ along the direction $e_i$, and observe that for any $0 < \delta \leq \ell$,
-\begin{equation} \label{average bounded by Linfty} \abs{\int_0^\delta \del_i f(x + \tau e_i) \,d\tau} = \abs{f(x+\delta e_i) - f(x)} \leq 2 \norm{f}_\infty. \end{equation}
-
-On the other hand, $\del_i f$ is continous so, for any $\tau \in (0,\ell]$,
-\[ \abs{\del_i f(x) - \del_i f(x+\tau e_i)} \leq \bracket{\grad f}_\alpha \tau^\alpha. \]
-From this, we obtain that
-\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \int_0^\delta \paren{\del_i f(x) + \bracket{\grad f}_\alpha \tau^\alpha } \,d\tau = \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \]
-and a similar bound holds from below.  Thus
-\[ \abs{ \delta \del_i f(x) - \int_0^\delta \del_i f(x + \tau e_i) \,d\tau} \leq \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
-
-Combining this bound with \eqref{average bounded by Linfty}, we obtain
-\[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
-
-This bound is independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by assumption, by a little linear algebra we can bound $\grad f$ in terms of the $\del_i f$ and obtain that, for all $\delta \in (0,\ell]$,
-\[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
-
-\end{proof}
 
 We are now ready to prove Proposition \ref{thm:u is calibrated}.  
 
@@ -741,20 +718,7 @@ Now that we know that $u$ is calibrated, we end the section with a final lemma t
 
 Our goal in this section is to prove De Giorgi's first and second lemmas for solutions to \eqref{eq:main linear} with $u$ uniformly calibrated.  
 
-In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ is not constant, but rather grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that its derivatives are only small if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
-
-To that end, we shall consider a family of functions $\theta$, $\ulow$, and $\uhigh:[-T,0]\times \Omega \to \R$, and paths $\Gamma$ and $\gamma:[-5,0] \to \R^2$ which satisfy
-\begin{equation} \label{eq:main linear brokendown} \begin{cases}
-\del_t \theta + (\ulow + \uhigh) \cdot \grad \theta + \Lambda \theta = 0 & \textrm{on } [-T,0] \times \Omega, \\
-\div( \ulow) = \div(\uhigh) = 0 & \textrm{on } [-T,0]\times \Omega, \\
-\dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \gamma(t) + \Gamma(t)) & \textrm{on } [-T,0], \\
-\gamma(0) = \Gamma(0) = 0.
-\end{cases} \end{equation}
-
-Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  The reason for breaking up the velocity into two functions $\ulow$ and $\uhigh$, and for breaking up the flow $\Gamma + \gamma$ into two functions, is that we will make different types of assumptions about these different parts.  Generally speaking $\ulow$ and $\gamma$ will be Lipschitz functions while $\uhigh$ is merely in a weak space $W^{-1/4,\infty}$ and $\Gamma$ will trace out points in $\Omega$ where $\theta$ is well behaved by assumption.  
-
-Constructing the paths $\Gamma$ and $\gamma$ must wait until Section~\ref{sec:holder}, but we can state now how to obtain the functions $\ulow$ and $\uhigh$ from a calibrated $u$.  
-
+The first step is to show that a calibrated velocity can be rewritten in a more practical format:
 \begin{lemma} \label{thm:calibration is good}
 Let 
 \[ u = \sum_{j_0}^\infty u_j \]
@@ -785,6 +749,18 @@ We define
 and bound
 \[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \kappa \frac{1}{1 - 2^{-1}}. \]
 \end{proof}
+
+In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ is not constant, but rather grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that its derivatives are only small if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
+
+To that end, we shall consider a family of functions $\theta$, $\ulow$, and $\uhigh:[-T,0]\times \Omega \to \R$, and paths $\Gamma$ and $\gamma:[-5,0] \to \R^2$ which satisfy
+\begin{equation} \label{eq:main linear brokendown} \begin{cases}
+\del_t \theta + (\ulow + \uhigh) \cdot \grad \theta + \Lambda \theta = 0 & \textrm{on } [-T,0] \times \Omega, \\
+\div( \ulow) = \div(\uhigh) = 0 & \textrm{on } [-T,0]\times \Omega, \\
+\dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \gamma(t) + \Gamma(t)) & \textrm{on } [-T,0], \\
+\gamma(0) = \Gamma(0) = 0.
+\end{cases} \end{equation}
+
+Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  Generally speaking $\ulow$ and $\gamma$ will be Lipschitz functions while $\uhigh$ is merely in a weak space $W^{-1/4,\infty}$ and $\Gamma$ will trace out points in $\Omega$ where $\theta$ is well behaved by assumption.  See Section~\ref{sec:holder} for the construction of these functions $\Gamma$ and $\gamma$.  
 
 Now we prove an energy inequality for solutions to \eqref{eq:main linear brokendown}.  
 
@@ -1400,6 +1376,46 @@ In other words,
 \end{align*}
 
 \end{proof}
+
+\appendix
+\section{proofs}
+
+In this appendix we prove the lemmas \ref{thm:Holder interpolation} and \ref{thm:calibration is good}.  
+
+\begin{proof}[Proof of \ref{thm:Holder interpolation}]
+The first claim is straigtforward.  
+\begin{align*} 
+\sup_{x,y \in \Omega} \frac{|f(x)-f(y)|}{|x-y|^\alpha} &= \sup |f(x)-f(y)|^{1-\alpha} \paren{\frac{|f(x)-f(y)|}{|x-y|}}^\alpha 
+\\ &\leq \paren{2 \norm{f}_\infty}^{1-\alpha} \paren{ \sup \frac{|f(x)-f(y)|}{|x-y|} }^\alpha
+\\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
+\end{align*}
+
+The second claim is more complicated.  We will prove the stronger claim that for $f \in C^{1,\alpha}$
+\[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
+
+The idea of the proof is to average $\grad f$ along an interval of length $\delta$ with endpoint $x$.  The magnitude of the average will be small, since $f \in L^\infty$, and the average will differ not very much from $\grad f(x)$ since $\grad f \in C^{1,\alpha}$.  
+
+Since $\Omega$ satisfies the cone condition, there exist positive constants $\ell$ and $a<1$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $|e_1\cdot e_2| \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$ and $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
+
+Consider the directional derivative $\del_i f$ of $f$ along the direction $e_i$, and observe that for any $0 < \delta \leq \ell$,
+\begin{equation} \label{average bounded by Linfty} \abs{\int_0^\delta \del_i f(x + \tau e_i) \,d\tau} = \abs{f(x+\delta e_i) - f(x)} \leq 2 \norm{f}_\infty. \end{equation}
+
+On the other hand, $\del_i f$ is continous so, for any $\tau \in (0,\ell]$,
+\[ \abs{\del_i f(x) - \del_i f(x+\tau e_i)} \leq \bracket{\grad f}_\alpha \tau^\alpha. \]
+From this, we obtain that
+\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \int_0^\delta \paren{\del_i f(x) + \bracket{\grad f}_\alpha \tau^\alpha } \,d\tau = \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \]
+and a similar bound holds from below.  Thus
+\[ \abs{ \delta \del_i f(x) - \int_0^\delta \del_i f(x + \tau e_i) \,d\tau} \leq \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
+
+Combining this bound with \eqref{average bounded by Linfty}, we obtain
+\[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
+
+This bound is independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by assumption, by a little linear algebra we can bound $\grad f$ in terms of the $\del_i f$ and obtain that, for all $\delta \in (0,\ell]$,
+\[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
+
+\end{proof}
+
+
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
