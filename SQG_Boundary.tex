@@ -72,6 +72,7 @@
 \newcommand{\loc}{\text{loc}}
 \newcommand{\Lip}{\text{Lip}}
 %\newcommand{\BMO}{\text{BMO}}
+\renewcommand{\Re}{\operatorname{Re}}
 \newcommand{\ddz}{\frac{d}{dz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\into}{\hookrightarrow}
@@ -114,7 +115,7 @@
 
 %\newcommand{\draftnum}{1}%-----------------------------UPDATE DRAFT NUM----------------------------------------
 
-\title{Holder regularity up to the boundary for critical SQG on bounded domains, \today}
+\title[Boundary Regularity for SQG]{Holder regularity up to the boundary for critical SQG on bounded domains, \today}
 
 \author[Stokols]{Logan F. Stokols} 
 \address[L. F. Stokols]{\newline Department of Mathematics, \newline The University of Texas at Austin, Austin, TX 78712, USA}
@@ -169,7 +170,7 @@ More precisely, there exists $\alpha \in (0,1)$ depending only on $\Omega$ and $
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-The technique to prove this, as in \cite{CaVa}, is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
+The technique to prove this, as in \cite{CaVa.sqg}, is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
 
 The difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffarelli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
 
@@ -390,7 +391,6 @@ Consider a function $f = \sum f_k \eigen{k}$ which is an element of $\HD^1$, by 
 From this the result follows.
 \end{proof}
 
-\renewcommand{\Re}{\operatorname{Re}}
 
 We come now to the proof of Proposition \ref{thm:hadamard 3 lines}.  
 \begin{proof}
@@ -399,253 +399,42 @@ Let $g$ be any Schwartz function in $L^2(\R^2)$, and let $f$ be a function in $\
 Define the function
 \[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g E \Lambda^{s-z} f, \qquad z \in \C, \Re(z) \in [0,1]. \]
 
-Recall [citation] that when $t \in \R$, $(-\Laplace)^{i t}$ is a unitary transformation on $L^2(\R^2)$, and $\Lambda^{i t}$ is a unitary transformation on $L^2(\Omega)$.  
+Recall (see e.g. [citation Jerison, Kenig]) that when $t \in \R$, $(-\Laplace)^{i t}$ is a unitary transformation on $L^2(\R^2)$, and $\Lambda^{i t}$ is a unitary transformation on $L^2(\Omega)$.  
 
 When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{f}_{\HD^s}$.  Hence
 \[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}. \]
 
 When $\Re(z)=1$, integrate by parts to obtain
-\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{(z-1)/2} g \ldots \]
-then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$ and 
-\[ \norm{\paren{-\Laplace}^{1/2} E\Lambda^{s-z} f}_{L^2(\R^2)} = \norm{\grad E \Lambda^{s-z} f}_{L^2(\R^2)} \leq \norm{E} \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)}. \]
-Since $\Lambda^s f \in L^2(\Omega)$, $\Lambda^{s-z} f \in \HD^1$ so we can apply Lemma~\ref{thm:H1 and H1}.  Ergo
-\[ \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)} = \norm{\Lambda \Lambda^{s-z} f}_2 \leq \norm{\Lambda^s f}_2 \]
-and we can bound
-\[ \Phi(z) \leq \norm{E} \norm{g}_2 \norm{f}_{\HD^s}. \]
+\[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{(z-1)/2} g  \paren{-\Laplace}^{1/2} E \Lambda^{s-z} f. \]
+Then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$, while $\norm{\Lambda^{s-z} f}_{\HD^1} = \norm{f}_{\HD^s}$.  As an $\HD^1$ function, $\Lambda^{s-z} f$ has trace zero so 
+\[ \norm{\grad E \Lambda^{s-z} f}_{L^2(\R^2)} = \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)} = \norm{f}_{\HD^s}. \]
+Of course $\norm{\paren{-\Laplace}^{1/2} \,\cdot\,}_{L^2(\R^2)} = \norm{\grad \,\cdot\,}_{L^2(\R^2)}$ in general so
+\[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}. \]
 
-Now we will bound the derivative of $\Phi(z)$.  Specifically, compute the derivative in $z$ of the integrand, for $0<\Re(z)<1$, and hope that it is integrable.  To this end, we rewrite the integrand of $\Phi$ as
+In order to apply the Hadamard three-lines lemma, we must show that $\Phi$ is differentiable in the interior of its domain.  
+
+Rewrite the integrand of $\Phi$ as
 \[ \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k. \]
 The derivative $\ddz$ commutes with linear operators like $\Four\n$ and $E$, so the derivative is
-\[ \Four\n\paren{ \ln(|\xi|) |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k + \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \frac{-1}{2} \ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} f_k. \]
+\begin{equation} \label{derivative of integrand} \Four\n\paren{ \ln(|\xi|) |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k + \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \frac{-1}{2} \ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} f_k. \end{equation}
 
-Since $0<\Re(z)<1$, $\ln(|\xi|)|\xi|^z$ is bounded as a multiplier operator from Schwarz functions to $L^2$.  Moreover, $\ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} \leq C \lambda_k^{\frac{s-z+\eps}{2}}$ for some $C$ independent of $k$ but dependent on $z$, $\eps$.  For $z$ fixed, we take $\eps < \Re(z)$ and use $f \in \HD^{s}$ to see that this sum converges in $L^2$.  This makes our differentiated integrand a sum of two products of $L^2$ functions.  In particular it is integrable, which means we can interchange the integral sign and the derivative $\ddz$ and prove that $\Phi'(z)$ is finite for all $0<\Re(z)<1$. 
+Fix some $z \in \C$ with $\Re(z) \in (0,1)$.  Since $g$ is a Schwartz function, $\ln(|\xi|)|\xi|^z \hat{g}$ is in $L^2$.  Moreover, for any $\eps>0$ we have $\ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} \leq C \lambda_k^{\frac{s-z+\eps}{2}}$ for some $C$ independent of $k$ but dependent on $z$, $\eps$.  Take $\eps < \Re(z)$ and, since $f \in \HD^{s}$, this sum will converge in $L^2$.  
 
-This is sufficient now to apply the Hadamard three-lines lemma to our function $\Phi$.  
+The differentiated integrand \eqref{derivative of integrand} is therefore a sum of two products of $L^2$ functions.  In particular it is integrable, which means we can interchange the integral sign and the derivative $\ddz$ and prove that $\Phi'(z)$ is finite for all $0<\Re(z)<1$. 
 
-It follows that for any Schwarz function $g \in L^2(\R^n)$ and any $f \in \HD^{s}$,
-\[ \int_{\R^2} \paren{-\Laplace}^{s/2} g E f = \Phi(s) \leq \norm{g}_{L^2(\R^2)} \norm{f}_{\HD^s}. \]
+By the Hadamard three-lines lemma, for any $z \in (0,1)$ we have $\Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}$.  
+Evaluating $\Phi(s)$, we see
+\[ \int_{\R^2} \paren{-\Laplace}^{s/2} g E f \leq \norm{g}_{L^2(\R^2)} \norm{f}_{\HD^s}. \]
+This inequality holds for any Schwartz function $g \in L^2(\R^n)$ and any $f \in \HD^{s}$,
 
-Since Schwarz functions are dense in $L^2(\R^2)$, this means by density that 
-\[ \int \abs{ \paren{-\Laplace}^{s/2} E f }^2 \leq \int \abs{\Lambda^s f}^2 \]
-or in other words it means that $E$ is a bounded operator from $\HD^s$ to $H^s$ with norm 1.  
+Since Schwartz functions are dense in $L^2(\R^2)$, the proof is complete.  
 \end{proof}
 
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-\section{Littlewood-Paley Theory} \label{sec:littlewood paley}
 
-Logan: The japanese paper's Lemma 3.6, used extensively here, only applies in the case $j \geq 0$. Obviously I need it and use it for $j > j_0$.  This is equivalent, I can see from the proof, but maybe mention the issue somewhere so it doesn't seem like I didn't notice.  
-
-In this section we will prove that $u$ breaks up into pieces with various norms under control.  
-
-Let $\phi$ be a Schwartz function on $\R$ which is suited to Littlewood-Paley decomposition.  Specifically, we mean that $\phi$ is non-negative, supported on $[1/2,2]$, and has the property that
-\[ \sum_{j \in \Z} \phi(2^j \xi) = 1 \qquad \forall \xi \neq 0. \]
-This allows us to define the Littlewood-Paley projections.  For any $f = \sum f_k \eigen{k}$
-\[ P_j f := \sum_k \phi(2^j \lambda_k^{1/2}) f_k \eigen{k}. \]
-
-Recall that $-\Laplace_D$ has some smallest eigenvalue $\lambda_0$ (depending on $\Omega$) so if we define $j_0 = \log_2(\lambda_0)-1$ then $P_j = 0$ for all $j < j_0$.
-
-Our goal in this section is to prove the following proposition:
-
-\begin{lemma} \label{thm:u is calibrated}
-Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\gamma}$ boundary for some $\gamma \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists a calibrated sequence of functions $(u_j)_{j \in \Z}$ for some constant $\kappa = \kappa(\Omega)$ with center 0 (see Definition~\ref{def:calibrated}) such that
-\[ \grad^\perp \Lambda^{-1} \theta = \sum_{j \in \Z} u_j \]
-with the infinite sum converging in the sense of $L^2$.  
-
-Moreover there exists some $j_0 \in \Z$ such that $u_j = 0$ for all $j < j_0$.  
-\end{lemma}
-
-Before we can prove this, we state a few important lemmas.  
-
-First we restate a known result from the literature.  
-\begin{lemma} \label{thm:IMT stuff}
-There exists a constant $C$ depending on $\Omega$ and on $\phi$ such that the following hold:
-
-For any $\alpha \in \R$ and $j \in \Z$
-\[ \norm{\Lambda^\alpha P_j f}_{L^\infty(\Omega)} \leq C 2^{\alpha j} \norm{f}_{L^\infty(\Omega)}. \]
-
-For any $\alpha \in \R$ and $j \geq j_0$
-\[ \norm{\grad \Lambda^\alpha P_j f}_{L^\infty(\Omega)} \leq C 2^{(1+\alpha) j} \norm{f}_{L^\infty(\Omega)}. \]
-\end{lemma}
-
-\begin{proof}
-The first claim is \cite{IMTb} Lemma 3.5, and it is also an immediate corollary of \cite{IMTs} Theorem 1.1.  
-
-The second claim follows from \cite{IMTb} Lemma 3.6.  This lemma requires that
-\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1 \]
-and only states the result for $j > 0$.  
-
-In \cite{FMP} it is proved that that if $\Omega$ is $C^{2,\alpha}$ then
-\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq T \]
-which, by a trivial modification of the proof in \cite{IMTb}, is enough to prove the result stated here.  
-\end{proof}
-
-The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  Classically, if a function is supported in fourier space in a single dyadic ring, then after taking the gradient it remains supported in that same dyadic ring.  In the case of our adapted Littlewood-Paley theory, the gradient operator may take a function supported on a small range of freqencies and ``smear it out'' over all of freqency space, particularly over the high frequencies.  We prove below that if a function is supported on a small range of frequencies, its gradient will at least decay quickly on low frequencies.  
-
-\begin{lemma} \label{thm:grad and proj}
-For any function $f$,
-\[ \norm{P_i \grad P_j f}_\infty \leq C \min(2^j,2^i) \norm{f}_\infty. \]
-\end{lemma}
-\begin{proof}
-Let $g$ be an $L^1$ function.  Then
-\[ \int g P_i \grad P_j f = \int (P_i g) \grad P_j f \leq C 2^j \norm{g}_1 \norm{f}_\infty \]
-by Lemma \ref{thm:IMT stuff}.  
-
-Further integrating by parts,
-\[ \int g P_i \grad P_j f = - \int (\grad P_i g) P_j f \leq C 2^i \norm{g}_1 \norm{f}_\infty. \]
-This also follows from Lemma \ref{thm:IMT stuff}.  
-
-The result follows.  
-\end{proof}
-
-
-This final lemma allows us to interpolate using H\"{o}lder seminorms.  The results are not presumed to be novel, but since their proofs were difficult to find in the literature we include them below.  
-\begin{lemma} \label{thm:Holder interpolation}
-If $f \in L^\infty(\Omega) \cap C^{0,1}(\Omega)$ then for some universal constant $C$,
-\[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
-
-If $f \in C^{0,1}(\Omega) \cap C^{2,\alpha}(\Omega)$ where $\Omega$ satisfies the cone condition, then for some constants $C$ and $\ell$ depending on $\Omega$,
-\[ \norm{D^2 f}_\infty \leq C \delta\n \norm{\grad f}_\infty  + \delta^\alpha \bracket{D^2 f}_\alpha\]
-for all $\delta < \ell$.  
-\end{lemma}
-\begin{proof}
-The first claim is incredibly straigtforward.  We include it for completeness.  
-\begin{align*} 
-\sup_{x,y \in \Omega} \frac{|f(x)-f(y)|}{|x-y|^\alpha} &= \sup |f(x)-f(y)|^{1-\alpha} \paren{\frac{|f(x)-f(y)|}{|x-y|}}^\alpha 
-\\ &\leq \paren{2 \norm{f}_\infty}^{1-\alpha} \paren{ \sup \frac{|f(x)-f(y)|}{|x-y|} }^\alpha
-\\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
-\end{align*}
-
-The second claim is more complicated.  We'll prove the sufficient claim that for $f$ smooth,
-\[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
-Since $\Omega$ satisfies the cone condition, we know that there exist positive constants $\ell$ and $a<1$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $|e_1\cdot e_2| \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$, $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
-
-The idea of the proof is that the average of $\grad f$ along an interval is bounded since $f$ is bounded, and the same average is close to the value of $\grad f$ at a point because $\grad f$ is continuous, hence the value of $\grad f$ at any point must be bounded.  By varying the length $\delta$ of the aforementioned interval, we actually get a parameterized family of bounds.  
-
-If we consider the directional derivative $\del_i f$ of $f$ along the direction $e_i$, then observe that for any $0 < \delta \leq \ell$,
-\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau = f(x+\delta e_i) - f(x). \]
-This quantity on the right is bounded by the $L^\infty$ norm of $f$.  
-
-On the other hand, since $\grad f$ and hence $\del_i f$ are continous functions, for any $\tau \in (0,\ell]$
-\[ \abs{\del_i f(x) - \del_i f(x+\tau e_i)} \leq \bracket{\grad f}_\alpha \tau^\alpha. \]
-From this bound, we obtain that
-\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \int_0^\delta \del_i f(x) + \bracket{\grad f}_\alpha \tau^\alpha \,d\tau = \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \]
-and a similar bound holds from below, so
-\[ \abs{ \delta \del_i f(x) - \int_0^\delta \del_i f(x + \tau e_i) \,d\tau} \leq \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
-
-What we have shown is that the integral of $\del_i f$ over an interval of length $\delta$ is small, and also it differs not very much from $\delta \del_i f(x)$.  By rearranging, we find that $\del_i f(x)$ must therefore be small:
-\[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
-This is true independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by assumption, by a little linear algebra we can bound $\grad f$ in terms of the $\del_i f$ and obtain that, for all $\delta \in (0,\ell]$,
-\[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
-
-\end{proof}
-
-We are now ready to prove Proposition \ref{thm:u is calibrated}.  
-
-\begin{proof}
-For each $j \in \Z$, we define $u_j$ to be the rotation of the Riesz transform of the $j\ith$ Littlewood-Paley projection of $\theta$:
-\[ u_j := \grad^\perp \Lambda^{-1} P_j \theta. \]
-Qualitatively, we know that $\theta \in L^2$ and hence $u_j \in L^2$.  In fact, $u = \sum u_j$ in the $L^2$ sense.  
-
-By straightforward application of Lemma~\ref{thm:IMT stuff} we know that
-\[ \norm{u_j}_\infty \leq C \norm{\theta}_\infty. \]
-
-Since $u_j \in L^2$, we know that
-\[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
-
-Define $\bar{P}_k := P_{k-1} + P_k + P_{k+1}$.  Then $\bar{P}_k P_k = P_k$, and since the projections $P_k$ are spectral operators, they commute with $\Lambda^s$.  We therefore rewrite
-\[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
-We apply sequentially three bounded operators on $L^\infty$.  The first operator has norm $C 2^{-j}(2^{1}+2^0+2^{-1})$ by Lemma~\ref{thm:IMT stuff}.  The second operator has norm $C \min(2^j, 2^i)$ by Lemma~\ref{thm:grad and proj}.  The third operator has norm $C 2^{-i/4}(2^{1/4} + 2^0 + 2^{-1/4})$ by Lemma~\ref{thm:IMT stuff}.  (Of course, the perp operator is an isometry.)  Therefore
-\[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
-
-Summing these bounds on the projections of $\Lambda^{-1/4} u_j$, and noting that
-\[ \sum_{i \in \Z} 2^{-j} 2^{-i/4} \min(2^j,2^i) = 2^{-j} \sum_{i \leq j} 2^{i 3/4} + \sum_{i>j} 2^{-i/4} \leq C 2^{-j/4}, \]
-we obtain
-\[ \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{-j/4} \norm{\theta}_\infty. \]
-
-Lastly, we'll show that $\grad u_j$ is in $L^\infty$.  Equivalently, we'll show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  The method of proof is standard Schauder theory.  
-
-For convenience, define 
-\[ F := \Lambda^{-1} P_j \theta \]
-and recall that $F$ is a finite linear combination of Dirichlet eigenfunctions, so in particular it is smooth and vanishes at the boundary.  Moreover, its Laplacian is 
-\[ f := \Laplace F = \Lambda P_j \theta \]
-which is also smooth and vanishes at the boundary.
-
-We apply the standard Schauder estimate from \cite{GiTr} Theorem 6.6, which says that since, for some $\alpha$, $\Omega$ is $C^{2,\alpha}$ and $F \in C^{2,\alpha}(\bar{\Omega})$, and since $f \in C^\alpha(\bar{\Omega})$, and since the boundary conditions are homogeneous (hence smooth), then
-\[ \bracket{D^2 F}_{\alpha} \leq C \norm{F}_\infty + C \norm{f}_\infty + C \bracket{f}_{\alpha}. \]
-
-By Lemma \ref{thm:IMT stuff},
-\[ \norm{F}_\infty = \norm{\Lambda^{-1} P_j \theta}_\infty \leq C 2^{-j} \norm{\theta}_\infty \]
-and
-\[ \norm{f}_\infty = \norm{\Lambda P_j \theta}_\infty \leq C 2^j \norm{\theta}_\infty \]
-and
-\[ \norm{\grad f}_\infty = \norm{\grad \Lambda P_j \theta}_\infty \leq C 2^{2j} \norm{\theta}_\infty. \]
-Therefore we can interpolate by Lemma~\ref{thm:Holder interpolation} to obtain
-\[ \bracket{f}_\alpha \leq C 2^{j(1+\alpha)} \norm{\theta}_\infty. \]
-Plugging these estimates into [cite] yields
-\[ \bracket{D^2 F}_\alpha \leq C \paren{2^{-j} + 2^j + 2^{j(1+\alpha)}} \norm{\theta}_\infty. \]
-
-Recall that without loss of generality we can assume $j \geq j_0$.  Therefore up to a constant depending on $j_0$, the term $2^{j(1+\alpha)}$ bounds $2^j$ and $2^{-j}$ so we can write
-\[ \bracket{D^2 F}_\alpha \leq C 2^{j(1+\alpha)} \norm{\theta}_\infty. \]
-
-Using this estimate and the fact that $\norm{\grad F}_\infty = \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty$ we can use Lemma~\ref{thm:Holder interpolation} to interpolate.  For some constant $\ell$ depending on $\Omega$, for any $\delta \leq \ell$ we have
-\begin{align*}
-\norm{D^2 F}_\infty &\leq C \paren{\delta\n \norm{\grad F}_\infty + \delta^{\alpha} \bracket{D^2 F}_\alpha}
-\\ &\leq C \paren{\delta\n C + \delta^\alpha C 2^{j(1+\alpha)}} \norm{\theta}_\infty.  
-\end{align*}
-
-Set $\delta = 2^{-j} 2^{j_0} \ell \leq \ell$.  Then
-\[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\alpha} 2^{j(1+\alpha)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
-
-Since $D^2 F = \grad u_j$, this estimate together with [cite], [cite], and [cite] complete the proof.  
-\end{proof}
-
-Now that we know that $u$ decomposes into a calibrated sequence $(u_j)_{j\in\Z}$, we end the section with a final lemma to show why calibrated sequences are useful.  
-
-\begin{proposition} \label{thm:calibration is good}
-Let 
-\[ u = \sum_{j_0}^\infty u_j \]
-with the sum converging in the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\kappa$ and some center.  
-
-Then there exist some universal constants $C_i$ such that
-\[ u = \ulow + \uhigh \]
-with 
-\[ \norm{\grad \ulow}_{L^\infty([-T,0]\times \Omega)} \leq 2 \kappa\]
-and
-\[ \norm{\bracket{\ulow}_{3/4}}_{L^\infty([-T,0])} \leq 3 \kappa \]
-and
-\[ \norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \kappa. \]
-\end{proposition}
-
-We call $\ulow$ the low-pass term, and $\uhigh$ the high-pass term.  
-
-\begin{proof}
-Let $N$ be the center to which $(u_j)_{j \in \Z}$ is calibrated.  
-
-We define
-\[ \uhigh = \sum_{j > N} u_j \]
-and 
-\[ \ulow = \sum_{j \leq N} u_j. \]
-
-Since $u_j \in L^\infty$ in particular they are $L^2$ functions which sum in $L^2$.  Remember that only finitely many negative $j$ have $u_j \neq 0$.  The sequence $u_j$ is thus singly infinite and in particular is a Cauchy sequence, so $\uhigh$ also converges in $L^2$.  Since $\Lambda^{-1/4}$ is a continuous linear operator, it passes to the partial sums and so
-\[ \Lambda^{-1/4} \uhigh = \lim_{L^2} \sum_{j>N} \Lambda^{-1/4} u_j. \]
-In particular, the sum converges in the sense of distributions, i.e. in $\test(\Omega)'$.  Since test functions are dense in $L^1(\Omega)$, and the partial sums are uniformly bounded in the dual of $L^1(\Omega)$ (namely $L^\infty(\Omega)$), therefore the limit $\Lambda^{-1/4} \uhigh$ is also bounded in the dual of $L^1(\Omega)$.  
-\[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq \sum_{j>N} \norm{\Lambda^{-1/4} u_j}_\infty \leq \kappa \frac{2^{-1/4}}{1-2^{-1/4}}. \]
-
-As for $\ulow$, we have that $\sum_{j \leq N} u_j$ is a finite sum of Lipschitz and H\"{o}lder continuous functions.  We can simply bound
-\[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \kappa \frac{1}{1 - 2^{-1}} \]
-and
-\[ \bracket{\ulow}_{3/4} \leq \sum_{j \leq N} \bracket{u_j}_{3/4} \leq \kappa \frac{1}{1 - 2^{-3/4}}. \]
-\end{proof}
-
-We showed in section \ref{sec:littlewood paley} that $u$ is a sum of a calibrated sequence, and now we have shown that the sum of a calibrated sequence is actually a finite sum of functions that are bounded in certain function spaces.  Any bound we place on $u$ directly will blow up as we zoom in, but a calibrated sequence remains calibrated (with increasing center).  In the next lemma, we show that, thanks to this notion of calibration, our PDE is scale-invariant.  
-
-
-
-
-%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 \section{$L^\infty$ bounds for $\theta$} \label{sec:Linfty}
 
@@ -753,9 +542,206 @@ The result follows.
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
+\section{Littlewood-Paley Theory} \label{sec:littlewood paley}
+
+In this section we will prove that, because $\theta$ is uniformly bounded in $L^\infty$, the velocity $u = \grad^\perp \Lambda^{-1} \theta$ is calibrated (see Definition~\ref{def:calibrated}).  The proof will utilize a Littlewood-Paley theory adapted to a bounded set $\Omega$.  
+
+Let $\phi$ be a Schwartz function on $\R$ which is suited to Littlewood-Paley decomposition.  Specifically, $\phi$ is non-negative, supported on $[1/2,2]$, and has the property that
+\[ \sum_{j \in \Z} \phi(2^j \xi) = 1 \qquad \forall \xi \neq 0. \]
+This allows us to define the Littlewood-Paley projections.  For any $f = \sum f_k \eigen{k}$ in $L^2(\Omega)$
+\[ P_j f := \sum_k \phi(2^j \lambda_k^{1/2}) f_k \eigen{k}. \]
+Note that $P_j$ depends strongly on the domain $\Omega$.  
+
+Recall that $-\Laplace_D$ has some smallest eigenvalue $\lambda_0$ (depending on $\Omega$) so if we define $j_0 = \log_2(\lambda_0)-1$ then $P_j = 0$ for all $j < j_0$.
+
+Our goal in this section is to prove the following proposition:
+
+\begin{proposition} \label{thm:u is calibrated}
+Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists a sequence of divergence-free functions $(u_j)_{j \in \Z}$ calibrated for some constant $\kappa = \kappa(\Omega, \norm{\theta}_\infty)$ with center 0 (see Definition~\ref{def:calibrated}) such that
+\[ \grad^\perp \Lambda^{-1} \theta = \sum_{j \in \Z} u_j \]
+with the infinite sum converging in the sense of $L^2$.  
+
+Moreover there exists some $j_0 \in \Z$ such that $u_j = 0$ for all $j < j_0$.  
+\end{proposition}
+
+Before we can prove this, we state a few important lemmas.  
+
+The Bernstein Inequalities adapted for a bounded domain are proved in \cite{IMTb}.  We restate their result here:
+\begin{lemma}[Bernstein Inequalities] \label{thm:IMT stuff}
+Let $1 \leq p \leq \infty$, and $\Omega \subset \R^2$ a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $(P_j)_{j \in \Z}$ be a Littlewood-Paley decomposition as defined above.  
+
+There exists a constant $C$ depending on $p$ and $\Omega$ such that the following hold for any $f \in L^p(\Omega)$:
+
+For any $\alpha \in \R$ and $j \in \Z$, 
+\[ \norm{\Lambda^\alpha P_j f}_{L^p(\Omega)} \leq C 2^{\alpha j} \norm{f}_{L^p(\Omega)}. \]
+
+For any $\alpha \in \R$ and $j \geq j_0$
+\[ \norm{\grad \Lambda^\alpha P_j f}_{L^p(\Omega)} \leq C 2^{(1+\alpha) j} \norm{f}_{L^p(\Omega)}. \]
+\end{lemma}
+
+\begin{proof}
+The first claim is Lemma 3.5 in \cite{IMTb}.  It is also an immediate corollary of \cite{IMTs} Theorem 1.1.  
+
+The second claim is similar to Lemma 3.6 in \cite{IMTb}.  A hypothesis of Lemma 3.6 is that
+\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1 \]
+(a property of $\Omega$).  The result of Lemma 3.6 only covers the case $j > 0$.  
+
+In \cite{FMP} it is proved that that if $\Omega$ is $C^{2,\alpha}$ then
+\[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq T \]
+which, by taking some $T$ depending on $j_0$, is enough to prove the desired result for $j \geq j_0$ by a trivial modification of the proof in \cite{IMTb}.  
+\end{proof}
+
+The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  In the case of $\R^2$, the Littlewood-Paley projections commute with the gradient so $P_i \grad P_j = 0$ unless $|i-j|\leq 1$.  On a bounded domain, this is not the case.  One can say that the gradient does not maintain localization in frequency-space.  However, the following lemma formalizes the observation that $P_i \grad P_j \approx 0$ when $i << j$.  
+
+\begin{lemma} \label{thm:grad and proj}
+There exists a constant $C$ depending on $\Omega$ such that or any function $f \in L^\infty(\Omega)$,
+\[ \norm{P_i \grad P_j f}_\infty \leq C \min(2^j,2^i) \norm{f}_\infty. \]
+\end{lemma}
+\begin{proof}
+Let $g$ be an $L^1$ function.  Then since $P_i$ is self-adjoint
+\[ \int g P_i \grad P_j f = \int (P_i g) \grad P_j f \leq C 2^j \norm{g}_1 \norm{f}_\infty \]
+by Lemma \ref{thm:IMT stuff}.  
+
+Further integrating by parts,
+\[ \int g P_i \grad P_j f = - \int (\grad P_i g) P_j f \leq C 2^i \norm{g}_1 \norm{f}_\infty. \]
+This also follows from Lemma \ref{thm:IMT stuff}.  
+
+The result follows.  
+\end{proof}
+
+
+This final lemma allows us to interpolate using H\"{o}lder seminorms.  The results are not presumed to be novel, but since their proofs were difficult to find in the literature we include them below.  
+\begin{lemma} \label{thm:Holder interpolation}
+Let $\alpha \in (0,1)$.  There exists a constant $C = C(\alpha)$ such that, for any set $\Omega$ and any $f \in C^{0,1}(\Omega)$,
+\[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
+
+\vspace{5mm}
+
+Let $\alpha \in (0,1)$ and $\Omega$ a set that satisfies the cone condition.  There exist constants $C = C(\alpha, \Omega)$ and $\ell = \ell(\Omega)$ such that, for any $f \in C^{2,\alpha}(\Omega)$
+\[ \norm{D^2 f}_\infty \leq C \paren{ \delta\n \norm{\grad f}_\infty  + \delta^\alpha \bracket{D^2 f}_\alpha }\]
+for all $\delta < \ell$.  
+\end{lemma}
+\begin{proof}
+The first claim is straigtforward.  
+\begin{align*} 
+\sup_{x,y \in \Omega} \frac{|f(x)-f(y)|}{|x-y|^\alpha} &= \sup |f(x)-f(y)|^{1-\alpha} \paren{\frac{|f(x)-f(y)|}{|x-y|}}^\alpha 
+\\ &\leq \paren{2 \norm{f}_\infty}^{1-\alpha} \paren{ \sup \frac{|f(x)-f(y)|}{|x-y|} }^\alpha
+\\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
+\end{align*}
+
+The second claim is more complicated.  We will prove the stronger claim that for $f \in C^{1,\alpha}$
+\[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
+
+The idea of the proof is to average $\grad f$ along an interval of length $\delta$ with endpoint $x$.  The magnitude of the average will be small, since $f \in L^\infty$, and the average will differ not very much from $\grad f(x)$ since $\grad f \in C^{1,\alpha}$.  
+
+Since $\Omega$ satisfies the cone condition, there exist positive constants $\ell$ and $a<1$ such that, at each point $x \in \bar{\Omega}$, there exist two unit vectors $e_1$ and $e_2$ such that $|e_1\cdot e_2| \leq a$ and $x + \tau e_i \in \Omega$ for $i=1,2$ and $0 < \tau \leq \ell$.  In other words, $\Omega$ contains rays at each point that extend for length $\ell$, end at $x$, and are non-parallel with angle at least $\cos\n(a)$.  
+
+Consider the directional derivative $\del_i f$ of $f$ along the direction $e_i$, and observe that for any $0 < \delta \leq \ell$,
+\begin{equation} \label{average bounded by Linfty} \abs{\int_0^\delta \del_i f(x + \tau e_i) \,d\tau} = \abs{f(x+\delta e_i) - f(x)} \leq 2 \norm{f}_\infty. \end{equation}
+
+On the other hand, $\del_i f$ is continous so, for any $\tau \in (0,\ell]$,
+\[ \abs{\del_i f(x) - \del_i f(x+\tau e_i)} \leq \bracket{\grad f}_\alpha \tau^\alpha. \]
+From this, we obtain that
+\[ \int_0^\delta \del_i f(x + \tau e_i) \,d\tau \leq \int_0^\delta \paren{\del_i f(x) + \bracket{\grad f}_\alpha \tau^\alpha } \,d\tau = \delta \del_i f(x) + \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha} \]
+and a similar bound holds from below.  Thus
+\[ \abs{ \delta \del_i f(x) - \int_0^\delta \del_i f(x + \tau e_i) \,d\tau} \leq \bracket{\grad f}_\alpha \frac{\delta^{1+\alpha}}{1+\alpha}. \]
+
+Combining this bound with \eqref{average bounded by Linfty}, we obtain
+\[ \abs{\del_i f(x)} \leq \frac{2}{\delta} \norm{f}_\infty + \frac{\delta^\alpha}{1+\alpha} \bracket{\grad f}_\alpha. \]
+
+This bound is independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ by assumption, by a little linear algebra we can bound $\grad f$ in terms of the $\del_i f$ and obtain that, for all $\delta \in (0,\ell]$,
+\[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
+
+\end{proof}
+
+We are now ready to prove Proposition \ref{thm:u is calibrated}.  
+
+\begin{proof}
+For each $j \in \Z$, we define $u_j$ to be the $\frac{\pi}{2}$-rotation of the Riesz transform of the $j\ith$ Littlewood-Paley projection of $\theta$:
+\[ u_j := \grad^\perp \Lambda^{-1} P_j \theta. \]
+Qualitatively, we know that $\theta \in L^2$ and hence $u_j \in L^2$.  In fact, $u = \sum u_j$ in the $L^2$ sense.  
+
+We must bound $u_j$, $\Lambda^{-1/4} u_j$, and $\grad u_j$ all in $L^\infty(\Omega)$.  
+
+By straightforward application of Lemma~\ref{thm:IMT stuff},
+\begin{equation} \label{uj in Linfty} \norm{u_j}_\infty \leq C \norm{\theta}_\infty. \end{equation}
+
+Since $u_j \in L^2$, we know that
+\[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
+Define $\bar{P}_k := P_{k-1} + P_k + P_{k+1}$.  Then $\bar{P}_k P_k = P_k$, and since the projections $P_k$ are spectral operators, they commute with $\Lambda^s$.  We therefore rewrite
+\[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
+On the right hand side we have three bounded linear operators applied sequentially to $L^\infty$.  The first operator has norm $C 2^{-j}(2^{1}+2^0+2^{-1})$ by Lemma~\ref{thm:IMT stuff}.  The second operator has norm $C \min(2^j, 2^i)$ by Lemma~\ref{thm:grad and proj}.  The third operator has norm $C 2^{-i/4}(2^{1/4} + 2^0 + 2^{-1/4})$ by Lemma~\ref{thm:IMT stuff}.  (Of course, the perp operator is an isometry.)  Therefore
+\[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
+
+Summing these bounds on the projections of $\Lambda^{-1/4} u_j$, and noting that
+\[ \sum_{i \in \Z} 2^{-j} 2^{-i/4} \min(2^j,2^i) = 2^{-j} \sum_{i \leq j} 2^{i 3/4} + \sum_{i>j} 2^{-i/4} \leq C 2^{-j/4}, \]
+we obtain
+\begin{equation}\label{uj in W-1/4} \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{-j/4} \norm{\theta}_\infty. \end{equation}
+
+Lastly, we must show that $\grad u_j$ is in $L^\infty$.  Equivalently, we will show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  The method of proof is Schauder theory.  
+
+For convenience, define
+\[ F := \Lambda^{-1} P_j \theta. \]
+Notice that $F$ is a linear combination of Dirichlet eigenfunctions, so in particular it is smooth and vanishes at the boundary.  Therefore
+\[ -\Laplace F = \Lambda^2 F = \Lambda P_j \theta. \]
+
+
+%For convenience, define 
+%\[ F := \Lambda^{-1} P_j \theta \]
+%and recall that $F$ is a finite linear combination of Dirichlet eigenfunctions, so in particular it is smooth and vanishes at the boundary.  Moreover, its Laplacian is 
+%\[ f := \Laplace F = \Lambda P_j \theta \]
+%which is also smooth and vanishes at the boundary.
+
+
+
+We apply the standard Schauder estimate from \cite{GiTr} Theorem 6.6 to bound some $C^{2,\alpha}$ semi-norm of $F$ by the $L^\infty$ norm of $F$ and the $C^\alpha$ norm of its Laplacian.  By assumption there exists $\beta \in (0,1)$ such that $\Omega$ is $C^{2,\beta}$, and for this $\beta$ we have by the Schauder estimate
+\begin{equation} \label{schauder estimate} \bracket{D^2 F}_{\beta} \leq C \norm{\Lambda^{-1} P_j \theta}_\infty + C \norm{\Lambda P_j \theta}_\infty + C \bracket{\Lambda P_j \theta}_{\beta}. \end{equation}
+
+By Lemma \ref{thm:IMT stuff},
+\begin{align*} 
+\norm{\Lambda^{-1} P_j \theta}_\infty &\leq C 2^{-j} \norm{\theta}_\infty, \\
+\norm{\Lambda P_j \theta}_\infty &\leq C 2^j \norm{\theta}_\infty, \\
+\norm{\grad \Lambda P_j \theta}_\infty &\leq C 2^{2j} \norm{\theta}_\infty. 
+\end{align*}
+%\begin{align*} 
+%\norm{F}_\infty &= \norm{\Lambda^{-1} P_j \theta}_\infty \leq C 2^{-j} \norm{\theta}_\infty, \\
+%\norm{f}_\infty &= \norm{\Lambda P_j \theta}_\infty \leq C 2^j \norm{\theta}_\infty, \\
+%\norm{\grad f}_\infty &= \norm{\grad \Lambda P_j \theta}_\infty \leq C 2^{2j} \norm{\theta}_\infty. 
+%\end{align*}
+By Lemma~\ref{thm:Holder interpolation} we can interpolate these last two bounds to obtain
+\[ \bracket{\Lambda P_j \theta}_\beta \leq C 2^{j(1+\beta)} \norm{\theta}_\infty. \]
+Plugging these estimates into \eqref{schauder estimate} yields
+\[ \bracket{D^2 F}_\beta \leq C \paren{2^{-j} + 2^j + 2^{j(1+\beta)}} \norm{\theta}_\infty. \]
+
+Recall that without loss of generality we can assume $j \geq j_0$.  Therefore up to a constant depending on $j_0$, the term $2^{j(1+\beta)}$ bounds $2^j$ and $2^{-j}$ so we can write
+\[ \bracket{D^2 F}_\alpha \leq C 2^{j(1+\beta)} \norm{\theta}_\infty. \]
+
+Using this estimate and the fact that $\norm{\grad F}_\infty = \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty$ (see \eqref{uj in Linfty}), we can use Lemma~\ref{thm:Holder interpolation} to interpolate.  For some constant $\ell$ depending on $\Omega$, for any $\delta \leq \ell$ we have
+\begin{align*}
+\norm{D^2 F}_\infty &\leq C \paren{\delta\n \norm{\grad F}_\infty + \delta^{\beta} \bracket{D^2 F}_\beta}
+\\ &\leq C \paren{\delta\n + \delta^\beta 2^{j(1+\beta)}} \norm{\theta}_\infty.  
+\end{align*}
+
+Set $\delta = 2^{-j} (2^{j_0} \ell) \leq \ell$.  Then
+\[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\beta} 2^{j(1+\beta)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
+
+Since $D^2 F = \grad u_j$, this estimate together with \eqref{uj in Linfty} and \eqref{uj in W-1/4} complete the proof.  
+\end{proof}
+
+Now that we know that $u$ is calibrated, we end the section with a final lemma to show why calibrated sequences are useful.  
+
+
+
+
+
+
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
+
 \section{De Giorgi Estimates} \label{sec:de giorgi}
 
-In order to prove the continuity of solutions to \eqref{eq:main linear} we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ is not constant, but rather grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that its derivatives are only small if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
+Our goal in this section is to prove De Giorgi's first and second lemmas for solutions to \eqref{eq:main linear} with $u$ uniformly calibrated.  
+
+In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ is not constant, but rather grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that its derivatives are only small if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
 
 To that end, we shall consider a family of functions $\theta$, $\ulow$, and $\uhigh:[-T,0]\times \Omega \to \R$, and paths $\Gamma$ and $\gamma:[-5,0] \to \R^2$ which satisfy
 \begin{equation} \label{eq:main linear brokendown} \begin{cases}
@@ -767,12 +753,45 @@ To that end, we shall consider a family of functions $\theta$, $\ulow$, and $\uh
 
 Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  The reason for breaking up the velocity into two functions $\ulow$ and $\uhigh$, and for breaking up the flow $\Gamma + \gamma$ into two functions, is that we will make different types of assumptions about these different parts.  Generally speaking $\ulow$ and $\gamma$ will be Lipschitz functions while $\uhigh$ is merely in a weak space $W^{-1/4,\infty}$ and $\Gamma$ will trace out points in $\Omega$ where $\theta$ is well behaved by assumption.  
 
+Constructing the paths $\Gamma$ and $\gamma$ must wait until Section~\ref{sec:holder}, but we can state now how to obtain the functions $\ulow$ and $\uhigh$ from a calibrated $u$.  
 
+\begin{lemma} \label{thm:calibration is good}
+Let 
+\[ u = \sum_{j_0}^\infty u_j \]
+with the sum converging in the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\kappa$ and some center, and that $\div(u_j)=0$.  
+
+Then
+\[ u = \ulow + \uhigh \]
+with 
+\begin{align*} 
+\norm{\grad \ulow}_{L^\infty([-T,0]\times \Omega)} &\leq 2 \kappa, \\
+\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} &\leq 6 \kappa. 
+\end{align*}
+and $\div(\ulow) = \div(\uhigh) = 0$.  
+\end{lemma}
+
+We call $\ulow$ the low-pass term, and $\uhigh$ the high-pass term.  
+
+\begin{proof}
+Let $N$ be the center to which $(u_j)_{j \in \Z}$ is calibrated.  
+
+We define
+\[ \uhigh = \sum_{j > N} u_j \]
+and bound
+\[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq \sum_{j>N} \norm{\Lambda^{-1/4} u_j}_\infty \leq \kappa \frac{2^{-1/4}}{1-2^{-1/4}}. \]
+
+We define
+\[ \ulow = \sum_{j = j_0}^N u_j. \]
+and bound
+\[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \kappa \frac{1}{1 - 2^{-1}}. \]
+\end{proof}
+
+Now we prove an energy inequality for solutions to \eqref{eq:main linear brokendown}.  
 
 \begin{lemma}[Energy inequality] \label{thm:energy inequality}
 Let $\kappa$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let $\psi:\R^2 \to \R$ be a function with bounded first and second derivatives. Then there exists a constant $C>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
@@ -830,7 +849,7 @@ This energy inequality is sufficient to apply the method of De Giorgi.
 
 Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\delta_0>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
@@ -881,7 +900,7 @@ This is coming along quite nicely.  We can move on to DG2, the isoperimetric ine
 \begin{lemma}[Second De Giorgi Lemma] \label{thm:DG2}
 Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\mu>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
@@ -1049,7 +1068,7 @@ We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce an Oscil
 \begin{proposition}[Oscillation Lemma] \label{thm:oscillation general}
 Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
@@ -1118,7 +1137,7 @@ We are ready to prove the shifted version of the Harnack Inequality.
 \begin{lemma}[Oscillation Lemma, with shift] \label{thm:oscillation shifted}
 Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{1,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
