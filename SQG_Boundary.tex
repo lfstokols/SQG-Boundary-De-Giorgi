@@ -144,7 +144,7 @@ Logan: write this
 
 \tableofcontents
 
-The surface quasigeostrophic equation (SQG), proposed by [Constantin, Majda, Tabak], is interesting both because of its connection to meteorology and because of its similarities with the incompressible 2D Navier-Stokes equations.  The question of global well-posedness has been answered by [Caffarelli, Vasseur] and by [Kiselev, Nazarov, Volberg].  Two important classes of techniques used in their study is the De Giorgi style techniques utilized by [Caffarelli, Vasseur] for SQG and by [Novak, Vasseur] for the Quasigeostrophic system of equations, and the nonlinear maximum principle techniques utilized by [Constantin, Vicol] and [Constantin, Vicol, Tarfulea].  
+The surface quasigeostrophic equation (SQG), proposed by [citation Constantin, Majda, Tabak], is interesting both because of its connection to meteorology and because of its similarities with the incompressible Navier-Stokes equations.  See \cite{Pe} for a detailed review.  The question of global well-posedness has been answered by \cite{CaVa.sqg} and by [citation Kiselev, Nazarov, Volberg].  Two important classes of techniques used in their study is the De Giorgi style techniques utilized by \cite{CaVa.sqg} for SQG and by \cite{NoVa.qg} for the Quasigeostrophic system of equations, and the nonlinear maximum principle techniques utilized by \cite{CoVi} and \cite{CoTaVi}.  
 
 %originates in the study of weather patterns.  It is also important because it is similar to the 2D Navier-Stokes.  The case $\nu > 0$ is called the dissipative SQG, the case $s =1/2$ is called the critical SQG, and $s<1/2$ and $1/2<s<1$ are called super-critical and sub-critical respectively.  Regularity was obtained by \cite{CaVa} and later re-proved and improved upon in [citations].  
 
@@ -174,21 +174,15 @@ More precisely, there exists $\alpha \in (0,1)$ depending only on $\Omega$ and $
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-Our method of proof will be the De Giorgi method.  Introduced by De Giorgi in \cite{DG}, the method was applied to the SQG problem in \cite{CaVa.sqg} and to the 3D Quasigeostrophic problem in [citation, Matt Vasseur].  The underlying idea is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
+Our method of proof will be the De Giorgi method.  Introduced by De Giorgi in \cite{DG}, the method was applied to the SQG problem in \cite{CaVa.sqg} and to the 3D Quasigeostrophic problem in \cite{NoVa.qg}.  The underlying idea is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
 
+In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$.  Previous applications of the De Giorgi method generally make extensive use of either an extension representation (c.f. \cite{CaVa.sqg}) or a singular-integral representation (c.f. \cite{NoVa.qg}), so this theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand.  In the present paper, we lean heavily on the singular integral representation (see Section~\ref{sec:lemmas}).  
 
+The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators has is a well-studied subject [citations].  As an application of this theory, \cite{IMTs} and [citation, Dong et al] have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-Laplace_D$ (a Schrodinger operator with zero potential).  In particular, the recent preprint \cite{IMTb} of Iwabuchi, Matsuyama, and Taniguchi derives many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
 
-In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$.  Previous applications of the De Giorgi method generally make extensive use of either an extension representation \cite{CaVa.sqg} or a singular-integral representation [citation matt, vasseur], so this theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand.  In the present paper, we lean heavily on the singular integral representation (see Section~\ref{sec:lemmas}).  
+In order to apply the De Giorgi theory, we must find some space in which the velocity $u = \grad \Lambda^{-1} \theta$ is bounded, and this bound must be scaling invariant.  Though $L^\infty$ is the obvious choice, since solutions to SQG are easily shown to be $L^\infty$ bounded under minimal assumptions, the Riesz transform is not bounded from $L^\infty$ to $L^\infty$.  The usual solution is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  
 
-The last difficulty is in finding a bound on $u$ which is finite and also scaling invariant.  Ideally this would simply be $L^\infty$ which is of course scaling invariant.  The problem is that the Riesz operator $\grad \Lambda^{-1}$ is not bounded from $L^\infty$ to $L^\infty$.  In [citation Caff \& Vasseur], Caffarelli and Vasseur utilize the fact that the Riesz operator is bounded $L^\infty \to \BMO$.  The space of functions with Bounded Mean Oscillation is scaling invariant, and one can prove an oscillation lemma with $\BMO$ drift using De Giorgi's method with a shifting reference frame.  
-
-In the case of bounded domains, it is not known that the Riesz operator is bounded $L^\infty \to \BMO$.  Another well known scaling invariant function space is the Besov space $B^0_{\infty,\infty}$, and this is closer to what we want.  
-
-One complication is that, on bounded domains, we have no access to the Fourier transform.  However, an analogue involving the spectral decomposition of the Dirichlet Laplacian (where classical Littlewood-Paley theory involves the spectral decomposition of the Laplacian) has been developed by e.g. [citation, IMT] and [citation, Bui-Duong-Yan].  This theory is an outgrowth of the theory of Schrodinger Operators from mathematical physics.  We will continue to refer to this theory using the terminology of Littlewood-Paley, but it is a significant generalization.  
-
-What's more, instead of considering the Littlewood-Paley projections of the Riesz transform of $\theta$, we will actually seek to control the Riesz transforms of the Littlewood-Paley projections of $\theta$.  Because the Dirichlet Laplacian is not translation invariant, the gradient is not a spectral operator and the Riesz transform does not commute with the Littlewood-Paley projection operators.  For this reason we cannot utilize the theory of Besov spaces, but the bounds on $u$ that we do utilize are computationally similar.  
-
-Finally, because the gradient does not commute with the Dirichlet Laplacian, saying that $u$ is bounded in this way which is analogous to $B^0_{\infty,\infty}$ is not equivalent to saying that $\Lambda^{-1/4} u$ is bounded in a way analogous to the space $B^{1/4}_{\infty,\infty}$ or that $\grad u$ is bounded in a way analogous to $B^{-1}_{\infty,\infty}$.  Therefore we must bound $u$ in each sense independently, though in the classical case all of these bounds would be identical.  
+Using the results of \cite{IMTb}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$ and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect.  
 
 We make this notion precise with the following definition.  
 
@@ -214,9 +208,7 @@ In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in
 \end{cases} \end{equation}
 In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, with minimally regular velocity and $L^2$ initial data, become $L^\infty$ instantly, and in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  
 
-Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
-
-The basic theory of the operators $\Lambda^s$ is well studied, but a few sources we find particularly helpful were \cite{CoIg.fraclap}, \cite{CaSt}, \cite{IMTb}, and [citation: Jerison and Kenig].  Specifically, the recent papers \cite{CaSt} and \cite{IMTb} develop singular integral formulations and a Littlewood-Paley theory, respectively, adapted to bounded domains.  These results are new and essential to the present paper.  
+Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  In appendix 2 of \cite{CoIg.sqg}, local-in-time existence of solutions to \eqref{eq:main nonlinear} with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
 \textbf{Notation.}
 If $f = \sum_k f_k \eigen{k}$ then
@@ -449,7 +441,7 @@ Since Schwartz functions are dense in $L^2(\R^2)$, the proof is complete.
 First let us derive an energy inequality.  
 
 \begin{lemma}[Caccioppoli Estimate] \label{thm:caccioppoli}
-Let $\theta \in L^2(0,T; \HD^{1/2}(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative, Lipschitz-in-space, and H\"{o}lder continuous-in-space with exponent $\gamma < 1/2$.  Then the decomposition
+Let $\theta \in L^\infty(0,T; L^4(\Omega) \cap H^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative, Lipschitz-in-space, and H\"{o}lder continuous-in-space with exponent $\gamma < 1/2$.  Then the decomposition
 \[ \theta = \theta_+ + \Psi - \theta_- \]
 satisfies the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \Psi + u\cdot\grad\Psi) } \]
@@ -789,11 +781,11 @@ so that
 Applying Lemma \ref{thm:caccioppoli} to $\theta$ and $\Psi$ we arrive at
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\ulow-\dot{\Gamma}(t) + \uhigh) \cdot \grad\psi(x-\Gamma(t)) }. \]
 
-Consider first the high-pass term $\int \theta_+ \uhigh\cdot\grad\psi$.  By inserting $\Lambda^{1/4}\Lambda^{-1/4}$ and then integrating by parts, we can apply Lemma~\ref{thm:Lambda stuff} parts \eqref{thm:L1 of Lambda bounded} and \eqref{thm:product rule} to obtain
-\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\psi) \leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \paren{\norm{\grad\psi}_\infty + \norm{D^2 \psi}_\infty} \paren{\norm{\theta_+}_1 + |\supp(\theta_+)|^{1/2} \paren{ \norm{\theta_+}_{L^2} + \norm{\theta_+}_{\HD^{1/2}}}}. \]
+Consider first the high-pass term $\int \theta_+ \uhigh\cdot\grad\psi$.  By inserting $\Lambda^{1/4}\Lambda^{-1/4}$ and then integrating by parts, we can apply Lemma~\ref{thm:Lambda stuff} parts \eqref{thm:L1 of Lambda1/4 bounded} and \eqref{thm:extra product rule} to obtain
+\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\psi) \leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \paren{\norm{\grad\psi}_\infty + \norm{D^2 \psi}_\infty} |\supp(\theta_+)|^{1/2} \paren{ \norm{\theta_+}_{L^2} + \norm{\theta_+}_{\HD^{1/2}}}. \]
 From H\"{o}lder's inequality with Peter-Paul, we obtain
 %\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\psi) \leq C(\phi,\eps) \norm{\Lambda^{1/4} \uhigh}_\infty \paren{\int \theta_+ + |\{\theta_+>0\}| + \int \theta_+^2 + \eps\n |\{\theta_+ > 0\}| + \eps \int \abs{\Lambda^{1/2} \theta_+}^2 }. \]
-\[ \int \uhigh \theta_+ \grad \psi(x - \gamma(t)) \,dx \leq C(\psi,\eps) \kappa \paren{\int \indic{\theta_+>0} + \int \theta_+ + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+\[ \int \uhigh \theta_+ \grad \psi(x - \gamma(t)) \,dx \leq C(\psi,\eps) \kappa \paren{\int \indic{\theta_+>0} + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
 
 Consider now the low-pass term.  Recall that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t, \Gamma+\gamma) \]
@@ -945,7 +937,7 @@ Each instance of $C$ in the following bounds is independent of $n$.
 \item Consider the low-pass term.  As in the proof of Lemma~\ref{thm:energy inequality}, we have $|\ulow^n(t,x) - \dot{\Gamma}_n(t)| \leq (1+8\kappa)\Cgamma + 6 \kappa$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq \Omega_n \cap B_3(\Gamma_n(t))$.  Thus for $t \in [-4,0]$ we have for $C$ independent of $n$ and of $\varphi$
 \[ \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) \leq C \paren{\norm{\grad\varphi(t,\cdot)}_{L^\infty(\Omega)} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)}}. \]
 
-\item Consider the high-pass term.  By Lemma \ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda bounded} and \ref{thm:product rule}, 
+\item Consider the high-pass term.  By Lemma \ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, 
 \[ \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4} \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} \leq C \kappa |\supp(\theta_+)|^{1/2} \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}. \]
 \[ \leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{C^2(\Omega)} \norm{\theta(t,\cdot)}_{\HD^{1/2}} }. \]
 
@@ -1007,7 +999,7 @@ We know from \eqref{theta3 compact in space} that
 and from \eqref{theta3 compact in time} that
 \[ \norm{ \del_t v_n }_{L^1(-4,0; X^*)} \leq C. \]
 
-According to the Aubin-Lions Lemma, the set $\{v_n\}_n$ is therefore compactly embedded in $L^2(-4,0; L^2(\R^2))$.  Up to a subsequence, there is a function $v \in L^2(-4,0; L^2(\R^2))$ such that
+According to the Aubin-Lions Lemma, the set $\{v_n\}_n$ is therefore compactly embedded in $L^2([-4,0]\times\R^2)$.  Up to a subsequence, there is a function $v \in L^2([-4,0]\times\R^2)$ such that
 \[ v_n \to v. \]
 By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, and $v \in L^2(H^{1/2})$.  
 
@@ -1377,10 +1369,13 @@ In other words,
 
 \end{proof}
 
-\appendix
-\section{proofs}
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-In this appendix we prove the lemmas \ref{thm:Holder interpolation} and \ref{thm:calibration is good}.  
+
+\appendix
+\section{Proof of H\"{o}lder Interpolation}
+
+In this appendix we prove the lemma \ref{thm:Holder interpolation}.  
 
 \begin{proof}[Proof of \ref{thm:Holder interpolation}]
 The first claim is straigtforward.  
@@ -1415,7 +1410,17 @@ This bound is independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ b
 
 \end{proof}
 
-
+%\section{Existence} \label{sec:existence}
+%In \cite{CoIg.sqg}, appendix 2, it is argued that for initial data $\theta_0 \in H_0^1(\Omega) \cap H^2(\Omega)$, there exist local-in-time solutions to \eqref{eq:main nonlinear} with
+%\[ \theta \in L^\infty(0, T; H_0^1(\Omega) ∩ H^2(\Omega)) \cap L^2(0,T; \HD^{2.5}). \]
+%
+%In particular, this is enough to show that $\theta \in L^\infty(0,T; L^4(\Omega))$ and hence that $u$ is as well.  Therefore the drift term $u \cdot \grad \theta$ is a product of an $L^2$ function and an $L^4$ function.  
+%
+%This is enough to justify all of the calculations in the present paper of the form
+%\[ 0 = \int \varphi (\theta - \Psi)_+ \bracket{\del_t \theta + u \cdot \grad\theta + \Lambda \theta} \,dx \]
+%for $\varphi$ an $L^\infty$ function and $\Psi$ a non-negative function.  
+%
+%Given $L^2(\Omega)$ initial data $\theta_0$, one can prove existence for a H\"{o}lder continuous solution on an interval $[0,T]$ by approximating $\theta_0$ by a sequence of sufficiently regular functions.  For this sequence, we apply the local existence theory and the H\"{o}lder theory to construct uniformly H\"{o}lder continuous solutions over the entire time interval $[0,T]$.  One can then use Arzela-Ascoli to construct a limit, which will be both a weak solution to \eqref{eq:main nonlinear} and a H\"{o}lder continuous function with slightly lower exponent.  
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
