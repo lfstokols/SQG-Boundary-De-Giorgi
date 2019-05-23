@@ -115,7 +115,7 @@
 
 %\newcommand{\draftnum}{1}%-----------------------------UPDATE DRAFT NUM----------------------------------------
 
-\title[Boundary Regularity for SQG]{Holder regularity up to the boundary for critical SQG on bounded domains, \today}
+\title[Boundary Regularity for SQG]{Holder regularity up to the boundary for critical SQG on bounded domains}
 
 \author[Stokols]{Logan F. Stokols} 
 \address[L. F. Stokols]{\newline Department of Mathematics, \newline The University of Texas at Austin, Austin, TX 78712, USA}
@@ -136,23 +136,18 @@
 \begin{document}
 
 \begin{abstract}
-Logan: write this
+We consider the dissipative SQG equation in bounded domains first introduced in  [Constantin Ignatova]. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in [Caffarelli Vasseur]. The boundary introduces several difficulties, as the lack of translation invariance of the Laplacian operator, or the fact that the gradient does not commute with the Dirichlet Laplacian. 
 \end{abstract}
 
 
 \maketitle \centerline{\date}
 
 \tableofcontents
+The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic equation (QG) when the atmosphere is at rest. The (QG) model is used extensively in meteorology and oceanography [citations]. These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in [citation], due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson [citation]). 
 
-The surface quasigeostrophic equation (SQG), proposed by [citation Constantin, Majda, Tabak], is interesting both because of its connection to meteorology and because of its similarities with the incompressible Navier-Stokes equations.  See \cite{Pe} for a detailed review.  The question of global well-posedness has been answered by \cite{CaVa.sqg} and by [citation Kiselev, Nazarov, Volberg].  Two important classes of techniques used in their study is the De Giorgi style techniques utilized by \cite{CaVa.sqg} for SQG and by \cite{NoVa.qg} for the Quasigeostrophic system of equations, and the nonlinear maximum principle techniques utilized by \cite{CoVi} and \cite{CoTaVi}.  
-
-%originates in the study of weather patterns.  It is also important because it is similar to the 2D Navier-Stokes.  The case $\nu > 0$ is called the dissipative SQG, the case $s =1/2$ is called the critical SQG, and $s<1/2$ and $1/2<s<1$ are called super-critical and sub-critical respectively.  Regularity was obtained by \cite{CaVa} and later re-proved and improved upon in [citations].  
-
-In this paper, we consider critical SQG on a bounded domain.  There are several distinct ways to define SQG on a bounded domain, which generally correspond to alternative definitions of the half-Laplacian.  Kriventsov [citation, Dennis Kriventsov] considered a two-phase problem which satisfied SQG only in a region, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In [citation, Matt and Vasseur], the authors model the full 3D inviscit Qasigeostrophic system in an impermeable cylinder and obtain boundary conditions which, when passed into the SQG submodel, result in a nonlocal operator which is not well understood.  
-
-We will consider the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}:
-
-For $\Omega$ a bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, consider the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$.  If $(\eigen{k})_{k \in \N}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in increasing order, define
+\vskip0.3cm
+ We consider in this paper  critical SQG on a bounded domain. We will focus on the the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}.
+ Consider  $\Omega$ a connected bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and   the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$.  If $(\eigen{k})_{k \in \N}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in increasing order, define
 \[ \Lambda f := \sum_{k=0}^\infty \sqrt{\lambda_k} \chevron{f,\eigen{k}}_{L^2(\Omega)} \eigen{k}. \]
 The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)$ is
 \begin{equation} \label{eq:main nonlinear} \begin{cases}
@@ -161,10 +156,9 @@ The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)
 \\ \theta = \theta_0 & \{0\} \times \Omega.
 \end{cases} \end{equation}
 
-Existence of weak solutions for this problem is proven in \cite{CoIg.fraclap}, and interior regularity is proven in \cite{CoIg.fraclap}.  The method of proof for interior regularity is by nonlinear maximum principles, formulas which refine the pointwise Cordoba-Cordoba inequality and allow them to control the dissipation of solutions near spatial maxima.  However, the bounds blow up near the boundary and so the method seems inapplicable to the question of global regularity.  
+In the model, the dissipation $\Lambda =\Delta_D^{1/2}$  is due to the  Ekman pumping, while the nonlinear velocity $u$ comes from the geostrophic and hydrostatic balance (see \cite{Pe}).
 
-Our main result will be to show that $\theta$ is globally H\"{o}lder continuous.  In \cite{CoIg.sqg} Remark 1, the question of global regularity was proposed, citing both $C^\alpha(\bar{\Omega})$ bounds and the $C^\alpha(\bar{\Omega}) \implies C^\infty(\bar{\Omega})$ implication as open problems.  To quote Remark 1, these questions are unsolved ``due to the fact that the commutator between normal derivatives and the fractional Dirichlet Laplacian is not controlled uniformly up to the boundary.''  
-
+The main result of this paper is the following.
 \begin{theorem} \label{thm:main continuity}
 Let $\theta$ be a smooth solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
 
@@ -174,15 +168,34 @@ More precisely, there exists $\alpha \in (0,1)$ depending only on $\Omega$ and $
 \[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{theorem}
 
-Our method of proof will be the De Giorgi method.  Introduced by De Giorgi in \cite{DG}, the method was applied to the SQG problem in \cite{CaVa.sqg} and to the 3D Quasigeostrophic problem in \cite{NoVa.qg}.  The underlying idea is to forget the dependence of the velocity $u$ on $\theta$ to obtain a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}).  We use this $L^\infty$ bound on $\theta$ to control $u$ (Section~\ref{sec:littlewood paley}).  We prove a decrease-in-oscillation lemma for fractional diffusion equations with ``small'' drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}.  
+This model was first thoroughly studied in the cases without boundaries (either $\R^2$ or the torus $\T^2$).   
+Global weak solutions were first constructed in Resnick [Resnick]. Global regularity was first showed with small initial values [Constantin Cordoba, Wu], or extra $C^\alpha$ regularity on the velocity [Constantin Wu, Dong Pavlovic]. in [citation] Kiselev, Nazarov and Volberg showed the 
+propagation of $C^\infty$ regularity. The global $C^\infty$ regularity for any $L^2$ initial values was first proved in  \cite{CaVa.sqg} (see also [Kiselev-Nazarov] Constantin Vicol \cite{CoVi}).   
 
-In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$.  Previous applications of the De Giorgi method generally make extensive use of either an extension representation (c.f. \cite{CaVa.sqg}) or a singular-integral representation (c.f. \cite{NoVa.qg}), so this theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand.  In the present paper, we lean heavily on the singular integral representation (see Section~\ref{sec:lemmas}).  
+\vskip0.3cm
 
-The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators has is a well-studied subject [citations].  As an application of this theory, \cite{IMTs} and [citation, Dong et al] have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-Laplace_D$ (a Schrodinger operator with zero potential).  In particular, the recent preprint \cite{IMTb} of Iwabuchi, Matsuyama, and Taniguchi derives many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
+In the presence of boundaries, there are several  distinct ways to define SQG. This can be attributed  to alternative definitions of the half-Laplacian.  Kriventsov [citation, Dennis Kriventsov] considered a two-phase problem which satisfied SQG only in a region, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In [citation, Matt and Vasseur], the authors derived from the Euler-Coriolis-Boussinesq model,   the full 3D inviscid quasigeostrophic system in an impermeable cylinder (see also [MV2] for the construction of small time smooth solutions to the model).  They obtain the natural boundary conditions in this case. It is noteworthy to mention that these boundary conditions lead a distinct set of boundary conditions for  SQG  than the one introduced in  \cite{CoIg.fraclap}  \cite{CoIg.sqg} and described above. 
+However, due to the complexity of the model described in [MV], we focus in this paper only on the homogenous case.
 
-In order to apply the De Giorgi theory, we must find some space in which the velocity $u = \grad \Lambda^{-1} \theta$ is bounded, and this bound must be scaling invariant.  Though $L^\infty$ is the obvious choice, since solutions to SQG are easily shown to be $L^\infty$ bounded under minimal assumptions, the Riesz transform is not bounded from $L^\infty$ to $L^\infty$.  The usual solution is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  
+\vskip0.3cm
+Existence of weak solutions for (\ref{eq:main nonlinear})  is proven in \cite{CoIg.fraclap}. The interior regularity of solutions  is proven in \cite{CoIg.fraclap} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses the  nonlinear maximum principles, introduced in [Constantin Vicol].   However, the bounds obtained in that paper  blow up near the boundary and do not provide global regularity up to the boundary.
+  In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and the bootstrapping to the  $C^\infty(\bar{\Omega})$ regularity are mentioned as open problems.  %To quote Remark 1, these questions are unsolved ``due to the fact that the commutator between normal derivatives and the fractional Dirichlet Laplacian is not controlled uniformly up to the boundary.''  
+  Our  result answer the first question, by  showing  that solutions $\theta$ to (\ref{eq:main nonlinear})  are globally H\"{o}lder continuous.
+  Bootstrapping to $\C^\infty$ involves different techniques, and will be studied in a forthcoming  paper \cite{SV}. 
+\vskip0.3cm
 
-Using the results of \cite{IMTb}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$ and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect.  
+Our proof is based on  the De Giorgi method \cite{DG}.  The method was applied to the SQG problem first in \cite{CaVa.sqg}.  The method is powerful to show $C^\alpha$ regularity to nonlocal equations (see Caffarelli-Chan-Vasseur). It has been applied in a variety of situations for non-local problems, as the 3D Quasigeostrophic problem \cite{NoVa.qg},   the time-fractional case (Allen Caffarelli Vasseur), the kinetic setting (Silvestre- Imbert, Stokols -Vasseur), or even more exotic situations as the Hamilton-Jacobi equations (see Chan Vasseur, Stokols-Vasseur).  
+\vskip0.3cm
+
+ The first broad  idea consists in decoupling the  velocity $u$ from  $\theta$ to work on  a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}). The idea is to prove a decrease-in-oscillation lemma for fractional diffusion equations with  drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}).  
+\vskip0.3cm
+
+However, for this, we need to obtain scaling invariant controls on the drift   $u = \grad \Lambda^{-1} \theta$ (Section~\ref{sec:littlewood paley}).  Though $L^\infty$ is the obvious choice, since solutions to SQG are easily shown to be $L^\infty$ bounded under minimal assumptions, the Riesz transform is not bounded from $L^\infty$ to $L^\infty$.  The usual solution is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  The idea is to use extensions of the littlewood-Paley theory to bounded domains. 
+
+The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators has is a well-studied subject [citations].  As an application of this theory, \cite{IMTs} and [citation, Dong et al] have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-\Delta_D$ (a Schrodinger operator with zero potential).  In particular, in \cite{IMTb},  Iwabuchi, Matsuyama, and Taniguchi derives many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
+
+
+Using the results of \cite{IMTb}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$  and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect.  
 
 We make this notion precise with the following definition.  
 
@@ -206,11 +219,26 @@ In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in
 \del_t \theta + u \cdot \grad \theta + \Lambda \theta = 0, & [-T,0]\times\Omega \\
 \div u = 0 & [-T,0]\times\Omega.
 \end{cases} \end{equation}
+
+
+
+
+
 In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, with minimally regular velocity and $L^2$ initial data, become $L^\infty$ instantly, and in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  
 
-Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  In appendix 2 of \cite{CoIg.sqg}, local-in-time existence of solutions to \eqref{eq:main nonlinear} with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
-\textbf{Notation.}
+ Previous applications of the De Giorgi method to equations related to (\ref{eq:main linear}) generally make extensive use of either an extension representation (c.f. \cite{CaVa.sqg}) or a singular-integral representation (c.f. \cite{NoVa.qg}).  In this paper, we  use the kernel representation of  the Dirichlet fractional Laplacian  derived by Caffarelli and Stinga \cite{CaSt}. It is an generalization of   [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre]. 
+ This theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand(see Section~\ref{sec:lemmas}).  
+
+
+%In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$. 
+
+
+
+%Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  In appendix 2 of \cite{CoIg.sqg}, local-in-time existence of solutions to \eqref{eq:main nonlinear} with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
+
+Throughout the paper, we will use the following notations.
+%\textbf{Notation.}
 If $f = \sum_k f_k \eigen{k}$ then
 \begin{align*} 
 \norm{f}_{\HD^s} &:= \paren{\sum_k \lambda_k^{s} f_k^2}^{1/2} 
@@ -228,6 +256,10 @@ Recall the notation
 We will use the notation $(x)_+ := \max(0,x)$.  When the parentheses are ommited, the subscript~$+$ is merely a label.  
 Throughout this paper, if an integral sign is written $\int$ without a specified domain, the domain is implied to be $\Omega$, with $\Omega$ defined in context.  
 For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$, and by $\grad^\perp$ we mean $(-\del_y, \del_x)$.  
+\vskip0.3cm
+The Paper is organized as follows. Section \ref{sec:lemmas} is dedicated to the properties of $\Lambda$.....
+
+
 
 \section{Properties of $\Lambda$} \label{sec:lemmas}
 
