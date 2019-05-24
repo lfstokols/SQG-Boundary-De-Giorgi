@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  24 MAY 2019 13:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  24 MAY 2019 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -540,7 +540,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
 [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
-Overfull \hbox (34.51779pt too wide) in paragraph at lines 894--895
+Overfull \hbox (36.1984pt too wide) in paragraph at lines 894--895
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -553,7 +553,7 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 [17]
-Overfull \hbox (34.51779pt too wide) in paragraph at lines 930--931
+Overfull \hbox (36.1984pt too wide) in paragraph at lines 930--931
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -583,7 +583,7 @@ bolE/m/n/10.95 ˆ^^@\U/MnSymbolC/m/n/10.95 ^^P\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/
  []
 
 
-Overfull \hbox (34.51779pt too wide) in paragraph at lines 1098--1099
+Overfull \hbox (36.1984pt too wide) in paragraph at lines 1098--1099
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -596,7 +596,7 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 [21]
-Overfull \hbox (34.51779pt too wide) in paragraph at lines 1146--1147
+Overfull \hbox (36.1984pt too wide) in paragraph at lines 1146--1147
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -608,49 +608,53 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
 .95 B
  []
 
-[22] [23] [24] [25] [26] [27] [28] (./SQG_Boundary.bbl
+[22] [23] [24] [25]
+Underfull \vbox (badness 1303) has occurred while \output is active []
+
+ [26]
+[27] [28] [29] (./SQG_Boundary.bbl
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no “ in font cmr9!
- [29]) [30]
-(./SQG_Boundary.aux) ) 
+) [30] (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
- 6070 strings out of 494985
- 82275 string characters out of 6180355
- 137482 words of memory out of 5000000
- 9004 multiletter control sequences out of 15000+600000
+ 6072 strings out of 494985
+ 82302 string characters out of 6180355
+ 137499 words of memory out of 5000000
+ 9006 multiletter control sequences out of 15000+600000
  20713 words of font info for 76 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
  38i,13n,43p,1166b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymb
-ol/MnSymbolE6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol
-/MnSymbolS10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/
-MnSymbolA10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/M
-nSymbolS8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnS
-ymbolC6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSym
-bolA8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbo
-lE8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolF
-10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolD8
-.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolC10.
-657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolE10.6
-57pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolD10.65
-7pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbolC8.600p
-k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (30 pages, 364591 bytes).
+ </home/lstokols/.texmf-var/fonts/pk/ljfour/public
+/MnSymbol/MnSymbolE6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/M
+nSymbol/MnSymbolS10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/Mn
+Symbol/MnSymbolA10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnS
+ymbol/MnSymbolS8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSym
+bol/MnSymbolC6.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbo
+l/MnSymbolA8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/
+MnSymbolE8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/Mn
+SymbolF10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnS
+ymbolD8.600pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSym
+bolC10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymb
+olE10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbo
+lD10.657pk> </home/lstokols/.texmf-var/fonts/pk/ljfour/public/MnSymbol/MnSymbol
+C8.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
+9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on SQG_Boundary.pdf (30 pages, 365946 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
+ 322 PDF objects out of 1000 (max. 8388607)
  161 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
