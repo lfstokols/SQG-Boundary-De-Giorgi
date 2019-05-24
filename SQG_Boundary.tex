@@ -136,14 +136,14 @@
 \begin{document}
 
 \begin{abstract}
-We consider the dissipative SQG equation in bounded domains first introduced in  [Constantin Ignatova]. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in [Caffarelli Vasseur]. The boundary introduces several difficulties, as the lack of translation invariance of the Laplacian operator, or the fact that the gradient does not commute with the Dirichlet Laplacian. 
+We consider the dissipative SQG equation in bounded domains, first introduced in (Constantin Ignatova]. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in [Caffarelli Vasseur]. The boundary introduces several difficulties, as the lack of translation invariance of the Laplacian operator, or the fact that the gradient does not commute with the Dirichlet Laplacian. 
 \end{abstract}
 
 
 \maketitle \centerline{\date}
 
 \tableofcontents
-The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic equation (QG) when the atmosphere is at rest. The (QG) model is used extensively in meteorology and oceanography [citations]. These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in [citation], due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson [citation]). 
+The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic equation (QG) when the atmosphere is at rest. The (QG) model is used extensively in meteorology and oceanography [citations]. These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in [citation], due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
 
 \vskip0.3cm
  We consider in this paper  critical SQG on a bounded domain. We will focus on the the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}.
@@ -697,16 +697,7 @@ The result follows.
 
 This final lemma allows us to interpolate using H\"{o}lder seminorms.  The results are not presumed to be novel, but since their proofs were difficult to find in the literature we include them below.  
 
-\begin{lemma} \label{thm:Holder interpolation}
-Let $\alpha \in (0,1)$.  There exists a constant $C = C(\alpha)$ such that, for any set $\Omega$ and any $f \in C^{0,1}(\Omega)$,
-\[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
 
-\vspace{5mm}
-
-Let $\alpha \in (0,1)$ and $\Omega$ a set that satisfies the cone condition.  There exist constants $C = C(\alpha, \Omega)$ and $\ell = \ell(\Omega)$ such that, for any $f \in C^{2,\alpha}(\Omega)$
-\[ \norm{D^2 f}_\infty \leq C \paren{ \delta\n \norm{\grad f}_\infty  + \delta^\alpha \bracket{D^2 f}_\alpha }\]
-for all $\delta < \ell$.  
-\end{lemma}
 
 We are now ready to prove Proposition \ref{thm:u is calibrated}.  
 
@@ -762,7 +753,7 @@ By Lemma \ref{thm:IMT stuff},
 %\norm{f}_\infty &= \norm{\Lambda P_j \theta}_\infty \leq C 2^j \norm{\theta}_\infty, \\
 %\norm{\grad f}_\infty &= \norm{\grad \Lambda P_j \theta}_\infty \leq C 2^{2j} \norm{\theta}_\infty. 
 %\end{align*}
-By Lemma~\ref{thm:Holder interpolation} we can interpolate these last two bounds to obtain
+By Lemma~\ref{thm:interpolation C1 to holder} (see Appendix~\ref{sec:technical}) we can interpolate these last two bounds to obtain
 \[ \bracket{\Lambda P_j \theta}_\beta \leq C 2^{j(1+\beta)} \norm{\theta}_\infty. \]
 Plugging these estimates into \eqref{schauder estimate} yields
 \[ \bracket{D^2 F}_\beta \leq C \paren{2^{-j} + 2^j + 2^{j(1+\beta)}} \norm{\theta}_\infty. \]
@@ -770,23 +761,18 @@ Plugging these estimates into \eqref{schauder estimate} yields
 Recall that without loss of generality we can assume $j \geq j_0$.  Therefore up to a constant depending on $j_0$, the term $2^{j(1+\beta)}$ bounds $2^j$ and $2^{-j}$ so we can write
 \[ \bracket{D^2 F}_\alpha \leq C 2^{j(1+\beta)} \norm{\theta}_\infty. \]
 
-Using this estimate and the fact that $\norm{\grad F}_\infty = \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty$ (see \eqref{uj in Linfty}), we can use Lemma~\ref{thm:Holder interpolation} to interpolate.  For some constant $\ell$ depending on $\Omega$, for any $\delta \leq \ell$ we have
+Using this estimate and the fact that $\norm{\grad F}_\infty = \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty$ (see \eqref{uj in Linfty}), we can interpolate to obtain an $L^\infty$ bound on $D^2 F$.  
+Lemma~\ref{thm:interpolation holder to C1} states that since $F \in C^{2,\beta}$ and $\Omega$ is sufficiently regular, there exist a constant $\ell = \ell(\Omega)$ such that for any $\delta \in [0, \ell]$ we have
 \begin{align*}
 \norm{D^2 F}_\infty &\leq C \paren{\delta\n \norm{\grad F}_\infty + \delta^{\beta} \bracket{D^2 F}_\beta}
 \\ &\leq C \paren{\delta\n + \delta^\beta 2^{j(1+\beta)}} \norm{\theta}_\infty.  
 \end{align*}
 
 Set $\delta = 2^{-j} (2^{j_0} \ell) \leq \ell$.  Then
-\[ \bracket{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\beta} 2^{j(1+\beta)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
+\[ \norm{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\beta} 2^{j(1+\beta)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
 
 Since $D^2 F = \grad u_j$, this estimate together with \eqref{uj in Linfty} and \eqref{uj in W-1/4} complete the proof.  
 \end{proof}
-
-Now that we know that $u$ is calibrated, we end the section with a final lemma to show why calibrated sequences are useful.  
-
-
-
-
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
@@ -875,7 +861,7 @@ From H\"{o}lder's inequality with Peter-Paul, we obtain
 Consider now the low-pass term.  Recall that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t, \Gamma+\gamma) \]
 so
-\[ \ulow(t,x) - \dot{\Gamma}(t) = \ulow(t,x) - \ulow(t,\Gamma+\gamma) + \dot{\gamma}. \]
+\begin{equation} \label{low pass term definition} \ulow(t,x) - \dot{\Gamma}(t) = \ulow(t,x) - \ulow(t,\Gamma+\gamma) + \dot{\gamma}. \end{equation}
 
 By assumption, $|\dot{\gamma}|\leq \Cgamma$ and so for $t \in [-T,0]$ we have $|\gamma(t)| \leq T \Cgamma$.  
 
@@ -885,7 +871,7 @@ Since $\ulow$ is has bounded derivative,
 \\ &\leq 2\kappa |x-\Gamma| + 2\kappa T \Cgamma. 
 \end{align*}
 
-Plugging these bounds into [cite] we obtain
+Plugging these bounds into \eqref{low pass term definition} we obtain
 \[ \abs{\ulow(t,x) - \dot{\Gamma}(t)} \leq (1+2\kappa T) \Cgamma + 2\kappa |x-\Gamma|. \]
 
 Now we can bound the low pass term
@@ -1113,7 +1099,7 @@ Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main line
 
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
-\[ \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+, \]
+\begin{equation} \label{oscillation boundedness} \theta(t,x) \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+, \end{equation}
 and that
 \[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq \frac{4|B_4|}{2}. \]
 
@@ -1126,21 +1112,21 @@ Let $\mu$ and $\delta_0$ as in Proposition \ref{thm:DG2}, and take $k_0$ large e
 
 Consider the sequence of functions,
 \[ \theta_k(t,x) := 2 + 2^k (\theta(t,x) - 2). \]
-That is, $\theta_0 = \theta$ and as $k$ increases, we scale vertically by a factor of 2 while keeping height 2 as a fixed point.  Note that since $\theta$ satisfies [cite, boundedness], each $\theta_k$ for $k \leq k_0$ and $(t,x) \in [-5,0] \times \Omega$ satisfies
+That is, $\theta_0 = \theta$ and as $k$ increases, we scale vertically by a factor of 2 while keeping height 2 as a fixed point.  Note that since $\theta$ satisfies \eqref{oscillation boundedness}, each $\theta_k$ for $k \leq k_0$ and $(t,x) \in [-5,0] \times \Omega$ satisfies
 \[ \theta_k(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
 This is precisely the assumption in Proposition \ref{thm:DG2}.  
 
 Note also that
-\[ \abs{\{\theta_k \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \]
+\begin{equation} \label{oscillation amount below} \abs{\{\theta_k \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \end{equation}
 is an increasing function of $k$, and hence is greater than $2|B_4|$ for all $k$.  
 
 Assume, for means of contradiction, that
-\[ \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0/4 \]
+\begin{equation} \label{oscillation amount above} \abs{\{1 \leq \theta_k \} \cap [-2,0]\times B_2(\Gamma)} \geq \delta_0/4 \end{equation}
 for $k = k_0-1$.  Since this quantity is decreasing in $k$, it must then exceed $\delta_0/4$ for all $ k < k_0$ as well.  
 
 Applying Proposition \ref{thm:DG2} to each $\theta_k$, we conclude that 
 \[ \abs{\{0 < \theta_k < 1\} \cap [-4,0]\times B_4(\Gamma)} \geq \mu. \]
-In particular, this means that the quantity [cite] increases by atleast $\mu$ every time $k$ increases by 1. By choice of $k_0$ and the fact that quantity [cite] is bounded by $4|B_4|$, we obtain a contradiciton.  Therefore, the assumption [cite] must fail for $k = k_0-1$.  
+In particular, this means that the quantity \eqref{oscillation amount below} increases by atleast $\mu$ every time $k$ increases by 1. By choice of $k_0$ and the fact that quantity \eqref{oscillation amount below} is trivially bounded by $4|B_4|$, we obtain a contradiciton.  Therefore, the assumption \eqref{oscillation amount above} must fail for $k = k_0-1$.  
 
 Therefore $\theta_{k_0}$ must satisfy the assumptions of Proposition \ref{thm:DG1}.  In particular, we conclude that
 \[ \theta_{k_0}(t,x) \leq 1 \qquad \forall t \in [-1,0], x \in \Omega \cap B_1(\Gamma). \]
@@ -1149,28 +1135,7 @@ For the original function $\theta$, this means that
 \[ \theta(t,x) \leq 2 - 2^{-k_0} \qquad \forall t \in [-1,0], x \in \Omega \cap B_1(\Gamma). \]
 \end{proof}
 
-That's the absolute gain.  Now let us consider how this gain can be shifted to our new reference frame.  But first, a quick technical lemma:
-
-\begin{lemma} \label{thm:technical scaling of barrier}
-There exist constants $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
-\[ \paren{|\eps\n (z - 1) + 3|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda}. \]
-\end{lemma}
-
-\begin{proof}
-For $z$ fixed, this function is increasing as $\eps$ decreases, so it will suffice to show the lemma when $\eps = 1/2$.  Consider
-\[ \paren{|2 z + 1|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+. \]
-When $\alpha = 1$, this quantity is clearly non-negative and in fact strictly positive when $z \geq 1$.  On any compact interval $[0,N]$, the quantity with $\alpha = 1$ is bounded below, and the quantity $\paren{|z|^{1/4} - 2^{1/4}}_+$ is bounded above, so if $\alpha-1$ is less than the ratio of those bounds then the total quantity will be bounded below.  
-
-However, the range of acceptable $\alpha$ depends on $N$, and it is possible that no single $\alpha$ is acceptable for the whole of $z \in [1,\infty)$.  
-
-For $z > 2$, the expression reduces to
-\[ (2z+1)^{1/4} - \alpha z^{1/4} - (\alpha-1) 2^{1/4} = z^{1/4} \paren{(2 + 1/z)^{1/4} - \alpha} - (\alpha-1)2^{1/4}. \]
-This quantity is increasing as $\alpha$ decreases, and for any $\alpha < 2^{1/4}$ it tends to $\infty$ as $z$ increases. 
-
-This is sufficient to show that for some $\alpha > 1$, there exists a lower bound $\bar{\lambda}$ on the quantity [cite], and thus the lemma holds. 
-\end{proof}
-
-We are ready to prove the shifted version of the Harnack Inequality.  
+By assuming that $\theta$ is small near $x = \Gamma(t)$, we have shown that the oscillation of $\theta$ is decreased in a smaller neighborhood of $\Gamma(t)$.  However, our goal is to control the oscillation near $x = \Gamma(t) + \gamma(t)$.  Therefore we will prove the following proposition:
 
 \begin{lemma}[Oscillation Lemma, with shift] \label{thm:oscillation shifted}
 Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
@@ -1192,6 +1157,16 @@ we have
 for all $t \in [-5,0]$ and $x$ such that $\eps x \in \Omega$.  
 \end{lemma}
 
+Before we can prove this, we state a technical lemma:
+
+
+
+We are ready to prove Proposition~\ref{thm:oscillation shifted}.
+
+The idea of the proof is to consider a small enough time interval that the difference between $\Gamma(t)$ and $\Gamma(t) + \gamma(t)$ is inconsequential.  However, considerable attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$.  Ostensibly, $k_0$ will depend on the constant $\Cgamma$ (since the value $\Cgamma$ is important in the proof of Lemma~\ref{thm:oscillation general} where $k_0$ is calculated) but in Section~\ref{sec:holder} we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$, which means we cannot require $\eps$ to depend on $k_0$.  
+
+The idea of the proof is to consider a small enough time interval that the difference between $\Gamma(t)$ and $\Gamma(t) + \gamma(t)$ is inconsequential.  However, special attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$.  The parameter $k_0$ (defined in Lemma~\ref{thm:oscillation general}) depends on $\Cgamma$.  In Section~\ref{sec:holder}, when we apply Lemma~\ref{thm:oscillation shifted} to the proof of Theorem~\ref{thm:main continuity}, we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$.  Therefore in the following proof, where we define the the range of acceptable scaling parameters $\eps$, we shall strive to make those constraints depend as little as possible on $\Cgamma$ and $k_0$.  
+
 If we only wish to show that by zooming horizontally by a large amount and zooming and translating vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $\Cgamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The important thing to pay attention for is the dependence of $\eps$ and $\Cgamma$ and $k_0$ on eachother.  
 
 As we will see in Section~\ref{sec:holder} when we apply this lemma, the constant $\Cgamma$ depends on $\eps$ and $k_0$ depends on $\Cgamma$.  In the following proof, the constant $\eps$ will need to be small relative to $\Cgamma$.  The assumption \eqref{Cgamma and eps for harnack} in this lemma turns out to be satisfiable, and now we must prove that it is sufficient.  
@@ -1201,7 +1176,7 @@ As we will see in Section~\ref{sec:holder} when we apply this lemma, the constan
 \begin{proof}
 Take $\lambda$ such that
 \begin{equation} \label{lambda smallness assumptions} 2\lambda \leq 2^{-k_0}, \qquad (2+\lambda)(\frac{2}{2-\lambda}) \leq 2 + 2^{-k_0} \bar{\lambda}, \qquad \frac{2}{2-\lambda} \leq \alpha. \end{equation}
-for $\bar{\lambda}$ and $\alpha$ from Lemma \ref{thm:technical scaling of barrier}.  
+for $\bar{\lambda}>0$ and $\alpha>1$ from Lemma \ref{thm:technical scaling of barrier}.  
 
 Denote 
 \[ \bar{\theta}(t,x) := \frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda} \]
@@ -1245,8 +1220,8 @@ Therefore
 
 If $|y| \leq \eps\n$ then from \eqref{bar theta bounded basin} we have
 \[ \abs{\bar{\theta}(t,x)} \leq 2 \leq 2 + 2^{-k_0} \phi(x - \eps\n \Gamma(\eps t) - \eps\n \gamma(\eps t)) \]
-and the proof would be complete.  Therefore assume without loss of generality that $|y|\geq \eps\n$.  In this case we can apply Lemma \ref{thm:technical scaling of barrier} so
-\[ 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \leq 2 + 2^{-k_0} \phi(|y|-\eps\n + 3). \]
+and the proof would be complete.  Therefore assume without loss of generality that $|y|\geq \eps\n$.  In this case we can apply Lemma \ref{thm:technical scaling of barrier} which states that, since $\eps<1/2$ and $\eps|y| \geq 1$, it is a property of $\phi$, $\alpha$, and $\bar{\lambda}$ that
+\[ 2 + 2^{-k_0} \bracket{\bar{\lambda} + \alpha \phi(\eps |y|)} \leq 2 + 2^{-k_0} \bracket{\phi(|y|-\eps\n + 3)}. \]
 
 For $t \in [-5,0]$, we have by assumption \eqref{Cgamma and eps for harnack}
 \[ |y|-\eps\n+3 \leq |y| - 5 \Cgamma \leq |y - \eps\n\gamma(\eps t)|. \]
@@ -1277,7 +1252,7 @@ and
 \[ \bar{u}(t,x) := \sum_{j=j_0}^\infty u_j(\eps t, \eps x) \]
 satisfies the same PDE on $[-T/\eps, 0]\times \Omega_\eps$ where $\Omega_\eps = \{x \in \R^2: \eps x \in \Omega\}$.  
 
-Moreover, $(u_j)_j$ is calibrated with the same constant $\kappa$ but with center $N - \ln_2(\eps)$, and the estimate
+Moreover, $(u_j)_j$ is calibrated with the same constant $\kappa$ but with center $N - \log_2(\eps)$, and the estimate
 \[ \bar{K}_{1/4}(x,y) \leq \Comega |x-y|^{3/4} \bar{K}_1(x,y) \qquad \forall x\neq y \in \Omega_\eps \]
 holds.  
 
@@ -1305,7 +1280,7 @@ From these facts it is clear that the scaled functions satisfy \eqref{eq:main li
 Define
 \[ \bar{u}_j(t,x) := u_j(\eps t, \eps x). \]
 To show that $(\bar{u}_j)_{j \in \Z}$ is calibrated, we must translate the various bounds on $u_j$ to corresponding bounds on $\bar{u}_j$.  Each of the calculations are similar, so we show only one:
-\[ \norm{\grad \bar{u}_j}_\infty = \eps \norm{\grad u_j}_\infty \leq 2^{\ln_2(\eps)} 2^j 2^{-N} \kappa = 2^j 2^{-(N-\ln_2(\eps))} \kappa. \]
+\[ \norm{\grad \bar{u}_j}_\infty = \eps \norm{\grad u_j}_\infty \leq 2^{\log_2(\eps)} 2^j 2^{-N} \kappa = 2^j 2^{-(N-\log_2(\eps))} \kappa. \]
 
 \end{proof}
 
@@ -1319,10 +1294,10 @@ for a sequence $(u_j)_j$ calibrated with some constant $\kappa = \kappa(\Omega)$
 
 Choose a constant $0 < \eps < 1/5$ such that
 \begin{equation}\label{eps is small enough for Cgamma} 
-5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps\n - 3,
+5 \max\paren{ - \kappa \log_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps\n - 3,
 \end{equation}
 
-%\[ 5 \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps^{-a k}/k \qquad \forall k\geq 0. \]
+%\[ 5 \max\paren{ - \kappa \log_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps^{-a k}/k \qquad \forall k\geq 0. \]
 %critical point at $k = -1/(a \ln(\eps))$, at that point the bound is $\leq -a \ln(\eps) \eps^{1/\ln(\eps)} = - a \ln(\eps) e$
 
 For notational convenience, denote
@@ -1386,14 +1361,14 @@ With this in hand, we can bound the size of $\gamma_k$.  Namely, for $k \geq 1$,
 \\ &= \bracket{\ulowth{k-1}\big(\eps t, \eps \Gamma_k(t)+\eps \gamma_k(t)\big) - \ulowth{k-1}(\eps t, \eps \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots).
 \end{align*}
 The sum $\sum^{k-1} u_j(\eps^k \cdot, \eps^k \cdot) = \ulowth{k-1}(\eps \, \cdot, \eps \, \cdot)$ is Lipschitz in space, with Lipschitz constant less than $2 \eps \kappa$.  Moreover, each $u_j$ has $\norm{u_j}_\infty \leq \kappa$.  Thus both terms of $\dot{\gamma}_k(t)$ are bounded
-\[ |\dot{\gamma}_k(t)| \leq 2 \eps \kappa |\gamma_k(t)| - \kappa \ln_2(\eps). \]
+\[ |\dot{\gamma}_k(t)| \leq 2 \eps \kappa |\gamma_k(t)| - \kappa \log_2(\eps). \]
 This, by Gronwall's inequality, tells us that for $t \in [-5,0]$,
-\[ |\gamma_k(t)| \leq \frac{-\ln_2(\eps)}{2 \eps} \paren{ e^{10 \eps \kappa} - 1} \]
+\[ |\gamma_k(t)| \leq \frac{-\log_2(\eps)}{2 \eps} \paren{ e^{10 \eps \kappa} - 1} \]
 and hence
-\[ |\dot{\gamma}_k(t)| \leq -\kappa \ln_2(\eps) e^{10\eps \kappa}. \]
+\[ |\dot{\gamma}_k(t)| \leq -\kappa \log_2(\eps) e^{10\eps \kappa}. \]
 
 To account for $\gamma_0$, define
-\[ \Cgamma = \max\paren{ - \kappa \ln_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \]
+\[ \Cgamma = \max\paren{ - \kappa \log_2(\eps) e^{10\eps\kappa}, j_0 \kappa} \]
 so that for all $k \geq 0$ and $t \in [-5,0]$
 \[ |\dot{\gamma}_k(t)| \leq \Cgamma. \]
 
@@ -1443,19 +1418,34 @@ In other words,
 
 
 \appendix
-\section{Proof of H\"{o}lder Interpolation}
+\section{Technical Lemmas} \label{sec:technical}
 
-In this appendix we prove the lemma \ref{thm:Holder interpolation}.  
+In this appendix we state and prove a few technical lemmas.  
 
-\begin{proof}[Proof of \ref{thm:Holder interpolation}]
-The first claim is straigtforward.  
+%\label{thm:Holder interpolation}
+
+\begin{lemma} \label{thm:interpolation C1 to holder}
+Let $\alpha \in (0,1)$.  There exists a constant $C = C(\alpha)$ such that, for any set $\Omega$ and any $f \in C^{0,1}(\Omega)$,
+\[ \bracket{f}_\alpha \leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha. \]
+\end{lemma}
+
+\begin{proof}
+This simple lemma is a straightforward calculation:
 \begin{align*} 
 \sup_{x,y \in \Omega} \frac{|f(x)-f(y)|}{|x-y|^\alpha} &= \sup |f(x)-f(y)|^{1-\alpha} \paren{\frac{|f(x)-f(y)|}{|x-y|}}^\alpha 
 \\ &\leq \paren{2 \norm{f}_\infty}^{1-\alpha} \paren{ \sup \frac{|f(x)-f(y)|}{|x-y|} }^\alpha
 \\ &\leq C \norm{f}_\infty^{1-\alpha} \norm{\grad f}_\infty^\alpha.
 \end{align*}
+\end{proof}
 
-The second claim is more complicated.  We will prove the stronger claim that for $f \in C^{1,\alpha}$
+\begin{lemma} \label{thm:interpolation holder to C1}
+Let $\alpha \in (0,1)$ and $\Omega$ a set that satisfies the cone condition.  There exist constants $C = C(\alpha, \Omega)$ and $\ell = \ell(\Omega)$ such that, for any $f \in C^{2,\alpha}(\Omega)$
+\[ \norm{D^2 f}_\infty \leq C \paren{ \delta\n \norm{\grad f}_\infty  + \delta^\alpha \bracket{D^2 f}_\alpha }\]
+for all $\delta < \ell$.  
+\end{lemma}
+
+\begin{proof}
+We will prove the stronger claim that for $f \in C^{1,\alpha}$
 \[ \norm{\grad f}_\infty \leq C \delta\n \norm{f}_{L^\infty(\bar{\Omega})} + \delta^\alpha \bracket{\grad f}_{\alpha;\bar{\Omega}}.\]
 
 The idea of the proof is to average $\grad f$ along an interval of length $\delta$ with endpoint $x$.  The magnitude of the average will be small, since $f \in L^\infty$, and the average will differ not very much from $\grad f(x)$ since $\grad f \in C^{1,\alpha}$.  
@@ -1479,6 +1469,37 @@ This bound is independent of $x$ and of $i=1,2$.  Since $e_1 \cdot e_2 \leq a$ b
 \[ \norm{\grad f}_\infty \leq \frac{C}{1-a^2} \paren{ \delta\n \norm{f}_\infty + \delta^\alpha \bracket{\grad f}_\alpha }. \]
 
 \end{proof}
+
+
+
+\begin{lemma} \label{thm:technical scaling of barrier}
+There exist constants $\bar{\lambda} > 0$ and $\alpha > 1$ such that, for any $0 < \eps \leq 1/2$ and any $z \geq 1$
+\[ \paren{|\eps\n (z - 1) + 3|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda}. \]
+\end{lemma}
+
+\begin{proof}
+For $z$ fixed, this function is increasing as $\eps$ decreases, so it will suffice to show the lemma when $\eps = 1/2$, that is to show
+\[ f_\alpha(z) := \paren{|2 z + 1|^{1/4} - 2^{1/4}}_+ - \alpha \paren{|z|^{1/4} - 2^{1/4}}_+ \geq \bar{\lambda} \]
+for all $z \geq 1$.  Note that $f_\alpha(z) \geq f_\beta(z)$ if $\alpha < \beta$.  
+
+For $z \geq 2$, 
+\[ f_\alpha(z) = (2z+1)^{1/4} - 2^{1/4} - \alpha z^{1/4} + \alpha 2^{1/4} = z^{1/4} \paren{(2 + 1/z)^{1/4} - \alpha} + (\alpha-1)2^{1/4}. \]
+For any $\alpha < 2^{1/4}$, clearly $f_\alpha(z)$ tends to $\infty$ as $z$ increases. Therefore there exist $N$ and $\alpha_0 > 1$ such that 
+\[ f_\alpha(z) \geq 1 \qquad \forall z \geq N, \alpha\leq \alpha_0. \]
+\vskip.3cm
+
+We can decompose $f_\alpha(z) = g_1(z) - (\alpha - 1) g_2(z)$ where
+\begin{align*} 
+g_1(z) &:= \paren{|2 z + 1|^{1/4} - 2^{1/4}}_+ - \paren{|z|^{1/4} - 2^{1/4}}_+, \\
+g_2(z) &:= \paren{|z|^{1/4} - 2^{1/4}}_+. 
+\end{align*}
+Note that $g_1$, $g_2$ are both continuous, and $g_1(z)$ is strictly positive for $z \geq 1$.  Therefore we can take $\alpha \in (1,\alpha_0]$ small enough that
+\[ \alpha - 1 < \frac{\inf_{[1,N]} g_1}{\sup_{[1,N]} g_2}. \]
+
+For this $\alpha$, $f_\alpha(z)$ is strictly positive on the compact interval $[1,N]$, and $f_\alpha(z) \geq 1$ on $[N,\infty)$.  Therefore $f_\alpha(z)$ has a positive lower bound $\bar{\lambda}$ for all $z \geq 1$.  
+\end{proof}
+
+%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
 %\section{Existence} \label{sec:existence}
 %In \cite{CoIg.sqg}, appendix 2, it is argued that for initial data $\theta_0 \in H_0^1(\Omega) \cap H^2(\Omega)$, there exist local-in-time solutions to \eqref{eq:main nonlinear} with
