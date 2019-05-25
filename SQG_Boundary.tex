@@ -102,6 +102,7 @@
 \newcommand{\HDint}[2]{\int \abs{\Lambda^{#1} #2}^2}
 \newcommand{\HDinth}[1]{\HDint{1/2}{#1}}
 
+\newcommand{\Ccalib}{\kappa}
 \newcommand{\Cgamma}{C_g}
 \newcommand{\Comega}{C_\Omega}
 
@@ -136,14 +137,15 @@
 \begin{document}
 
 \begin{abstract}
-We consider the dissipative SQG equation in bounded domains, first introduced in (Constantin Ignatova]. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in [Caffarelli Vasseur]. The boundary introduces several difficulties, as the lack of translation invariance of the Laplacian operator, or the fact that the gradient does not commute with the Dirichlet Laplacian. 
+We consider the dissipative SQG equation in bounded domains, first introduced in [Constantin, Ignatova]. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in [Caffarelli, Vasseur]. The boundary introduces several difficulties, as the Dirichlet Laplacian is not translation invariant near the boundary which makes the Riesz transform poorly behaved.  
+% lack of translation invariance of the Laplacian operator, or the fact that the gradient does not commute with the Dirichlet Laplacian. 
 \end{abstract}
 
 
 \maketitle \centerline{\date}
 
 \tableofcontents
-The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic equation (QG) when the atmosphere is at rest. The (QG) model is used extensively in meteorology and oceanography [citations]. These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in [citation], due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
+The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic equation (QG) when the atmosphere is at rest. The (QG) model is used extensively in meteorology and oceanography [citations]. These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in \cite{CoMaTa}, due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
 
 \vskip0.3cm
  We consider in this paper  critical SQG on a bounded domain. We will focus on the the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}.
@@ -175,16 +177,16 @@ and there exists $\alpha \in (0,1)$ depending on $\Omega$, $t$, and $\norm{\thet
 \end{theorem}
 
 This model was first thoroughly studied in the cases without boundaries (either $\R^2$ or the torus $\T^2$).   
-Global weak solutions were first constructed in Resnick [Resnick]. Global regularity was first showed with small initial values [Constantin Cordoba, Wu], or extra $C^\alpha$ regularity on the velocity [Constantin Wu, Dong Pavlovic]. in [citation] Kiselev, Nazarov and Volberg showed the 
-propagation of $C^\infty$ regularity. The global $C^\infty$ regularity for any $L^2$ initial values was first proved in  \cite{CaVa.sqg} (see also [Kiselev-Nazarov] Constantin Vicol \cite{CoVi}).   
+Global weak solutions were first constructed in Resnick \cite{Re}. Global regularity was first showed with small initial values \cite{CoCoWu}, or extra $C^\alpha$ regularity on the velocity \cite{CoWu}, \cite{DoPa}. In \cite{KiNaVo}, Kiselev, Nazarov and Volberg showed the 
+propagation of $C^\infty$ regularity. The global $C^\infty$ regularity for any $L^2$ initial values was first proved in  \cite{CaVa.sqg} (see also \cite{KiNa.variations} Constantin Vicol \cite{CoVi}).   
 
 \vskip0.3cm
 
-In the presence of boundaries, there are several  distinct ways to define SQG. This can be attributed  to alternative definitions of the half-Laplacian.  Kriventsov [citation, Dennis Kriventsov] considered a two-phase problem which satisfied SQG only in a region, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In [citation, Matt and Vasseur], the authors derived from the Euler-Coriolis-Boussinesq model,   the full 3D inviscid quasigeostrophic system in an impermeable cylinder (see also [MV2] for the construction of small time smooth solutions to the model).  They obtain the natural boundary conditions in this case. It is noteworthy to mention that these boundary conditions lead a distinct set of boundary conditions for  SQG  than the one introduced in  \cite{CoIg.fraclap}  \cite{CoIg.sqg} and described above. 
+In the presence of boundaries, there are several  distinct ways to define SQG. This can be attributed  to alternative definitions of the half-Laplacian.  Kriventsov \cite{Kr} considered a two-phase problem which satisfied SQG only in a region, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In [citation, Matt and Vasseur], the authors derived from the Euler-Coriolis-Boussinesq model,   the full 3D inviscid quasigeostrophic system in an impermeable cylinder (see also [MV2] for the construction of small time smooth solutions to the model).  They obtain the natural boundary conditions in this case. It is noteworthy to mention that these boundary conditions lead a distinct set of boundary conditions for  SQG  than the one introduced in  \cite{CoIg.fraclap}  \cite{CoIg.sqg} and described above. 
 However, due to the complexity of the model described in [MV], we focus in this paper only on the homogenous case.
 
 \vskip0.3cm
-Existence of weak solutions for (\ref{eq:main nonlinear})  is proven in \cite{CoIg.fraclap}. The interior regularity of solutions  is proven in \cite{CoIg.fraclap} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses the  nonlinear maximum principles, introduced in [Constantin Vicol].   However, the bounds obtained in that paper  blow up near the boundary and do not provide global regularity up to the boundary.
+Existence of weak solutions for (\ref{eq:main nonlinear})  is proven in \cite{CoIg.fraclap}. The interior regularity of solutions  is proven in \cite{CoIg.fraclap} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses the  nonlinear maximum principles, introduced in \cite{CoVi}.   However, the bounds obtained in that paper  blow up near the boundary and do not provide global regularity up to the boundary.
   In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and the bootstrapping to the  $C^\infty(\bar{\Omega})$ regularity are mentioned as open problems.  %To quote Remark 1, these questions are unsolved ``due to the fact that the commutator between normal derivatives and the fractional Dirichlet Laplacian is not controlled uniformly up to the boundary.''  
   Our  result answers the first question, by  showing  that solutions $\theta$ to (\ref{eq:main nonlinear}) are globally H\"{o}lder continuous.
   Bootstrapping to $\C^\infty$ involves different techniques, and will be studied in a forthcoming  paper \cite{StVa.higher}.  
@@ -210,17 +212,17 @@ Let $\Omega\subseteq \R^2$ be any bounded open set and $0<T\in\R$.  We call a fu
 \[ u = \sum_{j \in \Z} u_j \]
 with each $u_j \in L^2([0,T]\times\Omega)$ and the infinite sum converging in the sense of $L^2$.  
 
-We call a sequence $(u_j)_{j\in\Z}$ \textbf{calibrated} for a constant $\kappa$ and a center $N$ if each term of the sequence satisfies the following bounds.  
+We call a sequence $(u_j)_{j\in\Z}$ \textbf{calibrated} for a constant $\Ccalib$ and a center $N$ if each term of the sequence satisfies the following bounds.  
 
 \begin{align*}
-\norm{u_j}_{L^\infty([0,T]\times\Omega)} &\leq \kappa, \\
-\norm{\grad u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{j} 2^{-N} \kappa, \\
-\norm{\Lambda^{-1/4} u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{-j/4} 2^{N/4} \kappa.  
+\norm{u_j}_{L^\infty([0,T]\times\Omega)} &\leq \Ccalib, \\
+\norm{\grad u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{j} 2^{-N} \Ccalib, \\
+\norm{\Lambda^{-1/4} u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{-j/4} 2^{N/4} \Ccalib.  
 \end{align*} 
 
 \end{definition}
 
-In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in Section \ref{sec:holder} we will show that it remains calibrated at all scales (specifically, with fixed constant $\kappa$ but not always with the same center $N$).  Therefore we will consider the linear equation
+In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in Section \ref{sec:holder} we will show that it remains calibrated at all scales (specifically, with fixed constant $\Ccalib$ but not always with the same center $N$).  Therefore we will consider the linear equation
 \begin{equation} \label{eq:main linear} \begin{cases}
 \del_t \theta + u \cdot \grad \theta + \Lambda \theta = 0, & [-T,0]\times\Omega \\
 \div u = 0 & [-T,0]\times\Omega.
@@ -242,6 +244,9 @@ In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, wi
 
 
 %Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  In appendix 2 of \cite{CoIg.sqg}, local-in-time existence of solutions to \eqref{eq:main nonlinear} with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
+
+The Paper is organized as follows. Section \ref{sec:lemmas} is dedicated to basic properties of the operator $\Lambda$ and the corresponding Sobolev spaces $\HD^s$.  In Section~\ref{sec:Linfty} we prove $L^2 \to L^\infty$ regularization.  In Section~\ref{sec:littlewood paley} we prove that the Riesz transform of the $L^\infty$ function $\theta$ is callibrated.  Section~\ref{sec:de giorgi} contains the De Giorgi Lemmas.  Section~\ref{sec:harnack} is dedicated to the local decrease in oscillation through an analog of the Harnack inequality.  Finally in Section~\ref{sec:holder} we prove the main theorem, Theorem~\ref{thm:main continuity}.  In the Appendix \ref{sec:technical} we prove a few technical lemmas which are needed in the main paper.  
+\vskip.3cm
 
 \textbf{Notation.} Throughout the paper, we will use the following notations.
 %\textbf{Notation.}
@@ -265,11 +270,6 @@ Throughout this paper, if an integral sign is written $\int$ without a specified
 For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$, and by $\grad^\perp$ we mean $(-\del_y, \del_x)$.  
 
 The symbol $C$ represents a constant which may change value each time it is written.  
-\vskip0.3cm
-
-The Paper is organized as follows. Section \ref{sec:lemmas} is dedicated to the properties of $\Lambda$.....
-
-
 
 \section{Properties of $\Lambda$} \label{sec:lemmas}
 
@@ -642,7 +642,7 @@ Recall that $-\Laplace_D$ has some smallest eigenvalue $\lambda_0$ (depending on
 Our goal in this section is to prove the following proposition:
 
 \begin{proposition} \label{thm:u is calibrated}
-Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists a sequence of divergence-free functions $(u_j)_{j \in \Z}$ calibrated for some constant $\kappa = \kappa(\Omega, \norm{\theta}_\infty)$ with center 0 (see Definition~\ref{def:calibrated}) such that
+Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists a sequence of divergence-free functions $(u_j)_{j \in \Z}$ calibrated for some constant $\Ccalib = \Ccalib(\Omega, \norm{\theta}_\infty)$ with center 0 (see Definition~\ref{def:calibrated}) such that
 \[ \grad^\perp \Lambda^{-1} \theta = \sum_{j \in \Z} u_j \]
 with the infinite sum converging in the sense of $L^2$.  
 
@@ -785,14 +785,14 @@ The first step is to show that a calibrated velocity can be rewritten in a more 
 \begin{lemma} \label{thm:calibration is good}
 Let 
 \[ u = \sum_{j_0}^\infty u_j \]
-with the sum converging in the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\kappa$ and some center, and that $\div(u_j)=0$.  
+with the sum converging in the $L^2$ sense.  Assume that $(u_j)_{j \in \Z}$ is a calibrated sequence with constant $\Ccalib$ and some center, and that $\div(u_j)=0$.  
 
 Then
 \[ u = \ulow + \uhigh \]
 with 
 \begin{align*} 
-\norm{\grad \ulow}_{L^\infty([-T,0]\times \Omega)} &\leq 2 \kappa, \\
-\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} &\leq 6 \kappa. 
+\norm{\grad \ulow}_{L^\infty([-T,0]\times \Omega)} &\leq 2 \Ccalib, \\
+\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} &\leq 6 \Ccalib. 
 \end{align*}
 and $\div(\ulow) = \div(\uhigh) = 0$.  
 \end{lemma}
@@ -805,17 +805,17 @@ Let $N$ be the center to which $(u_j)_{j \in \Z}$ is calibrated.
 We define
 \[ \uhigh = \sum_{j > N} u_j \]
 and bound
-\[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq \sum_{j>N} \norm{\Lambda^{-1/4} u_j}_\infty \leq \kappa \frac{2^{-1/4}}{1-2^{-1/4}}. \]
+\[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq \sum_{j>N} \norm{\Lambda^{-1/4} u_j}_\infty \leq \Ccalib \frac{2^{-1/4}}{1-2^{-1/4}}. \]
 
 We define
 \[ \ulow = \sum_{j = j_0}^N u_j. \]
 and bound
-\[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \kappa \frac{1}{1 - 2^{-1}}. \]
+\[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \Ccalib \frac{1}{1 - 2^{-1}}. \]
 \end{proof}
 
-In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ is not constant, but rather grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that its derivatives are only small if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
+In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that control can only be gained if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
 
-To that end, we shall consider a family of functions $\theta$, $\ulow$, and $\uhigh:[-T,0]\times \Omega \to \R$, and paths $\Gamma$ and $\gamma:[-5,0] \to \R^2$ which satisfy
+To that end, we shall consider a family of functions $\theta:[-T,0]\times\Omega \to \R$, $\ulow$ and $\uhigh:[-T,0]\times \Omega \to \R^2$, and paths $\Gamma$ and $\gamma:[-5,0] \to \R^2$ which satisfy
 \begin{equation} \label{eq:main linear brokendown} \begin{cases}
 \del_t \theta + (\ulow + \uhigh) \cdot \grad \theta + \Lambda \theta = 0 & \textrm{on } [-T,0] \times \Omega, \\
 \div( \ulow) = \div(\uhigh) = 0 & \textrm{on } [-T,0]\times \Omega, \\
@@ -828,12 +828,12 @@ Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  Generall
 Now we prove an energy inequality for solutions to \eqref{eq:main linear brokendown}.  
 
 \begin{lemma}[Energy inequality] \label{thm:energy inequality}
-Let $\kappa$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let $\psi:\R^2 \to \R$ be a function with bounded first and second derivatives. Then there exists a constant $C>0$ such that the following holds:
+Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let $\psi:\R^2 \to \R$ be a function with bounded first and second derivatives. Then there exists a constant $C>0$ such that the following holds:
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
 
 Let $\psi:\R^2 \to \R$ have bounded derivative and bounded second derivative, and consider the functions
 \[ \theta_+ := \paren{\theta - \psi(\cdot-\Gamma)}_+, \qquad \theta_- := \paren{\psi(\cdot-\Gamma) - \theta}_+. \]
@@ -856,7 +856,7 @@ Consider first the high-pass term $\int \theta_+ \uhigh\cdot\grad\psi$.  By inse
 \[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\psi) \leq C \norm{\Lambda^{-1/4} \uhigh}_\infty \paren{\norm{\grad\psi}_\infty + \norm{D^2 \psi}_\infty} |\supp(\theta_+)|^{1/2} \paren{ \norm{\theta_+}_{L^2} + \norm{\theta_+}_{\HD^{1/2}}}. \]
 From H\"{o}lder's inequality with Peter-Paul, we obtain
 %\[ \int \Lambda^{-1/4} \uhigh \Lambda^{1/4} (\theta_+ \grad\psi) \leq C(\phi,\eps) \norm{\Lambda^{1/4} \uhigh}_\infty \paren{\int \theta_+ + |\{\theta_+>0\}| + \int \theta_+^2 + \eps\n |\{\theta_+ > 0\}| + \eps \int \abs{\Lambda^{1/2} \theta_+}^2 }. \]
-\[ \int \uhigh \theta_+ \grad \psi(x - \gamma(t)) \,dx \leq C(\psi,\eps) \kappa \paren{\int \indic{\theta_+>0} + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
+\[ \int \uhigh \theta_+ \grad \psi(x - \gamma(t)) \,dx \leq C(\psi,\eps) \Ccalib \paren{\int \indic{\theta_+>0} + \int \theta_+^2} + \eps \int \abs{\Lambda^{1/2} \theta_+}^2. \]
 
 Consider now the low-pass term.  Recall that
 \[ \dot{\Gamma} + \dot{\gamma} = \ulow(t, \Gamma+\gamma) \]
@@ -868,30 +868,32 @@ By assumption, $|\dot{\gamma}|\leq \Cgamma$ and so for $t \in [-T,0]$ we have $|
 Since $\ulow$ is has bounded derivative,
 \begin{align*} 
 |\ulow(t,x) - \ulow(t,\Gamma+\gamma)| &\leq  |\ulow(t,x)-\ulow(t,\Gamma)| + |\ulow(t,\Gamma) - \ulow(t,\Gamma+\gamma)| 
-\\ &\leq 2\kappa |x-\Gamma| + 2\kappa T \Cgamma. 
+\\ &\leq 2\Ccalib |x-\Gamma| + 2\Ccalib T \Cgamma. 
 \end{align*}
 
 Plugging these bounds into \eqref{low pass term definition} we obtain
-\[ \abs{\ulow(t,x) - \dot{\Gamma}(t)} \leq (1+2\kappa T) \Cgamma + 2\kappa |x-\Gamma|. \]
+\[ \abs{\ulow(t,x) - \dot{\Gamma}(t)} \leq (1+2\Ccalib T) \Cgamma + 2\Ccalib |x-\Gamma|. \]
 
 Now we can bound the low pass term
 %\begin{align*}
-\[ \int (\ulow - \dot{\Gamma}) \theta_+ \grad\psi(x-\Gamma) \leq (1+2\kappa T) \Cgamma \norm{\grad\psi}_\infty \int \theta_+ \,dx +  \norm{\grad\psi}_\infty 2\kappa \int |x-\Gamma| \theta_+ \,dx. \]
+\[ \int (\ulow - \dot{\Gamma}) \theta_+ \grad\psi(x-\Gamma) \leq (1+2\Ccalib T) \Cgamma \norm{\grad\psi}_\infty \int \theta_+ \,dx +  \norm{\grad\psi}_\infty 2\Ccalib \int |x-\Gamma| \theta_+ \,dx. \]
 %\\ &\leq (1+\norm{\grad\ulow}_\infty T) \Cgamma \norm{\grad\psi}_\infty \int \theta_+ \,dx +  \bracket{\ulow}_{3/4} \norm{|x|^{3/4} \grad\psi(x)}_\infty \int \theta_+ \,dx.
 %\end{align*}
 By assumption, $|x-\Gamma| \theta_+ \leq R \theta_+$, so the result follows.  
 \end{proof}
 
-This energy inequality is sufficient to apply the method of De Giorgi.  
+This energy inequality is sufficient to prove the De Giorgi Lemmas.  
+
+The first lemma is a local version of the $L^2$ to $L^\infty$ regularization, stating that solutions with small $L^2$ norm in a region will have small $L^\infty$ norm in a smaller region.  
 
 \begin{proposition}[First De Giorgi Lemma] \label{thm:DG1}
 
-Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\delta_0>0$ such that the following holds:
+Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\delta_0>0$ such that the following holds:
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 
 If
 \[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \qquad \forall t\in[-2,0], x \in \Omega \setminus B_2(\Gamma(t)) \]
@@ -922,12 +924,12 @@ By construction of $\psi$, our result follows immediately.
 Next, we will prove De Giorgi's second lemma, a quantitative analog of the isoperimetric inequality.  
 
 \begin{lemma}[Second De Giorgi Lemma] \label{thm:DG2}
-Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\mu>0$ such that the following holds:
+Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\mu>0$ such that the following holds:
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
 \[ \theta(t,x) \leq 2 + \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+. \]
@@ -941,10 +943,10 @@ Then the three conditions
 cannot simultaneously be met.  
 \end{lemma}
 
-Here $\delta_0$ is the constant from Lemma~\ref{thm:DG1}, which of course depends on $\kappa$, $\Cgamma$, and $\Comega$.  
+Here $\delta_0$ is the constant from Lemma~\ref{thm:DG1}, which of course depends on $\Ccalib$, $\Cgamma$, and $\Comega$.  
 
 \begin{proof}
-Suppose that the theorem is false.  Then there must exist, for each $n \in \N$, a bounded $C^{2,\alpha}$ set $\Omega_n$ and function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our lemma (with the same constants $\kappa$, $\Cgamma$, and $\Comega$), except that
+Suppose that the theorem is false.  Then there must exist, for each $n \in \N$, a bounded $C^{2,\alpha}$ set $\Omega_n$ and function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our lemma (with the same constants $\Ccalib$, $\Cgamma$, and $\Comega$), except that
 \begin{equation} \label{mass assumption between} \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \end{equation}
 
 Let $\psi:\R^2 \to \R$ be a smooth function which vanishes on $B_2$ such that $\psi(x) = 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
@@ -990,11 +992,11 @@ We will bound the five terms on the right hand side one at a time.
 Each instance of $C$ in the following bounds is independent of $n$.  
 
 \begin{itemize}
-\item Consider the low-pass term.  As in the proof of Lemma~\ref{thm:energy inequality}, we have $|\ulow^n(t,x) - \dot{\Gamma}_n(t)| \leq (1+8\kappa)\Cgamma + 6 \kappa$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq \Omega_n \cap B_3(\Gamma_n(t))$.  Thus for $t \in [-4,0]$ we have for $C$ independent of $n$ and of $\varphi$
+\item Consider the low-pass term.  As in the proof of Lemma~\ref{thm:energy inequality}, we have $|\ulow^n(t,x) - \dot{\Gamma}_n(t)| \leq (1+8\Ccalib)\Cgamma + 6 \Ccalib$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq \Omega_n \cap B_3(\Gamma_n(t))$.  Thus for $t \in [-4,0]$ we have for $C$ independent of $n$ and of $\varphi$
 \[ \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) \leq C \paren{\norm{\grad\varphi(t,\cdot)}_{L^\infty(\Omega)} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)}}. \]
 
 \item Consider the high-pass term.  By Lemma \ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, 
-\[ \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4} \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} \leq C \kappa |\supp(\theta_+)|^{1/2} \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}. \]
+\[ \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4} \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} \leq C \Ccalib |\supp(\theta_+)|^{1/2} \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}. \]
 \[ \leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{C^2(\Omega)} \norm{\theta(t,\cdot)}_{\HD^{1/2}} }. \]
 
 \item Consider the $\Lambda \theta_+$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x)\theta_+(x)^2 - \varphi(y)\theta_+(y)^2][\theta_+(x)-\theta_+(y)] K$ which decomposes as
@@ -1087,15 +1089,15 @@ Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx 
 
 \section{A Decrease in Oscillation} \label{sec:harnack}
 
-We put together Propositions \ref{thm:DG1} and \ref{thm:DG2} to produce an Oscillation lemma.  It allows us to improve a bound on the supremum of a function based on information about its positive support.  
+We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2}) to produce an Oscillation lemma.  This result is similar to the Harnack theory for harmonic functions.  
 
 \begin{proposition}[Oscillation Lemma] \label{thm:oscillation general}
-Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
+Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
@@ -1137,39 +1139,48 @@ For the original function $\theta$, this means that
 
 By assuming that $\theta$ is small near $x = \Gamma(t)$, we have shown that the oscillation of $\theta$ is decreased in a smaller neighborhood of $\Gamma(t)$.  However, our goal is to control the oscillation near $x = \Gamma(t) + \gamma(t)$.  Therefore we will prove the following proposition:
 
-\begin{lemma}[Oscillation Lemma, with shift] \label{thm:oscillation shifted}
-Let $\kappa$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
+\begin{lemma}[Oscillation Lemma with shift] \label{thm:oscillation shifted}
+Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \kappa$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\kappa$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
 \begin{equation} \label{theta bounded everywhere} |\theta(t,x)| \leq 2 + 2^{-k_0} \paren{|x-\Gamma(t)|^{1/4}-2^{1/4}}_+ \end{equation}
 and that
 \[ \abs{\{\theta \leq 0\} \cap [-4,0]\times B_4(\Gamma)} \geq 2|B_4|. \]
 
-Then for any $\eps \in (0,1/5)$ such that
+Then for any $\eps \in (0,1/3)$ such that
 \begin{equation} \label{Cgamma and eps for harnack} 5 \Cgamma \leq \eps\n - 3 \end{equation}
 we have
 \[ \abs{\frac{2}{2-\lambda} \bracket{\theta(\eps t, \eps x) + \lambda}} \leq 2 + 2^{-k_0} \paren{|x-\eps\n\Gamma(\eps t)-\eps\n\gamma(\eps t)|^{1/4}-2^{1/4}}_+. \]
 for all $t \in [-5,0]$ and $x$ such that $\eps x \in \Omega$.  
 \end{lemma}
 
-Before we can prove this, we state a technical lemma:
+The idea of the proof is to consider a small enough time interval that $\Gamma(t) + \gamma(t)$ is very close to $\Gamma(t)$.  This is possible because $\gamma$ is Lipschitz by assumption.  
 
+If, in this lemma, we only wished to show the existence of some $\eps = \eps(k_0,\Cgamma)$ satisfying the lemma's conclusion, then a simpler non-constructive proof would suffice.  However, in Section~\ref{sec:holder} we will apply this lemma with parameters $k_0$ and $\Cgamma$ depending on $\eps$.  To avoid circularity, we must prove the result for all $\eps$ satisfying \eqref{Cgamma and eps for harnack}.  
 
+%In Section~\ref{sec:holder}, when we apply this lemma to the proof of Theorem~\ref{thm:main continuity}, the parameter $\Cgamma$ will be defined in terms of the scaling parameter $\eps$.  However, in the present lemma, the set of acceptable scaling parameters depends on the value of $\Cgamma$.  To avoid circularity, this dependence must be made explicit in the assumption \eqref{Cgamma and eps for harnack}.  It is for this reason that a shorter, non-constructive proof of the existence of an acceptable parameter $\eps$ would be insufficient.  
 
-We are ready to prove Proposition~\ref{thm:oscillation shifted}.
+%The idea of the proof is to consider a small enough time interval that $\Gamma(t) + \gamma(t)$ is very close to $\Gamma(t)$.  This is possible because $\gamma$ is Lipschitz by assumption.  However, special attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$ to avoid a circular definition.  The quantity $k_0$ depends on $\Cgamma$ through the non-constructive proof in Lemma~\ref{thm:oscillation general}, and the quantity $\Cgamma$ will be defined constructively in Section~\ref{sec:holder} terms of the scaling parameter $\eps$.  
 
-The idea of the proof is to consider a small enough time interval that the difference between $\Gamma(t)$ and $\Gamma(t) + \gamma(t)$ is inconsequential.  However, considerable attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$.  Ostensibly, $k_0$ will depend on the constant $\Cgamma$ (since the value $\Cgamma$ is important in the proof of Lemma~\ref{thm:oscillation general} where $k_0$ is calculated) but in Section~\ref{sec:holder} we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$, which means we cannot require $\eps$ to depend on $k_0$.  
+%Note, therefore, that in this lemma the scaling parameter $\eps$ does not depend on $k_0$, and depends on $\Cgamma$ only through the constructive relation \eqref{Cgamma and eps for harnack}.  
+%To avoid circularity, 
 
-The idea of the proof is to consider a small enough time interval that the difference between $\Gamma(t)$ and $\Gamma(t) + \gamma(t)$ is inconsequential.  However, special attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$.  The parameter $k_0$ (defined in Lemma~\ref{thm:oscillation general}) depends on $\Cgamma$.  In Section~\ref{sec:holder}, when we apply Lemma~\ref{thm:oscillation shifted} to the proof of Theorem~\ref{thm:main continuity}, we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$.  Therefore in the following proof, where we define the the range of acceptable scaling parameters $\eps$, we shall strive to make those constraints depend as little as possible on $\Cgamma$ and $k_0$.  
+%In the following proof, the scaling parameter $\eps$ depends on $\Cgamma$, which might lead to circularity.  That dependence, expressed in \eqref{Cgamma and eps for harnack}, is constructive
 
-If we only wish to show that by zooming horizontally by a large amount and zooming and translating vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $\Cgamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The important thing to pay attention for is the dependence of $\eps$ and $\Cgamma$ and $k_0$ on eachother.  
+%Ostensibly, $k_0$ will depend on the constant $\Cgamma$ (since the value $\Cgamma$ is important in the proof of Lemma~\ref{thm:oscillation general} where $k_0$ is calculated) but in Section~\ref{sec:holder} we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$, which means we cannot require $\eps$ to depend on $k_0$.  
 
-As we will see in Section~\ref{sec:holder} when we apply this lemma, the constant $\Cgamma$ depends on $\eps$ and $k_0$ depends on $\Cgamma$.  In the following proof, the constant $\eps$ will need to be small relative to $\Cgamma$.  The assumption \eqref{Cgamma and eps for harnack} in this lemma turns out to be satisfiable, and now we must prove that it is sufficient.  
+%The idea of the proof is to consider a small enough time interval that $\Gamma(t) + \gamma(t)$ is very close to $\Gamma(t)$.  This is possible because $\gamma$ is Lipschitz by assumption.  However, considerable attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$.  Ostensibly, $k_0$ will depend on the constant $\Cgamma$ (since the value $\Cgamma$ is important in the proof of Lemma~\ref{thm:oscillation general} where $k_0$ is calculated) but in Section~\ref{sec:holder} we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$, which means we cannot require $\eps$ to depend on $k_0$.  
+
+%The idea of the proof is to consider a small enough time interval that the difference between $\Gamma(t)$ and $\Gamma(t) + \gamma(t)$ is inconsequential.  However, special attention must be paid to the dependence of the parameters $\eps$, $\Cgamma$, and $k_0$.  The parameter $k_0$ (defined in Lemma~\ref{thm:oscillation general}) depends on $\Cgamma$.  In Section~\ref{sec:holder}, when we apply Lemma~\ref{thm:oscillation shifted} to the proof of Theorem~\ref{thm:main continuity}, we will actually define $\Cgamma$ in terms of the scaling parameter $\eps$.  Therefore in the following proof, where we define the the range of acceptable scaling parameters $\eps$, we shall strive to make those constraints depend as little as possible on $\Cgamma$ and $k_0$.  
+
+%If we only wish to show that by zooming horizontally by a large amount and zooming and translating vertically by a small amount we stay under the barrier, this is obvious and merely requires being written down.  Even the shift itself is clearly not a problem when considered in the un-zoomed coordinates.  Since the velocity of $\gamma$ is bounded by $\Cgamma$, the shift $\gamma$ is arbitrarily small over very small time periods.  The important thing to pay attention for is the dependence of $\eps$ and $\Cgamma$ and $k_0$ on eachother.  
+
+%As we will see in Section~\ref{sec:holder} when we apply this lemma, the constant $\Cgamma$ depends on $\eps$ and $k_0$ depends on $\Cgamma$.  In the following proof, the constant $\eps$ will need to be small relative to $\Cgamma$.  The assumption \eqref{Cgamma and eps for harnack} in this lemma turns out to be satisfiable, and now we must prove that it is sufficient.  
 
 %from the fact that $k_0$ itself depends on $\Cgamma$, and as we will see in the next section $\Cgamma$ depends on $\eps$, so $\eps$ cannot depend on $k_0$.  In time, the co-dependence of $\eps$ and $\Cgamma$ is easy to untangle (so long as $\eps \Cgamma$ is less than some universal constant, the proof will go through).  In space, it is less clear that $\eps$ will not depend on $k_0$, and of course we need to zoom in time and space by the same factor so both issues are interconnected.  
 
@@ -1241,7 +1252,7 @@ In this section we shall prove the main theorem, Theorem~\ref{thm:main continuit
 \begin{lemma}[Scaling] \label{thm:scaling}
 Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\alpha}$ boundary.  Suppose that $\theta:[-T,0] \times \Omega \to \R$ and $u:[-T,0]\times \Omega \to \R^2$ solve \eqref{eq:main linear} and $u$ satisfies
 \[ u = \sum_{j=j_0}^\infty u_j \]
-with that sum converging in $L^2(\Omega)$ and $(u_j)_j$ calibrated with constant $\kappa$ and center $N$.  Suppose that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in Proposition~\ref{thm:Caff Stinga representation}) satisfy the relation
+with that sum converging in $L^2(\Omega)$ and $(u_j)_j$ calibrated with constant $\Ccalib$ and center $N$.  Suppose that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in Proposition~\ref{thm:Caff Stinga representation}) satisfy the relation
 \begin{equation} \label{scaling 1/4 to 1 property} K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \end{equation}
 
 Let $\eps>0$ be a small constant. 
@@ -1252,11 +1263,11 @@ and
 \[ \bar{u}(t,x) := \sum_{j=j_0}^\infty u_j(\eps t, \eps x) \]
 satisfies the same PDE on $[-T/\eps, 0]\times \Omega_\eps$ where $\Omega_\eps = \{x \in \R^2: \eps x \in \Omega\}$.  
 
-Moreover, $(u_j)_j$ is calibrated with the same constant $\kappa$ but with center $N - \log_2(\eps)$, and the estimate
+Moreover, $(u_j)_j$ is calibrated with the same constant $\Ccalib$ but with center $N - \log_2(\eps)$, and the estimate
 \[ \bar{K}_{1/4}(x,y) \leq \Comega |x-y|^{3/4} \bar{K}_1(x,y) \qquad \forall x\neq y \in \Omega_\eps \]
 holds.  
 
-%\[ \norm{\sum_{j=-\infty}^0 \bar{u}_j(t,0) - \sum_{j=-\infty}^0 u_j(\eps t, 0)}_\infty \leq \kappa N. \]
+%\[ \norm{\sum_{j=-\infty}^0 \bar{u}_j(t,0) - \sum_{j=-\infty}^0 u_j(\eps t, 0)}_\infty \leq \Ccalib N. \]
 \end{lemma}
 
 \begin{proof}
@@ -1280,7 +1291,7 @@ From these facts it is clear that the scaled functions satisfy \eqref{eq:main li
 Define
 \[ \bar{u}_j(t,x) := u_j(\eps t, \eps x). \]
 To show that $(\bar{u}_j)_{j \in \Z}$ is calibrated, we must translate the various bounds on $u_j$ to corresponding bounds on $\bar{u}_j$.  Each of the calculations are similar, so we show only one:
-\[ \norm{\grad \bar{u}_j}_\infty = \eps \norm{\grad u_j}_\infty \leq 2^{\log_2(\eps)} 2^j 2^{-N} \kappa = 2^j 2^{-(N-\log_2(\eps))} \kappa. \]
+\[ \norm{\grad \bar{u}_j}_\infty = \eps \norm{\grad u_j}_\infty \leq 2^{\log_2(\eps)} 2^j 2^{-N} \Ccalib = 2^j 2^{-(N-\log_2(\eps))} \Ccalib. \]
 
 \end{proof}
 
@@ -1298,14 +1309,14 @@ for all $(t,x) \in [-5,0]\times\Omega$ and some constants $\alpha$ and $C$ depen
 
 From Proposition~\ref{thm:u is calibrated}, we know that 
 \[ u = \grad^\perp \Lambda^{-1} \theta = \sum_{j=j_0}^\infty u_j \]
-for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\kappa = \kappa(\Omega)$ and center 0.  
+for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega)$ and center 0.  
 
 Choose a constant $0 < \eps < 1/5$ such that
 \begin{equation}\label{eps is small enough for Cgamma} 
-5 \max\paren{ - \kappa \log_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps\n - 3,
+5 \max\paren{ - \Ccalib \log_2(\eps) e^{10\eps\Ccalib}, (1-j_0) \Ccalib} \leq \eps\n - 3,
 \end{equation}
 
-%\[ 5 \max\paren{ - \kappa \log_2(\eps) e^{10\eps\kappa}, (1-j_0) \kappa} \leq \eps^{-a k}/k \qquad \forall k\geq 0. \]
+%\[ 5 \max\paren{ - \Ccalib \log_2(\eps) e^{10\eps\Ccalib}, (1-j_0) \Ccalib} \leq \eps^{-a k}/k \qquad \forall k\geq 0. \]
 %critical point at $k = -1/(a \ln(\eps))$, at that point the bound is $\leq -a \ln(\eps) \eps^{1/\ln(\eps)} = - a \ln(\eps) e$
 
 For notational convenience, denote
@@ -1319,9 +1330,9 @@ and define the following functions on $[-5,0]\times \Omega_k$:
 \uhighth{k}(t,x) &:= \sum_k u_j(\eps^k t, \eps^k x).  
 \end{align*}
 By Lemmas \ref{thm:scaling} and \ref{thm:calibration is good}, we know the sequence $(u_j(\eps^k \cdot, \eps^k \cdot))_j$ is calibrated and hence that independently of $k$
-\[ \norm{\Lambda^{-1/4} \uhighth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq 6 \kappa \]
+\[ \norm{\Lambda^{-1/4} \uhighth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq 6 \Ccalib \]
 and
-\[ \norm{\grad \ulowth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq 2 \kappa. \]
+\[ \norm{\grad \ulowth{k}}_{L^\infty([-5,0]\times \Omega_k)} \leq 2 \Ccalib. \]
 Each $\ulowth{k}$ is a finite sum of $L^\infty$ functions, hence $L^\infty$ itself, though not uniformly in $k$.  
 \vskip.3cm
 
@@ -1372,15 +1383,15 @@ With this in hand, we can bound the size of $\gamma_k$.  Namely, for $k \geq 1$,
 \\ &= \sum^{k-1} \bracket{u_j(\eps^k t, \eps^k \Gamma_k(t)+\eps^k \gamma_k(t)) - u_j(\eps^k t, \eps^k \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots)
 \\ &= \bracket{\ulowth{k-1}\big(\eps t, \eps \Gamma_k(t)+\eps \gamma_k(t)\big) - \ulowth{k-1}(\eps t, \eps \Gamma_k(t))} + \sum_{k-1}^k u_j(\eps^k t, \eps^k \ldots).
 \end{align*}
-The function $x \mapsto \ulowth{k-1}(\eps t, \eps x)$ is Lipschitz, with Lipschitz constant less than $2 \eps \kappa$.  Moreover, each $u_j$ has $\norm{u_j}_\infty \leq \kappa$.  Thus from the above calculation we can bound
-\begin{equation} \label{ODE for dot gamma} |\dot{\gamma}_k(t)| \leq 2 \eps \kappa |\gamma_k(t)| - \kappa \log_2(\eps). \end{equation}
+The function $x \mapsto \ulowth{k-1}(\eps t, \eps x)$ is Lipschitz, with Lipschitz constant less than $2 \eps \Ccalib$.  Moreover, each $u_j$ has $\norm{u_j}_\infty \leq \Ccalib$.  Thus from the above calculation we can bound
+\begin{equation} \label{ODE for dot gamma} |\dot{\gamma}_k(t)| \leq 2 \eps \Ccalib |\gamma_k(t)| - \Ccalib \log_2(\eps). \end{equation}
 Applying Gronwall's inequality, we find that for $t \in [-5,0]$
-\[ |\gamma_k(t)| \leq \frac{-\log_2(\eps)}{2 \eps} \paren{ e^{10 \eps \kappa} - 1}. \]
+\[ |\gamma_k(t)| \leq \frac{-\log_2(\eps)}{2 \eps} \paren{ e^{10 \eps \Ccalib} - 1}. \]
 Plugging this estimate back into \eqref{ODE for dot gamma},
-\[ |\dot{\gamma}_k(t)| \leq -\kappa \log_2(\eps) e^{10\eps \kappa} \qquad \forall k \geq 1. \]
+\[ |\dot{\gamma}_k(t)| \leq -\Ccalib \log_2(\eps) e^{10\eps \Ccalib} \qquad \forall k \geq 1. \]
 
-Trivially $|\dot{\gamma}_0| \leq (j_0-1) \kappa$, so if we define
-\[ \Cgamma = \max\paren{ - \kappa \log_2(\eps) e^{10\eps\kappa}, (j_0-1) \kappa} \]
+Trivially $|\dot{\gamma}_0| \leq (j_0-1) \Ccalib$, so if we define
+\[ \Cgamma = \max\paren{ - \Ccalib \log_2(\eps) e^{10\eps\Ccalib}, (j_0-1) \Ccalib} \]
 then for all $k \geq 0$ and $t \in [-5,0]$
 \[ |\dot{\gamma}_k(t)| \leq \Cgamma. \]
 \vskip.3cm
