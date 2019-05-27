@@ -137,7 +137,7 @@
 \begin{document}
 
 \begin{abstract}
-We consider the dissipative SQG equation in bounded domains, first introduced in [Constantin, Ignatova]. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in [Caffarelli, Vasseur]. The boundary introduces several difficulties, as the Dirichlet Laplacian is not translation invariant near the boundary which makes the Riesz transform poorly behaved.  
+We consider the dissipative SQG equation in bounded domains, first introduced by Constantin and Ignatova in 2016. We show global Holder regularity up to the boundary of the solution. The method is based on the De Giorgi techniques as in the 2010 work of Caffarelli and V. The boundary introduces several difficulties, as the Dirichlet Laplacian is not translation invariant near the boundary which makes the Riesz transform poorly behaved.  
 % lack of translation invariance of the Laplacian operator, or the fact that the gradient does not commute with the Dirichlet Laplacian. 
 \end{abstract}
 
@@ -236,7 +236,7 @@ In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, wi
 
 
  Previous applications of the De Giorgi method to equations related to (\ref{eq:main linear}) generally make extensive use of either an extension representation (c.f. \cite{CaVa.sqg}) or a singular-integral representation (c.f. \cite{NoVa.qg}).  In this paper, we  use the kernel representation of  the Dirichlet fractional Laplacian  derived by Caffarelli and Stinga \cite{CaSt}. It is an generalization of   [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre]. 
- This theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand(see Section~\ref{sec:lemmas}).  
+ This theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand(see Section~\ref{sec:lambda}).  
 
 
 %In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$. 
@@ -245,7 +245,7 @@ In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, wi
 
 %Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  In appendix 2 of \cite{CoIg.sqg}, local-in-time existence of solutions to \eqref{eq:main nonlinear} with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
-The Paper is organized as follows. Section \ref{sec:lemmas} is dedicated to basic properties of the operator $\Lambda$ and the corresponding Sobolev spaces $\HD^s$.  In Section~\ref{sec:Linfty} we prove $L^2 \to L^\infty$ regularization.  In Section~\ref{sec:littlewood paley} we prove that the Riesz transform of the $L^\infty$ function $\theta$ is callibrated.  Section~\ref{sec:de giorgi} contains the De Giorgi Lemmas.  Section~\ref{sec:harnack} is dedicated to the local decrease in oscillation through an analog of the Harnack inequality.  Finally in Section~\ref{sec:holder} we prove the main theorem, Theorem~\ref{thm:main continuity}.  In the Appendix \ref{sec:technical} we prove a few technical lemmas which are needed in the main paper.  
+The Paper is organized as follows. Section \ref{sec:lambda} is dedicated to basic properties of the operator $\Lambda$ and the corresponding Sobolev spaces $\HD^s$.  In Section~\ref{sec:Linfty} we prove $L^2 \to L^\infty$ regularization.  In Section~\ref{sec:littlewood paley} we prove that the Riesz transform of the $L^\infty$ function $\theta$ is callibrated.  Section~\ref{sec:de giorgi} contains the De Giorgi Lemmas.  Section~\ref{sec:harnack} is dedicated to the local decrease in oscillation through an analog of the Harnack inequality.  Finally in Section~\ref{sec:holder} we prove the main theorem, Theorem~\ref{thm:main continuity}.  In the Appendix \ref{sec:technical} we prove a few technical lemmas which are needed in the main paper.  
 \vskip.3cm
 
 \textbf{Notation.} Throughout the paper, we will use the following notations.
@@ -271,22 +271,24 @@ For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$, and by $\grad
 
 The symbol $C$ represents a constant which may change value each time it is written.  
 
-\section{Properties of $\Lambda$} \label{sec:lemmas}
+\vskip1cm
+\section{Properties of the Fractional Dirichlet Laplacian} \label{sec:lambda}
 
-We begin by recounting the result of \cite{CaSt} which gives us a singular integral representation of the $\HD^s$ norm.  
+We begin by stating a result of \cite{CaSt} which gives us a singular integral representation of the $\HD^s$ norm.  
 \begin{proposition}[Caffarelli-Stinga Representation] \label{thm:Caff Stinga representation}
-Let $s \in (0,1)$ and $f,g \in \HD^{s}$ on a bounded $C^{2,\alpha}$ domain $\Omega \subseteq \R^2$.  Then
+Let $s \in (0,1)$ and $f,g \in \HD^{s}$ on a bounded $C^{2,\beta}$ domain $\Omega \subseteq \R^2$.  Then
 \[ \int_\Omega \Lambda^s f \Lambda^s g \,dx = \iint_{\Omega^2} [f(x)-f(y)][g(x)-g(y)] K_{2s}(x,y) \,dxdy + \int_{\Omega} f(x) g(x) B_{2s}(x) \,dx \]
 for kernels $K_{2s}$ and $B_{2s}$ which depend on the parameter $s$ and the domain $\Omega$.  
+\vskip.3cm
 
-Moreover, these kernels are bounded
-\[ 0 \leq K_{2s}(x,y) \leq \frac{C(\Omega,s)}{|x-y|^{2+2s}} \]
+These kernels are bounded
+\[ 0 \leq K_{2s}(x,y) \leq \frac{C(s)}{|x-y|^{2+2s}} \]
 for all $x \neq y \in \Omega$ and
 \[ 0 \leq B_{2s}(x) \]
 for all $x \in \Omega$.  
 
-Finally, for any $s,t \in (0,2)$ there exists a constant $c = c(s,t,\Omega)$ such that for all $x\neq y \in \Omega$
-\begin{equation} \label{relationship Kt and Ks} K_{t}(x,y) \leq |x-y|^{s-t} K_{s}(x,y). \end{equation}
+Moreover, for any $s,t \in (0,2)$ there exists a constant $c = c(s,t,\Omega)$ such that for all $x\neq y \in \Omega$
+\begin{equation} \label{relationship Kt and Ks} K_{t}(x,y) \leq c |x-y|^{s-t} K_{s}(x,y). \end{equation}
 \end{proposition}
 
 \begin{proof}
@@ -299,32 +301,32 @@ Since the middle term does not depend on $s$, we can say that
 from which \eqref{relationship Kt and Ks} follows.  
 \end{proof}
 
-From the explicit formulae given in \cite{CaSt}, we see that $K_{2s}$ is roughly equal to the standard kernel for the $\R^2$ fractional Laplacian $(-\Laplace)^s$ when both $x$ and $y$ are in the interior of $\Omega$ or when $x$ and $y$ are extremely close together, but decays to zero when one point is in the interior and the other is near the boundary.  The kernel $B_{2s}$ is well-behaved in the interior but has a singularity at the boundary $\del \Omega$.  This justifies our thinking of the $K_{2s}$ term as the interior term and $B_{2s}$ as a boundary term.  
+From the explicit formulae given in \cite{CaSt}, we see that $K_{2s}$ is approximately equal to the standard kernel for the $\R^2$ fractional Laplacian $(-\Laplace)^s$ when both $x$ and $y$ are in the interior of $\Omega$ or when $x$ and $y$ are extremely close together, but decays to zero when one point is in the interior and the other is near the boundary.  The kernel $B_{2s}$ is well-behaved in the interior but has a singularity at the boundary $\del \Omega$.  This justifies our thinking of the $K_{2s}$ term as the interior term and $B_{2s}$ as a boundary term.  
 
-When comparing the computations in this paper to corresponding computations on $\R^2$, it is convenient to say that the interior term behaves roughly the same as in the unbounded case, while the boundary term behaves roughly like a lower order term (in the sense that it is easily localized).  
+When comparing the computations in this paper to corresponding computations on $\R^2$, one finds that the interior term behaves nearly the same as in the unbounded case, while the boundary term behaves roughly like a lower order term (in the sense that it is easily localized).  
 
-Many useful results can be derived from Caffarelli-Stinga representation formula, including the following:
+Many useful results can be derived from Caffarelli-Stinga representation formula.  We summarize them in the following lemma.  
 
 \begin{lemma} \label{thm:Lambda stuff}
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary.  
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  
 
 \begin{enumerate}[(a)]
 \item \label{thm:disjoint} Let $s \in (0,1)$.  If $f$ and $g$ are non-negative functions with disjoint support (i.e. $f(x)g(x) = 0$ for all $x$), then 
 \[ \int \Lambda^s f \Lambda^s g \,dx \leq 0. \]
 
-\item \label{thm:product rule} Let $s \in (0,1)$.  If $g \in C^{0,1}(\Omega)$ then
-\[ \norm{fg}_{\HD^s} \leq 2 \norm{g}_\infty \norm{f}_{\HD^s} + 2 \norm{f}_2 \sup_y \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dx. \]
+\item \label{thm:product rule} Let $s \in (0,1)$.  If $g \in C^{0,1}(\Omega)$ then for some constant $C = C(s)$
+\[ \norm{fg}_{\HD^s} \leq 2 \norm{g}_\infty \norm{f}_{\HD^s} + C \norm{f}_2 \sup_y \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dx. \]
 
 \item \label{thm:extra product rule} Let $s \in (0,1)$.  If $g \in C^{0,1}(\Omega)$ then for some constant $C=C(s)$
 \[  \norm{fg}_{\HD^s} \leq C \norm{g}_{C^{0,1}(\Omega)} \paren{\norm{f}_2 + \norm{f}_{\HD^s}}. \]
 
-\item \label{thm:L1 of Lambda bounded} Let $s\in(0,1/2)$.  Let $g$ an $L^\infty(\Omega)$ function and $f \in \HD^{2s}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
+\item \label{thm:L1 of Lambda bounded} Let $s\in(0,1/2)$.  Let $g$ an $L^\infty(\Omega)$ function and $f \in \HD^{2s}$ be non-negative with compact support.  Let $\Comega$ be a constant such that
 \begin{equation} \label{K bounded between orders} K_s(x,y) \leq \Comega |x-y|^{3s} K_{4s}(x,y). \end{equation}
 
 Then
 \[ \int \Lambda^{s/2} g \Lambda^{s/2} f \leq C \norm{g}_\infty |\supp(f)|^{1/2} \paren{ \norm{f}_2 + \norm{f}_{\HD^{2s}}}. \]
 
-\item \label{thm:L1 of Lambda1/4 bounded} Let $g$ an $L^\infty(\Omega)$ function and $f \in \HD^{1/2}$ be non-negative with compact support.  Let there be a constant $\Comega$ such that
+\item \label{thm:L1 of Lambda1/4 bounded} Let $g$ an $L^\infty(\Omega)$ function and $f \in \HD^{1/2}$ be non-negative with compact support.  Let $\Comega$ be a constant such that
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
 
 Then
@@ -344,14 +346,21 @@ Since $f$ and $g$ are non-negative and disjoint, the $B$ term vanishes.  Moreove
 \[ [f(x)-f(y)][g(x)-g(y)] = -f(x)g(y)-f(y)g(x) \leq 0. \]
 Since $K$ is non-negative, the result follows.  
 
+\vskip.3cm
 \textbf{Proof of \eqref{thm:product rule}:}
 From Proposition \ref{thm:Caff Stinga representation}
 \[ \int |\Lambda^s (fg)|^2 = \iint \paren{g(x)[f(x)-f(y)] + f(y)[g(x)-g(x)]}^2 K + \int f^2 g^2 B \]
-\[ \leq 2 \norm{g}_\infty^2 \norm{f}_{\HD^s}^2 + 2 \int f(y)^2 \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}}. \]
+\[ \leq 2 \norm{g}_\infty^2 \norm{f}_{\HD^s}^2 + C(s) \int f(y)^2 \int \frac{|g(x)-g(y)|^2}{|x-y|^{2+2s}} \,dxdy. \]
 
+\vskip.3cm
 \textbf{Proof of \eqref{thm:extra product rule}:}
-This follows immediately from \eqref{thm:product rule}.  
+This follows immediately from \eqref{thm:product rule}, since
+\[ |g(x)-g(y)| \leq \paren{\norm{g}_\infty} \wedge \paren{\norm{\grad g}_\infty |x-y|} \]
+and 
+\[  \int \frac{1 \wedge |x-y|^2}{|x-y|^{2+2s}} \,dx \]
+is bounded uniformly in $y$.  
 
+\vskip.3cm
 \textbf{Proof of \eqref{thm:L1 of Lambda bounded}:}
 From Proposition \ref{thm:Caff Stinga representation} we can decompose
 \[ \int \Lambda^{s/2} g \Lambda^{s/2} f = \Rom{1}_< + \Rom{1}_\geq + \Rom{2} \]
@@ -367,7 +376,8 @@ First we estimate $\Rom{1}_<$.  From \eqref{K bounded between orders} and from t
 We can break this up by Holder's inequality
 \[ \abs{\Rom{1}_<} \leq 2 \paren{\iint_{|x-y| < 1} \indic{f > 0}(x) [g(x)-g(y)]^2 |x-y|^{6s} K_{4s} }^{1/2} \paren{\iint [f(x)-f(y)]^2 K_{4s} }^{1/2}. \]
 The kernel $|x-y|^{6s} K_{4s} \indic{|x-y| < 1}$ is integrable in $y$ for $x$ fixed.  Therefore
-\begin{equation} \label{K near of L1 less than L2 stuff} \abs{\Rom{1}_<} \leq 2 \paren{ 2\norm{g}_\infty^2 \int C \indic{f > 0}(x) \,dx }^{1/2} \paren{ \norm{f}_{\HD^{2s}}^2}^{1/2}. \end{equation}
+\begin{equation} \label{K near of L1 less than L2 stuff} \abs{\Rom{1}_<} \leq 2 \paren{ \paren{2\norm{g}_\infty}^2 \int C \indic{f > 0}(x) \,dx }^{1/2} \paren{ \norm{f}_{\HD^{2s}}^2}^{1/2}. \end{equation}
+\vskip.3cm
 
 For the term $\Rom{1}_\geq$, by the symmetry of the integrand we have
 \[ \abs{\Rom{1}_\geq} \leq  2\norm{g}_\infty 2\int |f(x)| \int_{|x-y|\geq 1} K_s(x,y)dy \,dx. \]
@@ -375,6 +385,7 @@ Since $K_s \indic{|x-y|\geq 1}$ is integrable in $y$ for $x$ fixed,
 \begin{equation} \label{K far of L1 less than L2 stuff}
 \abs{\Rom{1}_\geq} \leq C \norm{g}_\infty \norm{f}_1.  
 \end{equation}
+\vskip.3cm
 
 For the boundary term \Rom{2}, 
 \[ \abs{\Rom{2}} \leq \norm{g}_\infty \int\indic{f>0} f B_s. \]
@@ -387,27 +398,32 @@ This combined with \eqref{K near of L1 less than L2 stuff} and \eqref{K far of L
 
 The lemma follows since $\norm{f}_1 \leq |\supp(f)|^{1/2} \norm{f}_2$ and since $\norm{f}_{\HD^s} \leq \norm{f}_{L^2} + \norm{f}_{\HD^{2s}}$.  
 
+\vskip.3cm
 \textbf{Proof of \eqref{thm:L1 of Lambda1/4 bounded}:}
 This is an immediate application of part \eqref{thm:L1 of Lambda bounded}.  
 
 \end{proof}
 
-Let us consider the relationship between the norm $\HD^s$ and the classical $H^s$ norm.  
+Let us consider the relationship between the norm $\HD^s$ and the $H^s$ norm on $\R^2$.  
 
 It is known (see \cite{CoIg.sqg} and \cite{CaSt}) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain subsets of $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ and that elements of $\HD^s$ have trace zero for $s \in [\frac{1}{2},1]$.  
+\vskip.3cm
 
-The most important fact for us is that the fractional Sobolev norms defined in terms of extension (for which we have access to a variety of theorems regarding compactness and Sobolev embeddings) are dominated by our $\HD^s$ norm with a constant that is independent of $\Omega$.  
+The most important fact for us is that the fractional Sobolev norms defined in terms of extension are dominated by our $\HD^s$ norm with a constant that is independent of $\Omega$.  
 
-Consider the extension-by-zero operator $E:L^2(\Omega) \to L^2(\R^2)$
+We do not claim that this result is new, but we present a detailed proof because the result is crucial to the De Giorgi method.  The De Giorgi lemmas require Sobolev embeddings and Rellich-Kondrachov embeddings which are independent of scale.  
+\vskip.3cm
+
+Define the extension-by-zero operator $E:L^2(\Omega) \to L^2(\R^2)$
 \[ E f (x) = \begin{cases} f(x) & x \in \Omega, \\ 0 & x \in \R^2 \setminus \Omega. \end{cases} \]
 
 \begin{proposition} \label{thm:hadamard 3 lines}
-Let $\Omega \subseteq \R^2$ be any bounded open set with Lipschitz boundary.  For any $s \in [\frac{1}{2},1]$ and function $f \in \HD^s$,
+Let $\Omega \subseteq \R^2$ be any bounded open set with Lipschitz boundary.  For any $s \in [0,1]$ and function $f \in \HD^s$,
 \[ \int_{\R^2} \abs{\paren{-\Laplace}^{s/2} E f}^2 \leq \int_\Omega \abs{\Lambda^s f}^2. \]
 Here $\paren{-\Laplace}^s$ is defined in the fourier sense.  
 \end{proposition}
 
-We will prove this proposition by interpolating between $s = 0$ and $s=1$.  Before we can do this, we must prove the same in the $s=1$ case.  
+We will prove this proposition by interpolating between $s = 0$ and $s=1$.  Before we can do this, we must prove the same in the $s=1$ case.  This result is known (see e.g. Jerison and Kenig \cite{JeKe}) but we include the proof for completeness.  
 
 \begin{lemma} \label{thm:H1 and H1}
 Let $\Omega \subseteq \R^2$ be any bounded open set with Lipschitz boundary.  For all functions $f$ in $\HD^1$,
@@ -434,26 +450,27 @@ From this the result follows.
 \end{proof}
 
 
-We come now to the proof of Proposition \ref{thm:hadamard 3 lines}.  
+We come now to the proof of Proposition \ref{thm:hadamard 3 lines}.  The proof is by complex interpolations using the Hadamard three-lines theorem.  
 \begin{proof}
 Let $g$ be any Schwartz function in $L^2(\R^2)$, and let $f$ be a function in $\HD^s$.  
 %Let $E:\HD^1(\Omega) \to H^1(\R^2)$ be a the extension-by-zero operator, where $H^1$ denotes the classical Sobolev space defined using the gradient.  
 Define the function
 \[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{z/2} g E \Lambda^{s-z} f, \qquad z \in \C, \Re(z) \in [0,1]. \]
 
-Recall (see e.g. [citation Jerison, Kenig]) that when $t \in \R$, $(-\Laplace)^{i t}$ is a unitary transformation on $L^2(\R^2)$, and $\Lambda^{i t}$ is a unitary transformation on $L^2(\Omega)$.  
+Recall (see e.g. \cite{JeKe}) that when $t \in \R$, $(-\Laplace)^{i t}$ is a unitary transformation on $L^2(\R^2)$, and $\Lambda^{i t}$ is a unitary transformation on $L^2(\Omega)$.  
 
 When $\Re(z) = 0$, then $\norm{\paren{-\Laplace}^{z/2} g}_2 = \norm{g}_2$ and $\norm{\Lambda^{s-z} f}_2 = \norm{f}_{\HD^s}$.  Hence
-\[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}. \]
+\[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}, \qquad \Re(z)=0. \]
 
 When $\Re(z)=1$, integrate by parts to obtain
 \[ \Phi(z) = \int_{\R^2} \paren{-\Laplace}^{(z-1)/2} g  \paren{-\Laplace}^{1/2} E \Lambda^{s-z} f. \]
 Then $\norm{\paren{-\Laplace}^{(z-1)/2} g}_2 = \norm{g}_2$, while $\norm{\Lambda^{s-z} f}_{\HD^1} = \norm{f}_{\HD^s}$.  As an $\HD^1$ function, $\Lambda^{s-z} f$ has trace zero so 
 \[ \norm{\grad E \Lambda^{s-z} f}_{L^2(\R^2)} = \norm{\grad \Lambda^{s-z} f}_{L^2(\Omega)} = \norm{f}_{\HD^s}. \]
 Of course $\norm{\paren{-\Laplace}^{1/2} \,\cdot\,}_{L^2(\R^2)} = \norm{\grad \,\cdot\,}_{L^2(\R^2)}$ in general so
-\[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}. \]
+\[ \Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}, \qquad \Re(z)=1. \]
+\vskip.3cm
 
-In order to apply the Hadamard three-lines lemma, we must show that $\Phi$ is differentiable in the interior of its domain.  
+In order to apply the Hadamard three-lines theorem, we must show that $\Phi$ is differentiable in the interior of its domain.  
 
 Rewrite the integrand of $\Phi$ as
 \[ \Four\n\paren{ |\xi|^z \hat{g} } E \sum_k \lambda_k^{\frac{s-z}{2}} f_k. \]
@@ -463,21 +480,19 @@ The derivative $\ddz$ commutes with linear operators like $\Four\n$ and $E$, so 
 Fix some $z \in \C$ with $\Re(z) \in (0,1)$.  Since $g$ is a Schwartz function, $\ln(|\xi|)|\xi|^z \hat{g}$ is in $L^2$.  Moreover, for any $\eps>0$ we have $\ln(\lambda_k) \lambda_k^{\frac{s-z}{2}} \leq C \lambda_k^{\frac{s-z+\eps}{2}}$ for some $C$ independent of $k$ but dependent on $z$, $\eps$.  Take $\eps < \Re(z)$ and, since $f \in \HD^{s}$, this sum will converge in $L^2$.  
 
 The differentiated integrand \eqref{derivative of integrand} is therefore a sum of two products of $L^2$ functions.  In particular it is integrable, which means we can interchange the integral sign and the derivative $\ddz$ and prove that $\Phi'(z)$ is finite for all $0<\Re(z)<1$. 
+\vskip.3cm
 
-By the Hadamard three-lines lemma, for any $z \in (0,1)$ we have $\Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}$.  
+By the Hadamard three-lines theorem, for any $z \in (0,1)$ we have $\Phi(z) \leq \norm{g}_2 \norm{f}_{\HD^s}$.  
 Evaluating $\Phi(s)$, we see
 \[ \int_{\R^2} \paren{-\Laplace}^{s/2} g E f \leq \norm{g}_{L^2(\R^2)} \norm{f}_{\HD^s}. \]
-This inequality holds for any Schwartz function $g \in L^2(\R^n)$ and any $f \in \HD^{s}$,
+This inequality holds for any Schwartz function $g \in L^2(\R^n)$ and any $f \in \HD^{s}$.  
 
-Since Schwartz functions are dense in $L^2(\R^2)$, the proof is complete.  
+Since Schwartz functions are dense in $L^2(\R^2)$ and $(-\Laplace)^{s/2}$ is self-adoint, the proof is complete.  
 \end{proof}
 
 
-
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
-
-
-
+\vskip1cm
 \section{$L^\infty$ bounds for $\theta$} \label{sec:Linfty}
 
 Our goal in this section is to show that the $L^\infty$ norm of solutions to \eqref{eq:main linear} are instantaneously bounded by the $L^2$ norm of the initial data.  Note that global $L^\infty$ bounds for $L^\infty$ initial data are proven in \cite{CoIg.sqg}.  
@@ -494,13 +509,13 @@ Then for any time $S \in (0,T)$ there exists a constant $C = C(S)$ such that
 In order to prove this proposition, we require an energy inequality for $(\theta-C)_+$ for arbitrary constants $C$.  We will prove a much more general lemma, which has further applications in Section~\ref{sec:de giorgi}.  
 
 \begin{lemma}[Caccioppoli Estimate] \label{thm:caccioppoli}
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and $T \in \R^+$ a positive constant.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative and smooth, and $\gamma < 1/2$.  Then there exists a constant $C$ depending on $\norm{\grad \Psi}_\infty$ and $\sup_t \bracket{\Psi(t,\cdot)}_{\gamma; \Omega}$ such that the following holds:
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and $T> 0$ and $0<\gamma<1/2$ be constants.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative and smooth.  Then there exists a constant $C$ depending only on $\norm{\grad \Psi}_\infty$ and $\sup_t \bracket{\Psi(t,\cdot)}_{\gamma; \Omega}$ such that the following holds:
 \vskip0.3cm
 
 Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T;H^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Then the functions
 \[ \theta_+ := \paren{\theta - \psi(\cdot-\Gamma)}_+, \qquad \theta_- := \paren{\psi(\cdot-\Gamma) - \theta}_+ \]
 satisfy the inequlality
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ (\del_t \Psi + u\cdot\grad\Psi) }. \]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }. \]
 
 
 \end{lemma}
@@ -512,7 +527,7 @@ which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\th
 
 Firstly,
 \begin{align*} 
-\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \theta_+ &= \paren{\frac{1}{2}} \ddt \int \theta_+^2 + (1/2) \int \div u \, \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2
+\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \theta_+ &= \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \paren{\frac{1}{2}} \int \div u \, \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2
 \\ &= \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2.
 \end{align*}
 
@@ -536,24 +551,23 @@ At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi$ term
 Since $B \geq 0$ and $\Psi$ is non-negative by assumption, the $B$ term is non-negative and so
 \begin{equation} \label{just the K cacciopolli} \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \geq \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y). \end{equation}
 The remaining integral is symmetric in $x$ and $y$, and the integrand is only nonzero if at least one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
-\[ \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y) \leq 2 \iint \indic{\theta_+>0}(x) \abs{\theta_+(x)-\theta_+(y)} \cdot \abs{\Psi(x)-\Psi(y)} K(x,y). \]
-Now we can break up this integral using the Peter-Paul variant of H\"{o}lder's inequality, and since $\iint [\theta_+(x)-\theta_+(y)]K \leq \norm{\theta_+}_{\HD^{1/2}}^2$ the inequality \eqref{just the K cacciopolli} becomes
+\[ \abs{\iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y)} \leq 2 \iint \indic{\theta_+>0}(x) \abs{\theta_+(x)-\theta_+(y)} \cdot \abs{\Psi(x)-\Psi(y)} K(x,y). \]
+Now we can break up this integral using Young's inequality, and since $\iint [\theta_+(x)-\theta_+(y)]^2K \leq \norm{\theta_+}_{\HD^{1/2}}^2$ the inequality \eqref{just the K cacciopolli} becomes
 \begin{equation} \label{good lower bound on psi term cacciopoli}
-\int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi + \eps \int \abs{\Lambda^{1/2}\theta_+}^2 \geq - \frac{1}{\eps} \iint \indic{\theta_+>0}(x) [\Psi(x)-\Psi(y)]^2 K(x,y). 
+\int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi + \frac{1}{2} \int \abs{\Lambda^{1/2}\theta_+}^2 \geq - 2 \iint \indic{\theta_+>0}(x) [\Psi(x)-\Psi(y)]^2 K(x,y). 
 \end{equation}
-%\begin{equation} \label{K bdd by little bit of energy cacciopolli} \abs{\iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y)} \leq \eps \int \abs{\Lambda^{1/2}\theta_+}^2 + \frac{1}{\eps} \iint \indic{\theta_+>0}(x) [\Psi(x)-\Psi(y)]^2 K(x,y). \end{equation}
 
 It remains to bound the quantity $[\Psi(x)-\Psi(y)]^2 K(x,y)$.  By Proposition~\ref{thm:Caff Stinga representation}, there is a universal constant $C$ such that
 \[ K(x,y) \leq \frac{C}{|x-y|^{3}}. \]
 The cutoff $\Psi$ is locally Lipschitz, and H\"{o}lder continuous with exponent $\gamma < 1/2$, by assumption.  Therefore 
-\[ [\Psi(x)-\Psi(y)]^2 K(x,y) \leq |x-y|^{-1} \wedge |x-y|^{2\gamma-3}. \]
+\[ [\Psi(x)-\Psi(y)]^2 K(x,y) \leq C |x-y|^{-1} \wedge |x-y|^{2\gamma-3}. \]
 Since $3-2\gamma > 2$, this quantity is integrable.  Thus
 \[ \int \indic{\theta_+>0}(x) \int [\Psi(x)-\Psi(y)]^2 K(x,y) \,dydx \leq C(\norm{\grad \Psi}_\infty, \bracket{\Psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
 Combining this with \eqref{first form of cacciopolli} and \eqref{good lower bound on psi term cacciopoli} we obtain
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \theta_+ (\del_t\Psi+u\cdot\grad\Psi) + \int \indic{\theta_+>0} }.\]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \abs{\int \theta_+ (\del_t\Psi+u\cdot\grad\Psi)} + \int \indic{\theta_+>0} }.\]
 \end{proof}
 
-With this energy inequality, Proposition~\ref{thm:L2 to Linfty} follows by a standard De Giorgi argument.  Since we will need to make a similar argument again in Section~\ref{sec:de giorgi}, we will write a more general lemma.  
+With this energy inequality, Proposition~\ref{thm:L2 to Linfty} follows by a standard De Giorgi argument.  Since we will need to make a similar argument again in Section~\ref{sec:de giorgi}, we will make the bulk of the argument in a more general lemma.  
 
 \begin{lemma}[De Giorgi Iteration Argument] \label{thm:DG1 skeleton}
 For any constant $\bar{C} > 0$, there exists a $\delta>0$ such that the following holds:
@@ -565,7 +579,7 @@ Let $f \in L^2([-2,0]\times\Omega)$ be a function with the property that for any
 Then
 \[ \int_{-2}^0 \int (f-a)_+^2 \,dxdt \leq \delta \]
 implies that
-\[ f(t,x) \leq 1 \forall t\in[-1,0], x \in \Omega. \]
+\[ f(t,x) \leq 1 \qquad \forall t\in[-1,0], x \in \Omega. \]
 \end{lemma}
 
 \begin{proof}
@@ -578,47 +592,53 @@ Define
 
 When $f_{k+1}>0$, then in particular $f_k \geq 2^{-k-1}$.  Thus for any finite $p$, there exists a constant $C$ so
 \begin{equation} \label{non-linearization} \indic{f_{k+1}>0} \leq C^k f_k^p. \end{equation}
-%In particular, 
-%\[ \int_\Omega \indic{f_k > 0} + \int_\Omega f_k^2 \leq C^k \int_\Omega \theta_k^3. \]
+\vskip.3cm
 
-Let $k\geq 0$, $s \in (t_{k+1},0)$, and let $\eta:[-2,0]\to \R$ be a discontinuous piecewise linear function which vanishes on $[-2,t_k]$, linearly interpolates from 0 to 1 on $[t_k, t_{k+1}]$, is identically 1 on $[t_{k+1}, s]$, and vanishes on $(s,0]$.  Multiplying the inequality \eqref{DG energy ddt} with cutoff $a_k$ by $\eta(t)$ and integrating by parts, we obtain
-\[ \int f_k(s,x)^2\,dx - 2^{k+1} \int_{t_k}^{t_{k+1}} \int f_k(t,x)^2 \,dxdt + \int_{t_{k+1}}^s \HDint{1/2}{f_k} \leq C \paren{ \int_{t_k}^0 \int \indic{f_k>0} + f_k + f_k^2 \,dxdt } \]
+Let $k\geq 0$ and define $\eta:[-2,0] \to \R$ a continuous function
+\[ \eta(t) := \begin{cases}
+0 & t \leq t_k \\
+2^{k+1} (t-t_k) & t_k \leq t \leq t_{k+1} \\
+1 & t_{k+1} \leq t.
+\end{cases} \]
+
+Let $s \in (t_{k+1},0)$.  Multiplying the inequality \eqref{DG energy ddt} with cutoff $a_k$ by $\eta(t)$ and integrating in time from $-2$ to $s$, then integrating by parts, we obtain
+\[ \int f_k(s,x)^2\,dx - 2^{k+1} \int\displaylimits_{t_k}^{t_{k+1}} \int f_k(t,x)^2 \,dxdt + \int\displaylimits_{t_{k+1}}^s \HDint{1/2}{f_k} \,dxdt \leq \bar{C} \paren{ \int\displaylimits_{t_k}^0 \int \indic{f_k>0} + f_k + f_k^2 \,dxdt } \]
 By taking the supremum over all $s \in (t_{k+1},0)$, we obtain
 \begin{equation} \label{DG energy sup}
-\sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k} \leq C \paren{ 2^{k+1} \int_{t_k}^0 \int f_k^2\,dxdt + \int_{t_k}^0 \int \indic{f_k > 0} + f_k \,dxdt } 
+\sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k}\,dxdt \leq C \paren{ 2^{k+1} \int_{t_k}^0 \int f_k^2\,dxdt + \int_{t_k}^0 \int \indic{f_k > 0} + f_k \,dxdt } 
 \end{equation}
+\vskip.3cm
 
-%\[ \sup_{-1-2^{-k-1}<t<0} \int \theta_{k+1}^2 + \int_{-1-2^{-k-1}}^0 \int \abs{\Lambda^{1/2}\theta_{k+1}}^2 \leq C^k \int_{-1-2^{-k}}^0 \theta_k^2 = \E_k. \]
-
-From Lemma~\ref{thm:hadamard 3 lines} and Sobolev embedding, 
+From Proposition~\ref{thm:hadamard 3 lines} and Sobolev embedding, 
 \[ \int_{t_{k+1}}^0 \paren{ \int f_k^4 \,dx }^{1/2} \,dt \leq C \int_{t_{k+1}}^0 \HDint{1/2}{f_k} \,dxdt. \]
 Therefore by the Riesz-Thorin interpolation theorem,
 \[ \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C \paren{ \sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k} }^{3/2}. \]
-% However, by Sobolev embedding and the fact that $\HD^{1/2}$ controls classical $H^{1/2}$ controls $L^4$,
 This estimate, along with \eqref{DG energy sup} and \eqref{non-linearization}, and the fact that $t_{k-1} < t_k$ and $f_{k-1} \geq f_k$, tell us that
 \[ \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C^k \E_{k-1}^{3/2}. \]
 
 Now we can estimate, using again \eqref{non-linearization} and the fact $f_k \geq f_{k+1}$,
 \[ \E_{k+1} \leq C^k \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C^k \E_{k-1}^{3/2}. \]
+\vskip.3cm
 
-This nonlinear recursive inequality $\E_{k+1} \leq C^k \E_{k-1}^{3/2}$, by a standard fact about nonlinear recursions (see \cite{DG} or \cite{Va.dg}), tells us that for some constant $\delta$ depending only on $C$ (which in turn depends only on the constant $\bar{C}$ in \eqref{DG energy ddt})
-\[ \E_0 \leq \delta \implies \lim_{k \to \infty} \E_k = 0. \]
+This nonlinear recursive inequality $\E_{k+1} \leq C^k \E_{k-1}^{3/2}$, by a standard fact about nonlinear recursions (see \cite{DG} or \cite{Va.dg}), tells us that there exists a constant $\delta$ depending only on $C$ (which in turn depends only on the constant $\bar{C}$ in \eqref{DG energy ddt})
+\[ \E_0 \leq \delta \textrm{ implies } \lim_{k \to \infty} \E_k = 0. \]
 
-Since
-\[ \E_0 = \int_{-2}^0 \int (f)_+ \leq \delta \]
-by assumption, we can say $\E_k \to 0$ or, by the dominated convergence theorem,
+By assumption
+\[ \E_0 = \int_{-2}^0 \int (f)_+ \leq \delta. \]
+Therefore $\E_k \to 0$ and, by the dominated convergence theorem,
 \[ \int_{-1}^0 \int (f-1)_+ \,dxdt = 0. \]
 
 The result follows.  
 \end{proof}
 
 
-Lemma \ref{thm:L2 to Linfty} is an easy consequence of these lemmas.  
+Proposition \ref{thm:L2 to Linfty} is an easy consequence of these lemmas.  
 
 \begin{proof}[Proof of \ref{thm:L2 to Linfty}]
-Our regularity assumptions on $\theta$ and $u$ are enough to show, by the usual energy argument, that $\norm{\theta(t,\cdot)}_{L^2(\Omega)}$ is decreasing in time.  By the main result of \cite{CoIg.sqg}, or by applying Lemma~\ref{thm:caccioppoli} with constant cutoff $\Psi(t,x) = \norm{\theta(T,\cdot)}_{L^\infty(\Omega)}$, the $L^\infty$ norm of $\theta(t,\cdot)$ is also decreasing in time once finite.  
+Our regularity assumptions on $\theta$ and $u$ are enough to show, by the usual energy argument, that $\norm{\theta(t,\cdot)}_{L^2(\Omega)}$ is decreasing in time.  By the main result of \cite{CoIg.sqg}, or by applying Lemma~\ref{thm:caccioppoli} with constant cutoff $\Psi(t,x) = \norm{\theta(T,\cdot)}_{L^\infty(\Omega)}$, the $L^\infty$ norm of $\theta(t,\cdot)$ is also decreasing in time once finite.  Thus for $T$ large, $\norm{\theta}_{L^\infty([1,T]\times \Omega)} \leq \norm{\theta}_{L^\infty([1,2]\times\Omega)}$.  
+\vskip.3cm
 
-In the case $S \geq 1$, $T \geq 2$, we can apply Lemma~\ref{thm:caccioppoli} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta$ to show that 
+In the case $S \geq 1$, $T \geq 2$, we can apply Lemma~\ref{thm:caccioppoli} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta(t+2,x)$ to show that 
 \[ \norm{\theta}_{L^\infty([1,T]\times\Omega)} \leq \paren{\frac{2}{\delta}}^{1/2} \norm{\theta_0}_2. \]
 
 Assuming without loss of generality that $S \leq T/2$, we can apply the above argument to the function $\theta(t/S, x/S)$ to obtain the result for small values of $S$.  
@@ -626,10 +646,11 @@ Assuming without loss of generality that $S \leq T/2$, we can apply the above ar
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
-
+\vskip1cm
 \section{Littlewood-Paley Theory} \label{sec:littlewood paley}
 
 In this section we will prove that, because $\theta$ is uniformly bounded in $L^\infty$, the velocity $u = \grad^\perp \Lambda^{-1} \theta$ is calibrated (see Definition~\ref{def:calibrated}).  The proof will utilize a Littlewood-Paley theory adapted to a bounded set $\Omega$.  
+\vskip.3cm
 
 Let $\phi$ be a Schwartz function on $\R$ which is suited to Littlewood-Paley decomposition.  Specifically, $\phi$ is non-negative, supported on $[1/2,2]$, and has the property that
 \[ \sum_{j \in \Z} \phi(2^j \xi) = 1 \qquad \forall \xi \neq 0. \]
@@ -642,18 +663,16 @@ Recall that $-\Laplace_D$ has some smallest eigenvalue $\lambda_0$ (depending on
 Our goal in this section is to prove the following proposition:
 
 \begin{proposition} \label{thm:u is calibrated}
-Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists a sequence of divergence-free functions $(u_j)_{j \in \Z}$ calibrated for some constant $\Ccalib = \Ccalib(\Omega, \norm{\theta}_\infty)$ with center 0 (see Definition~\ref{def:calibrated}) such that
-\[ \grad^\perp \Lambda^{-1} \theta = \sum_{j \in \Z} u_j \]
+Let $\Omega \subseteq \R^2$ be a bounded set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Let $\theta \in L^\infty(\Omega)$.  Then there exists an integer $j_0 = j_0(\Omega)$ and a sequence of divergence-free functions $(u_j)_{j \geq j_0}$ calibrated for some constant $\Ccalib = \Ccalib(\Omega, \norm{\theta}_\infty)$ with center 0 (see Definition~\ref{def:calibrated}) such that
+\[ \grad^\perp \Lambda^{-1} \theta = \sum_{j \geq j_0} u_j \]
 with the infinite sum converging in the sense of $L^2$.  
-
-Moreover there exists some $j_0 \in \Z$ such that $u_j = 0$ for all $j < j_0$.  
 \end{proposition}
 
 Before we can prove this, we state a few important lemmas.  
 
 The Bernstein Inequalities adapted for a bounded domain are proved in \cite{IMTb}.  We restate their result here:
 \begin{lemma}[Bernstein Inequalities] \label{thm:IMT stuff}
-Let $1 \leq p \leq \infty$, and $\Omega \subset \R^2$ a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $(P_j)_{j \in \Z}$ be a Littlewood-Paley decomposition as defined above.  
+Let $1 \leq p \leq \infty$ and $\Omega \subset \R^2$ a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $(P_j)_{j \in \Z}$ be the Littlewood-Paley decomposition defined above.  
 
 There exists a constant $C$ depending on $p$ and $\Omega$ such that the following hold for any $f \in L^p(\Omega)$:
 
@@ -671,57 +690,55 @@ The second claim is similar to Lemma 3.6 in \cite{IMTb}.  A hypothesis of Lemma 
 \[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1 \]
 (a property of $\Omega$).  The result of Lemma 3.6 only covers the case $j > 0$.  
 
-In \cite{FMP} it is proved that that if $\Omega$ is $C^{2,\alpha}$ then
+In \cite{FMP} it is proved that that if $\Omega$ is $C^{2,\beta}$ then
 \[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq T \]
 which, by taking some $T$ depending on $j_0$, is enough to prove the desired result for $j \geq j_0$ by a trivial modification of the proof in \cite{IMTb}.  
 \end{proof}
 
-The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  In the case of $\R^2$, the Littlewood-Paley projections commute with the gradient so $P_i \grad P_j = 0$ unless $|i-j|\leq 1$.  On a bounded domain, this is not the case.  One can say that the gradient does not maintain localization in frequency-space.  However, the following lemma formalizes the observation that $P_i \grad P_j \approx 0$ when $i << j$.  
+The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  In the case of $\R^2$, the Littlewood-Paley projections commute with the gradient so $P_i \grad P_j = 0$ unless $|i-j|\leq 1$.  On a bounded domain, this is not the case; the gradient does not maintain localization in frequency-space.  However, the following lemma formalizes the observation that $P_i \grad P_j \approx 0$ when $i << j$.  
 
 \begin{lemma} \label{thm:grad and proj}
-There exists a constant $C$ depending on $\Omega$ such that or any function $f \in L^\infty(\Omega)$,
-\[ \norm{P_i \grad P_j f}_\infty \leq C \min(2^j,2^i) \norm{f}_\infty. \]
+Let $1 \leq p \leq \infty$.  There exists a constant $C$ depending on $p$ and $\Omega$ such that or any function $f \in L^p(\Omega)$,
+\[ \norm{P_i \grad P_j f}_p \leq C \min(2^j,2^i) \norm{f}_p. \]
 \end{lemma}
 \begin{proof}
-Let $g$ be an $L^1$ function.  Then since $P_i$ is self-adjoint
-\[ \int g P_i \grad P_j f = \int (P_i g) \grad P_j f \leq C 2^j \norm{g}_1 \norm{f}_\infty \]
+Let $q$ be the H\"{o}lder conjugate of $p$ and $g$ be an $L^q$ function.  Then since $P_i$ is self-adjoint
+\[ \int g P_i \grad P_j f = \int (P_i g) \grad P_j f \leq C 2^j \norm{g}_q \norm{f}_p \]
 by Lemma \ref{thm:IMT stuff}.  
 
 Further integrating by parts,
-\[ \int g P_i \grad P_j f = - \int (\grad P_i g) P_j f \leq C 2^i \norm{g}_1 \norm{f}_\infty. \]
+\[ \int g P_i \grad P_j f = - \int (\grad P_i g) P_j f \leq C 2^i \norm{g}_q \norm{f}_p. \]
 This also follows from Lemma \ref{thm:IMT stuff}.  
 
 The result follows.  
 \end{proof}
 
-
-This final lemma allows us to interpolate using H\"{o}lder seminorms.  The results are not presumed to be novel, but since their proofs were difficult to find in the literature we include them below.  
-
-
-
 We are now ready to prove Proposition \ref{thm:u is calibrated}.  
 
-\begin{proof}
-For each $j \in \Z$, we define $u_j$ to be the $\frac{\pi}{2}$-rotation of the Riesz transform of the $j\ith$ Littlewood-Paley projection of $\theta$:
+\begin{proof}[Proof of \ref{thm:u is calibrated}]
+For each integer $j \geq j_0$, we define $u_j$ to be the $\frac{\pi}{2}$-rotation of the Riesz transform of the $j\ith$ Littlewood-Paley projection of $\theta$:
 \[ u_j := \grad^\perp \Lambda^{-1} P_j \theta. \]
 Qualitatively, we know that $\theta \in L^2$ and hence $u_j \in L^2$.  In fact, $u = \sum u_j$ in the $L^2$ sense.  
 
 We must bound $u_j$, $\Lambda^{-1/4} u_j$, and $\grad u_j$ all in $L^\infty(\Omega)$.  
+\vskip.3cm
 
 By straightforward application of Lemma~\ref{thm:IMT stuff},
 \begin{equation} \label{uj in Linfty} \norm{u_j}_\infty \leq C \norm{\theta}_\infty. \end{equation}
+\vskip.3cm
 
 Since $u_j \in L^2$, we know that
 \[ \Lambda^{-1/4} u_j = \sum_{i \in \Z} P_i \Lambda^{-1/4} u_j. \]
-Define $\bar{P}_k := P_{k-1} + P_k + P_{k+1}$.  Then $\bar{P}_k P_k = P_k$, and since the projections $P_k$ are spectral operators, they commute with $\Lambda^s$.  We therefore rewrite
-\[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} P_i \grad P_j \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
-On the right hand side we have three bounded linear operators applied sequentially to $L^\infty$.  The first operator has norm $C 2^{-j}(2^{1}+2^0+2^{-1})$ by Lemma~\ref{thm:IMT stuff}.  The second operator has norm $C \min(2^j, 2^i)$ by Lemma~\ref{thm:grad and proj}.  The third operator has norm $C 2^{-i/4}(2^{1/4} + 2^0 + 2^{-1/4})$ by Lemma~\ref{thm:IMT stuff}.  (Of course, the perp operator is an isometry.)  Therefore
+Define $\bar{P}_k := P_{k-1} + P_k + P_{k+1}$.  Then $\bar{P}_k P_k = P_k$, and since the projections $P_k$ are spectral operators, they commute with $\Lambda^s$ and each other.  We therefore rewrite
+\[ \paren{P_i \Lambda^{-1/4} u_j}^\perp = \paren{\Lambda^{-1/4} \bar{P}_i} \paren{P_i \grad P_j} \paren{\Lambda^{-1} \bar{P}_j} \theta. \]
+On the right hand side we have three bounded linear operators applied sequentially to $\theta \in L^\infty$.  The first operator has norm $C 2^{-j}(2^{1}+2^0+2^{-1})$ by Lemma~\ref{thm:IMT stuff}.  The second operator has norm $C \min(2^j, 2^i)$ by Lemma~\ref{thm:grad and proj}.  The third operator has norm $C 2^{-i/4}(2^{1/4} + 2^0 + 2^{-1/4})$ by Lemma~\ref{thm:IMT stuff}.  Therefore
 \[ \norm{ P_i \Lambda^{-1/4} u_j}_\infty \leq C 2^{-i/4} \min(2^j, 2^i) 2^{-j} \norm{\theta}_\infty. \]
 
 Summing these bounds on the projections of $\Lambda^{-1/4} u_j$, and noting that
 \[ \sum_{i \in \Z} 2^{-j} 2^{-i/4} \min(2^j,2^i) = 2^{-j} \sum_{i \leq j} 2^{i 3/4} + \sum_{i>j} 2^{-i/4} \leq C 2^{-j/4}, \]
 we obtain
 \begin{equation}\label{uj in W-1/4} \norm{\Lambda^{-1/4} u_j}_\infty \leq C 2^{-j/4} \norm{\theta}_\infty. \end{equation}
+\vskip.3cm
 
 Lastly, we must show that $\grad u_j$ is in $L^\infty$.  Equivalently, we will show that $\Lambda^{-1} P_j \theta$ is $C^{1,1}$.  The method of proof is Schauder theory.  
 
@@ -739,7 +756,7 @@ Notice that $F$ is a linear combination of Dirichlet eigenfunctions, so in parti
 
 
 
-We apply the standard Schauder estimate from \cite{GiTr} Theorem 6.6 to bound some $C^{2,\alpha}$ semi-norm of $F$ by the $L^\infty$ norm of $F$ and the $C^\alpha$ norm of its Laplacian.  By assumption there exists $\beta \in (0,1)$ such that $\Omega$ is $C^{2,\beta}$, and for this $\beta$ we have by the Schauder estimate
+We apply the standard Schauder estimate from Gilbarg and Trudinger \cite{GiTr} Theorem 6.6 to bound some $C^{2,\alpha}$ semi-norm of $F$ by the $L^\infty$ norm of $F$ and the $C^\alpha$ norm of its Laplacian.  By assumption there exists $\beta \in (0,1)$ such that $\Omega$ is $C^{2,\beta}$, and for this $\beta$ we have by the Schauder estimate
 \begin{equation} \label{schauder estimate} \bracket{D^2 F}_{\beta} \leq C \norm{\Lambda^{-1} P_j \theta}_\infty + C \norm{\Lambda P_j \theta}_\infty + C \bracket{\Lambda P_j \theta}_{\beta}. \end{equation}
 
 By Lemma \ref{thm:IMT stuff},
@@ -759,7 +776,7 @@ Plugging these estimates into \eqref{schauder estimate} yields
 \[ \bracket{D^2 F}_\beta \leq C \paren{2^{-j} + 2^j + 2^{j(1+\beta)}} \norm{\theta}_\infty. \]
 
 Recall that without loss of generality we can assume $j \geq j_0$.  Therefore up to a constant depending on $j_0$, the term $2^{j(1+\beta)}$ bounds $2^j$ and $2^{-j}$ so we can write
-\[ \bracket{D^2 F}_\alpha \leq C 2^{j(1+\beta)} \norm{\theta}_\infty. \]
+\[ \bracket{D^2 F}_\beta \leq C 2^{j(1+\beta)} \norm{\theta}_\infty. \]
 
 Using this estimate and the fact that $\norm{\grad F}_\infty = \norm{\grad \Lambda^{-1} P_j \theta}_\infty \leq C \norm{\theta}_\infty$ (see \eqref{uj in Linfty}), we can interpolate to obtain an $L^\infty$ bound on $D^2 F$.  
 Lemma~\ref{thm:interpolation holder to C1} states that since $F \in C^{2,\beta}$ and $\Omega$ is sufficiently regular, there exist a constant $\ell = \ell(\Omega)$ such that for any $\delta \in [0, \ell]$ we have
@@ -769,14 +786,14 @@ Lemma~\ref{thm:interpolation holder to C1} states that since $F \in C^{2,\beta}$
 \end{align*}
 
 Set $\delta = 2^{-j} (2^{j_0} \ell) \leq \ell$.  Then
-\[ \norm{D^2 F}_\infty \leq C \paren{C 2^j + 2^{-j\beta} 2^{j(1+\beta)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
+\[ \norm{D^2 F}_\infty \leq C \paren{2^j + 2^{-j\beta} 2^{j(1+\beta)}} \norm{\theta}_\infty = C(\Omega) 2^j \norm{\theta}_\infty. \]
 
 Since $D^2 F = \grad u_j$, this estimate together with \eqref{uj in Linfty} and \eqref{uj in W-1/4} complete the proof.  
 \end{proof}
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
-
+\vskip1cm
 \section{De Giorgi Estimates} \label{sec:de giorgi}
 
 Our goal in this section is to prove De Giorgi's first and second lemmas for solutions to \eqref{eq:main linear} with $u$ uniformly calibrated.  
@@ -1086,7 +1103,7 @@ Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx 
 
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
-
+\vskip1cm
 \section{A Decrease in Oscillation} \label{sec:harnack}
 
 We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2}) to produce an Oscillation lemma.  This result is similar to the Harnack theory for harmonic functions.  
@@ -1244,7 +1261,7 @@ This concludes the proof.
 \end{proof}
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
-
+\vskip1cm
 \section{H\"{o}lder Continuity} \label{sec:holder}
 
 In this section we shall prove the main theorem, Theorem~\ref{thm:main continuity}.  We begin with a final lemma to describe the scaling properties of \eqref{eq:main linear}.  
@@ -1441,7 +1458,7 @@ In other words,
 
 %-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------%-------
 
-
+\vskip1cm
 \appendix
 \section{Technical Lemmas} \label{sec:technical}
 
