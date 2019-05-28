@@ -384,7 +384,7 @@ where
 
 First we estimate $\Rom{1}_<$.  From \eqref{K bounded between orders} and from the symmetry of the integrand and the fact that $[f(x)-f(y)]$ vanishes unless at least one of $f(x)$ or $f(y)$ is non-zero,
 \[ \abs{\Rom{1}_<} \leq 2 \iint_{|x-y| < 1} \indic{f > 0}(x) \abs{g(x)-g(y)} \cdot \abs{f(x)-f(y)} \cdot |x-y|^{3s} K_{4s}. \]
-We can break this up by Holder's inequality
+We can break this up by H\"{o}lder's inequality
 \[ \abs{\Rom{1}_<} \leq 2 \paren{\iint_{|x-y| < 1} \indic{f > 0}(x) [g(x)-g(y)]^2 |x-y|^{6s} K_{4s} }^{1/2} \paren{\iint [f(x)-f(y)]^2 K_{4s} }^{1/2}. \]
 The kernel $|x-y|^{6s} K_{4s} \indic{|x-y| < 1}$ is integrable in $y$ for $x$ fixed.  Therefore
 \begin{equation} \label{K near of L1 less than L2 stuff} \abs{\Rom{1}_<} \leq 2 \paren{ \paren{2\norm{g}_\infty}^2 \int C \indic{f > 0}(x) \,dx }^{1/2} \paren{ \norm{f}_{\HD^{2s}}^2}^{1/2}. \end{equation}
@@ -860,7 +860,7 @@ Now we prove an energy inequality for solutions to \eqref{eq:main linear brokend
 \begin{lemma}[Energy inequality] \label{thm:energy inequality}
 Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let $\psi:\R^2 \to \R$ be a function such that $\norm{\grad\psi}_\infty$, $\norm{D^2\psi}_\infty$, and $\sup_t \bracket{\psi(t,\cdot)}_{1/4}$ are all finite. Then there exists a constant $C>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
@@ -917,7 +917,7 @@ The first lemma is a local version of the $L^2$ to $L^\infty$ regularization, st
 
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\delta_0>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
@@ -954,7 +954,7 @@ Next, we will prove De Giorgi's second lemma, a quantitative analog of the isope
 \begin{proposition}[Second De Giorgi Lemma] \label{thm:DG2}
 Let $\Ccalib$, $\Comega$, $\Cgamma$, and $\beta \in (0,1)$ be positive constants. Then there exists a constant $\mu>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
@@ -972,10 +972,10 @@ Then the three conditions
 cannot simultaneously be met.  
 \end{proposition}
 
-Here $\delta_0$ is the constant from Lemma~\ref{thm:DG1}, which of course depends on $\Ccalib$, $\Cgamma$, and $\Comega$.  
+Here $\delta_0$ is the constant from Proposition~\ref{thm:DG1}, which of course depends on $\Ccalib$, $\Cgamma$, and $\Comega$.  
 
 \begin{proof}
-Suppose that the theorem is false.  Then there must exist, for each $n \in \N$, a bounded open set $\Omega_n$ with $C^{2,\beta_n}$ boundary for $\beta_n \in (0,1)$ and a function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our lemma (with the same constants $\Ccalib$, $\Cgamma$, and $\Comega$), except that
+Suppose that the proposition is false.  Then there must exist, for each $n \in \N$, a bounded open set $\Omega_n$ with $C^{2,\beta_n}$ boundary for $\beta_n \in (0,1)$ and a function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our proposition (with the same constants $\Ccalib$, $\Cgamma$, and $\Comega$), except that
 \begin{equation} \label{mass assumption between} \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \end{equation}
 \vskip.3cm
 
@@ -1005,7 +1005,7 @@ Furthermore, $\norm{\theta_+^3}_{L^2(-4,0;\HD^{1/2}(\Omega_n))}$ is uniformly bo
 \\ &\leq C \norm{\theta_+}_\infty^4 \norm{\theta_+}_{\HD^{1/2}}^2.  
 \end{align*}
 
-By Lemma \ref{thm:hadamard 3 lines}, for $E$  the extension-by-zero operator from $L^2(\Omega_n)$ to $L^2(\R^2)$,
+By Proposition \ref{thm:hadamard 3 lines}, for $E$  the extension-by-zero operator from $L^2(\Omega_n)$ to $L^2(\R^2)$,
 \begin{equation} \label{theta3 compact in space} \norm{ E \theta_+^3}_{L^2(-4,0; H^{1/2}(\R^2))} \leq C \end{equation}
 where $C$ does not depend on $n$.  
 
@@ -1146,12 +1146,12 @@ Our assumption that the sequence $\theta_n$ exists must have been false, and the
 \vskip1cm
 \section{A Decrease in Oscillation} \label{sec:harnack}
 
-We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2}) to produce an Oscillation lemma.  This result is similar to the Harnack theory for harmonic functions.  
+We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2}) to produce an oscillation lemma.  This result is similar to the Harnack theory for harmonic functions.  
 
 \begin{lemma}[Oscillation Lemma] \label{thm:oscillation general}
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
@@ -1200,7 +1200,7 @@ By assuming that $\theta$ is small near $x = \Gamma(t)$, we have shown that the 
 \begin{proposition}[Oscillation Lemma with shift] \label{thm:oscillation shifted}
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
@@ -1220,7 +1220,7 @@ for all $t \in [-5,0]$ and $x$ such that $\eps x \in \Omega$.
 
 The idea of the proof is to consider a small enough time interval that $\Gamma(t) + \gamma(t)$ is very close to $\Gamma(t)$.  This is possible because $\gamma$ is Lipschitz by assumption.  
 
-If, in this lemma, we only wished to show the existence of some $\eps = \eps(k_0,\Cgamma)$ satisfying the lemma's conclusion, then a simpler non-constructive proof would suffice.  However, in Section~\ref{sec:holder} we will apply this lemma with parameters $k_0$ and $\Cgamma$ depending on $\eps$.  To avoid circularity, we must prove the result for all $\eps$ satisfying \eqref{Cgamma and eps for harnack}.  
+If, in this proposition, we only wished to show the existence of some $\eps = \eps(k_0,\Cgamma)$ satisfying the proposition's conclusion, then a simpler non-constructive proof would suffice.  However, in Section~\ref{sec:holder} we will apply this proposition with parameters $k_0$ and $\Cgamma$ depending on $\eps$.  To avoid circularity, we must prove the result for all $\eps$ satisfying \eqref{Cgamma and eps for harnack}.  
 
 
 \begin{proof}
