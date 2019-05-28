@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.11.15)  27 MAY 2019 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.11.15)  27 MAY 2019 20:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,48 +537,12 @@ e
 \tf@toc=\write3
 \openout3 = `SQG_Boundary.toc'.
 
-
-
-LaTeX Warning: Citation `CoMaTa' on page 1 undefined on input line 150.
-
-
-LaTeX Warning: Citation `GaHePiSw' on page 1 undefined on input line 150.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `Re' on page 2 undefined on input line 182.
-
-
-LaTeX Warning: Citation `CoCoWu' on page 2 undefined on input line 182.
-
-
-LaTeX Warning: Citation `CoWu' on page 2 undefined on input line 182.
-
-
-LaTeX Warning: Citation `DoPa' on page 2 undefined on input line 182.
-
-
-LaTeX Warning: Citation `KiNaVo' on page 2 undefined on input line 182.
-
-
-LaTeX Warning: Citation `KiNa.variations' on page 2 undefined on input line 183
-.
-
-
-LaTeX Warning: Citation `Kr' on page 2 undefined on input line 187.
-
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-[4] [5] [6] [7]
-
-LaTeX Warning: Citation `JeKe' on page 8 undefined on input line 430.
-
-
-LaTeX Warning: Citation `JeKe' on page 8 undefined on input line 464.
-
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+[4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
 Overfull \hbox (36.1984pt too wide) in paragraph at lines 916--917
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
@@ -627,7 +591,7 @@ Overfull \hbox (36.1984pt too wide) in paragraph at lines 1123--1124
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
 ^^M$ \OT1/cmr/m/it/10.95 solve [] on $\OMX/MnSymbolE/m/n/10.95 ^^@\U/MnSymbolC/
-m/n/10.95 ^^P\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OMX
+m/n/10.95 ^^P\OT1/cmr/m/n/10.95 5\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OMX
 /MnSymbolE/m/n/10.95 ^^E \U/MnSymbolC/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 
 $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
 /10.95 6\OML/cmm/m/it/10.95 ^^T$\OT1/cmr/m/it/10.95 , $[][] \U/MnSymbolD/m/n/10
@@ -635,7 +599,7 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
  []
 
 [22]
-Overfull \hbox (36.1984pt too wide) in paragraph at lines 1171--1172
+Overfull \hbox (36.1984pt too wide) in paragraph at lines 1172--1173
 []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^R$\OT1/cmr/m/it/10.95 , $\OML/
 cmm/m/it/10.95 u[]$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.95 u[]$\OT1/cmr/m/it
 /10.95 , $\OT1/cmr/m/n/10.95 ^^@$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 
@@ -647,46 +611,43 @@ $\OT1/cmr/m/it/10.95 , and sat-isfy $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n
 .95 B
  []
 
-[23] [24] [25] [26]
-
-LaTeX Warning: Citation `BaChDa' on page 27 undefined on input line 1369.
-
-[27] [28] [29] (./SQG_Boundary.bbl [30]) [31] (./SQG_Boundary.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[23] [24] [25] [26] [27] [28] [29] (./SQG_Boundary.bbl [30]
+Missing character: There is no â in font cmr9!
+Missing character: There is no € in font cmr9!
+Missing character: There is no “ in font cmr9!
+) [31]
+(./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
- 6095 strings out of 493033
- 82734 string characters out of 6136454
- 143306 words of memory out of 5000000
- 9348 multiletter control sequences out of 15000+600000
- 20713 words of font info for 76 fonts, out of 8000000 for 9000
+ 6100 strings out of 493033
+ 82800 string characters out of 6136454
+ 143380 words of memory out of 5000000
+ 9351 multiletter control sequences out of 15000+600000
+ 21063 words of font info for 78 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 38i,13n,43p,1166b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/s
-hare/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/share/texl
-ive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texlive/texmf
--dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texlive/texmf-dist/fon
-ts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dv
-ips/mnsymbol/MnSymbolD.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/mn
-symbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbo
-l/MnSymbol6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSy
-mbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
-t9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
-.pfb>
-Output written on SQG_Boundary.pdf (31 pages, 440260 bytes).
+ 38i,13n,43p,1166b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/M
+nSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.
+enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/te
+xlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/tex
+mf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}</usr/share/texlive/texmf-dist/f
+onts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb>
+Output written on SQG_Boundary.pdf (31 pages, 442910 bytes).
 PDF statistics:
  196 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
