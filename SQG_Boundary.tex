@@ -147,11 +147,11 @@ We consider the dissipative SQG equation in bounded domains, first introduced by
 \tableofcontents
 
 \section{Preliminaries} \label{preliminaries}
-The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic equation (QG) when the atmosphere is at rest. The (QG) model is used extensively in meteorology and oceanography [citations]. These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in \cite{CoMaTa}, due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
+The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic system (QG) with uniform potential vorticity. The QG model is used extensively in meteorology and oceanography (see e.g. Charney \cite{Ch}). These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in \cite{CoMaTa}, due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
 
 \vskip0.3cm
  We consider in this paper  critical SQG on a bounded domain. We will focus on the the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}.
- Consider  $\Omega$ a connected bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and   the Laplacian with homogeneous Dirichlet boundary conditions $(-\Laplace_D)$.  If $(\eigen{k})_{k \in \N}$ is a family of eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in increasing order, define
+ Consider  $\Omega$ a connected bounded domain in $\R^2$ with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and the Laplacian with homogeneous Dirichlet boundary conditions $-\Laplace_D$.  If $(\eigen{k})_{k \in \N}$ is the sequence of $L^2$-normalized eigenfunctions of $-\Laplace_D$ with corresponding eigenvalues $\lambda_k$ listed in non-decreasing order, define
 \[ \Lambda f := \sum_{k=0}^\infty \sqrt{\lambda_k} \chevron{f,\eigen{k}}_{L^2(\Omega)} \eigen{k}. \]
 The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)$ is
 \begin{equation} \label{eq:main nonlinear} \begin{cases}
@@ -160,13 +160,14 @@ The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)
 \\ \theta = \theta_0 & \{0\} \times \Omega.
 \end{cases} \end{equation}
 
-In the model, the dissipation $\Lambda =\Delta_D^{1/2}$  is due to the  Ekman pumping, while the nonlinear velocity $u$ comes from the geostrophic and hydrostatic balance (see \cite{Pe}).
+In the model, the dissipation $\Lambda =\paren{-\Delta_D}^{1/2}$  is due to the  Ekman pumping, while the nonlinear velocity $u$ comes from the geostrophic and hydrostatic balance (see \cite{Pe}).
+\vskip.3cm
 
-The main result of this paper is the following.
+The main result of this paper is the following:
 \begin{theorem} \label{thm:main continuity}
 Let $\theta$ be a smooth solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
 
-Then for any $t \in (0,T)$, $\theta$ is bounded and H\"{o}lder continuous uniformly on $(t,T)\times\bar{\Omega}$.  
+Then for any $t \in (0,T)$, $\theta$ is bounded and H\"{o}lder continuous in time and space uniformly on $(t,T)\times\bar{\Omega}$.  
 \vskip0.3cm
 
 More precisely, there exists a constant $C$ depending only on $\Omega$ and $t$ such that
@@ -179,43 +180,45 @@ and there exists $\alpha \in (0,1)$ depending on $\Omega$, $t$, and $\norm{\thet
 \end{theorem}
 
 This model was first thoroughly studied in the cases without boundaries (either $\R^2$ or the torus $\T^2$).   
-Global weak solutions were first constructed in Resnick \cite{Re}. Global regularity was first showed with small initial values \cite{CoCoWu}, or extra $C^\alpha$ regularity on the velocity \cite{CoWu}, \cite{DoPa}. In \cite{KiNaVo}, Kiselev, Nazarov and Volberg showed the 
-propagation of $C^\infty$ regularity. The global $C^\infty$ regularity for any $L^2$ initial values was first proved in  \cite{CaVa.sqg} (see also \cite{KiNa.variations} Constantin Vicol \cite{CoVi}).   
+Global weak solutions were first constructed in Resnick \cite{Re}. Global regularity was first shown with small initial values \cite{CoCoWu}, or extra $C^\alpha$ regularity on the velocity in \cite{CoWu} and \cite{DoPa}. In \cite{KiNaVo}, Kiselev, Nazarov and Volberg showed the 
+propagation of $C^\infty$ regularity. The global $C^\infty$ regularity for any $L^2$ initial values was first proved in  \cite{CaVa.sqg} (see also Kiselev and Nazarov \cite{KiNa.variations} and Constantin and Vicol \cite{CoVi}).   
 
 \vskip0.3cm
 
-In the presence of boundaries, there are several  distinct ways to define SQG. This can be attributed  to alternative definitions of the half-Laplacian.  Kriventsov \cite{Kr} considered a two-phase problem which satisfied SQG only in a region, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In [citation, Matt and Vasseur], the authors derived from the Euler-Coriolis-Boussinesq model,   the full 3D inviscid quasigeostrophic system in an impermeable cylinder (see also [MV2] for the construction of small time smooth solutions to the model).  They obtain the natural boundary conditions in this case. It is noteworthy to mention that these boundary conditions lead a distinct set of boundary conditions for  SQG  than the one introduced in  \cite{CoIg.fraclap}  \cite{CoIg.sqg} and described above. 
-However, due to the complexity of the model described in [MV], we focus in this paper only on the homogenous case.
+In the presence of boundaries, there are several  distinct ways to define SQG. This can be attributed  to alternative generalizations of the fractional Laplacian.  Kriventsov \cite{Kr} considered a two-phase problem which satisfies critical SQG only in part of the domain, and was able to prove H\"{o}lder regularity in the time-independent case.  This problem, intended to model air currents over a region containing both land and water, contains a half-Laplacian and a Riesz transform defined, not spectrally, but in terms of extension.  In \cite{NoVa.bounded}, the authors consider the Euler-Coriolis-Boussinesq model and derive the full 3D inviscid quasigeostrophic system in an impermeable cylinder (see also \cite{NoVa.solutions} for the construction of small time smooth solutions to the model).  They obtain natural boundary conditions for SQG distinct from the homogeneous conditions introduced in \cite{CoIg.fraclap}, \cite{CoIg.sqg} and described above. 
+However, due to the complexity of the model described in \cite{NoVa.bounded}, we focus in this paper only on the homogenous case.
 
 \vskip0.3cm
-Existence of weak solutions for (\ref{eq:main nonlinear})  is proven in \cite{CoIg.fraclap}. The interior regularity of solutions  is proven in \cite{CoIg.fraclap} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses the  nonlinear maximum principles, introduced in \cite{CoVi}.   However, the bounds obtained in that paper  blow up near the boundary and do not provide global regularity up to the boundary.
-  In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and the bootstrapping to the  $C^\infty(\bar{\Omega})$ regularity are mentioned as open problems.  %To quote Remark 1, these questions are unsolved ``due to the fact that the commutator between normal derivatives and the fractional Dirichlet Laplacian is not controlled uniformly up to the boundary.''  
+Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{CoIg.fraclap} (see also Constantin and Nguyen \cite{CoNg} for the inviscid case). The interior regularity of solutions  is proven in \cite{CoIg.sqg} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses  nonlinear maximum principles, introduced in \cite{CoVi}.   However, the bounds obtained in that paper  blow up near the boundary and do not provide global regularity.
+  In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and the bootstrapping to the  $C^\infty(\bar{\Omega})$ regularity are indentified as interesting problems.  
   Our  result answers the first question, by  showing  that solutions $\theta$ to (\ref{eq:main nonlinear}) are globally H\"{o}lder continuous.
-  Bootstrapping to $\C^\infty$ involves different techniques, and will be studied in a forthcoming  paper \cite{StVa.higher}.  
+  Bootstrapping to $C^\infty$ involves different techniques, and will be studied in a forthcoming  paper \cite{StVa.higher}.  
 \vskip0.3cm
 
-Our proof is based on  the De Giorgi method \cite{DG}.  The method was applied to the SQG problem first in \cite{CaVa.sqg}.  The method is powerful to show $C^\alpha$ regularity to nonlocal equations (see Caffarelli-Chan-Vasseur). It has been applied in a variety of situations for non-local problems, as the 3D Quasigeostrophic problem \cite{NoVa.qg},   the time-fractional case (Allen Caffarelli Vasseur), the kinetic setting (Silvestre- Imbert, Stokols -Vasseur), or even more exotic situations as the Hamilton-Jacobi equations (see Chan Vasseur, Stokols-Vasseur).  
+Our proof is based on  the De Giorgi method pioneered by De Giorgi in \cite{DG}.  The method was applied to the SQG problem first in \cite{CaVa.sqg}.  The method is powerful for showing $C^\alpha$ regularity of elliptic equations. It has been applied in a variety of situations for non-local problems, such as the fractional heat equation in \cite{CaChVa.nio}, the time-fractional case in \cite{AlCaVa}, the 3D Quasigeostrophic problem in \cite{NoVa.qg}, or the kinetic setting by Imbert and Silvestre \cite{ImSi} or in \cite{St}.  The method has also been applied in more exotic, non-elliptic situations such as Hamilton-Jacobi equations (see \cite{ChVa}, \cite{StVa.hamjac}).  
 \vskip0.3cm
 
- The first broad  idea consists in decoupling the  velocity $u$ from  $\theta$ to work on  a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We first show that $\theta$ is in $L^\infty$ regardless of the value of $u$ (Section~\ref{sec:Linfty}). The idea is to prove a decrease-in-oscillation lemma for fractional diffusion equations with  drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}).  
-\vskip0.3cm
+ The first broad  idea consists in decoupling the  velocity $u$ from  $\theta$ to work on  a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We can show that $\theta$ is in $L^\infty$ with minimal regularity assumptions on $u$ (see Section~\ref{sec:Linfty}).  Using that $L^\infty$ bound, we will need to obtain 
+% We first show that $\theta$ is in $L^\infty$ with minimal $u$ (Section~\ref{sec:Linfty}). The idea is to prove a decrease-in-oscillation lemma for fractional diffusion equations with  drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}).  
+scaling invariant controls on the drift   $u = \grad \Lambda^{-1} \theta$.  Though the Riesz transform is bounded from $L^p$ to $L^p$ for all $p$ finite, it is not bounded for $p = \infty$.  
+%$L^\infty$ is the obvious choice, 
+%since solutions to SQG are easily shown to be $L^\infty$ bounded under minimal assumptions, 
+%the Riesz transform is not bounded from $L^\infty$ to $L^\infty$.  
+The usual technique is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  Our solution is to use extensions of the Littlewood-Paley theory to bounded domains. 
 
-However, for this, we need to obtain scaling invariant controls on the drift   $u = \grad \Lambda^{-1} \theta$ (Section~\ref{sec:littlewood paley}).  Though $L^\infty$ is the obvious choice, since solutions to SQG are easily shown to be $L^\infty$ bounded under minimal assumptions, the Riesz transform is not bounded from $L^\infty$ to $L^\infty$.  The usual solution is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  The idea is to use extensions of the littlewood-Paley theory to bounded domains. 
-
-The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators has is a well-studied subject [citations].  As an application of this theory, \cite{IMTs} and [citation, Dong et al] have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-\Delta_D$ (a Schrodinger operator with zero potential).  In particular, in \cite{IMTb},  Iwabuchi, Matsuyama, and Taniguchi derives many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
+The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators is a well-studied subject (e.g. Zheng \cite{Zh}, Benedetto and Zheng \cite{BeZh}).  As an application of this theory, Iwabuchi, Matsuyama, and Tanaguchi \cite{IMT.besov}, \cite{IMT.schrodinger}, and Bui, Duong, and Yang \cite{BuDuYa} have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-\Laplace_D$ (a Schrodinger operator with zero potential).  In particular, in \cite{IMT.bilinear},  Iwabuchi, Matsuyama, and Taniguchi derive many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
 
 
-Using the results of \cite{IMTb}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$  and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect.  
+Using the results of \cite{IMT.bilinear}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$  and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect.  
 
-We make this notion precise with the following definition.  
+We make this notion precise with the following definition:
 
 \begin{definition}[Calibrated sequence] \label{def:calibrated}
-Let $\Omega\subseteq \R^2$ be any bounded open set and $0<T\in\R$.  We call a function $u\in L^2([0,T]\times\Omega)$ \textbf{calibrated} if it can be decomposed as the sum of a calibrated sequence
+Let $\Omega\subseteq \R^2$ be any bounded open set and $0<T\in\R$.  We call a function $u\in L^2([0,T]\times\Omega)$ \textbf{calibrated} if it can be decomposed as the sum of a calibrated sequence 
 \[ u = \sum_{j \in \Z} u_j \]
 with each $u_j \in L^2([0,T]\times\Omega)$ and the infinite sum converging in the sense of $L^2$.  
 
 We call a sequence $(u_j)_{j\in\Z}$ \textbf{calibrated} for a constant $\Ccalib$ and a center $N$ if each term of the sequence satisfies the following bounds.  
-
 \begin{align*}
 \norm{u_j}_{L^\infty([0,T]\times\Omega)} &\leq \Ccalib, \\
 \norm{\grad u_j}_{L^\infty([0,T]\times\Omega)} &\leq 2^{j} 2^{-N} \Ccalib, \\
@@ -223,31 +226,31 @@ We call a sequence $(u_j)_{j\in\Z}$ \textbf{calibrated} for a constant $\Ccalib$
 \end{align*} 
 
 \end{definition}
+\vskip.3cm
 
-In Section \ref{sec:littlewood paley} we will show that $u$ is calibrated and in Section \ref{sec:holder} we will show that it remains calibrated at all scales (specifically, with fixed constant $\Ccalib$ but not always with the same center $N$).  Therefore we will consider the linear equation
+In Section \ref{sec:holder} we will show that a calibrated velocity remains calibrated at all scales (specifically, with fixed constant $\Ccalib$ but a changing center $N$).  Therefore we can consider the linear equation
 \begin{equation} \label{eq:main linear} \begin{cases}
 \del_t \theta + u \cdot \grad \theta + \Lambda \theta = 0, & [-T,0]\times\Omega \\
 \div u = 0 & [-T,0]\times\Omega.
 \end{cases} \end{equation}
 
+In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, with minimally regular velocity and $L^2$ initial data, become $L^\infty$ instantly, and in Section~\ref{sec:littlewood paley} we show that the Riesz transform of $L^\infty$ data is calibrated.  Then in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  By iteratively applying this oscillation lemma and scaling our equation, we show in Section~\ref{sec:holder} that $\theta$ is H\"{o}lder continuous.  
+\vskip.3cm
 
-
-
-
-In Section \ref{sec:Linfty} we show that solutions to \eqref{eq:main linear}, with minimally regular velocity and $L^2$ initial data, become $L^\infty$ instantly, and in Sections \ref{sec:de giorgi} and \ref{sec:harnack} we will show that solutions to \eqref{eq:main linear} with calibrated velocity have decreasing oscillation between scales.  
-
-
- Previous applications of the De Giorgi method to equations related to (\ref{eq:main linear}) generally make extensive use of either an extension representation (c.f. \cite{CaVa.sqg}) or a singular-integral representation (c.f. \cite{NoVa.qg}).  In this paper, we  use the kernel representation of  the Dirichlet fractional Laplacian  derived by Caffarelli and Stinga \cite{CaSt}. It is an generalization of   [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre]. 
- This theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand(see Section~\ref{sec:lambda}).  
-
+Previous applications of the De Giorgi method to non-local equations such as \eqref{eq:main linear} generally make extensive use of either an extension representation (c.f. \cite{CaVa.sqg}) or a singular integral representation (c.f. \cite{NoVa.qg}).  In this paper, we  use the singular integral representation for the Dirichlet fractional Laplacian  derived by Caffarelli and Stinga \cite{CaSt}. It is based on the results of Stinga and Torrea \cite{StTo} which generalize the extension representation of Caffarelli and Silvestre \cite{CaSi}. 
+This theory is pivotal in translating the existing non-local De Giorgi techniques to the problem at hand (see Section~\ref{sec:lambda}).  
+\vskip.3cm
 
 %In [citation Stinga Torrea] and \cite{CaSt} the extension representation of [citation Caff Silvestre] is applied to the Dirichlet fractional Laplacian, and in \cite{CaSt} this representation is used to derive a singular integral representation for $\Lambda^s$. 
 
 
 
-%Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  In appendix 2 of \cite{CoIg.sqg}, local-in-time existence of solutions to \eqref{eq:main nonlinear} with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
+%Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
+Our proof of H\"{o}lder continuity requires weak solutions $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H^1(\Omega))$.  In Appendix 2 of \cite{CoIg.sqg}, the authors demonstrate local-in-time existence of smooth solutions to \eqref{eq:main nonlinear} with sufficiently regular initial data.  In order to extend these local solutions forward in time, we would need to prove propagation of $H^1$ regularity, which is slightly out of reach of current results.  
+\vskip.3cm
+% with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
-The Paper is organized as follows. Section \ref{sec:lambda} is dedicated to basic properties of the operator $\Lambda$ and the corresponding Sobolev spaces $\HD^s$.  In Section~\ref{sec:Linfty} we prove $L^2 \to L^\infty$ regularization.  In Section~\ref{sec:littlewood paley} we prove that the Riesz transform of the $L^\infty$ function $\theta$ is callibrated.  Section~\ref{sec:de giorgi} contains the De Giorgi Lemmas.  Section~\ref{sec:harnack} is dedicated to the local decrease in oscillation through an analog of the Harnack inequality.  Finally in Section~\ref{sec:holder} we prove the main theorem, Theorem~\ref{thm:main continuity}.  In the Appendix \ref{sec:technical} we prove a few technical lemmas which are needed in the main paper.  
+The Paper is organized as follows. Section \ref{sec:lambda} is dedicated to basic properties of the operator $\Lambda$ and the corresponding Sobolev spaces $\HD^s$.  In Section~\ref{sec:Linfty} we prove $L^2$ to $L^\infty$ regularization.  In Section~\ref{sec:littlewood paley} we prove that the Riesz transform of the $L^\infty$ function $\theta$ is callibrated.  Section~\ref{sec:de giorgi} contains the De Giorgi Lemmas.  Section~\ref{sec:harnack} is dedicated to the local decrease in oscillation through an analog of the Harnack inequality.  Finally in Section~\ref{sec:holder} we prove the main theorem, Theorem~\ref{thm:main continuity}.  In the Appendix \ref{sec:technical} we prove a few technical lemmas which are needed in the main paper.  
 \vskip.3cm
 
 \textbf{Notation.} Throughout the paper, we will use the following notations.
@@ -259,19 +262,23 @@ If $f = \sum_k f_k \eigen{k}$ then
 \end{align*}
 We suppress the dependence on $\Omega$, though in fact the $\lambda_k$ and $\Lambda$ are defined in terms of the domain $\Omega$.  The relevant domain will be clear from context.  This is in fact a norm, not a seminorm, since $\norm{f}_{L^2(\Omega)} \leq \lambda_0^{s/2} \norm{f}_{\HD^s}$.  
 
-For a set $D$ and a function $f:A \to \R$, denote
+For a set $A$ and a function $f:A \to \R$, denote
 \begin{align*}
-\bracket{f}_{\alpha;D} &:= \sup_{x,y \in D, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha},  &\alpha \in (0,1], \\
-\norm{f}_{C^\alpha(D)} &:= \norm{f}_\infty + \bracket{f}_{\alpha;D}, & \alpha \in (0,1], \\
-\norm{f}_{C^{k,\alpha}(D)} &:= \sum_{n=0}^k \norm{D^n f}_\infty + \bracket{D^k f}_{\alpha;D}, & \alpha \in (0,1], k \in \N.
+\bracket{f}_{\alpha;A} &:= \sup_{x,y \in A, x \neq y} \frac{|f(x)-f(y)|}{|x-y|^\alpha},  &\alpha \in (0,1], \\
+\norm{f}_{C^\alpha(A)} &:= \norm{f}_{L^\infty(A)} + \bracket{f}_{\alpha;A}, & \alpha \in (0,1], \\
+\norm{f}_{C^{k,\alpha}(A)} &:= \sum_{n=0}^k \norm{D^n f}_{L^\infty(A)} + \bracket{D^k f}_{\alpha;A}, & \alpha \in (0,1], k \in \N.
 \end{align*}
-When the domain $D$ is ommited, the relevant spatial domain $\Omega$ is implied.  
+When the domain $A$ is ommited, the relevant spatial domain $\Omega$ is implied.  
 
 We will use the notation $(x)_+ := \max(0,x)$.  When the parentheses are ommited, the subscript~$+$ is merely a label.  
-Throughout this paper, if an integral sign is written $\int$ without a specified domain, the domain is implied to be $\Omega$, with $\Omega$ defined in context.  
-For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$, and by $\grad^\perp$ we mean $(-\del_y, \del_x)$.  The differential operators $\grad$ and $D^2$ do not include time-derivatives.  
 
-The operator $D^2$ is the Hessian, the matrix-valued operator of second-order spatial derivatives.  Specifically, $D^2$, like $\grad$, never includes time derivatives.  
+Throughout this paper, if an integral sign is written $\int$ without a specified domain, the domain is implied to be $\Omega$, with $\Omega$ defined in context.  
+
+For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$. By $\grad^\perp$ we mean $(-\del_y, \del_x)$.  
+
+In the remainder of this paper, the differential operator $D^2$ refers to the Hessian in space, excluding time derivatives.  
+
+%The operator $D^2$ is the Hessian, the matrix-valued operator of second-order spatial derivatives.  Specifically, $D^2$, like $\grad$, never includes time derivatives.  
 
 The symbol $C$ represents a constant which may change value each time it is written.  
 
@@ -674,7 +681,7 @@ with the infinite sum converging in the sense of $L^2$.
 
 Before we can prove this, we state a few important lemmas.  
 
-The Bernstein Inequalities adapted for a bounded domain are proved in \cite{IMTb}.  We restate their result here:
+The Bernstein Inequalities adapted for a bounded domain are proved in \cite{IMT.bilinear}.  We restate their result here:
 \begin{lemma}[Bernstein Inequalities] \label{thm:IMT stuff}
 Let $1 \leq p \leq \infty$ and $\Omega \subset \R^2$ a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $(P_j)_{j \in \Z}$ be the Littlewood-Paley decomposition defined above.  
 
@@ -688,15 +695,15 @@ For any $\alpha \in \R$ and $j \geq j_0$
 \end{lemma}
 
 \begin{proof}
-The first claim is Lemma 3.5 in \cite{IMTb}.  It is also an immediate corollary of \cite{IMTs} Theorem 1.1.  
+The first claim is Lemma 3.5 in \cite{IMT.bilinear}.  It is also an immediate corollary of \cite{IMT.schrodinger} Theorem 1.1.  
 
-The second claim is similar to Lemma 3.6 in \cite{IMTb}.  A hypothesis of Lemma 3.6 is that
+The second claim is similar to Lemma 3.6 in \cite{IMT.bilinear}.  A hypothesis of Lemma 3.6 is that
 \[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq 1 \]
 (a property of $\Omega$).  The result of Lemma 3.6 only covers the case $j > 0$.  
 
 In \cite{FMP} it is proved that that if $\Omega$ is $C^{2,\beta}$ then
 \[ \norm{\grad e^{-t\Laplace_D}}_{L^\infty \to L^\infty} \leq \frac{C}{\sqrt{t}} \qquad 0 < t \leq T \]
-which, by taking some $T$ depending on $j_0$, is enough to prove the desired result for $j \geq j_0$ by a trivial modification of the proof in \cite{IMTb}.  
+which, by taking some $T$ depending on $j_0$, is enough to prove the desired result for $j \geq j_0$ by a trivial modification of the proof in \cite{IMT.bilinear}.  
 \end{proof}
 
 The following lemma is a simple but crucial result which can be thought of as describing the commutator of the gradient operator and the projection operators.  In the case of $\R^2$, the Littlewood-Paley projections commute with the gradient so $P_i \grad P_j = 0$ unless $|i-j|\leq 1$.  On a bounded domain, this is not the case; the gradient does not maintain localization in frequency-space.  However, the following lemma formalizes the observation that $P_i \grad P_j \approx 0$ when $i << j$.  
@@ -913,7 +920,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 If
@@ -950,7 +957,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
@@ -1019,7 +1026,8 @@ Each instance of $C$ in the following bounds is independent of $n$.
 \[ \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) \leq C \paren{\norm{\grad\varphi(t,\cdot)}_{L^\infty(\Omega)} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)}}. \]
 
 \item Consider the high-pass term.  By Lemma \ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, 
-\[ \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4} \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} \leq C \Ccalib |\supp(\theta_+)|^{1/2} \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}. \]
+\[ \int \Lambda^{-1/4} \uhigh^n \Lambda^{1/4} \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} \leq C \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}. \]
+%\[ \int \uhigh^n \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} \leq C \Ccalib |\supp(\theta_+)|^{1/2} \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}. \]
 \[ \leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{C^2(\Omega)} \norm{\theta(t,\cdot)}_{\HD^{1/2}} }. \]
 
 \item Consider the $\Lambda \theta_+$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x)\theta_+(x)^2 - \varphi(y)\theta_+(y)^2][\theta_+(x)-\theta_+(y)] K$ which decomposes as
@@ -1080,7 +1088,7 @@ We know from \eqref{theta3 compact in space} that
 and from \eqref{theta3 compact in time} that
 \[ \norm{ \del_t v_n }_{L^1(-4,0; X^*)} \leq C. \]
 
-According to the Aubin-Lions Lemma, the set $\{v_n\}_n$ is therefore compactly embedded in $L^2([-4,0]\times\R^2)$.  Up to a subsequence, there is a function $v \in L^2([-4,0]\times\R^2)$ such that
+According to the Aubin-Lions Lemma, the set $\{v_n\}_n$ is therefore compactly embedded in\\ $L^2([-4,0]\times\R^2)$.  Up to a subsequence, there is a function $v \in L^2([-4,0]\times\R^2)$ such that
 \[ v_n \to v. \]
 By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, and $v \in L^2(H^{1/2})$.  
 
@@ -1120,7 +1128,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
@@ -1169,7 +1177,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Lemma~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
