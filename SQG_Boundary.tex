@@ -103,8 +103,8 @@
 \newcommand{\HDinth}[1]{\HDint{1/2}{#1}}
 
 \newcommand{\Ccalib}{\kappa}
-\newcommand{\Cgamma}{C_g}
-\newcommand{\Comega}{C_\Omega}
+\newcommand{\Cgamma}{C_\mathit{pth}}
+\newcommand{\Comega}{C_\mathit{dmn}}
 
 \newcommand{\Rom}[1]{\MakeUppercase{\romannumeral #1}}
 
@@ -132,7 +132,7 @@
 %Logan: think about keyword for Japanese thing
 \keywords{SQG, Bounded domain, Besov spaces on bounded domains, H\"older regularity,  De Giorgi method}
 
-%\thanks{\textbf{Acknowledgment.} This work was partially supported by the NSF Grant DMS 1614918. }
+\thanks{\textbf{Acknowledgment.} This work was partially supported by the NSF Grant DMS 1614918. }
 
 \begin{document}
 
@@ -147,7 +147,7 @@ We consider the dissipative SQG equation in bounded domains, first introduced by
 \tableofcontents
 
 \section{Preliminaries} \label{preliminaries}
-The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic system (QG) with uniform potential vorticity. The QG model is used extensively in meteorology and oceanography (see e.g. Charney \cite{Ch}). These models are described in \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in \cite{CoMaTa}, due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
+The surface quasigeostrophic equation (SQG) is a special case of the quasi-geostrophic system (QG) with uniform potential vorticity. The QG model is used extensively in meteorology and oceanography (e.g. Charney \cite{Ch}). These models are described in Pedlosky \cite{Pe}. The SQG model was popularized by Constantin, Majda and Tabak in \cite{CoMaTa}, due to its similarities with the Euler and Navier-Stokes  equation. They proposed it as a toy model for the study of 3D Fluid equations (see also Held, Garner, Pierrehumbert, and Swanson \cite{GaHePiSw}). 
 
 \vskip0.3cm
  We consider in this paper  critical SQG on a bounded domain. We will focus on the the following model, which was introduced by Constantin and Ignatova in \cite{CoIg.fraclap} and \cite{CoIg.sqg}.
@@ -180,7 +180,7 @@ and there exists $\alpha \in (0,1)$ depending on $\Omega$, $t$, and $\norm{\thet
 \end{theorem}
 
 This model was first thoroughly studied in the cases without boundaries (either $\R^2$ or the torus $\T^2$).   
-Global weak solutions were first constructed in Resnick \cite{Re}. Global regularity was first shown with small initial values \cite{CoCoWu}, or extra $C^\alpha$ regularity on the velocity in \cite{CoWu} and \cite{DoPa}. In \cite{KiNaVo}, Kiselev, Nazarov and Volberg showed the 
+Global weak solutions were first constructed in Resnick \cite{Re}. Global regularity was first shown with small initial values by Constantin, Cordoba, and Wu \cite{CoCoWu}, or extra $C^\alpha$ regularity on the velocity in Constantin and Wu \cite{CoWu} and Dong and Pavlovi\'{c} \cite{DoPa}. In \cite{KiNaVo}, Kiselev, Nazarov and Volberg showed the 
 propagation of $C^\infty$ regularity. The global $C^\infty$ regularity for any $L^2$ initial values was first proved in  \cite{CaVa.sqg} (see also Kiselev and Nazarov \cite{KiNa.variations} and Constantin and Vicol \cite{CoVi}).   
 
 \vskip0.3cm
@@ -189,8 +189,8 @@ In the presence of boundaries, there are several  distinct ways to define SQG. T
 However, due to the complexity of the model described in \cite{NoVa.bounded}, we focus in this paper only on the homogenous case.
 
 \vskip0.3cm
-Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{CoIg.fraclap} (see also Constantin and Nguyen \cite{CoNg} for the inviscid case). The interior regularity of solutions  is proven in \cite{CoIg.sqg} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses  nonlinear maximum principles, introduced in \cite{CoVi}.   However, the bounds obtained in that paper  blow up near the boundary and do not provide global regularity.
-  In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and the bootstrapping to the  $C^\infty(\bar{\Omega})$ regularity are indentified as interesting problems.  
+Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{CoIg.fraclap} (see also Constantin and Nguyen \cite{CoNg} for the inviscid case). The interior regularity of solutions  is proven in \cite{CoIg.sqg} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses  nonlinear maximum principles, introduced by Constantin and Vicol \cite{CoVi}.   However, the bounds obtained in \cite{CoIg.sqg} blow up near the boundary and do not provide global regularity.
+  In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and bootstrapping to  $C^\infty(\bar{\Omega})$ regularity, are indentified as interesting problems.  
   Our  result answers the first question, by  showing  that solutions $\theta$ to (\ref{eq:main nonlinear}) are globally H\"{o}lder continuous.
   Bootstrapping to $C^\infty$ involves different techniques, and will be studied in a forthcoming  paper \cite{StVa.higher}.  
 \vskip0.3cm
@@ -198,18 +198,14 @@ Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{Co
 Our proof is based on  the De Giorgi method pioneered by De Giorgi in \cite{DG}.  The method was applied to the SQG problem first in \cite{CaVa.sqg}.  The method is powerful for showing $C^\alpha$ regularity of elliptic equations. It has been applied in a variety of situations for non-local problems, such as the fractional heat equation in \cite{CaChVa.nio}, the time-fractional case in \cite{AlCaVa}, the 3D Quasigeostrophic problem in \cite{NoVa.qg}, or the kinetic setting by Imbert and Silvestre \cite{ImSi} or in \cite{St}.  The method has also been applied in more exotic, non-elliptic situations such as Hamilton-Jacobi equations (see \cite{ChVa}, \cite{StVa.hamjac}).  
 \vskip0.3cm
 
- The first broad  idea consists in decoupling the  velocity $u$ from  $\theta$ to work on  a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We can show that $\theta$ is in $L^\infty$ with minimal regularity assumptions on $u$ (see Section~\ref{sec:Linfty}).  Using that $L^\infty$ bound, we will need to obtain 
-% We first show that $\theta$ is in $L^\infty$ with minimal $u$ (Section~\ref{sec:Linfty}). The idea is to prove a decrease-in-oscillation lemma for fractional diffusion equations with  drift (Section~\ref{sec:harnack}).  By applying this oscillation lemma, then scaling our equation, and then applying the oscillation lemma again iteratively, we can show that $\theta$ is H\"{o}lder continuous (Section~\ref{sec:holder}).  
-scaling invariant controls on the drift   $u = \grad \Lambda^{-1} \theta$.  Though the Riesz transform is bounded from $L^p$ to $L^p$ for all $p$ finite, it is not bounded for $p = \infty$.  
-%$L^\infty$ is the obvious choice, 
-%since solutions to SQG are easily shown to be $L^\infty$ bounded under minimal assumptions, 
-%the Riesz transform is not bounded from $L^\infty$ to $L^\infty$.  
-The usual technique is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  Our solution is to use extensions of the Littlewood-Paley theory to bounded domains. 
+ The first broad  idea consists in decoupling the  velocity $u$ from  $\theta$ to work on  a linear equation, and prove alternating regularity results for $\theta$ and $u$ independently.  We can show that $\theta$ is in $L^\infty$ independently of $u$ (see Section~\ref{sec:Linfty}).  
+Using that $L^\infty$ bound, we will need to obtain scaling invariant controls on the drift   $u = \grad \Lambda^{-1} \theta$.  Unfortunately, although the Riesz transform is bounded from $L^p$ to $L^p$ for all $p$ finite, it is not bounded for $p = \infty$.  
+The usual technique, therefore, is to consider $\BMO$ (as in \cite{CaVa.sqg} and \cite{NoVa.qg}), but in the case of bounded domains the Riesz transform is not known to be bounded in this space either.  Our solution is to use extensions of the Littlewood-Paley theory to bounded domains. 
 
-The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators is a well-studied subject (e.g. Zheng \cite{Zh}, Benedetto and Zheng \cite{BeZh}).  As an application of this theory, Iwabuchi, Matsuyama, and Tanaguchi \cite{IMT.besov}, \cite{IMT.schrodinger}, and Bui, Duong, and Yang \cite{BuDuYa} have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-\Laplace_D$ (a Schrodinger operator with zero potential).  In particular, in \cite{IMT.bilinear},  Iwabuchi, Matsuyama, and Taniguchi derive many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
+The adaptation of Fourier analysis and Littlewood-Paley theory to Schrodinger operators is a well-studied subject (e.g. Zheng \cite{Zh}, Benedetto and Zheng \cite{BeZh}).  As an application of this theory, Iwabuchi, Matsuyama, and Taniguchi \cite{IMT.besov}, \cite{IMT.schrodinger}, and Bui, Duong, and Yang \cite{BuDuYa} have considered operators defined on open subsets of $\R^n$, which includes as a special case the operator $-\Laplace_D$ (a Schrodinger operator with zero potential).  In particular, in \cite{IMT.bilinear},  Iwabuchi, Matsuyama, and Taniguchi derive many important results, including the Bernstein inequalities, for Besov spaces adapted to the operator $-\Laplace_D$ on bounded open subsets of $\R^n$ with smooth boundary.  This theory turns out to greatly improve our understanding of the Riesz transform $\grad \Lambda^{-1}$ on bounded domains.  
 
 
-Using the results of \cite{IMT.bilinear}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$  and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect.  
+Using the results of \cite{IMT.bilinear}, we will be able to show that the Riesz transform of an $L^\infty$ function whose Fourier decomposition $f = \sum f_k \eigen{k}$ is supported on high frequencies $k > N$ will be bounded in the weak sobolev space $W^{-1/4,\infty}$, and the Riesz transform of an $L^\infty$ function whose Fourier decomposition is supported on low frequencies $k<N$ will have bounded Lipschitz constant.  The cutoff $N$ for dividing high frequencies from low frequencies must depend however on the size of the domain $\Omega$.  In the case of $\R^2$, where $\grad$  and $\Lambda^{-1}$ commute, this is equivalent to the observation that the Riesz transform is bounded from $L^\infty$ to the Besov space $B_{\infty,\infty}^0$.  In the case of bounded domains, the argument must be more subtle.  We must decompose $\theta$ into its Littlewood-Paley projections, individually bound the Riesz transform of each projection in multiple spaces, and then recombine these infinitely-many functions into a low-frequency collection and a high-frequency collection depending on the scale of oscillation we are trying to detect (see Section~\ref{sec:littlewood paley} and Lemma~\ref{thm:calibration is good}).  
 
 We make this notion precise with the following definition:
 
@@ -246,7 +242,7 @@ This theory is pivotal in translating the existing non-local De Giorgi technique
 
 
 %Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
-Our proof of H\"{o}lder continuity requires weak solutions $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H^1(\Omega))$.  In Appendix 2 of \cite{CoIg.sqg}, the authors demonstrate local-in-time existence of smooth solutions to \eqref{eq:main nonlinear} with sufficiently regular initial data.  In order to extend these local solutions forward in time, we would need to prove propagation of $H^1$ regularity, which is slightly out of reach of current results.  
+Our proof of H\"{o}lder continuity requires weak solutions $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$.  In Appendix 2 of \cite{CoIg.sqg}, the authors demonstrate local-in-time existence of smooth solutions to \eqref{eq:main nonlinear} with sufficiently regular initial data.  In order to extend these local solutions forward in time, we would need to prove propagation of $H^1$ regularity, which is slightly out of reach of current results.  
 \vskip.3cm
 % with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
@@ -254,13 +250,13 @@ The Paper is organized as follows. Section \ref{sec:lambda} is dedicated to basi
 \vskip.3cm
 
 \textbf{Notation.} Throughout the paper, we will use the following notations.
-%\textbf{Notation.}
+By $\eigen{k}$ and $\lambda_k$ we mean the eigenfunctions and eigenvalues of $-\Laplace_D$, with $\lambda_0 \leq \lambda_1 \leq \ldots$ and $\norm{\eigen{k}}_2 = 1$ for all $k$.  
 If $f = \sum_k f_k \eigen{k}$ then
 \begin{align*} 
 \norm{f}_{\HD^s} &:= \paren{\sum_k \lambda_k^{s} f_k^2}^{1/2} 
 \\ &= \HDint{s}{f}. 
 \end{align*}
-We suppress the dependence on $\Omega$, though in fact the $\lambda_k$ and $\Lambda$ are defined in terms of the domain $\Omega$.  The relevant domain will be clear from context.  This is in fact a norm, not a seminorm, since $\norm{f}_{L^2(\Omega)} \leq \lambda_0^{s/2} \norm{f}_{\HD^s}$.  
+We suppress the dependence on $\Omega$, though in fact $\Lambda$, $\lambda_k$, and $\eigen{k}$ are defined in terms of the domain $\Omega$.  The relevant domain will be clear from context.  The norm on $\HD^s$ is in fact a norm, not a seminorm, since $\norm{f}_{L^2(\Omega)} \leq \lambda_0^{s/2} \norm{f}_{\HD^s}$.  
 
 For a set $A$ and a function $f:A \to \R$, denote
 \begin{align*}
@@ -881,7 +877,7 @@ so that
 \[ \del_t \Psi + (\ulow + \uhigh)\cdot\grad \Psi = (\ulow - \dot{\Gamma} + \uhigh)\cdot \grad \psi(x-\Gamma(t)). \]
 
 Applying Lemma \ref{thm:caccioppoli} to $\theta$ and $\Psi$ we arrive at
-\begin{equation} \label{control from cacciopolli} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \chevron{\theta_+,\theta_-}_{1/2} \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\ulow-\dot{\Gamma}(t) + \uhigh) \cdot \grad\psi(x-\Gamma(t))} }. \end{equation}
+\begin{equation} \label{control from cacciopolli} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\ulow-\dot{\Gamma}(t) + \uhigh) \cdot \grad\psi(x-\Gamma(t))} }. \end{equation}
 \vskip.3cm
 
 Consider first the high-pass term $\int \theta_+ \uhigh\cdot\grad\psi$.  By inserting $\Lambda^{1/4}\Lambda^{-1/4}$ and then integrating by parts, we can apply Lemma~\ref{thm:Lambda stuff} parts \eqref{thm:L1 of Lambda1/4 bounded} and \eqref{thm:extra product rule} to obtain
