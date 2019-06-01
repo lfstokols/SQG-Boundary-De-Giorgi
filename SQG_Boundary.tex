@@ -194,7 +194,7 @@ In the presence of boundaries, there are several  distinct ways to define SQG. T
 However, due to the complexity of the model described in \cite{NoVa.bounded}, we focus in this paper only on the homogenous case.
 
 \vskip0.3cm
-Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{CoIg.fraclap} (see also Constantin and Nguyen \cite{CoNg} for the inviscid case). The interior regularity of solutions  is proven in \cite{CoIg.sqg} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses  nonlinear maximum principles, introduced by Constantin and Vicol \cite{CoVi}.   However, the bounds obtained in \cite{CoIg.sqg} blow up near the boundary and do not provide global regularity.
+Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{CoIg.fraclap} (see also Constantin and Nguyen \cite{CoNg} and Constantin, Ignatova, and Nguyen \cite{CoIgNg} for the inviscid case). The interior regularity of solutions  is proven in \cite{CoIg.sqg} (together with propagation of $L^\infty$ bounds).  The method of proof for interior regularity uses  nonlinear maximum principles, introduced by Constantin and Vicol \cite{CoVi}.   However, the bounds obtained in \cite{CoIg.sqg} blow up near the boundary and do not provide global regularity.
   In \cite{CoIg.sqg} Remark 1, questions about   global regularity are suggested as  open problems.  Both the $C^\alpha(\bar{\Omega})$ regularity,  and bootstrapping to  $C^\infty(\bar{\Omega})$ regularity, are indentified as interesting problems.  
   Our  result answers the first question, by  showing  that solutions $\theta$ to (\ref{eq:main nonlinear}) are globally H\"{o}lder continuous.
   Bootstrapping to $C^\infty$ involves different techniques, and will be studied in a forthcoming work \cite{StVa.higher}.  
@@ -202,8 +202,10 @@ Existence of weak solutions for \eqref{eq:main nonlinear}  is proven in \cite{Co
 
 Our proof is based on  the De Giorgi method pioneered by De Giorgi in \cite{DG}.  The method was applied to the SQG problem first in \cite{CaVa.sqg}.  The method is powerful for showing $C^\alpha$ regularity of elliptic- and parabolic-type equations. It has been applied in a variety of situations for non-local problems, such as the fractional heat equation in \cite{CaChVa.nio}, the time-fractional case in \cite{AlCaVa}, the 3D Quasigeostrophic problem in \cite{NoVa.qg}, or the kinetic setting by Imbert and Silvestre \cite{ImSi} or in \cite{St}.  The method has also been applied in more exotic, non-elliptic situations such as Hamilton-Jacobi equations (see \cite{ChVa}, \cite{StVa.hamjac}).  
 
-The De Giorgi method involves rescaling our equation by zooming in iteratively, and applying regularity results at each scale.  Therefore it is important that certain results be proven independently of the domain $\Omega$.  In particular, $\Omega$, like $\theta$ and $u$, will throughout this paper refer to a general object which may not match the assumptions of Theorem~\ref{thm:main continuity}.  The particular dependence on $\Omega$ will be made clear in each lemma of this paper.  
-As a general overview, in the proof of Theorem~\ref{thm:main continuity} we will apply the results of Sections~\ref{sec:Linfty} and \ref{sec:littlewood paley} only on a single fixed domain, while the results of Sections~\ref{sec:de giorgi} and \ref{sec:harnack} must be applied at each level of zoom with a different domain each time.  
+The De Giorgi method involves rescaling our equation by zooming in iteratively, and applying regularity results at each scale.  Therefore it is important that certain results be proven independently of the domain $\Omega$.  
+%In particular, $\Omega$, like $\theta$ and $u$, will throughout this paper refer to a general object which may not match the assumptions of Theorem~\ref{thm:main continuity}.  
+The particular dependence on $\Omega$ will be made clear in each lemma of this paper.  
+As a general overview, in the proof of Theorem~\ref{thm:main continuity} we will apply the results of Sections~\ref{sec:Linfty} and \ref{sec:littlewood paley} only on a single fixed domain, while the results of Sections~\ref{sec:de giorgi} and \ref{sec:harnack} must be applied at each level of zoom with a different rescaled domain each time.  
 %, as a general overview, the results of Sections~\ref{sec:Linfty} and \ref{sec:littlewood paley} will be applied, in the proof of Theorem~\ref{thm:main continuity}, only at the first level (hence their results may depend strongly on $\Omega$), while the results of Sections~\ref{sec:de giorgi} and \ref{sec:harnack} must be applied at each level of zoom with a different domain each time.  
 
 % is assumed throughout throughout this paper to be a completely arbitrary domain unless otherwise specified.  
@@ -255,7 +257,7 @@ This theory is pivotal in translating the existing non-local De Giorgi technique
 
 %Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
 Our proof of H\"{o}lder continuity requires weak solutions $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$.  In Appendix 2 of \cite{CoIg.sqg}, the authors demonstrate local-in-time existence of smooth solutions to \eqref{eq:main nonlinear} with sufficiently regular initial data.  
-As in \cite{CoIg.sqg}, our result holds at least on this span of time. Note however that the $C^\alpha$ bound on the solutions depends only on the $L^2$ norm of the initial data, and not on any other norm of $\theta_0$ or $\theta$.  
+As in \cite{CoIg.sqg}, our result holds at least on this span of time. Note however that the $C^\alpha$ bound on the solutions depends only on the initial data.  
 \vskip.3cm
 % with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
@@ -428,7 +430,7 @@ This is an immediate application of part \eqref{thm:L1 of Lambda bounded}.
 
 Let us consider the relationship between the norm $\HD^s$ and the $H^s$ norm on $\R^2$.  
 
-It is known (see \cite{CoIg.sqg} and \cite{CaSt}) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain subsets of $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ and that elements of $\HD^s$ have trace zero for $s \in [\frac{1}{2},1]$.  
+It is known (see \cite{CoIg.sqg} and \cite{CaSt}) that for $s \in (0,1)$ the spaces $\HD^s$ are equivalent to certain subsets of $H^s(\Omega)$ spaces defined in terms of the Gagliardo semi-norm.  In particular, we know that smooth functions with compact support are dense in $\HD^s$ for $s \in [0,1]$ and that elements of $\HD^s$ have trace zero for $s \in [\frac{1}{2},1]$.  
 \vskip.3cm
 
 The most important fact for us is that the fractional Sobolev norms defined in terms of extension are dominated by our $\HD^s$ norm with a constant that is independent of $\Omega$.  
@@ -593,7 +595,7 @@ Combining this with \eqref{first form of cacciopolli} and \eqref{good lower boun
 With this energy inequality, Proposition~\ref{thm:L2 to Linfty} follows by a standard De Giorgi argument.  Since we will need to make a similar argument again in Section~\ref{sec:de giorgi}, we will make the bulk of the argument in a more general lemma.  
 
 \begin{lemma}[De Giorgi Iteration Argument] \label{thm:DG1 skeleton}
-For any constant $\bar{C} > 0$, there exists a $\delta>0$ such that the following holds:
+For any constant $\bar{C} \geq 0$, there exists a $\delta>0$ such that the following holds:
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  
 Let $f \in L^2([-2,0]\times\Omega)$ be a function with the property that for any positive constant $a$
@@ -658,13 +660,18 @@ The result follows.
 Proposition \ref{thm:L2 to Linfty} is an easy consequence of these lemmas.  
 
 \begin{proof}[Proof of \ref{thm:L2 to Linfty}]
-Our regularity assumptions on $\theta$ and $u$ are enough to show, by the usual energy argument, that $\norm{\theta(t,\cdot)}_{L^2(\Omega)}$ is decreasing in time.  By the main result of \cite{CoIg.sqg}, or by applying Lemma~\ref{thm:caccioppoli} with constant cutoff $\Psi(t,x) = \norm{\theta(T,\cdot)}_{L^\infty(\Omega)}$, the $L^\infty$ norm of $\theta(t,\cdot)$ is also decreasing in time once finite.  Thus for $T$ large, $\norm{\theta}_{L^\infty([1,T]\times \Omega)} \leq \norm{\theta}_{L^\infty([1,2]\times\Omega)}$.  
+Our regularity assumptions on $\theta$ and $u$ are enough to show, by the usual energy argument, that $\norm{\theta(t,\cdot)}_{L^2(\Omega)}$ is decreasing in time.  By the main result of \cite{CoIg.sqg}, or by applying Lemma~\ref{thm:caccioppoli} with constant cutoff $\Psi(t,x) = \norm{\theta(T,\cdot)}_{L^\infty(\Omega)}$, the $L^\infty$ norm of $\theta(t,\cdot)$ is also decreasing in time once finite.  Thus for $T$ large, $\norm{\theta}_{L^\infty([2,T]\times \Omega)} \leq \norm{\theta}_{L^\infty([1,2]\times\Omega)}$.  
 \vskip.3cm
 
-In the case $S \geq 1$, $T \geq 2$, we can apply Lemma~\ref{thm:caccioppoli} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta(t+2,x)$ to show that 
-\[ \norm{\theta}_{L^\infty([1,T]\times\Omega)} \leq \paren{\frac{2}{\delta}}^{1/2} \norm{\theta_0}_2. \]
+In the case $S \geq 2$, we can apply Lemma~\ref{thm:caccioppoli} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta(t+2,x)$ to show that 
+\[ \norm{\theta}_{L^\infty([2,T]\times\Omega)} \leq \paren{\frac{2}{\delta}}^{1/2} \norm{\theta_0}_2. \]
 
-Assuming without loss of generality that $S \leq T/2$, we can apply the above argument to the function $\theta(t/S, x/S)$ to obtain the result for small values of $S$.  
+For small $S$, we can apply the above argument to the function $\theta\paren{(S/2)t, (S/2)x}$.  
+\vskip.3cm
+
+One finds in fact that for some universal constant $C$,
+\[ \norm{\theta}_{L^\infty([S,T]\times\Omega)} \leq \frac{C}{S^{1/2}} \norm{\theta_0}_{L^2(\Omega)}. \]
+%Assuming without loss of generality that $S \leq T/2$, we can apply the above argument to the function $\theta(t/S, x/S)$ to obtain the result for small values of $S$.  
 \end{proof}
 
 
@@ -844,7 +851,7 @@ We call $\ulow$ the low-pass term, and $\uhigh$ the high-pass term.
 Let $N$ be the center to which $(u_j)_{j \in \Z}$ is calibrated.  
 
 We define
-\[ \uhigh = \sum_{j > N} u_j \]
+\[ \uhigh = \sum_{j = N+1}^\infty u_j \]
 and bound
 \[ \norm{\Lambda^{-1/4} \uhigh}_\infty \leq \sum_{j>N} \norm{\Lambda^{-1/4} u_j}_\infty \leq \Ccalib \frac{2^{-1/4}}{1-2^{-1/4}}. \]
 
@@ -1160,7 +1167,7 @@ Our assumption that the sequence $\theta_n$ exists must have been false, and the
 \vskip1cm
 \section{A Decrease in Oscillation} \label{sec:harnack}
 
-We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2}) to produce an oscillation lemma.  This result is similar to the Harnack theory for harmonic functions.  As in the previous section, all of the following results must be indpendent of the size of $\Omega$, and any assumptions made on $\Omega$ must be scaling invariant.  
+We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2}) to produce an oscillation lemma.  This result is similar to the weak Harnack inequality for harmonic functions.  As in the previous section, all of the following results must be independent of the size of $\Omega$, and any assumptions made on $\Omega$ must be scaling invariant.  
 
 \begin{lemma}[Oscillation Lemma] \label{thm:oscillation general}
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
