@@ -170,7 +170,8 @@ In the model, the dissipation $\Lambda =\paren{-\Delta_D}^{1/2}$  is due to the 
 
 The main result of this paper is the following:
 \begin{theorem} \label{thm:main continuity}
-Let $\theta$ be a smooth solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
+Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ be a weak solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
+\vskip.3cm
 
 Then for any $t \in (0,T)$, $\theta$ is bounded and H\"{o}lder continuous in time and space uniformly on $(t,T)\times\bar{\Omega}$.  
 \vskip0.3cm
@@ -524,7 +525,7 @@ Our goal in this section is to show that the $L^\infty$ norm of solutions to \eq
 Let $T \in \R^+$ be a positive time.  Then for any $S \in (0,T)$, there exists a constant $C = C(S)$ such that the following holds:
 \vskip.3cm
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let\\ $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions with $\theta_0 \in L^2(\Omega)$.  
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let\\ $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions with $\theta_0 \in L^2(\Omega)$.  
 
 Then 
 \[ \norm{\theta}_{L^\infty([S,T]\times \Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
@@ -536,7 +537,7 @@ In order to prove this proposition, we require an energy inequality for $(\theta
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and $T> 0$ and $0<\gamma<1/2$ be constants.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative and smooth.  Then there exists a constant $C$ depending only on $\norm{\grad \Psi}_\infty$ and $\sup_t \bracket{\Psi(t,\cdot)}_{\gamma; \Omega}$ such that the following holds:
 \vskip0.3cm
 
-Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T;H^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Then the functions
+Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T;H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Then the functions
 \[ \theta_+ := \paren{\theta - \Psi}_+, \qquad \theta_- := \paren{\Psi - \theta}_+ \]
 satisfy the inequlality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }. \]
@@ -860,18 +861,19 @@ and bound
 \[ \norm{\grad \ulow}_\infty \leq \sum_{j \leq N} \norm{\grad u_j}_\infty \leq \Ccalib \frac{1}{1 - 2^{-1}}. \]
 \end{proof}
 
-In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that control can only be gained if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  
+In order to prove the De Giorgi lemmas, we must derive an energy inequality for the function $\paren{\theta - \Psi}_+$ where $\Psi(t,x)$ grows sublinearly in $|x|$.  However, applying Lemma~\ref{thm:caccioppoli} to such a function, we see that control can only be gained if the quantity $\del_t \Psi + u \cdot \grad\Psi$ is bounded.  This requires a barrier function which is moving in space along a Lagrangian path of $\ulow$.  That Lagrangian path must further be broken up into two parts, one corresponding to the lowest frequencies and one corresponding to mid-range frequencies.  
 \vskip.3cm
 
 To that end, we shall consider, for any domain $\Omega$ and time $T$, functions $\theta:[-T,0]\times\Omega \to \R$, $\ulow$ and $\uhigh:[-T,0]\times \Omega \to \R^2$, and paths $\Gamma$ and $\gamma:[-T,0] \to \R^2$ which satisfy
 \begin{equation} \label{eq:main linear brokendown} \begin{cases}
 \del_t \theta + (\ulow + \uhigh) \cdot \grad \theta + \Lambda \theta = 0 & \textrm{on } [-T,0] \times \Omega, \\
 \div( \ulow) = \div(\uhigh) = 0 & \textrm{on } [-T,0]\times \Omega, \\
+\Gamma(t) + \gamma(t) \in \Omega & \textrm{on } [-T,0], \\
 \dot{\Gamma}(t) + \dot{\gamma}(t) = \ulow(t, \gamma(t) + \Gamma(t)) & \textrm{on } [-T,0], \\
 \gamma(0) = 0.
 \end{cases} \end{equation}
 
-Here it is implicitly assumed that $\gamma(t) + \Gamma(t) \in \Omega$.  Generally speaking $\ulow$ and $\gamma$ will be locally Lipschitz functions while $\uhigh$ is merely in a weak space $W^{-1/4,\infty}$ and $\Gamma$ will trace out points in $\Omega$ where $\theta$ is well behaved by assumption.  See Section~\ref{sec:holder} for the construction of these functions $\Gamma$ and $\gamma$.  
+Generally speaking $\ulow$ and $\gamma$ will be locally Lipschitz functions while $\uhigh$ is merely in a weak space $W^{-1/4,\infty}$ and $\Gamma$ will trace out points in $\Omega$ where $\theta$ is well behaved by assumption.  See Section~\ref{sec:holder} for the construction of these functions $\Gamma$ and $\gamma$.  
 \vskip.3cm
 
 Now we prove an energy inequality for solutions to \eqref{eq:main linear brokendown}.  Though this lemma is independent of the size of the domain, it depends on the geometry of the domain in a way encoded by the constant $\Comega$.  We will later show that this constraint on $\Omega$ is scaling invariant.  
@@ -883,7 +885,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, with $\theta \in L^\infty(-T,0;L^4(\Omega)) \cap L^2(-T,0;H_0^1(\Omega))$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Consider the functions
@@ -940,7 +942,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, with $\theta \in L^\infty(-2,0;L^4(\Omega)) \cap L^2(-2,0;H_0^1(\Omega))$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 If
@@ -977,7 +979,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, and $\beta \in (0,1)$ be positive constants
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$,\\ $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, with $\theta \in L^\infty(-5,0;L^4(\Omega)) \cap L^2(-5,0;H_0^1(\Omega))$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
@@ -997,6 +999,7 @@ Here $\delta_0$ is the constant from Proposition~\ref{thm:DG1}, which of course 
 \begin{proof}
 Suppose that the proposition is false.  Then there must exist, for each $n \in \N$, a bounded open set $\Omega_n$ with $C^{2,\beta_n}$ boundary for $\beta_n \in (0,1)$ and a function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our proposition (with the same constants $\Ccalib$, $\Cgamma$, and $\Comega$), except that
 \begin{equation} \label{mass assumption between} \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \end{equation}
+In particular, though each $\theta_n \in L^\infty(-5,0;L^4(\Omega)) \cap L^2(-5,0;H_0^1(\Omega))$, their norms need not be uniformly bounded.  
 \vskip.3cm
 
 Let $\psi:\R^2 \to \R$ be a smooth function which vanishes on $B_2$ such that $\psi(x) = 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
@@ -1395,6 +1398,8 @@ Define $\Gamma_k, \gamma_k: [-5,0] \to \R^2$ by the following recursive formulae
 \dot{\gamma}_k(t) &:= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \dot{\Gamma}_k(t), & k \geq 0, t \in [-5,0) \\
 \Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t), & k \geq 1, t \in [-5,0].
 \end{align*}
+The quantity $\gamma_k$ here corresponds to the part of the drift coming from frequency packets $u_j$ which are part of the definition of $\ulowth{k}$ but are not contained in $\ulowth{k-1}$ (they would instead be included in $\uhighth{k-1}$).  
+
 Since each $\ulowth{k}$ is $L^\infty$ in space-time and Lipschitz in space, these $\gamma_k$ exist by a version of the Cauchy-Lipschitz theorem.  For example, Theorem 3.7 of Bahouri, Chemin, and Danchin \cite{BaChDa} proves existence and uniqueness in our case.  In particular, since $\ulowth{k}$ is a vector field which is tangential to the boundary of $\Omega_k$ and has unique flows, the path $\Gamma_k + \gamma_k$ which follows this vector field must remain inside $\bar{\Omega}_k$ for all time and so our expressions remain well-defined.  
 \vskip.3cm
 
