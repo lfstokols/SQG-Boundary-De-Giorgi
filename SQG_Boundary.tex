@@ -168,9 +168,26 @@ The critical SQG problem on $\Omega$ with initial data $\theta_0 \in L^2(\Omega)
 In the model, the dissipation $\Lambda =\paren{-\Delta_D}^{1/2}$  is due to the  Ekman pumping, while the nonlinear velocity $u$ comes from the geostrophic and hydrostatic balance (see \cite{Pe}).
 \vskip.3cm
 
+We will consider solutions which verify the following technical condition:
+\begin{definition}
+A pair $\theta, u \in L^infty(0,T;L^2(\Omega))$ is called suitable if, for any smooth non-negative functions $\Psi \in C^\infty([0,T]\times \Omega)$ and $\varphi \in C^\infty_0(0,T;C^\infty(\Omega))$, there exists a constant $C$ depending on $\norm{\grad\Psi}_{L^\infty([0,T]\times\Omega)}$ and $\sup_{[0,T]} \bracket{\Psi(t,\cdot)}_{1/4}$ such that the function $\theta_+ := (\theta-\Psi)_+$ satisfies the inequalities
+\begin{equation}\label{leray-hopf condition}
+\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
+\end{equation}
+and
+\begin{equation} \label{local condition} \begin{aligned}
+\frac{1}{2} \iint \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi
++ C\abs{\iint \varphi \theta_+ \del_t\Psi + u\cdot\grad\Psi}
+\\ & + C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \paren{\abs{\iint \theta_+ \del_t\Psi + u\cdot\grad\Psi} 
++ \sup_{[0,T]} \int \theta_+^2 + \int_0^T |\{\theta \geq 0\}|^2 + 1} 
+\end{aligned}\end{equation}
+\end{definition}
+Suitability is considered because it is stable under weak limits.  We will show that this property holds for a fairly large class of weak solutions to \eqref{eq:main nonlinear}.
+
 The main result of this paper is the following:
 \begin{theorem} \label{thm:main continuity}
-Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ be a weak solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
+Let $\theta$ and $u$ be a suitable weak solution to \eqref{eq:main nonlinear} with initial data $\theta_0 \in L^2(\Omega)$ on a bounded open set $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and on a time interval $[0,T]$.  
+
 \vskip.3cm
 
 Then for any $t \in (0,T)$, $\theta$ is bounded and H\"{o}lder continuous in time and space uniformly on $(t,T)\times\bar{\Omega}$.  
@@ -180,6 +197,10 @@ More precisely, there exists a constant $C$ depending only on $\Omega$ and $t$ s
 \[ \norm{\theta}_{L^\infty([t,T]\times\bar{\Omega})} \leq C \norm{\theta_0}_{L^2(\Omega)} \]
 and there exists $\alpha \in (0,1)$ depending on $\Omega$, $t$, and $\norm{\theta_0}_{L^2(\Omega)}$ such that
 \[ \norm{\theta}_{C^\alpha([t,T]\times\bar{\Omega})} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
+
+\vskip.3cm
+
+Moreover, any weak solution $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and corresponding $u$ will be a suitable pair.  
 
 %More precisely, there exists $\alpha \in (0,1)$ depending only on $\Omega$ and $\norm{\theta_0}_{L^2(\Omega)}$, and some constant $C$ depending only on $\Omega$ and $t$, such that
 %\[ \norm{\theta}_{C^\alpha((t,T)\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
@@ -257,7 +278,7 @@ This theory is pivotal in translating the existing non-local De Giorgi technique
 
 
 %Though it is beyond the scope of the present paper, we believe that global regularity of solutions to \eqref{eq:main nonlinear} can be proven once H\"{o}lder regularity is known.  
-Our proof of H\"{o}lder continuity requires weak solutions $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$.  In \cite{CoNg.strong}, the authors demonstrate local-in-time existence for solutions to \eqref{eq:main nonlinear} with this regularity, assuming initial data in $H^2(\Omega) \cap H_0^1(\Omega)$.  Note that our $C^\alpha$ bound on the solutions depends only on the $L^2$ norm of the initial data.  
+Our result applies to weak solutions $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$.  In \cite{CoNg.strong}, the authors demonstrate local-in-time existence for solutions to \eqref{eq:main nonlinear} with this regularity, assuming initial data in $H^2(\Omega) \cap H_0^1(\Omega)$.  Note that our $C^\alpha$ bound on the solutions depends only on the $L^2$ norm of the initial data.  
 \vskip.3cm
 % with $\theta \in L^\infty(0,t; L^2(\Omega) \cap H_0^1(\Omega) \cap L^4(\Omega))$ and $u \in L^\infty(0,t; L^4(\Omega))$ is proven for initial data sufficiently smooth.  Therefore, going forward, we can assume this much regularity on our solutions.  
 
@@ -525,13 +546,13 @@ Our goal in this section is to show that the $L^\infty$ norm of solutions to \eq
 Let $T \in \R^+$ be a positive time.  Then for any $S \in (0,T)$, there exists a constant $C = C(S)$ such that the following holds:
 \vskip.3cm
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let\\ $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions with $\theta_0 \in L^2(\Omega)$.  
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\theta$ and $u \in L^\infty(0,T; L^2(\Omega))$ be a suitable pair solving \eqref{eq:main linear} in the sense of distributions with $\theta_0 \in L^2(\Omega)$.  
 
 Then 
 \[ \norm{\theta}_{L^\infty([S,T]\times \Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{proposition}
 
-In order to prove this proposition, we require an energy inequality for $(\theta-C)_+$ for arbitrary constants $C$.  We will prove a much more general lemma, which has further applications in Section~\ref{sec:de giorgi}.  
+In order to prove this proposition, we require an energy inequality for $(\theta-C)_+$ for arbitrary constants $C$, which follows from the suitability condition.  We will first prove that all sufficiently regular solutions to $\eqref{eq:main linear}$ are suitable.  
 
 \begin{lemma}[Caccioppoli Estimate] \label{thm:caccioppoli}
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and $T> 0$ and $0<\gamma<1/2$ be constants.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative and smooth.  Then there exists a constant $C$ depending only on $\norm{\grad \Psi}_\infty$ and $\sup_t \bracket{\Psi(t,\cdot)}_{\gamma; \Omega}$ such that the following holds:
@@ -542,13 +563,20 @@ Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T;H_0^1(\Omega))$ and $u \
 satisfy the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }. \]
 
-Moreover, for any non-negative function $\varphi \in C^2(\R^2) \cap L^2(\R)$,
-\begin{equation} \label{second energy inequality} \frac{1}{3} \int \varphi \del_t \theta_+^3 + \int \varphi \theta_+^2 \Lambda \theta_+ - \int \varphi \theta_+^2 \Lambda \theta_- \leq C \paren{ -\int \theta_+^3 u \cdot \grad \varphi + \int \varphi \theta_+^2 (\del_t \Psi + u \cdot \grad \Psi) + \int \varphi \theta_+^2 \Lambda \Psi}. \end{equation}
+Moreover, for any non-negative function $\varphi \in C^0(0,T;C^1(\Omega))$,
+\begin{equation} \label{second energy inequality}\begin{aligned}
+\frac{1}{2} \iint \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi
++ C\abs{\iint \varphi \theta_+ \del_t\Psi + u\cdot\grad\Psi}
+\\ & + C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \paren{\abs{\iint \theta_+ \del_t\Psi + u\cdot\grad\Psi} 
++ \sup_{[0,T]} \int \theta_+^2 + \int_0^T |\{\theta \geq 0\}|^2 + 1} 
+\end{aligned}\end{equation}
+
+In other words, $\theta$ and $u$ are a suitable pair.
 
 \end{lemma}
 
 \begin{proof}
-Since $\theta_+ \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$, we can multiply \eqref{eq:main linear} by $\theta_+$ and integrate in space to obtain
+Since $\theta_+ \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$, we can multiply \eqref{eq:main linear} by $\theta_+$ and integrate in space to obtain
 \[ 0 = \int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  We analyze them one at a time.  
 
@@ -591,85 +619,34 @@ The cutoff $\Psi$ is locally Lipschitz, and H\"{o}lder continuous with exponent 
 Since $3-2\gamma > 2$, this quantity is integrable.  Thus
 \[ \int \indic{\theta_+>0}(x) \int [\Psi(x)-\Psi(y)]^2 K(x,y) \,dydx \leq C(\norm{\grad \Psi}_\infty, \bracket{\Psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
 Combining this with \eqref{first form of cacciopolli} and \eqref{good lower bound on psi term cacciopoli} we obtain
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \abs{\int \theta_+ (\del_t\Psi+u\cdot\grad\Psi)} + \int \indic{\theta_+>0} }.\]
+\begin{equation}\label{first energy inequality} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \abs{\int \theta_+ (\del_t\Psi+u\cdot\grad\Psi)} + \int \indic{\theta_+>0} }.\end{equation}
 
 \vskip.3cm%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----
 
-We begin now the proof of \eqref{local energy inequality}.  Since $\theta_+ \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$, by interpolation we can further conclude $\theta_+ \in L^6(0,T; L^6(\Omega)$.  Therefore we can multiply \eqref{eq:main linear} by $\varphi \theta_+^2$ and integrate in space to obtain
-\[ 0 = \int \varphi \theta_+^2 \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
-which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  As above, this can be rearranged as
-\[ \paren{\frac{1}{3}} \int \varphi \del_t \theta_+^3 + \int \]
+We begin now the proof of \eqref{second energy inequality}.  Since $\theta_+ \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$, by interpolation we can further conclude $\theta_+ \in L^4(0,T; L^4(\Omega)$.  Therefore we can multiply \eqref{eq:main linear} by $\varphi \theta_+$ and integrate in space to obtain
+\[ 0 = \int \varphi \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
+which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  After rearranging and integrating by parts, this becomes
+\begin{equation}\label{equality with varphi}
+\frac{1}{2} \int \varphi \del_t \theta_+^2 - \int \varphi \theta_+ \Lambda \theta_- = \frac{1}{2} \int  \theta_+^2 u \cdot \grad \varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} + - \int \varphi \theta_+ \Lambda \Psi - \int \varphi \theta_+ \Lambda \theta_+. 
+\end{equation}
+Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  It remains to bound, on the right-hand-side, the $\Lambda \Psi$ and $\Lambda \theta_+$ terms.  
 
-Since $\theta$ solves the equation
-\[ \del_t \theta + u\cdot \grad \theta + \Lambda \theta = 0, \] 
-multiply this equation by $\varphi \theta_+^2$, where $\varphi$ is the restriction to $\Omega_n$ of any $C^2(\R^2)$ function, and since $\theta_n = \theta_+ + \psi(\cdot-\Gamma_n) - \theta_-$ we integrate to obtain
-\begin{align*} 
-\frac{1}{3} \int \varphi \del_t \theta_+^3 &= \frac{-1}{3} \int \varphi u \cdot \grad \theta_+^3 - \int \varphi \theta_+^2 \Lambda \theta_+ 
-\\ & - \int \varphi \theta_+^2 \del_t \Psi  - \int \varphi \theta_+^2 u \cdot \grad \Psi 
- - \int \varphi \theta_+^2 \Lambda \Psi 
-\\ & + \int \varphi \theta_+^2 \Lambda \theta_-. 
-\end{align*}
-%\begin{align*} 
-%\frac{1}{3} \int \varphi \del_t \theta_+^3 + \frac{1}{3} \int \varphi \dot{\Gamma}_n \cdot \grad \theta_+^3 &= \frac{-1}{3} \int \varphi (\ulow^n - \dot{\Gamma}_n + \uhigh^n) \cdot \grad \theta_+^3 - \int \varphi \theta_+^2 (\ulow^n - \dot{\Gamma}_n + \uhigh^n) \cdot \grad \psi 
-%\\ & - \int \varphi \theta_+^2 \Lambda \theta_+ - \int \varphi \theta_+^2 \Lambda \psi + \int \varphi \theta_+^2 \Lambda \theta_-. 
-%\end{align*}
-Rearranging and integrating by parts, this becomes
-\begin{align*} 
-\frac{1}{3} \int \varphi \del_t \theta_+^3 &= \frac{1}{3} \int  \theta_+^3 u \cdot \grad \varphi - \int \varphi \theta_+^2 \paren{\del_t \Psi + u \cdot \grad \Psi} 
-- \int \varphi \theta_+^2 \Lambda \theta_+ - \int \varphi \theta_+^2 \Lambda \Psi + \int \varphi \theta_+^2 \Lambda \theta_-. 
-\end{align*}
-%\begin{align*} 
-%\int \varphi \del_t \theta_+^3 + \int \varphi \dot{\Gamma}_n \cdot \grad \theta_+^3 
-%&= \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) + \int \uhigh^n \cdot \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi}
-%\\ & - 3\int \varphi \theta_+^2 \Lambda \theta_+ + 3\int \varphi \theta_+^2 \Lambda \theta_- - 3\int \varphi \theta_+^2 \Lambda \psi. 
-%\end{align*}
-We will bound the five terms on the right hand side one at a time.  
+For the $\Lambda \theta_+$ term, we can bound
+\[ - \int \varphi \theta_+ \Lambda \theta_+ \leq C \norm{\varphi\theta_+}_{\HD^{1/2}} \norm{\theta_+}_{\HD^{1/2}}. \]
+Moreover, just as argued above for \eqref{good lower bound on psi term cacciopoli}, we can bound
+\[ - \int \varphi \theta_+ \Lambda \Psi \leq C\paren{\norm{\grad\Psi}_\infty, [\Psi]_\gamma} \int \indic{\theta_+>0} \,dx \norm{\varphi \theta_+}_{\HD^{1/2}}. \]
+These two bounds, together with Lemma~\ref{thm:Lambda stuff} part \eqref{thm:extra product rule}, can be plugged into \eqref{equality with varphi} to obtain
+\[\begin{aligned} \frac{1}{2} \int \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int \theta_+^2 u\cdot\grad\varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} 
+\\ & \hspace{2cm}+ C \norm{\varphi}_{C^{0,1}(\Omega)} \paren{\norm{\theta_+}_2 + \norm{\theta_+}_{\HD^{1/2}}} \paren{\norm{\theta_+}_{\HD^{1/2}} + \int \indic{\theta_+>0} \,dx} \end{aligned}\]
+where $C$ is a constant depending on $\norm{\grad\Psi}_\infty$ and $[\Psi]_\gamma$.
 
-%Each instance of $C$ in the following bounds is independent of $n$.  
+From the bound \eqref{first energy inequality}, we know that 
+\[ \norm{\theta_+}_{L^2(0,T;\HD^{1/2})}^2 \leq C \paren{\norm{\theta_+}_{L^\infty(0,T;L^2(\Omega))}^2 + \iint \indic{\theta_+ \geq 0} - \iint \theta_+ \abs{\del_t\Psi + u\cdot\grad\Psi} }. \]
 
-\begin{itemize}
-%\item Consider the low-pass term.  As in the proof of Lemma~\ref{thm:energy inequality}, we have $|\ulow^n(t,x) - \dot{\Gamma}_n(t)| \leq (1+8\Ccalib)\Cgamma + 6 \Ccalib$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq B_3(\Gamma_n(t))$.  Thus for $t \in [-4,0]$ we have for $C$ independent of $n$ and of $\varphi$
-%\[ \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) \leq C \paren{\norm{\grad\varphi(t,\cdot)}_{L^\infty(\Omega)} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)}}. \]
-
-%\item Consider the high-pass term.  By Lemma \ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, since $\uhigh^n \in W^{-1/4,\infty}$, 
-%\begin{align*} 
-%\int \uhigh^n \cdot \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} &\leq C \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}
-%\\ &\leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{C^2(\Omega)} \norm{\theta(t,\cdot)}_{\HD^{1/2}} }. 
-%\end{align*}
-
-\item Consider the $\Lambda \theta_+$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x)\theta_+(x)^2 - \varphi(y)\theta_+(y)^2][\theta_+(x)-\theta_+(y)] K$ which decomposes as
-\[ \iint \varphi(x)(\theta_+(x)+\theta_+(y))[\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K. \]
-The first part is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$ and the square of the $\HD^{1/2}$ norm of $\theta_+$, while the second part is bounded
-\[ \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K \leq C \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} \sqrt{\int \theta_+(y)^2 \int \frac{[\varphi(x)-\varphi(y)]^2}{|x-y|^3} dx \,dy}\]
-which is bounded by $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}} \norm{\varphi}_{C^1} \norm{\theta_+}_{L^2}$.  
-
-The boundary term $\int \varphi \theta_+^3 B$ is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$, and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}$.  Taken together we have
-\[ \int \varphi \theta_+^2 \Lambda \theta_+ \leq C \paren{ \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 + \norm{\varphi(t,\cdot)}_{C^1(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} }. \]
-
-\item Consider the $\Lambda\theta_-$ term.  For any non-negative function $f$ we know by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint} that $\int f \theta_+ \Lambda \theta_- \leq 0$.  
-It follows that $-\theta_+ \Lambda \theta_-$ is a pointwise non-negative distribution.  Moreover, the integral over $[-4,0]\times\Omega$ of $-\theta_+\Lambda\theta_-$ is bounded by \eqref{DG2 energy}.  Thus $\theta_+\Lambda\theta_-$ is a measure with bounded total-variation norm and so
-\[ \int_{-4}^0 \int \varphi \theta_+^2 \Lambda \theta \leq \norm{\theta_+}_\infty \norm{\theta_+\Lambda\theta_-}_{\mathcal{M}} \norm{\varphi}_{C^0} \leq C \norm{\varphi}_{L^\infty([-4,0]\times\Omega)}. \]
-
-\item Consider the $\Lambda \psi$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K$ which decomposes as
-\[ \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K. \]
-The first part is bounded by the $C^1$ norms of $\varphi$ and $\psi$ and the $L^2$ norm of $\theta_+$, while the second part is bounded
-\[ \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K \leq C \norm{\theta_+^2(t,\cdot)}_{\HD^{1/2}} \sqrt{ \int \varphi(x)^2 \int \frac{[\psi(x)-\psi(y)]^2}{|x-y|^3}dy \,dx} \]
-which is bounded, because $\psi$ is smooth and globally $1/4$-H\"{o}lder continuous, by the $L^2$ norm of $\varphi$ and the $\HD^{1/2}$ norm of $\theta_+$.  
-
-The boundary term $\int \varphi \theta_+^2 \psi B$ is bounded by the $L^\infty$ norms of $\varphi$ and $\psi \indic{\theta_+>0}$ and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2$.  Taken together we have
-\[ \int \varphi \theta_+^2 \Lambda \psi \leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{L^2(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 }. \]
-%
-% Lastly, 
-%\begin{align*} 
-%\int \varphi \theta_+^2 \Lambda \psi &= \iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
-%\\ &= \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
-%\\ &\leq C\paren{\iint \varphi(x)^2 [\psi(x)-\psi(y)]^2 K}^{1/2} + \paren{ \norm{\varphi}_\infty + \norm{\grad \varphi}_\infty } \int \theta_+(y)^2 \,dy + \int \varphi \theta_+^2 \psi B
-%\\ &\leq C \norm{\varphi}_{L^2} + C \norm{\varphi}_{\infty} + C \norm{\grad \varphi}_\infty + \norm{\psi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{\HD^{1/2}}^2 \norm{\varphi}_{\infty}
-%\\ &= C \norm{\psi}_{L^\infty(-4,0; L^2(\Omega_n))} + C \norm{\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + C \norm{\grad\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}.
-%\end{align*}
-
-\end{itemize}
-
+We conclude that
+\[\begin{aligned} \frac{1}{2} \iint \theta_+^2 \varphi &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi + C \abs{\iint \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}}
+\\ & + C\norm{\varphi}_{C^0(0,T;C^{0,1})} \paren{\abs{\iint \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} 
++ \sup_{[0,T]} \int\! \theta_+^2 + \int_0^T |\{\theta_+\geq 0\}| + \int_0^T |\{\theta \geq 0\}|^2}. \end{aligned}\]
 
 \end{proof}
 
@@ -966,7 +943,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, with $\theta \in L^\infty(-T,0;L^4(\Omega)) \cap L^2(-T,0;H_0^1(\Omega))$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Consider the functions
@@ -1023,7 +1000,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, with $\theta \in L^\infty(-2,0;L^4(\Omega)) \cap L^2(-2,0;H_0^1(\Omega))$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 If
@@ -1060,7 +1037,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, and $\beta \in (0,1)$ be positive constants
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, with $\theta \in L^\infty(-5,0;L^4(\Omega)) \cap L^2(-5,0;H_0^1(\Omega))$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
@@ -1080,7 +1057,6 @@ Here $\delta_0$ is the constant from Proposition~\ref{thm:DG1}, which of course 
 \begin{proof}
 Suppose that the proposition is false.  Then there must exist, for each $n \in \N$, a bounded open set $\Omega_n$ with $C^{2,\beta_n}$ boundary for $\beta_n \in (0,1)$ and a function $\theta_n: [-5,0]\times \Omega_n \to \R$, functions $\ulow^n, \uhigh^n: [-5,0]\times\Omega_n \to \R^2$, and paths $\Gamma_n,\gamma_n:[-5,0]\to\R^2$ which solve \eqref{eq:main linear brokendown} and satisfy all of the the assumptions of our proposition (with the same constants $\Ccalib$, $\Cgamma$, and $\Comega$), except that
 \begin{equation} \label{mass assumption between} \abs{\{0 < \theta_n < 1\} \cap [-4,0]\times B_4(\Gamma_n)} \leq 1/n. \end{equation}
-In particular, though each $\theta_n \in L^\infty(-5,0;L^4(\Omega)) \cap L^2(-5,0;H_0^1(\Omega))$, their norms need not be uniformly bounded.  
 \vskip.3cm
 
 Let $\psi:\R^2 \to \R$ be a smooth function which vanishes on $B_2$ such that $\psi(x) = 2 + \paren{|x|^{1/4}-2^{1/4}}_+$ for $|x|>3$.  
@@ -1089,7 +1065,7 @@ Fix $n$ and define
 \[ \theta_+ := \paren{\theta_n - \psi(x-\Gamma_n)}_+. \]
 Then $\theta_+$ is supported on $\Omega \cap B_3(\Gamma_n)$ and is less than $2 + 3^{1/4} - 2^{1/4} \leq 3$ everywhere.  
 
-Our goal is to bound the derivatives of $\theta_+^3$ so that we can apply a compactness argument to the sequence $\theta_n$.  (For the curious reader, it is the calculations in Step 2 below in which it becomes necessary to consider $\theta_+^3$ instead of $\theta_+$.)  
+Our goal is to bound the derivatives of $\theta_+^2$ so that we can apply a compactness argument to the sequence $\theta_n$.  (For the curious reader, it is the calculations in Step 2 below in which it becomes necessary to consider $\theta_+^2$ instead of $\theta_+$.)  
 
 The remainder of the proof is divided in three steps.  First we show that the sequence of $\theta_+$ is compact in space, then we show that it is compact in time, and finally we show that the limiting function implies a contradiction.  
 
@@ -1102,117 +1078,65 @@ Moreover, by integrating Lemma~\ref{thm:energy inequality} in time from $-5$ to 
 \begin{equation}\label{DG2 energy} \sup_{[-4,0]} \int \theta_+^2 + \int_{-4}^0 \int \abs{\Lambda^{1/2}\theta_+}^2 + \int_{-4}^0 \int \Lambda^{1/2}\theta_+ \Lambda^{1/2}\theta_- \leq C. \end{equation}
 This proves in particular that $\theta_+ \in L^2(-4,0; \HD^{1/2}(\Omega))$ is uniformly bounded.  
 
-Furthermore, $\norm{\theta_+^3}_{L^2(-4,0;\HD^{1/2}(\Omega_n))}$ is uniformly bounded because
+Furthermore, $\norm{\theta_+^2}_{L^2(-4,0;\HD^{1/2}(\Omega_n))}$ is uniformly bounded because
 \begin{align*} 
-\norm{\Lambda^{1/2}(\theta_+^3)}_2^2 &= \iint [\theta_+(x)^3 - \theta_+(y)^3]^2 K + \int \theta_+^6 B 
-\\ &\leq 2\iint \theta_+(x)^4 [\theta_+(x)-\theta_+(y)]^2 K + 2\iint \theta_+(y)^4[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^4 \int \theta_+^2 B
-\\ &\leq C \norm{\theta_+}_\infty^4 \norm{\theta_+}_{\HD^{1/2}}^2.  
+\norm{\Lambda^{1/2}(\theta_+^2)}_2^2 &= \iint [\theta_+(x)^2 - \theta_+(y)^2]^2 K + \int \theta_+^4 B 
+\\ &\leq 2\iint \theta_+(x)^2 [\theta_+(x)-\theta_+(y)]^2 K + 2\iint \theta_+(y)^2[\theta_+(x)-\theta_+(y)]^2 K + \norm{\theta_+}_\infty^2 \int \theta_+^2 B
+\\ &\leq C \norm{\theta_+}_\infty^2 \norm{\theta_+}_{\HD^{1/2}}^2.  
 \end{align*}
 
 By Proposition \ref{thm:hadamard 3 lines}, for $E$  the extension-by-zero operator from $L^2(\Omega_n)$ to $L^2(\R^2)$,
-\begin{equation} \label{theta3 compact in space} \norm{ E \theta_+^3}_{L^2(-4,0; H^{1/2}(\R^2))} \leq C \end{equation}
+\begin{equation} \label{theta3 compact in space} \norm{ E \theta_+^2}_{L^2(-4,0; H^{1/2}(\R^2))} \leq C \end{equation}
 where $C$ does not depend on $n$.  
 
 \vskip.3cm
 \step{Compactness in time}
 
-Since $\theta_n$ solves the equation
-\[ \del_t \theta_n + (\uhigh^n + \ulow^n)\cdot \grad \theta_n + \Lambda \theta_n = 0, \] 
-multiply this equation by $\varphi \theta_+^2$, where $\varphi$ is the restriction to $\Omega_n$ of any $C^2(\R^2)$ function, and since $\theta_n = \theta_+ + \psi(\cdot-\Gamma_n) - \theta_-$ we integrate to obtain
-\begin{align*} 
-\frac{1}{3} \int \varphi \del_t \theta_+^3 &= \frac{-1}{3} \int \varphi (\ulow^n + \uhigh^n) \cdot \grad \theta_+^3 - \int \varphi \theta_+^2 \Lambda \theta_+ 
-\\ & + \int \varphi \theta_+^2 \dot{\Gamma}_n \cdot \grad \psi  - \int \varphi \theta_+^2 (\ulow^n + \uhigh^n) \cdot \grad \psi 
- - \int \varphi \theta_+^2 \Lambda \psi 
-\\ & + \int \varphi \theta_+^2 \Lambda \theta_-. 
-\end{align*}
-%\begin{align*} 
-%\frac{1}{3} \int \varphi \del_t \theta_+^3 + \frac{1}{3} \int \varphi \dot{\Gamma}_n \cdot \grad \theta_+^3 &= \frac{-1}{3} \int \varphi (\ulow^n - \dot{\Gamma}_n + \uhigh^n) \cdot \grad \theta_+^3 - \int \varphi \theta_+^2 (\ulow^n - \dot{\Gamma}_n + \uhigh^n) \cdot \grad \psi 
-%\\ & - \int \varphi \theta_+^2 \Lambda \theta_+ - \int \varphi \theta_+^2 \Lambda \psi + \int \varphi \theta_+^2 \Lambda \theta_-. 
-%\end{align*}
-Rearranging and integrating by parts, this becomes
-\begin{align*} 
-\int \varphi \del_t \theta_+^3 + \int \varphi \dot{\Gamma}_n \cdot \grad \theta_+^3 
-&= \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) + \int \uhigh^n \cdot \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi}
-\\ & - 3\int \varphi \theta_+^2 \Lambda \theta_+ + 3\int \varphi \theta_+^2 \Lambda \theta_- - 3\int \varphi \theta_+^2 \Lambda \psi. 
-\end{align*}
-We will bound the five terms on the right hand side one at a time.  
+Let $\varphi \in C_0^\infty([-4,0]; C^\infty(\Omega))$ a test function.  
+Since each $\theta_n$ and $\uhigh^n + \ulow^n$ is a suitable pair by assumption, we can apply the inequality \eqref{local condition} to find that, for some constant $C$ independent of $n$ and of $\varphi$,
+\begin{equation}\label{time compactness setup}\begin{aligned} 
+\iint \varphi \del_t \theta_+^2 + \iint \varphi \dot{\Gamma}_n\cdot\grad\theta_+^2 &\leq \iint \theta_+^2 (\ulow^n - \dot{\Gamma}_n + \uhigh^n)\cdot\grad\varphi + C \bigg(\norm{\varphi}_{C^0(C^1)} \abs{\iint \theta_+ \paren{\ulow^n - \dot{\Gamma}_n + \uhigh^n}\cdot\grad\psi} 
+\\ & \hspace{4cm} + \abs{\iint \varphi \theta_+ \paren{\ulow^n - \dot{\Gamma}_n + \uhigh^n}\cdot\grad\psi} + \norm{\varphi}_{C^0(C^1)}\bigg). 
+\end{aligned}\end{equation}
 
-Each instance of $C$ in the following bounds is independent of $n$.  
-
-\begin{itemize}
-\item Consider the low-pass term.  As in the proof of Lemma~\ref{thm:energy inequality}, we have $|\ulow^n(t,x) - \dot{\Gamma}_n(t)| \leq (1+8\Ccalib)\Cgamma + 6 \Ccalib$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq B_3(\Gamma_n(t))$.  Thus for $t \in [-4,0]$ we have for $C$ independent of $n$ and of $\varphi$
-\[ \int (\ulow^n - \dot{\Gamma}_n) \cdot (\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi) \leq C \paren{\norm{\grad\varphi(t,\cdot)}_{L^\infty(\Omega)} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)}}. \]
-
-\item Consider the high-pass term.  By Lemma \ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, since $\uhigh^n \in W^{-1/4,\infty}$, 
-\begin{align*} 
-\int \uhigh^n \cdot \paren{\theta_+^3 \grad\varphi - 3 \varphi \theta_+^2 \grad\psi} &\leq C \paren{\norm{\theta_+^3 \grad\varphi}_{L^2} + \norm{\varphi \theta_+^2 \grad\psi}_{L^2} + \norm{\theta_+^3 \grad\varphi}_{\HD^{1/2}} + \norm{\varphi \theta_+^2 \grad\psi}_{\HD^{1/2}}}
-\\ &\leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{C^2(\Omega)} \norm{\theta(t,\cdot)}_{\HD^{1/2}} }. 
+For the low pass terms, as in the proof of Lemma~\ref{thm:energy inequality}, we have $\abs{\ulow^n(t,x) - \dot{\Gamma}_n(t)} \leq (1+8\kappa)\Cgamma + 6\kappa$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq B_3(\Gamma_n(t))$.  Thus for $t\in[-4,0]$ we have for $C$ independent of $n$ and $\varphi$
+\begin{align*}
+\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+^2\grad\varphi} & \leq C \norm{\grad\varphi}_{L^\infty(\Omega)}, \\
+\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+\grad\psi} & \leq C, \\
+\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+\varphi\grad\psi} & \leq C \norm{\varphi}_{L^\infty(\Omega)}.
 \end{align*}
 
-\item Consider the $\Lambda \theta_+$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x)\theta_+(x)^2 - \varphi(y)\theta_+(y)^2][\theta_+(x)-\theta_+(y)] K$ which decomposes as
-\[ \iint \varphi(x)(\theta_+(x)+\theta_+(y))[\theta_+(x)-\theta_+(y)]^2 K + \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K. \]
-The first part is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$ and the square of the $\HD^{1/2}$ norm of $\theta_+$, while the second part is bounded
-\[ \iint \theta_+(y)^2 [\varphi(x)-\varphi(y)][\theta_+(x)-\theta_+(y)] K \leq C \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} \sqrt{\int \theta_+(y)^2 \int \frac{[\varphi(x)-\varphi(y)]^2}{|x-y|^3} dx \,dy}\]
-which is bounded by the $C^1$ norm of $\varphi$ and the $\HD^{1/2}$ norm of $\theta_+$.  
-% (using H\"{o}lder's inequality) by the $L^\infty$ and $\HD^{1/2}$ norms of $\theta_+$ and the square root of $\sup_y \int [\varphi(x)-\varphi(y)]^2/|x-y|^3 \,dx$.  This last quantity is in turn bounded by the $C^1$ norm of $\varphi$.  
+For the high pass terms, we have $\uhigh^n$ uniformly bounded in $\dot{W}^{-1/4,\infty}$ so, by Lemma~\ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, there is a constant $C$ independent of $n$ and $\varphi$ such that
+\begin{align*}
+\int \uhigh^n \cdot (\theta_+ \grad\varphi) &\leq C \paren{\norm{\grad\varphi}_{L^\infty(\Omega)} + \norm{\varphi}_{C^2(\Omega)}}, \\
+\int \uhigh^n \cdot (\theta_+ \grad\psi) &\leq C, \\
+\int \uhigh^n \cdot (\theta_+ \varphi\grad\psi) &\leq C \paren{\norm{\varphi}_{L^\infty(\Omega)} + \norm{\varphi}_{C^1(\Omega)}}.
+\end{align*}
 
-The boundary term $\int \varphi \theta_+^3 B$ is bounded by the $L^\infty$ norms of $\varphi$ and $\theta_+$, and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}$.  Taken together we have
-\[ \int \varphi \theta_+^2 \Lambda \theta_+ \leq C \paren{ \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 + \norm{\varphi(t,\cdot)}_{C^1(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} }. \]
-
-\item Consider the $\Lambda\theta_-$ term.  For any non-negative function $f$ we know by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint} that $\int f \theta_+ \Lambda \theta_- \leq 0$.  
-It follows that $-\theta_+ \Lambda \theta_-$ is a pointwise non-negative distribution.  Moreover, the integral over $[-4,0]\times\Omega$ of $-\theta_+\Lambda\theta_-$ is bounded by \eqref{DG2 energy}.  Thus $\theta_+\Lambda\theta_-$ is a measure with bounded total-variation norm and so
-\[ \int_{-4}^0 \int \varphi \theta_+^2 \Lambda \theta \leq \norm{\theta_+}_\infty \norm{\theta_+\Lambda\theta_-}_{\mathcal{M}} \norm{\varphi}_{C^0} \leq C \norm{\varphi}_{L^\infty([-4,0]\times\Omega)}. \]
-
-\item Consider the $\Lambda \psi$ term.  Decomposing this term using Proposition~\ref{thm:Caff Stinga representation} we have first an interior term $\iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K$ which decomposes as
-\[ \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K. \]
-The first part is bounded by the $C^1$ norms of $\varphi$ and $\psi$ and the $L^2$ norm of $\theta_+$, while the second part is bounded
-\[ \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K \leq C \norm{\theta_+^2(t,\cdot)}_{\HD^{1/2}} \sqrt{ \int \varphi(x)^2 \int \frac{[\psi(x)-\psi(y)]^2}{|x-y|^3}dy \,dx} \]
-which is bounded, because $\psi$ is smooth and globally $1/4$-H\"{o}lder continuous, by the $L^2$ norm of $\varphi$ and the $\HD^{1/2}$ norm of $\theta_+$.  
-
-The boundary term $\int \varphi \theta_+^2 \psi B$ is bounded by the $L^\infty$ norms of $\varphi$ and $\psi \indic{\theta_+>0}$ and by $\int \theta_+^2 B$ which is less than $\norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2$.  Taken together we have
-\[ \int \varphi \theta_+^2 \Lambda \psi \leq C \paren{ \norm{\varphi(t,\cdot)}_{C^1(\Omega)} + \norm{\varphi(t,\cdot)}_{L^2(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}} + \norm{\varphi(t,\cdot)}_{L^\infty(\Omega)} \norm{\theta_+(t,\cdot)}_{\HD^{1/2}}^2 }. \]
-%
-% Lastly, 
-%\begin{align*} 
-%\int \varphi \theta_+^2 \Lambda \psi &= \iint [\varphi(x) \theta_+(x)^2 - \varphi(y) \theta_+(y)^2][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
-%\\ &= \iint \varphi(x) [\theta_+(x)^2 - \theta_+(y)^2][\psi(x)-\psi(y)] K + \iint \theta_+(y)^2[\varphi(x) - \varphi(y)][\psi(x)-\psi(y)] K + \int \varphi \theta_+^2 \psi B
-%\\ &\leq C\paren{\iint \varphi(x)^2 [\psi(x)-\psi(y)]^2 K}^{1/2} + \paren{ \norm{\varphi}_\infty + \norm{\grad \varphi}_\infty } \int \theta_+(y)^2 \,dy + \int \varphi \theta_+^2 \psi B
-%\\ &\leq C \norm{\varphi}_{L^2} + C \norm{\varphi}_{\infty} + C \norm{\grad \varphi}_\infty + \norm{\psi\indic{\theta_+>0}}_\infty \norm{\theta_+}_{\HD^{1/2}}^2 \norm{\varphi}_{\infty}
-%\\ &= C \norm{\psi}_{L^\infty(-4,0; L^2(\Omega_n))} + C \norm{\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))} + C \norm{\grad\varphi}_{L^\infty(-4,0; L^\infty(\Omega_n))}.
-%\end{align*}
-
-\end{itemize}
-
-\begin{remark}
-We are attempting to bound $\del_t \theta_+^3$.  If we had attempted to bound $\del_t \theta_+^p$ instead, the final three terms above would have been problematic for $p=1$ and the very final term would have been problematic for $p=2$.  
-\end{remark}
-
-Combining all of these bounds, and using the fact that $\theta_+ \in L^2(-4,0; \HD^{1/2})$ uniformly, we conclude that there exists a constant $C$ independent of $n$ such that, for any $\varphi \in L^\infty(-4,0; C^2(\R^2)) \cap L^\infty(-4,0; L^2(\R^2))$, 
-\begin{equation} \label{theta3 compact in time} \int_{-4}^0 \int_{\Omega_n} \paren{ \del_t \theta_+^3 + \dot{\Gamma}_n \cdot \grad \theta_+^3 } \varphi \,dxdt \leq C \norm{\varphi}_{L^\infty(-4,0; C^2(\R^2))} + C \norm{\varphi}_{L^\infty(-4,0; L^2(\R^2))}. \end{equation}
+Plugging these six bounds into \eqref{time compactness setup}, we have for a constant $C$ independent of $n$ and $\varphi$
+\begin{equation} \label{theta3 compact in time} \int_{-4}^0 \int_{\Omega_n} \paren{\del_t \theta_+^2 + \dot{\Gamma}_n\cdot\grad\theta_+^2}\varphi \,dxdt \leq C \norm{\varphi}_{C^0(0,T; C^2(\Omega))}. \end{equation}
 
 \vskip.3cm
 \step{Taking the limit}
 
-We wish to analyze the limiting behavior of $\theta_+^3$ in the vicinity of $\Gamma_n$.  First we shift these functions to remove the dependence on $\Gamma_n$, and
-%Over time, the support of $\theta_+^3$ moves around in $\Omega_n$ following the path $\Gamma_n$.  In order to take a meaningful limit in $n$, we must shift these functions so that their supports remain in a compact set.  
-%To that end, 
+We wish to analyze the limiting behavior of $\theta_+^2$ in the vicinity of $\Gamma_n$.  First we shift these functions to remove the dependence on $\Gamma_n$, and
 define new functions on $[-4,0] \times \R^2$ by
 \[ v_n(t,x) := \begin{cases}
-\theta_+(t, x + \Gamma_n(t))^3, & x + \Gamma_n(t) \in \Omega_n, \\
+\theta_+(t, x + \Gamma_n(t))^2, & x + \Gamma_n(t) \in \Omega_n, \\
 0, & x + \Gamma_n(t) \notin \Omega_n.
 \end{cases} \]
 Each $v_n$ is supported on $|x| \leq 3$, and
-\begin{equation} \label{definition of v_n} v_n(t,x) = \paren{\theta_n(t, x + \Gamma_n(t)) - \psi(x)}_+^3 \end{equation}
+\begin{equation} \label{definition of v_n} v_n(t,x) = \paren{\theta_n(t, x + \Gamma_n(t)) - \psi(x)}_+^2 \end{equation}
 whenever the right hand side is defined.
 \vskip.3cm
-
-Let $X \subseteq C^2(\R^2)$ be the Banach space of $C^2$ functions with norm $\norm{\cdot}_X = \norm{\cdot}_{C^2(\R^2)} + \norm{\cdot}_{L^2(\R^2)}$ finite.  Note that
-\[ \del_t v_n(t,x) = \del_t \theta_+^3(t,x+\Gamma_n) + \dot{\Gamma}_n \cdot \grad \theta_+^3(t,x+\Gamma_n). \]
+Note that
+\[ \del_t v_n(t,x) = \del_t \theta_+^2(t,x+\Gamma_n) + \dot{\Gamma}_n \cdot \grad \theta_+^2(t,x+\Gamma_n). \]
 
 For $C$ independent of $n$, we know from \eqref{theta3 compact in space} that
 \[ \norm{ v_n }_{L^2(-4,0; H^{1/2}(\R^2)} \leq C \]
 and from \eqref{theta3 compact in time} that
-\[ \norm{ \del_t v_n }_{L^1(-4,0; X^*)} \leq C. \]
+\[ \norm{ \del_t v_n }_{\mathcal{M}(-4,0; C^{-2}(\Omega))} \leq C \]
+where $\mathcal{M}$ is the space of Radon measures with total-variation norm and $C^{-2}(\Omega)$ is the dual of $C^2(\Omega)$.  
 
 Therefore, by the Aubin-Lions Lemma, the set $\{v_n\}_n$ is compactly embedded in\\ $L^2([-4,0]\times\R^2)$.  Up to a subsequence, there is a function $v \in L^2([-4,0]\times\R^2)$ such that
 \[ v_n \xrightarrow{L^2} v. \]
@@ -1221,13 +1145,13 @@ Therefore, by the Aubin-Lions Lemma, the set $\{v_n\}_n$ is compactly embedded i
 By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, and $v \in L^2(H^{1/2})$.  
 
 By \eqref{ddt theta bounded}
-\begin{equation} \label{ddt v bounded} \ddt \int_{\R^2} v_n^{2/3} \,dx = \ddt \int_{\Omega_n} \theta_+^2 \,dx \leq C \end{equation}
+\begin{equation} \label{ddt v bounded} \ddt \int_{\R^2} v_n \,dx = \ddt \int_{\Omega_n} \theta_+^2 \,dx \leq C \end{equation}
 so the same must be true of $v$, for $\ddt$ interpreted in the sense of distributions.  
 
 By \eqref{mass assumption above}, \eqref{mass assumption between}, and \eqref{mass assumption below} applied to $v_n$ (recalling the relation \eqref{definition of v_n}), we conclude that
 \begin{equation} \label{mass assumptions v} \begin{cases} 
 \abs{\{v \geq 1\} \cap [-2,0]\times B_2(0)} \geq \delta_0/4, \\
-\abs{\{0 < v < [1-\psi]^3\} \cap [-4,0]\times B_4(0)} \leq 0, \\
+\abs{\{0 < v < [1-\psi]^2\} \cap [-4,0]\times B_4(0)} \leq 0, \\
 \abs{\{v \leq 0\} \cap [-4,0]\times B_4(0)} \geq 2|B_4|
 \end{cases} \end{equation}
 
@@ -1237,9 +1161,9 @@ By \eqref{mass assumption above}, \eqref{mass assumption between}, and \eqref{ma
 %\abs{\{v_n \leq 0\} \cap [-4,0]\times B_4(0)} &\geq 2|B_4|
 %\end{align}
 
-For any $(t,x) \in [-4,0]\times B_4(0)$, either $v(t,x) \geq [1 - \psi(x)]^3$ or else $v(t,x) = 0$.  In fact, since $\norm{v(t,\cdot)}_{H^{1/2}} < \infty$ for almost every $t$ and $H^{1/2}$ does not contain functions with jump discontinuities, the function $v$ is either identically 0 or else $\geq [1-\psi(x)]^3$ at each $t$.  
+For any $(t,x) \in [-4,0]\times B_4(0)$, either $v(t,x) \geq [1 - \psi(x)]^2$ or else $v(t,x) = 0$.  In fact, since $\norm{v(t,\cdot)}_{H^{1/2}} < \infty$ for almost every $t$ and $H^{1/2}$ does not contain functions with jump discontinuities, the function $v$ is either identically 0 or else $\geq [1-\psi(x)]^2$ at each $t$.  
 
-Thus $\int v(t,x)^{2/3} \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^3 \,dx > 0$ at each $t$.  By \eqref{ddt v bounded} and \eqref{mass assumptions v}, $v$ must be identically zero for all $t > -2$ but also must be non-zero for some $t > -2$, which is a contradiction.  
+Thus $\int v(t,x) \,dx$ is either 0 or else $\geq \int [1-\psi(x)]^2 \,dx > 0$ at each $t$.  By \eqref{ddt v bounded} and \eqref{mass assumptions v}, $v$ must be identically zero for all $t > -2$ but also must be non-zero for some $t > -2$, which is a contradiction.  
 
 Our assumption that the sequence $\theta_n$ exists must have been false, and the proposition must be true.  
 
@@ -1551,6 +1475,8 @@ In other words,
 \\ &= 4 \paren{\frac{2}{2-\lambda}} \exp\bracket{\ln\paren{\frac{2}{2-\lambda}} \frac{\ln(|t|^2 + |x|^2)}{-(1+C)\ln(\eps)}}
 \\ &= \frac{8}{2-\lambda} (|t|^2 + |x|^2)^{-\frac{\ln(2) - \ln(2-\lambda)}{(1+C)\ln(\eps)}}.
 \end{align*}
+
+This completes the proof of regularity.  That $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ implies $\theta$, $u$ are a suitable pair is proven in Lemma~\ref{thm:caccioppoli}.  
 
 \end{proof}
 
