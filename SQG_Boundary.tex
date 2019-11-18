@@ -170,9 +170,9 @@ In the model, the dissipation $\Lambda =\paren{-\Delta_D}^{1/2}$  is due to the 
 
 We will consider solutions which verify the following technical condition:
 \begin{definition}
-A pair $\theta, u \in L^infty(0,T;L^2(\Omega))$ is called suitable if, for any smooth non-negative functions $\Psi \in C^\infty([0,T]\times \Omega)$ and $\varphi \in C^\infty_0(0,T;C^\infty(\Omega))$, there exists a constant $C$ depending on $\norm{\grad\Psi}_{L^\infty([0,T]\times\Omega)}$ and $\sup_{[0,T]} \bracket{\Psi(t,\cdot)}_{1/4}$ such that the function $\theta_+ := (\theta-\Psi)_+$ satisfies the inequalities
+A pair $\theta, u \in L^\infty(0,T;L^2(\Omega))$ is called suitable if, for any smooth non-negative functions $\Psi \in C^\infty([0,T]\times \Omega)$ and $\varphi \in C^\infty_0(0,T;C^\infty(\Omega))$, there exists a constant $C$ depending on $\norm{\grad\Psi}_{L^\infty([0,T]\times\Omega)}$ and $\sup_{[0,T]} \bracket{\Psi(t,\cdot)}_{1/4}$ such that the function $\theta_+ := (\theta-\Psi)_+$ satisfies the inequalities
 \begin{equation}\label{leray-hopf condition}
-\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
+\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ \geq 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
 \end{equation}
 and
 \begin{equation} \label{local condition} \begin{aligned}
@@ -558,7 +558,7 @@ In order to prove this proposition, we require an energy inequality for $(\theta
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and $T> 0$ and $0<\gamma<1/2$ be constants.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative and smooth.  Then there exists a constant $C$ depending only on $\norm{\grad \Psi}_\infty$ and $\sup_t \bracket{\Psi(t,\cdot)}_{\gamma; \Omega}$ such that the following holds:
 \vskip0.3cm
 
-Let $\theta \in L^\infty(0,T; L^4(\Omega)) \cap L^2(0,T;H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^4(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Then the functions
+Let $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T;H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega))$ solve \eqref{eq:main linear} in the sense of distributions.  Then the functions
 \[ \theta_+ := \paren{\theta - \Psi}_+, \qquad \theta_- := \paren{\Psi - \theta}_+ \]
 satisfy the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }. \]
@@ -571,7 +571,7 @@ Moreover, for any non-negative function $\varphi \in C^0(0,T;C^1(\Omega))$,
 + \sup_{[0,T]} \int \theta_+^2 + \int_0^T |\{\theta \geq 0\}|^2 + 1} 
 \end{aligned}\end{equation}
 
-In other words, $\theta$ and $u$ are a suitable pair.
+In particular, $\theta$ and $u$ are a suitable pair.
 
 \end{lemma}
 
@@ -623,7 +623,7 @@ Combining this with \eqref{first form of cacciopolli} and \eqref{good lower boun
 
 \vskip.3cm%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----
 
-We begin now the proof of \eqref{second energy inequality}.  Since $\theta_+ \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$, by interpolation we can further conclude $\theta_+ \in L^4(0,T; L^4(\Omega)$.  Therefore we can multiply \eqref{eq:main linear} by $\varphi \theta_+$ and integrate in space to obtain
+We begin now the proof of \eqref{second energy inequality}.  Since $\theta_+ \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$, by interpolation we can further conclude $\theta_+,u \in L^4(0,T; L^4(\Omega)$.  Therefore we can multiply \eqref{eq:main linear} by $\varphi \theta_+$ and integrate in space to obtain
 \[ 0 = \int \varphi \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  After rearranging and integrating by parts, this becomes
 \begin{equation}\label{equality with varphi}
@@ -645,8 +645,8 @@ From the bound \eqref{first energy inequality}, we know that
 
 We conclude that
 \[\begin{aligned} \frac{1}{2} \iint \theta_+^2 \varphi &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi + C \abs{\iint \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}}
-\\ & + C\norm{\varphi}_{C^0(0,T;C^{0,1})} \paren{\abs{\iint \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} 
-+ \sup_{[0,T]} \int\! \theta_+^2 + \int_0^T |\{\theta_+\geq 0\}| + \int_0^T |\{\theta \geq 0\}|^2}. \end{aligned}\]
+\\ & + C\norm{\varphi}_{C^0(0,T;C^{0,1})} \paren{\abs{\iint\! \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} 
++ \sup_{[0,T]} \int\! \theta_+^2 + \int_0^T\! |\{\theta_+\geq 0\}| + \int_0^T\! |\{\theta \geq 0\}|^2}. \end{aligned}\]
 
 \end{proof}
 
@@ -657,7 +657,7 @@ For any constant $\bar{C} \geq 0$, there exists a $\delta>0$ such that the follo
 
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  
 Let $f \in L^2([-2,0]\times\Omega)$ be a function with the property that for any positive constant $a$
-\begin{equation} \label{DG energy ddt} \ddt \int (f-a)_+^2 + \int \abs{\Lambda^{1/2} (f-a)_+}^2 \leq \bar{C} \paren{ \int \indic{f > a} + \int (f-a)_+ + \int (f-a)_+^2 }. \end{equation}
+\begin{equation} \label{DG energy ddt} \ddt \int (f-a)_+^2 + \int \abs{\Lambda^{1/2} (f-a)_+}^2 \leq \bar{C} \paren{ \int \indic{f \geq a} + \int (f-a)_+ + \int (f-a)_+^2 }. \end{equation}
 
 Then
 \[ \int_{-2}^0 \int (f-a)_+^2 \,dxdt \leq \delta \]
@@ -718,10 +718,10 @@ The result follows.
 Proposition \ref{thm:L2 to Linfty} is an easy consequence of these lemmas.  
 
 \begin{proof}[Proof of \ref{thm:L2 to Linfty}]
-Our regularity assumptions on $\theta$ and $u$ are enough to show, by the usual energy argument, that $\norm{\theta(t,\cdot)}_{L^2(\Omega)}$ is decreasing in time.  By the main result of \cite{CoIg.sqg}, or by applying Lemma~\ref{thm:caccioppoli} with constant cutoff $\Psi(t,x) = \norm{\theta(T,\cdot)}_{L^\infty(\Omega)}$, the $L^\infty$ norm of $\theta(t,\cdot)$ is also decreasing in time once finite.  Thus for $T$ large, $\norm{\theta}_{L^\infty([2,T]\times \Omega)} \leq \norm{\theta}_{L^\infty([1,2]\times\Omega)}$.  
+Our regularity assumptions on $\theta$ and $u$ are enough to show, by the usual energy argument, that $\norm{\theta(t,\cdot)}_{L^2(\Omega)}$ is decreasing in time.  By the main result of \cite{CoIg.sqg}, or by applying \eqref{leray-hopf condition} with constant cutoff $\Psi(t,x) = \norm{\theta(T,\cdot)}_{L^\infty(\Omega)}$, the $L^\infty$ norm of $\theta(t,\cdot)$ is also decreasing in time once finite.  Thus for $T$ large, $\norm{\theta}_{L^\infty([2,T]\times \Omega)} \leq \norm{\theta}_{L^\infty([1,2]\times\Omega)}$.  
 \vskip.3cm
 
-In the case $S \geq 2$, we can apply Lemma~\ref{thm:caccioppoli} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta(t+2,x)$ to show that 
+In the case $S \geq 2$, we can apply \eqref{leray-hopf condition} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta(t+2,x)$ to show that 
 \[ \norm{\theta}_{L^\infty([2,T]\times\Omega)} \leq \paren{\frac{2}{\delta}}^{1/2} \norm{\theta_0}_2. \]
 
 For small $S$, we can apply the above argument to the function $\theta\paren{(S/2)t, (S/2)x}$.  
@@ -943,14 +943,14 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Consider the functions
 \[ \theta_+ := \paren{\theta - \psi(\cdot-\Gamma)}_+, \qquad \theta_- := \paren{\psi(\cdot-\Gamma) - \theta}_+. \]
 
 If $\theta_+$ is supported on $x \in \Omega \cap B_R(\Gamma(t))$ then $\theta_+$ and $\theta_-$ satisfy the inequality
-\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \int \theta_+ + \int \theta_+^2 }. \]
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ \geq 0} + \int \theta_+ + \int \theta_+^2 }. \]
 %with the constant $C$ depending on $\Cgamma$ and $T$, on $\norm{\Lambda^{-1/4} \uhigh}_\infty$, $\bracket{\ulow}_{3/4}$, and $\norm{\ulow}_\Lip$, and on $\norm{D^2 \phi}_\infty$, $\norm{\grad\phi}_\infty$, and $\sup \norm{|x|^{3/4} \grad\phi(x)}_\infty$.  
 \end{lemma}
 
@@ -960,8 +960,8 @@ Define
 so that
 \[ \del_t \Psi + (\ulow + \uhigh)\cdot\grad \Psi = (\ulow - \dot{\Gamma} + \uhigh)\cdot \grad \psi(x-\Gamma(t)). \]
 
-Applying Lemma \ref{thm:caccioppoli} to $\theta$ and $\Psi$ we arrive at
-\begin{equation} \label{control from cacciopolli} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\ulow-\dot{\Gamma}(t) + \uhigh) \cdot \grad\psi(x-\Gamma(t))} }. \end{equation}
+Applying \eqref{leray-hopf condition} to $\theta$ and $\Psi$ we arrive at
+\begin{equation} \label{control from cacciopolli} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ \geq 0} + \abs{\int \theta_+ (\ulow-\dot{\Gamma}(t) + \uhigh) \cdot \grad\psi(x-\Gamma(t))} }. \end{equation}
 \vskip.3cm
 
 Consider first the high-pass term $\int \theta_+ \uhigh\cdot\grad\psi$.  By inserting $\Lambda^{1/4}\Lambda^{-1/4}$ and then integrating by parts, we can apply Lemma~\ref{thm:Lambda stuff} parts \eqref{thm:L1 of Lambda1/4 bounded} and \eqref{thm:extra product rule} to obtain
@@ -1000,7 +1000,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 If
@@ -1018,7 +1018,7 @@ Let $\psi$ be such that $\psi = 0$ for $|x| \leq 1$ and $\psi(x) = 2 + \paren{|x
 For any constant $a > 0$, we can apply Lemma~\ref{thm:energy inequality} to the function
 \[ \theta_a := (\theta(t,x) - \psi(x - \Gamma(t)) - a)_+ \]
 and obtain
-\[ \ddt \int \theta_a^2 + \int \abs{\Lambda^{1/2} \theta_a}^2 \leq C \paren{ \int \indic{\theta_a > 0} + \int \theta_a + \int \theta_a^2 }. \]
+\[ \ddt \int \theta_a^2 + \int \abs{\Lambda^{1/2} \theta_a}^2 \leq C \paren{ \int \indic{\theta_a \geq 0} + \int \theta_a + \int \theta_a^2 }. \]
 
 Thus $\theta - \psi(x-\Gamma)$ satisfies the assumptions of Lemma~\ref{thm:DG1 skeleton}.  There exists a constant, which we call $\delta_0$, so that if
 \[ \int_{-2}^0 \int \paren{\theta(t,x) - \psi(x-\Gamma(t))}_+ \,dxdt \leq \delta_0 \]
@@ -1037,7 +1037,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, and $\beta \in (0,1)$ be positive constants
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{1/2} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gamma$ and $\gamma$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$, and $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$.  
 \vskip.3cm
 
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
