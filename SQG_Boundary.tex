@@ -170,16 +170,18 @@ In the model, the dissipation $\Lambda =\paren{-\Delta_D}^{1/2}$  is due to the 
 
 We will consider solutions which verify the following technical condition:
 \begin{definition}
-A pair $\theta, u \in L^\infty(0,T;L^2(\Omega))$ is called suitable if, for any smooth non-negative functions $\Psi \in C^\infty([0,T]\times \Omega)$ and $\varphi \in C^\infty_0(0,T;C^\infty(\Omega))$, there exists a constant $C$ depending on $\norm{\grad\Psi}_{L^\infty([0,T]\times\Omega)}$ and $\sup_{[0,T]} \bracket{\Psi(t,\cdot)}_{1/4}$ such that the function $\theta_+ := (\theta-\Psi)_+$ satisfies the inequalities
+A pair $\theta, u \in L^\infty(0,T;L^2(\Omega))$ is called \textbf{suitable} if, for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R^2)$, there exists a constant $C$ depending on $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)}$ and the H\"{o}lder seminorm $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2}$ such that the following holds:
+
+For any $\lambda >0$ and $\eps \in (0,1)$, and any smooth non-negative $\varphi \in C^\infty_0(0,T;C^\infty(\tilde{\Omega}))$ defined on $\tilde{\Omega} := \{x \in \R^2: \eps x \in \Omega\}$, the functions $\tilde{\theta}_+(t,x) := (\lambda \theta(\eps t, \eps x)-\Psi(t, x))_+$ and $\tilde{u}(t,x):= u(\eps t, \eps x)$ satisfy the inequalities
 \begin{equation}\label{leray-hopf condition}
-\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ \geq 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
+\ddt \int \tilde{\theta}_+^2 + \int \abs{\Lambda^{1/2} \tilde{\theta}_+}^2 \leq C \paren{ \int \indic{\tilde{\theta}_+ \geq 0} + \abs{\int \tilde{\theta}_+ (\del_t \Psi + \tilde{u}\cdot\grad\Psi)} }
 \end{equation}
-and
+for all $t \in [0,T]$, and
 \begin{equation} \label{local condition} \begin{aligned}
-\frac{1}{2} \iint \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi
-+ C\abs{\iint \varphi \theta_+ \del_t\Psi + u\cdot\grad\Psi}
-\\ & + C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \paren{\abs{\iint \theta_+ \del_t\Psi + u\cdot\grad\Psi} 
-+ \sup_{[0,T]} \int \theta_+^2 + \int_0^T |\{\theta \geq 0\}|^2 + 1} 
+\frac{1}{2} \int_0^T\int \varphi \del_t \tilde{\theta}_+^2 &\leq \frac{1}{2} \int_0^T\int \tilde{\theta}_+^2 \tilde{u}\cdot\grad\varphi
++ C\abs{\int_0^T\int \varphi \tilde{\theta}_+ (\del_t\Psi + \tilde{u}\cdot\grad\Psi)}
+\\ & + C\norm{\varphi}_{C^0(0,T;C^1(\tilde{\Omega}))} \paren{\abs{\int_0^T\int \tilde{\theta}_+ (\del_t\Psi + \tilde{u}\cdot\grad\Psi)} 
++ \sup_{[0,T]} \int \tilde{\theta}_+^2 + \int_0^T |\{\tilde{\theta}_+ \geq 0\}|^2 + 1}.
 \end{aligned}\end{equation}
 \end{definition}
 Suitability is considered because it is stable under weak limits.  We will show that this property holds for a fairly large class of weak solutions to \eqref{eq:main nonlinear}.
@@ -563,16 +565,15 @@ Let $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T;H_0^1(\Omega))$ and $u \
 satisfy the inequality
 \[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }. \]
 
-Moreover, for any non-negative function $\varphi \in C^0(0,T;C^1(\Omega))$,
+In addition, for any non-negative function $\varphi \in C^0(0,T;C^1(\Omega))$,
 \begin{equation} \label{second energy inequality}\begin{aligned}
 \frac{1}{2} \iint \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi
 + C\abs{\iint \varphi \theta_+ \del_t\Psi + u\cdot\grad\Psi}
 \\ & + C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \paren{\abs{\iint \theta_+ \del_t\Psi + u\cdot\grad\Psi} 
-+ \sup_{[0,T]} \int \theta_+^2 + \int_0^T |\{\theta \geq 0\}|^2 + 1} 
++ \sup_{[0,T]} \int \theta_+^2 + \int_0^T |\{\theta_+ \geq 0\}|^2 + 1} 
 \end{aligned}\end{equation}
 
-In particular, $\theta$ and $u$ are a suitable pair.
-
+Moreover, $\theta$ and $u$ are a suitable pair.
 \end{lemma}
 
 \begin{proof}
@@ -599,7 +600,7 @@ Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is no
 \end{align*}
 
 Put together, we arrive at 
-\begin{equation} \label{first form of cacciopolli} \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2}\theta_+ \Lambda^{1/2} \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \leq \abs{\int \theta_+ (\del_t \Psi + u \cdot \grad \Psi)}. \end{equation}
+\begin{equation} \label{first form of cacciopolli} \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2}\theta_+ \Lambda^{1/2} \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \leq -\int \theta_+ (\del_t \Psi + u \cdot \grad \Psi). \end{equation}
 
 At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi$ term using the formula from Proposition~\ref{thm:Caff Stinga representation}.  
 \[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi = \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y) + \int \theta_+ \Psi B. \]
@@ -619,7 +620,7 @@ The cutoff $\Psi$ is locally Lipschitz, and H\"{o}lder continuous with exponent 
 Since $3-2\gamma > 2$, this quantity is integrable.  Thus
 \[ \int \indic{\theta_+>0}(x) \int [\Psi(x)-\Psi(y)]^2 K(x,y) \,dydx \leq C(\norm{\grad \Psi}_\infty, \bracket{\Psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
 Combining this with \eqref{first form of cacciopolli} and \eqref{good lower bound on psi term cacciopoli} we obtain
-\begin{equation}\label{first energy inequality} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \abs{\int \theta_+ (\del_t\Psi+u\cdot\grad\Psi)} + \int \indic{\theta_+>0} }.\end{equation}
+\begin{equation}\label{first energy inequality} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ - \int \theta_+ (\del_t\Psi+u\cdot\grad\Psi) + \int \indic{\theta_+>0} }.\end{equation}
 
 \vskip.3cm%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----%-----
 
@@ -641,13 +642,15 @@ These two bounds, together with Lemma~\ref{thm:Lambda stuff} part \eqref{thm:ext
 where $C$ is a constant depending on $\norm{\grad\Psi}_\infty$ and $[\Psi]_\gamma$.
 
 From the bound \eqref{first energy inequality}, we know that 
-\[ \norm{\theta_+}_{L^2(0,T;\HD^{1/2})}^2 \leq C \paren{\norm{\theta_+}_{L^\infty(0,T;L^2(\Omega))}^2 + \iint \indic{\theta_+ \geq 0} - \iint \theta_+ \abs{\del_t\Psi + u\cdot\grad\Psi} }. \]
+\[ \norm{\theta_+}_{L^2(0,T;\HD^{1/2})}^2 \leq C \paren{\norm{\theta_+}_{L^\infty(0,T;L^2(\Omega))}^2 + \iint \indic{\theta_+ \geq 0} + \abs{\iint \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi} }}. \]
 
 We conclude that
 \[\begin{aligned} \frac{1}{2} \iint \theta_+^2 \varphi &\leq \frac{1}{2} \iint \theta_+^2 u\cdot\grad\varphi + C \abs{\iint \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}}
 \\ & + C\norm{\varphi}_{C^0(0,T;C^{0,1})} \paren{\abs{\iint\! \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} 
-+ \sup_{[0,T]} \int\! \theta_+^2 + \int_0^T\! |\{\theta_+\geq 0\}| + \int_0^T\! |\{\theta \geq 0\}|^2}. \end{aligned}\]
++ \sup_{[0,T]} \int\! \theta_+^2 + \int_0^T\! |\{\theta_+\geq 0\}| + \int_0^T\! |\{\theta_+ \geq 0\}|^2}. \end{aligned}\]
 
+
+Finally, to see that $\theta$, $u$ is a suitable pair, we need only notice that for any $\lambda > 0$, $\eps \in (0,1)$ our assumptions on $\theta$ and $u$ are preserved by the scaling $\theta(t,x) \mapsto \lambda \theta(\eps t, \eps x)$, $u(t,x) \mapsto u(\eps t, \eps x)$, and so the above proof holds at any scale.  
 \end{proof}
 
 With this energy inequality, Proposition~\ref{thm:L2 to Linfty} follows by a standard De Giorgi argument.  Since we will need to make a similar argument again in Section~\ref{sec:de giorgi}, we will make the bulk of the argument in a more general lemma.  
