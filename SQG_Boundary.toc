@@ -1,9 +1,9 @@
-\contentsline {section}{\tocsection {}{1}{Preliminaries}}{1}
-\contentsline {section}{\tocsection {}{2}{Properties of the Fractional Dirichlet Laplacian}}{5}
-\contentsline {section}{\tocsection {}{3}{$L^\infty $ bounds for $\theta $}}{10}
-\contentsline {section}{\tocsection {}{4}{Littlewood-Paley Theory}}{15}
-\contentsline {section}{\tocsection {}{5}{De Giorgi Estimates}}{18}
-\contentsline {section}{\tocsection {}{6}{A Decrease in Oscillation}}{24}
-\contentsline {section}{\tocsection {}{7}{H\"{o}lder Continuity}}{27}
-\contentsline {section}{\tocsection {Appendix}{A}{Technical Lemmas}}{30}
-\contentsline {section}{\tocsection {Appendix}{}{References}}{32}
+\contentsline {section}{\tocsection {}{1}{Preliminaries}}{1}% 
+\contentsline {section}{\tocsection {}{2}{Properties of the Fractional Dirichlet Laplacian}}{6}% 
+\contentsline {section}{\tocsection {}{3}{$L^\infty $ bounds for $\theta $}}{10}% 
+\contentsline {section}{\tocsection {}{4}{Littlewood-Paley Theory}}{15}% 
+\contentsline {section}{\tocsection {}{5}{De Giorgi Estimates}}{18}% 
+\contentsline {section}{\tocsection {}{6}{A Decrease in Oscillation}}{24}% 
+\contentsline {section}{\tocsection {}{7}{H\"{o}lder Continuity}}{27}% 
+\contentsline {section}{\tocsection {Appendix}{A}{Technical Lemmas}}{31}% 
+\contentsline {section}{\tocsection {Appendix}{}{References}}{32}% 
