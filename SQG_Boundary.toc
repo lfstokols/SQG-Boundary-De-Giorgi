@@ -6,5 +6,5 @@
 \contentsline {section}{\tocsection {}{6}{De Giorgi Estimates}}{22}% 
 \contentsline {section}{\tocsection {}{7}{A Decrease in Oscillation}}{28}% 
 \contentsline {section}{\tocsection {}{8}{H\"{o}lder Continuity}}{31}% 
-\contentsline {section}{\tocsection {Appendix}{A}{Technical Lemmas}}{34}% 
-\contentsline {section}{\tocsection {Appendix}{}{References}}{36}% 
+\contentsline {section}{\tocsection {Appendix}{A}{Technical Lemmas}}{35}% 
+\contentsline {section}{\tocsection {Appendix}{}{References}}{37}% 
