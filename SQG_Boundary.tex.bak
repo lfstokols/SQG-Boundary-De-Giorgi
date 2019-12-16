@@ -546,18 +546,21 @@ We begin by calculating the energy inequalities that any sufficiently smooth wea
 \begin{proposition}[Energy Inequalities] \label{thm:suitability}
 There exists a universal constant $\Csuit$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be bounded and open with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and let $T > 0$ be a time.  Let $\theta, u$ be a solution to \eqref{eq:main linear} on $\Omega \times [0,T]$, with $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega)) \cap L^4(0,T; L^4(\Omega))$.  
+Let $\Omega \subseteq \R^2$ be bounded and open with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and let $0 < S < T$ be times.  Let $\theta, u$ be a solution to \eqref{eq:main linear} on $\Omega \times [0,T]$, with $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega)) \cap L^4(0,T; L^4(\Omega))$.  
 
-Then for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R^2)$ satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and the H\"{o}lder seminorm $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$ and any smooth non-negative $\varphi \in C^\infty_0(0,T;C^\infty(\Omega))$, 
+Then for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R^2)$ satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and the H\"{o}lder seminorm $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$ and any smooth non-negative $\varphi \in \Ctest(S,T;\Ctest(\Omega))$, 
 \begin{equation}\label{leray-hopf condition}
 \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ k^2 \int \indic{\theta_+ \geq 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
 \end{equation}
-for all $t \in [0,T]$, and
-\begin{equation} \label{local condition} \begin{aligned}
-\frac{1}{2} \int_0^T\!\!\!\!\int\! \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int_0^T\!\!\!\!\int\! \theta_+^2 u\!\cdot\!\grad\varphi + \abs{\int_0^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}} 
-+ C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \Bigg(\int_0^T\!\!\!\!\int\! \theta_+^2 
-\\ & + \sup_{[0,T]} \int\!\! \theta_+^2 + \abs{\int_0^T\!\!\!\!\int\! \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} + k^2 \int_0^T\!\! |\{\theta_+\geq 0\}| + k^4 \int_0^T\!\! |\{\theta_+ \geq 0\}|^2 \Bigg). 
-\end{aligned} \end{equation}
+for all $t \in [S,T]$, and
+\begin{equation} \label{local condition} 
+\frac{-1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 \del_t \varphi \leq -\int_S^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} - \frac{1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 u\cdot\grad\varphi - \frac{1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 \Lambda \varphi - \int_S^T\!\!\!\!\int\! \varphi \theta_+ \Lambda \Psi.
+%\begin{aligned}
+%\frac{1}{2} \int_0^T\!\!\!\!\int\! \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int_0^T\!\!\!\!\int\! \theta_+^2 u\!\cdot\!\grad\varphi + \abs{\int_0^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}} 
+%+ C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \Bigg(\int_0^T\!\!\!\!\int\! \theta_+^2 
+%\\ & + \sup_{[0,T]} \int\!\! \theta_+^2 + \abs{\int_0^T\!\!\!\!\int\! \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} + k^2 \int_0^T\!\! |\{\theta_+\geq 0\}| + k^4 \int_0^T\!\! |\{\theta_+ \geq 0\}|^2 \Bigg). 
+%\end{aligned} 
+\end{equation}
 
 \end{proposition}
 
@@ -614,17 +617,18 @@ We begin now the proof of \eqref{local condition}.  Since $\theta_+ \in L^\infty
 \[ 0 = \int \varphi \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  After rearranging and integrating by parts, this becomes
 \begin{equation}\label{equality with varphi}
-\frac{1}{2} \int \varphi \del_t \theta_+^2 - \int \varphi \theta_+ \Lambda \theta_- + \int \varphi \theta_+ \Lambda \theta_+ + \int \varphi \theta_+ \Lambda \Psi = \frac{1}{2} \int  \theta_+^2 u \cdot \grad \varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} +. 
+\frac{1}{2} \int \varphi \del_t \theta_+^2 - \int \varphi \theta_+ \Lambda \theta_- = \frac{1}{2} \int  \theta_+^2 u \cdot \grad \varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} - \int \varphi \theta_+ \Lambda \theta_+ - \int \varphi \theta_+ \Lambda \Psi. 
 \end{equation}
-Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  It remains to bound, on the left-hand-side, the $\Lambda \Psi$ and $\Lambda \theta_+$ terms.  
+Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  
 
 For the $\Lambda \theta_+$ term, by Cordoba's inequality (c.f. \cite{CoIg.fraclap}),
 \begin{equation*} \begin{aligned}
-\int \varphi \theta_+ \Lambda \theta_+ &\geq \frac{1}{2} \int \varphi \Lambda \theta_+^2
-\\ &= \int \theta_+^2 \Lambda \varphi.
+-\int \varphi \theta_+ \Lambda \theta_+ &\leq \frac{-1}{2} \int \varphi \Lambda \theta_+^2
+\\ &= \frac{-1}{2} \int \theta_+^2 \Lambda \varphi.
 \end{aligned} \end{equation*}
-For the $\Lambda \Psi$ term, we can ignore the boundary term of the Caffarelli-Stinga Representation from Proposition~\ref{thm:Caff Stinga representation} because it is non-negative so
-\[ \int \varphi \theta_+ \Lambda \Psi \geq \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)] [\Psi(x) - \Psi(y)] K(x,y). \]
+The stated result follows immediately.  
+%For the $\Lambda \Psi$ term, we can ignore the boundary term of the Caffarelli-Stinga Representation from Proposition~\ref{thm:Caff Stinga representation} because it is non-negative so
+%\[ \int \varphi \theta_+ \Lambda \Psi \geq \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)] [\Psi(x) - \Psi(y)] K(x,y). \]
 These two bounds, together with Lemma~\ref{thm:Lambda stuff} part \eqref{thm:extra product rule}, can be plugged into \eqref{equality with varphi} to obtain
 \[\begin{aligned} \frac{1}{2} \int \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int \theta_+^2 u\cdot\grad\varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} 
 \\ & \hspace{2cm}+ C \norm{\varphi}_{C^{0,1}(\Omega)} \paren{\norm{\theta_+}_2 + \norm{\theta_+}_{\HD^{1/2}}} \paren{\norm{\theta_+}_{\HD^{1/2}} + k^2 \int \indic{\theta_+>0} \,dx} \end{aligned}.\]
@@ -643,7 +647,7 @@ We conclude that
 
 We will construct solutions which verify these energy inequalities proven above but which are not a priori in $L^2(H_0^1)$.  
 \begin{definition}
-A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain $[0,T]\times \Omega$ if $T < \infty$, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
+A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain $[S,T]\times \Omega$ if $S < T$ are finite, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
 \begin{enumerate}
 \item $\theta$, $u$ solve \eqref{eq:main linear} in the sense of distributions, \\
 \item $\theta$, $u$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} at all scales with the same universal constant $\Csuit$ defined in Proposition~\ref{thm:suitability}.  More specifically, if the following holds:
@@ -711,6 +715,12 @@ This expression is continuous for $\theta_N \in L^2(L^2)$, so by taking $N \to \
 for any $\varphi \in \Ctest(W_M)$ for any $M \in \N$.  By density, $\theta$ solves \eqref{eq:viscous} in the sense of distributions.  
 
 Since $\del_t \theta_N$ is uniformly bounded in $L^2(H^{-1})$, we know $\theta_N(t,\cdot) \to \theta_0$ weakly in $L^2$ uniformly in $N$ and so the same holds for $\theta$.  
+\vskip.3cm
+
+Lastly, for any constant $a \geq 0$, the function $(\theta - a)_+$ satisfies
+\[ \ddt \int \frac{1}{2} (\theta - a)_+ + \int \abs{\Lambda^{1/2} (\theta - a)_+}^2 = \frac{-1}{2}\int u \cdot \grad (\theta - a)_+^2 - \int a \Lambda (\theta - a)_+ + \eps \int \abs{\grad (\theta - a)_+}^2. \]
+\[ = - \int a (\theta - a)_+ B_1 \leq 0. \]
+By the standard De Giorgi argument (see Lemma~\ref{thm:DG1 skeleton} in the Appendix for details), this guarantees that $\theta \in L^\infty([t,\infty]\times\Omega)$ for all $t > 0$, with norm depending on $t$ and $\norm{\theta_0}_{L^2(\Omega)}$ and $\Omega$ but independent of $\eps$.  
 \end{proof}
 
 Now that we have global existence of solutions to the perturbed equation, we can take a limit as $\eps \to 0$ and obtain a suitable solution to the original equation.  
@@ -771,18 +781,19 @@ Recall that $\thetaep$ and $\thetae - \thetaep - \Psi$ have disjoint support.  T
 This term vanishes in the limit as $\eps \to 0$.  The terms $\int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi)$ and $\int \indic{\thetaep\geq 0}$ are continuous under $L^2$ limits, and the quantities $\ddt \int \thetaep^2$ and $\int \abs{\Lambda^{1/2} \thetaep}^2$ are lower-semicontinuous under $L^2$ limits, so we conclude that $\theta$ satisfies \eqref{leray-hopf condition}.  
 
 Similarly for the second suitability condition, we have as in the proof of Proposition~\ref{thm:suitability} (all $\iint$ are $\int_0^{\tilde{T}} \int_{\tilde{\Omega}}$)
-\begin{equation} \label{local condition with eps term} \begin{aligned} 
-\frac{-1}{2} \iint\!\! \thetaep^2 \del_t \varphi
-&\leq \frac{1}{2} \iint\!\! \thetaep^2 \ue\cdot\grad\varphi 
-+ \abs{\iint\!\! \varphi \thetaep \paren{\del_t\Psi+\ue\cdot\grad\Psi}} 
-+ C\norm{\varphi}_{C^0(0,{\tilde{T}};C^{0,1})} \Bigg(\iint\!\! \thetaep^2 
-\\ & + \sup_{[0,\tilde{T}]} \int\!\! \thetaep^2 
-+ k^2 \int_0^{\tilde{T}}\!\! |\{\thetaep\geq 0\}| 
-+ \abs{\iint\!\! \thetaep \paren{\del_t\Psi + \ue\cdot\grad\Psi}} 
-+ k^4 \int_0^{\tilde{T}}\!\! |\{\thetaep \geq 0\}|^2 
-\\ & + \eps \frac{k^2}{2} \mu\n T \mu^{-2} |\Omega| \Bigg) 
-+ \eps \iint\!\! \varphi \thetaep \Laplace \thetae. 
-\end{aligned} \end{equation}
+%\begin{equation} \label{local condition with eps term} \begin{aligned} 
+%\frac{-1}{2} \iint\!\! \thetaep^2 \del_t \varphi
+%&\leq \frac{1}{2} \iint\!\! \thetaep^2 \ue\cdot\grad\varphi 
+%+ \abs{\iint\!\! \varphi \thetaep \paren{\del_t\Psi+\ue\cdot\grad\Psi}} 
+%+ C\norm{\varphi}_{C^0(0,{\tilde{T}};C^{0,1})} \Bigg(\iint\!\! \thetaep^2 
+%\\ & + \sup_{[0,\tilde{T}]} \int\!\! \thetaep^2 
+%+ k^2 \int_0^{\tilde{T}}\!\! |\{\thetaep\geq 0\}| 
+%+ \abs{\iint\!\! \thetaep \paren{\del_t\Psi + \ue\cdot\grad\Psi}} 
+%+ k^4 \int_0^{\tilde{T}}\!\! |\{\thetaep \geq 0\}|^2 
+%\\ & + \eps \frac{k^2}{2} \mu\n T \mu^{-2} |\Omega| \Bigg) 
+%+ \eps \iint\!\! \varphi \thetaep \Laplace \thetae. 
+%\end{aligned} \end{equation}
+\[ \frac{-1}{2} \iint \thetaep^2 \del_t \varphi = \frac{1}{2} \iint \thetaep^2 \ue \cdot \grad\varphi - \iint \varphi \thetaep \paren{\del_t \Psi + \ue \cdot\grad\Psi} - \frac{1}{2} \iint \thetaep^2 \Lambda \varphi - \iint \varphi \thetaep \Lambda\Psi + \eps \iint \thetaep \Laplace \thetae. \]
 The added $\Laplace \thetae$ term decomposes as
 \[ \begin{aligned} 
 \eps \iint \thetaep \Laplace \thetae &= -\eps \iint \varphi \grad \thetaep \cdot \grad (\thetaep + \Psi) - \eps \iint \thetaep \grad \varphi \cdot \grad (\thetaep + \Psi)
@@ -790,7 +801,23 @@ The added $\Laplace \thetae$ term decomposes as
 \\ &\leq - \frac{\eps}{2} \iint \varphi \abs{\grad\thetaep}^2 + \frac{\eps}{2} \iint \varphi \abs{\grad\Psi}^2 + \frac{\eps}{2} \iint \thetaep^2 \Laplace \varphi - \eps \iint \thetaep \grad\varphi \cdot \grad \Psi
 \\ &\leq \eps \frac{k^2}{2} \mu\n T \norm{\varphi}_{C^0(L^1)} + \eps \frac{1}{2}\norm{\Laplace \varphi}_{L^\infty(L^\infty)} \norm{\thetaep}_{L^2(L^2)}^2 + \eps k \mu\n T \norm{\varphi}_{C^0(H^1)} \norm{\thetaep}_{L^\infty(L^2)}.
 \end{aligned} \]
-For $T$, $\mu$, $\lambda$, and $\varphi$ fixed, this term vanishes in the limit as $\eps \to 0$.  Moreover, the remaining terms in \eqref{local condition with eps term} are all continuous under $L^2$ limits.  It follows that $\theta$ satisfies \eqref{local condition}.  
+For $T$, $\mu$, $\lambda$, and $\varphi$ fixed, this term vanishes in the limit as $\eps \to 0$.  
+
+The term $\iint \varphi \thetaep \Lambda\Psi$ is stable under $L^2$ limits because it is linear in $\thetaep$ and 
+\begin{equation} \label{f Lambda Psi term is continuous} \begin{aligned}
+\int \varphi f \Lambda\Psi &= \iint [\varphi(x) f(x) - \varphi(y) f(y)] [\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy + \int \varphi f \Psi B_1
+\\ &\leq \paren{\iint [\varphi(x) f(x) - \varphi(y) f(y)]^2 K_{1/2}(x,y)}^{1/2} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2} + \int \varphi f \Psi B_1
+\\ &\leq \norm{\varphi f}_{\HD^{1/4}} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2} + \int \varphi f \Psi B_1
+\end{aligned} \end{equation}
+From Proposition~\ref{thm:Caff Stinga representation}, $K_1 / K_{1/2} \leq C_\Omega |x-y|^{-1/2}$.  Therefore, since $\norm{\grad\Psi}_{L^\infty}$ and $[\psi]_{1/4}$ are finite,
+\[ \iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} \leq C_\Omega \iint [\Psi(x) - \Psi(y)]^2 |x-y|^{-3.5} \leq C(\Omega, \Psi). \]
+Moreover, since $\varphi$ is compactly supported inside $\tilde{\Omega}$, $B\varphi \in L^\infty$.  Thus \eqref{f Lambda Psi term is continuous} becomes
+\[ \int \varphi f \Lambda\Psi \leq C \bracket{\norm{f}_{\HD^{1/4}} + \norm{f}_{L^1(\tilde{\Omega})}}.  \]
+Since $\thetaep \in L^2(\HD^{1/2})$ is uniformly bounded and $\thetae \to \theta$ in $L^2(L^2)$, by interpolation we have
+\[ \iint \varphi \thetaep \Lambda \Psi \to \iint \varphi (\tilde{\theta} - \Psi)_+ \Lambda \Psi. \]
+
+
+Moreover, the remaining terms in \eqref{local condition with eps term} are all continuous under $L^2$ limits.  It follows that $\theta$ satisfies \eqref{local condition}.  
 
 If $\theta$ and $u$ are scaled in the way specified by the suitability condition, note that \eqref{eq:viscous linear} is preserved by that scaling, so the argument follows in exactly the same manner.  We omit the details.  
 
@@ -802,6 +829,67 @@ If $\theta$ and $u$ are scaled in the way specified by the suitability condition
 \section{$L^\infty$ bounds for $\theta$} \label{sec:Linfty}
 
 Our goal in this section is to show that the $L^\infty$ norm of solutions to \eqref{eq:main linear} are instantaneously bounded by the $L^2$ norm of the initial data.  Note that global $L^\infty$ bounds for $L^\infty$ initial data are proven in \cite{CoIg.sqg}.  
+
+\begin{lemma}[Caccioppoli Estimate] \label{thm:caccioppoli}
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and $T> 0$ and $0<\gamma<1/2$ be constants.  Let $\Psi: [-T,0]\times \Omega \to \R$ be non-negative and smooth.  Then there exists a constant $C$ depending only on $\norm{\grad \Psi}_\infty$ and $\sup_t \bracket{\Psi(t,\cdot)}_{\gamma; \Omega}$ such that the following holds:
+\vskip0.3cm
+
+Let $\theta$ and $u$ be a suitable solution to \eqref{eq:main linear}.  Then the function
+\[ \theta_+ := \paren{\theta - \Psi}_+ \]
+satisfies the inequlality
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \int \indic{\theta_+ > 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }. \]
+
+
+\end{lemma}
+
+\begin{proof}
+We multiply \eqref{eq:main linear} by $\theta_+$ and integrate in space to obtain
+\[ 0 = \int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
+which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  We analyze them one at a time.  
+
+Firstly,
+\begin{align*} 
+\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \theta_+ &= \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \paren{\frac{1}{2}} \int \div u \, \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2
+\\ &= \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2.
+\end{align*}
+
+The $\Psi$ term produces important error terms:
+\begin{align*} 
+\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \Psi &= \int \theta_+ \del_t \Psi + \int \theta_+ u \cdot \grad \Psi + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi
+\\ &= \int \theta_+ (\del_t \Psi + u \cdot \grad \Psi) + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi
+\end{align*}
+
+Since $\theta_+$ and $\theta_-$ have disjoint support, the $\theta_-$ term is nonnegative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}:
+\begin{align*} 
+\int \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \theta_- &= \paren{\frac{1}{2}} \int \theta_+ \del_t \theta_- + \int \theta_+ u \cdot \grad \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_-
+\\ &= \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq 0.
+\end{align*}
+
+Put together, we arrive at 
+\begin{equation} \label{first form of cacciopolli} \paren{\frac{1}{2}} \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2}\theta_+ \Lambda^{1/2} \theta_- + \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \leq \abs{\int \theta_+ (\del_t \Psi + u \cdot \grad \Psi)}. \end{equation}
+
+At this point we break down the $\Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi$ term using the formula from Proposition~\ref{thm:Caff Stinga representation}.  
+\[ \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi = \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y) + \int \theta_+ \Psi B. \]
+Since $B \geq 0$ and $\Psi$ is non-negative by assumption, the $B$ term is non-negative and so
+\begin{equation} \label{just the K cacciopolli} \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi \geq \iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y). \end{equation}
+The remaining integral is symmetric in $x$ and $y$, and the integrand is only nonzero if at least one of $\theta_+(x)$ and $\theta_+(y)$ is nonzero.  Hence
+\[ \abs{\iint [\theta_+(x)-\theta_+(y)][\Psi(x)-\Psi(y)] K(x,y)} \leq 2 \iint \indic{\theta_+>0}(x) \abs{\theta_+(x)-\theta_+(y)} \cdot \abs{\Psi(x)-\Psi(y)} K(x,y). \]
+Now we can break up this integral using Young's inequality, and since $\iint [\theta_+(x)-\theta_+(y)]^2K \leq \norm{\theta_+}_{\HD^{1/2}}^2$ the inequality \eqref{just the K cacciopolli} becomes
+\begin{equation} \label{good lower bound on psi term cacciopoli}
+\int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \Psi + \frac{1}{2} \int \abs{\Lambda^{1/2}\theta_+}^2 \geq - 2 \iint \indic{\theta_+>0}(x) [\Psi(x)-\Psi(y)]^2 K(x,y). 
+\end{equation}
+
+It remains to bound the quantity $[\Psi(x)-\Psi(y)]^2 K(x,y)$.  By Proposition~\ref{thm:Caff Stinga representation}, there is a universal constant $C$ such that
+\[ K(x,y) \leq \frac{C}{|x-y|^{3}}. \]
+The cutoff $\Psi$ is locally Lipschitz, and H\"{o}lder continuous with exponent $\gamma < 1/2$, by assumption.  Therefore 
+\[ [\Psi(x)-\Psi(y)]^2 K(x,y) \leq C |x-y|^{-1} \wedge |x-y|^{2\gamma-3}. \]
+Since $3-2\gamma > 2$, this quantity is integrable.  Thus
+\[ \int \indic{\theta_+>0}(x) \int [\Psi(x)-\Psi(y)]^2 K(x,y) \,dydx \leq C(\norm{\grad \Psi}_\infty, \bracket{\Psi}_\gamma) \int \indic{\theta_+>0} \,dx. \]
+Combining this with \eqref{first form of cacciopolli} and \eqref{good lower bound on psi term cacciopoli} we obtain
+\[ \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 - \int \Lambda^{1/2} \theta_+ \Lambda^{1/2} \theta_- \leq C \paren{ \abs{\int \theta_+ (\del_t\Psi+u\cdot\grad\Psi)} + \int \indic{\theta_+>0} }.\]
+\end{proof}
+
+Armed with this inequality, $L^2 \to L^\infty$ regularization is a straightforward application of the standard De Giorgi iteration argument.  Since we make this argument multiple times in this paper, the details are sketched in the Appendix, see Lemma~\ref{thm:DG1 skeleton}.  
 
 \begin{proposition}[$L^2$ to $L^\infty$] \label{thm:L2 to Linfty}
 Let $T \in \R^+$ be a positive time.  Then for any $S \in (0,T)$, there exists a constant $C = C(S)$ such that the following holds:
@@ -815,67 +903,7 @@ Then
 
 In order to prove this proposition, we require an energy inequality for $(\theta-C)_+$ for arbitrary constants $C$, which follows from the suitability condition.  With this energy inequality, Proposition~\ref{thm:L2 to Linfty} follows by a standard De Giorgi argument.  Since we will need to make a similar argument again in Section~\ref{sec:de giorgi}, we will make the bulk of the argument in a more general lemma.  
 
-\begin{lemma}[De Giorgi Iteration Argument] \label{thm:DG1 skeleton}
-For any constant $\bar{C} \geq 0$, there exists a $\delta>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  
-Let $f \in L^2([-2,0]\times\Omega)$ be a function with the property that for any positive constant $a$
-\begin{equation} \label{DG energy ddt} \ddt \int (f-a)_+^2 + \int \abs{\Lambda^{1/2} (f-a)_+}^2 \leq \bar{C} \paren{ \int \indic{f \geq a} + \int (f-a)_+ + \int (f-a)_+^2 }. \end{equation}
-
-Then
-\[ \int_{-2}^0 \int (f-a)_+^2 \,dxdt \leq \delta \]
-implies that
-\[ f(t,x) \leq 1 \qquad \forall t\in[-1,0], x \in \Omega. \]
-\end{lemma}
-
-\begin{proof}
-Consider for $k \in \N$ the constants $t_k := -1 - 2^{-k}$ (so that $t_0 = -2$ and $t_\infty = -1$), and functions
-\[ f_k := (f - 1 + 2^{-k})_+ \]
-(so that $f_0 = (f)_+$ and $f_\infty = (f-1)_+$).  
-
-Define
-\[ \E_k := \int_{t_k}^0 \int_\Omega f_k^2 \,dxdt. \]
-
-When $f_{k+1}>0$, then in particular $f_k \geq 2^{-k-1}$.  Thus for any finite $p$, there exists a constant $C$ so
-\begin{equation} \label{non-linearization} \indic{f_{k+1}>0} \leq C^k f_k^p. \end{equation}
-\vskip.3cm
-
-Let $k\geq 0$ and define $\eta:[-2,0] \to \R$ a continuous function
-\[ \eta(t) := \begin{cases}
-0 & t \leq t_k \\
-2^{k+1} (t-t_k) & t_k \leq t \leq t_{k+1} \\
-1 & t_{k+1} \leq t.
-\end{cases} \]
-
-Let $s \in (t_{k+1},0)$.  Multiplying the inequality \eqref{DG energy ddt} with cutoff $a_k$ by $\eta(t)$ and integrating in time from $-2$ to $s$, then integrating by parts, we obtain
-\[ \int f_k(s,x)^2\,dx - 2^{k+1} \int\displaylimits_{t_k}^{t_{k+1}} \int f_k(t,x)^2 \,dxdt + \int\displaylimits_{t_{k+1}}^s \HDint{1/2}{f_k} \,dxdt \leq \bar{C} \paren{ \int\displaylimits_{t_k}^0 \int \indic{f_k>0} + f_k + f_k^2 \,dxdt } \]
-By taking the supremum over all $s \in (t_{k+1},0)$, we obtain
-\begin{equation} \label{DG energy sup}
-\sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k}\,dxdt \leq C \paren{ 2^{k+1} \int_{t_k}^0 \int f_k^2\,dxdt + \int_{t_k}^0 \int \indic{f_k > 0} + f_k \,dxdt } 
-\end{equation}
-\vskip.3cm
-
-From Proposition~\ref{thm:hadamard 3 lines} and Sobolev embedding, 
-\[ \int_{t_{k+1}}^0 \paren{ \int f_k^4 \,dx }^{1/2} \,dt \leq C \int_{t_{k+1}}^0 \HDint{1/2}{f_k} \,dxdt. \]
-Therefore by the Riesz-Thorin interpolation theorem,
-\[ \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C \paren{ \sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k} }^{3/2}. \]
-This estimate, along with \eqref{DG energy sup} and \eqref{non-linearization}, and the fact that $t_{k-1} < t_k$ and $f_{k-1} \geq f_k$, tell us that
-\[ \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C^k \E_{k-1}^{3/2}. \]
-
-Now we can estimate, using again \eqref{non-linearization} and the fact $f_k \geq f_{k+1}$,
-\[ \E_{k+1} \leq C^k \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C^k \E_{k-1}^{3/2}. \]
-\vskip.3cm
-
-This nonlinear recursive inequality $\E_{k+1} \leq C^k \E_{k-1}^{3/2}$, by a standard fact about nonlinear recursions (see \cite{DG} or \cite{Va.dg}), tells us that there exists a constant $\delta$ depending only on $C$ (which in turn depends only on the constant $\bar{C}$ in \eqref{DG energy ddt})
-\[ \E_0 \leq \delta \textrm{ implies } \lim_{k \to \infty} \E_k = 0. \]
-
-By assumption
-\[ \E_0 = \int_{-2}^0 \int (f)_+ \leq \delta. \]
-Therefore $\E_k \to 0$ and, by the dominated convergence theorem,
-\[ \int_{-1}^0 \int (f-1)_+ \,dxdt = 0. \]
-
-The result follows.  
-\end{proof}
 
 
 Proposition \ref{thm:L2 to Linfty} is an easy consequence of these lemmas.  
@@ -1648,6 +1676,68 @@ This completes the proof of regularity.  That $\theta \in L^\infty(0,T; L^2(\Ome
 \section{Technical Lemmas} \label{sec:technical}
 
 In this appendix we state and prove a few technical lemmas.  
+
+\begin{lemma}[De Giorgi Iteration Argument] \label{thm:DG1 skeleton}
+For any constant $\bar{C} \geq 0$, there exists a $\delta>0$ such that the following holds:
+
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$.  
+Let $f \in L^2([-2,0]\times\Omega)$ be a function with the property that for any positive constant $a$
+\begin{equation} \label{DG energy ddt} \ddt \int (f-a)_+^2 + \int \abs{\Lambda^{1/2} (f-a)_+}^2 \leq \bar{C} \paren{ \int \indic{f \geq a} + \int (f-a)_+ + \int (f-a)_+^2 }. \end{equation}
+
+Then
+\[ \int_{-2}^0 \int (f-0)_+^2 \,dxdt \leq \delta \]
+implies that
+\[ f(t,x) \leq 1 \qquad \forall t\in[-1,0], x \in \Omega. \]
+\end{lemma}
+
+\begin{proof}
+Consider for $k \in \N$ the constants $t_k := -1 - 2^{-k}$ (so that $t_0 = -2$ and $t_\infty = -1$), and functions
+\[ f_k := (f - 1 + 2^{-k})_+ \]
+(so that $f_0 = (f)_+$ and $f_\infty = (f-1)_+$).  
+
+Define
+\[ \E_k := \int_{t_k}^0 \int_\Omega f_k^2 \,dxdt. \]
+
+When $f_{k+1}>0$, then in particular $f_k \geq 2^{-k-1}$.  Thus for any finite $p$, there exists a constant $C$ so
+\begin{equation} \label{non-linearization} \indic{f_{k+1}>0} \leq C^k f_k^p. \end{equation}
+\vskip.3cm
+
+Let $k\geq 0$ and define $\eta:[-2,0] \to \R$ a continuous function
+\[ \eta(t) := \begin{cases}
+0 & t \leq t_k \\
+2^{k+1} (t-t_k) & t_k \leq t \leq t_{k+1} \\
+1 & t_{k+1} \leq t.
+\end{cases} \]
+
+Let $s \in (t_{k+1},0)$.  Multiplying the inequality \eqref{DG energy ddt} with cutoff $a_k$ by $\eta(t)$ and integrating in time from $-2$ to $s$, then integrating by parts, we obtain
+\[ \int f_k(s,x)^2\,dx - 2^{k+1} \int\displaylimits_{t_k}^{t_{k+1}} \int f_k(t,x)^2 \,dxdt + \int\displaylimits_{t_{k+1}}^s \HDint{1/2}{f_k} \,dxdt \leq \bar{C} \paren{ \int\displaylimits_{t_k}^0 \int \indic{f_k>0} + f_k + f_k^2 \,dxdt } \]
+By taking the supremum over all $s \in (t_{k+1},0)$, we obtain
+\begin{equation} \label{DG energy sup}
+\sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k}\,dxdt \leq C \paren{ 2^{k+1} \int_{t_k}^0 \int f_k^2\,dxdt + \int_{t_k}^0 \int \indic{f_k > 0} + f_k \,dxdt } 
+\end{equation}
+\vskip.3cm
+
+From Proposition~\ref{thm:hadamard 3 lines} and Sobolev embedding, 
+\[ \int_{t_{k+1}}^0 \paren{ \int f_k^4 \,dx }^{1/2} \,dt \leq C \int_{t_{k+1}}^0 \HDint{1/2}{f_k} \,dxdt. \]
+Therefore by the Riesz-Thorin interpolation theorem,
+\[ \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C \paren{ \sup_{[t_{k+1},0]} \int f_k^2 \,dx + \int_{t_{k+1}}^0 \HDint{1/2}{f_k} }^{3/2}. \]
+This estimate, along with \eqref{DG energy sup} and \eqref{non-linearization}, and the fact that $t_{k-1} < t_k$ and $f_{k-1} \geq f_k$, tell us that
+\[ \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C^k \E_{k-1}^{3/2}. \]
+
+Now we can estimate, using again \eqref{non-linearization} and the fact $f_k \geq f_{k+1}$,
+\[ \E_{k+1} \leq C^k \int_{t_{k+1}}^0 \int f_k^3 \,dxdt \leq C^k \E_{k-1}^{3/2}. \]
+\vskip.3cm
+
+This nonlinear recursive inequality $\E_{k+1} \leq C^k \E_{k-1}^{3/2}$, by a standard fact about nonlinear recursions (see \cite{DG} or \cite{Va.dg}), tells us that there exists a constant $\delta$ depending only on $C$ (which in turn depends only on the constant $\bar{C}$ in \eqref{DG energy ddt})
+\[ \E_0 \leq \delta \textrm{ implies } \lim_{k \to \infty} \E_k = 0. \]
+
+By assumption
+\[ \E_0 = \int_{-2}^0 \int (f)_+ \leq \delta. \]
+Therefore $\E_k \to 0$ and, by the dominated convergence theorem,
+\[ \int_{-1}^0 \int (f-1)_+ \,dxdt = 0. \]
+
+The result follows.  
+\end{proof}
 
 %\label{thm:Holder interpolation}
 
