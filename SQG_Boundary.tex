@@ -614,17 +614,18 @@ We begin now the proof of \eqref{local condition}.  Since $\theta_+ \in L^\infty
 \[ 0 = \int \varphi \theta_+ \bracket{ \del_t + u \cdot \grad + \Lambda } \paren{\theta_+ + \Psi - \theta_-} \]
 which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\theta_-$.  After rearranging and integrating by parts, this becomes
 \begin{equation}\label{equality with varphi}
-\frac{1}{2} \int \varphi \del_t \theta_+^2 - \int \varphi \theta_+ \Lambda \theta_- + \int \varphi \theta_+ \Lambda \theta_+ + \int \varphi \theta_+ \Lambda \Psi = \frac{1}{2} \int  \theta_+^2 u \cdot \grad \varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} +. 
+\frac{1}{2} \int \varphi \del_t \theta_+^2 - \int \varphi \theta_+ \Lambda \theta_- = \frac{1}{2} \int  \theta_+^2 u \cdot \grad \varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} - \int \varphi \theta_+ \Lambda \theta_+ - \int \varphi \theta_+ \Lambda \Psi. 
 \end{equation}
-Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  It remains to bound, on the left-hand-side, the $\Lambda \Psi$ and $\Lambda \theta_+$ terms.  
+Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  
 
 For the $\Lambda \theta_+$ term, by Cordoba's inequality (c.f. \cite{CoIg.fraclap}),
 \begin{equation*} \begin{aligned}
-\int \varphi \theta_+ \Lambda \theta_+ &\geq \frac{1}{2} \int \varphi \Lambda \theta_+^2
-\\ &= \int \theta_+^2 \Lambda \varphi.
+-\int \varphi \theta_+ \Lambda \theta_+ &\leq \frac{-1}{2} \int \varphi \Lambda \theta_+^2
+\\ &= \frac{-1}{2} \int \theta_+^2 \Lambda \varphi.
 \end{aligned} \end{equation*}
-For the $\Lambda \Psi$ term, we can ignore the boundary term of the Caffarelli-Stinga Representation from Proposition~\ref{thm:Caff Stinga representation} because it is non-negative so
-\[ \int \varphi \theta_+ \Lambda \Psi \geq \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)] [\Psi(x) - \Psi(y)] K(x,y). \]
+The stated result follows immediately.  
+%For the $\Lambda \Psi$ term, we can ignore the boundary term of the Caffarelli-Stinga Representation from Proposition~\ref{thm:Caff Stinga representation} because it is non-negative so
+%\[ \int \varphi \theta_+ \Lambda \Psi \geq \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)] [\Psi(x) - \Psi(y)] K(x,y). \]
 These two bounds, together with Lemma~\ref{thm:Lambda stuff} part \eqref{thm:extra product rule}, can be plugged into \eqref{equality with varphi} to obtain
 \[\begin{aligned} \frac{1}{2} \int \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int \theta_+^2 u\cdot\grad\varphi - \int \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} 
 \\ & \hspace{2cm}+ C \norm{\varphi}_{C^{0,1}(\Omega)} \paren{\norm{\theta_+}_2 + \norm{\theta_+}_{\HD^{1/2}}} \paren{\norm{\theta_+}_{\HD^{1/2}} + k^2 \int \indic{\theta_+>0} \,dx} \end{aligned}.\]
@@ -771,18 +772,19 @@ Recall that $\thetaep$ and $\thetae - \thetaep - \Psi$ have disjoint support.  T
 This term vanishes in the limit as $\eps \to 0$.  The terms $\int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi)$ and $\int \indic{\thetaep\geq 0}$ are continuous under $L^2$ limits, and the quantities $\ddt \int \thetaep^2$ and $\int \abs{\Lambda^{1/2} \thetaep}^2$ are lower-semicontinuous under $L^2$ limits, so we conclude that $\theta$ satisfies \eqref{leray-hopf condition}.  
 
 Similarly for the second suitability condition, we have as in the proof of Proposition~\ref{thm:suitability} (all $\iint$ are $\int_0^{\tilde{T}} \int_{\tilde{\Omega}}$)
-\begin{equation} \label{local condition with eps term} \begin{aligned} 
-\frac{-1}{2} \iint\!\! \thetaep^2 \del_t \varphi
-&\leq \frac{1}{2} \iint\!\! \thetaep^2 \ue\cdot\grad\varphi 
-+ \abs{\iint\!\! \varphi \thetaep \paren{\del_t\Psi+\ue\cdot\grad\Psi}} 
-+ C\norm{\varphi}_{C^0(0,{\tilde{T}};C^{0,1})} \Bigg(\iint\!\! \thetaep^2 
-\\ & + \sup_{[0,\tilde{T}]} \int\!\! \thetaep^2 
-+ k^2 \int_0^{\tilde{T}}\!\! |\{\thetaep\geq 0\}| 
-+ \abs{\iint\!\! \thetaep \paren{\del_t\Psi + \ue\cdot\grad\Psi}} 
-+ k^4 \int_0^{\tilde{T}}\!\! |\{\thetaep \geq 0\}|^2 
-\\ & + \eps \frac{k^2}{2} \mu\n T \mu^{-2} |\Omega| \Bigg) 
-+ \eps \iint\!\! \varphi \thetaep \Laplace \thetae. 
-\end{aligned} \end{equation}
+%\begin{equation} \label{local condition with eps term} \begin{aligned} 
+%\frac{-1}{2} \iint\!\! \thetaep^2 \del_t \varphi
+%&\leq \frac{1}{2} \iint\!\! \thetaep^2 \ue\cdot\grad\varphi 
+%+ \abs{\iint\!\! \varphi \thetaep \paren{\del_t\Psi+\ue\cdot\grad\Psi}} 
+%+ C\norm{\varphi}_{C^0(0,{\tilde{T}};C^{0,1})} \Bigg(\iint\!\! \thetaep^2 
+%\\ & + \sup_{[0,\tilde{T}]} \int\!\! \thetaep^2 
+%+ k^2 \int_0^{\tilde{T}}\!\! |\{\thetaep\geq 0\}| 
+%+ \abs{\iint\!\! \thetaep \paren{\del_t\Psi + \ue\cdot\grad\Psi}} 
+%+ k^4 \int_0^{\tilde{T}}\!\! |\{\thetaep \geq 0\}|^2 
+%\\ & + \eps \frac{k^2}{2} \mu\n T \mu^{-2} |\Omega| \Bigg) 
+%+ \eps \iint\!\! \varphi \thetaep \Laplace \thetae. 
+%\end{aligned} \end{equation}
+\[ \frac{-1}{2} \iint \thetaep^2 \del_t \varphi = \frac{1}{2} \iint \thetaep^2 \ue \cdot \grad\varphi - \iint \varphi \thetaep \paren{\del_t \Psi + \ue \cdot\grad\Psi} - \frac{1}{2} \iint \thetaep^2 \Lambda \varphi - \iint \varphi \thetaep \Lambda\Psi + \eps \iint \thetaep \Laplace \thetae. \]
 The added $\Laplace \thetae$ term decomposes as
 \[ \begin{aligned} 
 \eps \iint \thetaep \Laplace \thetae &= -\eps \iint \varphi \grad \thetaep \cdot \grad (\thetaep + \Psi) - \eps \iint \thetaep \grad \varphi \cdot \grad (\thetaep + \Psi)
@@ -790,7 +792,23 @@ The added $\Laplace \thetae$ term decomposes as
 \\ &\leq - \frac{\eps}{2} \iint \varphi \abs{\grad\thetaep}^2 + \frac{\eps}{2} \iint \varphi \abs{\grad\Psi}^2 + \frac{\eps}{2} \iint \thetaep^2 \Laplace \varphi - \eps \iint \thetaep \grad\varphi \cdot \grad \Psi
 \\ &\leq \eps \frac{k^2}{2} \mu\n T \norm{\varphi}_{C^0(L^1)} + \eps \frac{1}{2}\norm{\Laplace \varphi}_{L^\infty(L^\infty)} \norm{\thetaep}_{L^2(L^2)}^2 + \eps k \mu\n T \norm{\varphi}_{C^0(H^1)} \norm{\thetaep}_{L^\infty(L^2)}.
 \end{aligned} \]
-For $T$, $\mu$, $\lambda$, and $\varphi$ fixed, this term vanishes in the limit as $\eps \to 0$.  Moreover, the remaining terms in \eqref{local condition with eps term} are all continuous under $L^2$ limits.  It follows that $\theta$ satisfies \eqref{local condition}.  
+For $T$, $\mu$, $\lambda$, and $\varphi$ fixed, this term vanishes in the limit as $\eps \to 0$.  
+
+The term $\iint \varphi \thetaep \Lambda\Psi$ is stable under $L^2$ limits because it is linear in $\thetaep$ and 
+\begin{equation} \label{f Lambda Psi term is continuous} \begin{aligned}
+\int \varphi f \Lambda\Psi &= \iint [\varphi(x) f(x) - \varphi(y) f(y)] [\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy + \int \varphi f \Psi B_1
+\\ &\leq \paren{\iint [\varphi(x) f(x) - \varphi(y) f(y)]^2 K_{1/2}(x,y)}^{1/2} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2} + \int \varphi f \Psi B_1
+\\ &\leq \norm{\varphi f}_{\HD^{1/4}} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2} + \int \varphi f \Psi B_1
+\end{aligned} \end{equation}
+From Proposition~\ref{thm:Caff Stinga representation}, $K_1 / K_{1/2} \leq C_\Omega |x-y|^{-1/2}$.  Therefore, since $\norm{\grad\Psi}_{L^\infty}$ and $[\psi]_{1/4}$ are finite,
+\[ \iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} \leq C_\Omega \iint [\Psi(x) - \Psi(y)]^2 |x-y|^{-3.5} \leq C(\Omega, \Psi). \]
+Moreover, since $\varphi$ is compactly supported inside $\tilde{\Omega}$, $B\varphi \in L^\infty$.  Thus \eqref{f Lambda Psi term is continuous} becomes
+\[ \int \varphi f \Lambda\Psi \leq C \bracket{\norm{f}_{\HD^{1/4}} + \norm{f}_{L^1(\tilde{\Omega})}}.  \]
+Since $\thetaep \in L^2(\HD^{1/2})$ is uniformly bounded and $\thetae \to \theta$ in $L^2(L^2)$, by interpolation we have
+\[ \iint \varphi \thetaep \Lambda \Psi \to \iint \varphi (\tilde{\theta} - \Psi)_+ \Lambda \Psi. \]
+
+
+Moreover, the remaining terms in \eqref{local condition with eps term} are all continuous under $L^2$ limits.  It follows that $\theta$ satisfies \eqref{local condition}.  
 
 If $\theta$ and $u$ are scaled in the way specified by the suitability condition, note that \eqref{eq:viscous linear} is preserved by that scaling, so the argument follows in exactly the same manner.  We omit the details.  
 
@@ -823,7 +841,7 @@ Let $f \in L^2([-2,0]\times\Omega)$ be a function with the property that for any
 \begin{equation} \label{DG energy ddt} \ddt \int (f-a)_+^2 + \int \abs{\Lambda^{1/2} (f-a)_+}^2 \leq \bar{C} \paren{ \int \indic{f \geq a} + \int (f-a)_+ + \int (f-a)_+^2 }. \end{equation}
 
 Then
-\[ \int_{-2}^0 \int (f-a)_+^2 \,dxdt \leq \delta \]
+\[ \int_{-2}^0 \int (f-0)_+^2 \,dxdt \leq \delta \]
 implies that
 \[ f(t,x) \leq 1 \qquad \forall t\in[-1,0], x \in \Omega. \]
 \end{lemma}
