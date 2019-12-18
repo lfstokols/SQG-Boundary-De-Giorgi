@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.13)  16 DEC 2019 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.13)  18 DEC 2019 09:28
 entering extended mode
 **./SQG_Boundary.tex
 (SQG_Boundary.tex
@@ -525,18 +525,7 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \c@theorem=\count108
 \c@definition=\count109
 \c@step_count=\count110
- (SQG_Boundary.aux
-
-LaTeX Warning: Label `first form of cacciopolli' multiply defined.
-
-
-LaTeX Warning: Label `just the K cacciopolli' multiply defined.
-
-
-LaTeX Warning: Label `good lower bound on psi term cacciopoli' multiply defined
-.
-
-)
+ (SQG_Boundary.aux)
 \openout1 = `SQG_Boundary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 140.
@@ -554,12 +543,14 @@ LaTeX Font Info:    ... okay on input line 140.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 140.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
 40.
- ("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
+
+("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 140.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 140
 .
+
 ("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -683,41 +674,13 @@ G,.JBIG2,.JB2,.eps]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-[4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-[6] [7] [8]
-Underfull \vbox (badness 1496) has occurred while \output is active []
-
- [9]
-[10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 652--653
+[4] [5] [6] [7] [8] [9] [10] [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 663--664
 
  []
 
-[13] [14] [15]
-Overfull \hbox (18.72618pt too wide) detected at line 796
-[] [] []\OML/cmm/m/it/10.95 @[]' \U/MnSymbolD/m/n/10.95   [] [] [][] \U/MnSymbo
-lC/m/n/10.95   ©\OML/cmm/m/it/10.95 ' \U/MnSymbolC/m/n/10.95  [] \OML/cmm/m/it
-/10.95 '[] [] \U/MnSymbolC/m/n/10.95  [] [] []\OT1/cmr/m/n/10.95 \OML/cmm/m/i
-t/10.95 ' \U/MnSymbolC/m/n/10.95  [] \OML/cmm/m/it/10.95 '[]\OT1/cmr/m/n/10.95
- 	 \U/MnSymbolC/m/n/10.95  \OML/cmm/m/it/10.95 " [] []\OT1/cmr/m/n/10.95 []\
-OML/cmm/m/it/10.95 :
- []
-
-
-Overfull \hbox (21.23798pt too wide) detected at line 811
-[][]
- []
-
-[16]
-
-LaTeX Warning: Reference `local condition with eps term' on page 17 undefined o
-n input line 820.
-
-[17] [18] [19] [20] [21]
-Overfull \hbox (8.40291pt too wide) in paragraph at lines 1135--1136
+[13] [14] [15] [16] [17] [18] [19] [20]
+Overfull \hbox (8.40291pt too wide) in paragraph at lines 1183--1184
 [][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n/10.95 6\OML/cmm/m/it/10.95 $\OT1/cm
 r/m/it/10.95 , and $[][] \U/MnSymbolD/m/n/10.95 B \OT1/cmr/m/n/10.95 2\OML/cmm/
 m/it/10.95 $\OT1/cmr/m/it/10.95 . De-note $\OML/cmm/m/it/10.95  \U/MnSymbolC/
@@ -726,23 +689,34 @@ m/n/10.95 \U/MnSymbolD/m/n/10.95   \OT1/cmr/m/n/10.95  [] \U/MnSymbolC/m/n/10.
 m/n/10.95 B
  []
 
-[22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
-(SQG_Boundary.bbl [37]) [38] (SQG_Boundary.aux)
+[21] [22] [23]
+Overfull \hbox (9.96837pt too wide) detected at line 1340
+[][]
+ []
+
+[24] [25] [26] [27] [28] [29]
+
+LaTeX Warning: Reference `thm:L2 to Linfty' on page 30 undefined on input line 
+1608.
+
+[30] [31] [32]
+
+LaTeX Warning: Reference `thm:caccioppoli' on page 33 undefined on input line 1
+724.
+
+[33] [34] [35] (SQG_Boundary.bbl [36]) [37] (SQG_Boundary.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 7474 strings out of 492452
- 101782 string characters out of 3120063
- 153256 words of memory out of 3000000
- 11541 multiletter control sequences out of 15000+200000
+ 7475 strings out of 492452
+ 101774 string characters out of 3120063
+ 153217 words of memory out of 3000000
+ 11542 multiletter control sequences out of 15000+200000
  22421 words of font info for 82 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 46i,13n,45p,1265b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,13n,45p,1265b,347s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/Mn
 SymbolE.enc}{C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/m
 nsymbol/MnSymbolS.enc}{C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/e
@@ -774,9 +748,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/lfsto/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lfst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on SQG_Boundary.pdf (38 pages, 510717 bytes).
+Output written on SQG_Boundary.pdf (37 pages, 507387 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
+ 229 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
