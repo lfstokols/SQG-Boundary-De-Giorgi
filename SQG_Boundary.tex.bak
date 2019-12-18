@@ -268,7 +268,7 @@ The low-freqency component of a calibrated velocity $u$ will be uniformly Lipsch
 %Another difference is that while previous instances use a coordinate transformation to include their moving reference frame into the definition of $\theta$ at each scale, we make our moving frame explicit by showing that $\theta$ regularizes near a path $\Gamma$.  This is because such a coordinate transformation would lead to 
 % This moving reference frame has no effect on the De Giorgi argument so long as the shifting frame is the same at each scale; our decrease-of-oscillation lemma will have both its assumptions and its conclusions phrased in terms of the same moving frame so the proof is unaffected.  
 
-At each scale, there will be a natural Lagrangian path $\Gammal$ corresponding to the low-frequency part of $u$.  However, the low-frequency part of $u$ changes non-trivially as we zoom, so $\Gammal$ will be different at each scale.  Throughout Sections~\ref{sec:de giorgi} and \ref{sec:harnack}, we will use $\Gammal$ to denote the ``current'' Lagrangian path and $\Gamma$ to denote the Lagrangian path at the previous scale. In the proof of Theorem~\ref{thm:main continuity} in Section~\ref{sec:holder}, these are denoted $\Gamma_k(t)$ and $\eps\n \Gamma_{k-1}(\eps t)$ respectively.  In Lemmas~\ref{thm:energy inequality}, \ref{thm:DG1}, \ref{thm:DG2} and \ref{thm:oscillation general}, we will make assumptions about $\theta$ which are centered on $x \approx \Gamma(t)$ and obtain conclusions which are similarly centered on $x \approx \Gamma(t)$, conditioned on $\Gammal-\Gamma$ being small in Lipschitz norm.  Finally in Lemma~\ref{thm:oscillation shifted}, we will show that, given bounds on $\theta$ for $x \approx \Gamma(t)$, we can bound $\theta$ for $x \approx \Gammal(t)$ for $t$ sufficiently small, again conditioned on $\Gammal-\Gamma$ being small in Lipschitz norm.  
+At each scale, there will be a natural Lagrangian path $\Gammal$ corresponding to the low-frequency part of $u$.  However, the low-frequency part of $u$ changes non-trivially as we zoom, so $\Gammal$ will be different at each scale.  Throughout Sections~\ref{sec:de giorgi} and \ref{sec:harnack}, we will use $\Gammal$ to denote the ``current'' Lagrangian path and $\Gamma$ to denote the Lagrangian path at the previous scale. In the proof of Theorem~\ref{thm:main continuity} in Section~\ref{sec:holder}, these are denoted $\Gamma_k(t)$ and $\eps\n \Gamma_{k-1}(\eps t)$ respectively.  In Lemmas~\ref{thm:energy inequality}, \ref{thm:DG1}, \ref{thm:DG2} and \ref{thm:oscillation general}, we will make assumptions about $\theta$ which are centered on $x \approx \Gamma(t)$ and obtain conclusions which are similarly centered on $x \approx \Gamma(t)$, conditioned on $\gamma := \Gammal-\Gamma$ being small in Lipschitz norm.  Finally in Lemma~\ref{thm:oscillation shifted}, we will show that, given bounds on $\theta$ for $x \approx \Gamma(t)$, we can bound $\theta$ for $x \approx \Gammal(t)$ for $t$ sufficiently small, again conditioned on $\gamma := \Gammal-\Gamma$ being small in Lipschitz norm.  Controlling $\gamma$ amounts to controlling the change in $\Gammal$ between consecutive scales, which is much easier to obtain than scale-independent bounds on $\Gammal$.  
 % 
 % The part of our moving reference frame which is maintained from the previous scale will be encoded by a function $\Gamma(t)$\footnote{In \cite{CaVa.sqg} and \cite{NoVa.qg}, the same technique is used.  However, there $\Gamma$ is not written explicitly, instead they perform a change of coordinates.  Though notationally this is cleaner, it only works in the full domain $\R^2$.  To avoid a time-dependent domain, we must write $\Gamma$ explicitly in each lemma.  This is a purely notational hurdle, the mathematical substance is unchanged.}.  That said, the reference frame associated to the low-frequency component of $u$ will change slightly at each scale, because the cutoff between low-frequency and high-frequency (i.e. the center of calibration) is scale-dependent.  However, we will easily show that the change in velocity is uniformly small.  The part of our moving reference frame which is novel at the current scale will be encoded by a function $\gamma(t)$.  The precise construction is in Section~\ref{sec:holder} in the proof of Theorem~\ref{thm:main continuity}.  
 %
@@ -548,25 +548,30 @@ We begin by calculating the energy inequalities that any sufficiently smooth wea
 \begin{proposition}[Energy Inequalities] \label{thm:suitability}
 There exists a universal constant $\Csuit$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be bounded and open with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and let $0 < S < T$ be times.  Let $\theta, u$ be a solution to \eqref{eq:main linear} on $\Omega \times [0,T]$, with $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega)) \cap L^4(0,T; L^4(\Omega))$.  
+Let $\Omega \subseteq \R^2$ be bounded and open with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and let $0 < T < \infty$ a time.  Let $\theta, u$ be a solution to \eqref{eq:main linear} on $\Omega \times [0,T]$, with $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ and $u \in L^\infty(0,T; L^2(\Omega)) \cap L^4(0,T; L^4(\Omega))$.  
 
-Then for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R^2)$ satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and the H\"{o}lder seminorm $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$ and any smooth non-negative $\varphi \in \Ctest(S,T;C^\infty(\Omega))$, the function $\theta_+ := \paren{\theta - \Psi}_+$ satisfies
+Then for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R^2)$ satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and the H\"{o}lder seminorm $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$, any time $S \in (0,T)$, and any smooth non-negative $\varphi \in \Ctest(S,T;C^\infty(\Omega))$, the function $\theta_+ := \paren{\theta - \Psi}_+$ satisfies
 \begin{equation}\label{leray-hopf condition}
-\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ k^2 \int \indic{\theta_+ \geq 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
+\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \Csuit \paren{ k^2 \int \indic{\theta \geq \Psi} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} } \qquad \forall t \in [0,T]
 \end{equation}
-for all $t \in [S,T]$, and
-\begin{equation} \label{local condition} \begin{aligned}
-\frac{-1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 \del_t \varphi &\leq -\int_S^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} + \frac{1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 u\cdot\grad\varphi
-\\ & \hskip2cm - \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy
-\\ & \hskip2cm - \frac{1}{2} \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x) - \varphi(y)] K_1(x,y) \,dxdy.
+and
+\begin{equation} \label{local condition} 
+\begin{aligned} 
+\frac{-1}{2} \int_S^T\!\!\!\!\int \theta_+^2 \del_t \varphi &\leq \frac{1}{2} \int_S^T\!\!\!\!\int  \theta_+^2 u \cdot \grad \varphi - \int_S^T\!\!\!\!\int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} 
++ \Csuit \norm{\varphi}_{C^0(S,T;C^1)} \bigg( \paren{1+\frac{1}{S}} \int_0^T\!\!\!\!\int \theta_+^2 
+\\ & \hskip2cm + k^2 \int_0^T\!\!\!\!\int \indic{\theta\geq\Psi} + \int_0^T\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}} \bigg).
 \end{aligned}
+%\begin{aligned}
+%\frac{-1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 \del_t \varphi &\leq -\int_S^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} + \frac{1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 u\cdot\grad\varphi
+%\\ & \hskip2cm - \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy
+%\\ & \hskip2cm - \frac{1}{2} \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x) - \varphi(y)] K_1(x,y) \,dxdy.
+%\end{aligned}
 %\begin{aligned}
 %\frac{1}{2} \int_0^T\!\!\!\!\int\! \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int_0^T\!\!\!\!\int\! \theta_+^2 u\!\cdot\!\grad\varphi + \abs{\int_0^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}} 
 %+ C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \Bigg(\int_0^T\!\!\!\!\int\! \theta_+^2 
 %\\ & + \sup_{[0,T]} \int\!\! \theta_+^2 + \abs{\int_0^T\!\!\!\!\int\! \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} + k^2 \int_0^T\!\! |\{\theta_+\geq 0\}| + k^4 \int_0^T\!\! |\{\theta_+ \geq 0\}|^2 \Bigg). 
 %\end{aligned} 
 \end{equation}
-
 \end{proposition}
 
 \begin{proof}[Proof of Proposition \ref{thm:suitability}]
@@ -626,17 +631,31 @@ which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\th
 \end{equation}
 Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  
 
-For the $\Lambda \theta_+$ term, by Cordoba's inequality (c.f. \cite{CoIg.fraclap}),
-\begin{equation*} \begin{aligned}
--\int \varphi \theta_+ \Lambda \theta_+ &\leq \frac{-1}{2} \int \varphi \Lambda \theta_+^2
-\\ &= \frac{-1}{2} \int \theta_+^2 \Lambda \varphi
-\\ &\leq \frac{-1}{2} \iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x)-\varphi(y)] K_1(x,y) \,dxdy.
-\end{aligned} \end{equation*}
+The two final terms on the right-hand side are bounded
+\[ - \int \varphi \theta_+ \Lambda \theta_+ - \int \varphi \theta_+ \Lambda \Psi \leq C \norm{\varphi}_{C^1(\Omega)} \paren{\int \theta_+^2 + \int \abs{\Lambda^{1/2}\theta_+}^2 + k^2 \int \indic{\theta_+>0} }. \]
 
-From the Caffarelli-Stinga Representation of Proposition~\ref{thm:Caff Stinga representation},
-\[ - \int \varphi \theta_+ \Lambda \Psi \leq - \iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy.  \]
+From the inequality \eqref{leray-hopf condition} already proven, we can obtain by a standard argument
+\[ \int_S^T\!\! \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \frac{1}{S} \int_0^T\!\! \int \theta_+^2 + k^2 \int_0^T\!\! \int \indic{\theta_+>0} + \int_0^T\!\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}}. \]
 
-With these two bounds, the stated result follows from \eqref{equality with varphi}.  
+By integrating \eqref{equality with varphi} from $S$ to $T$ and applying these two bounds, we obtain the stated result \eqref{local condition}.  
+
+%Applying these two bounds to the integral from $S$ to $T$ of \eqref{equality with varphi}, we obtain
+%\[\begin{aligned} 
+%\frac{-1}{2} \int_S^T\!\!\int \theta_+^2 \del_t \varphi &\leq \frac{1}{2} \int_S^T\!\!\int  \theta_+^2 u \cdot \grad \varphi - \int_S^T\!\!\int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} 
+%\\ &+ C \norm{\varphi}_{C^0(S,T;C^1)} \paren{ (1+S\n) \int_0^T\!\!\int \theta_+^2 + k^2 \int_0^T\!\!\int \indic{\theta_+>0} + \int_0^T\!\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}}}.
+%\end{aligned}\]
+
+%For the $\Lambda \theta_+$ term, by Cordoba's inequality (c.f. \cite{CoIg.fraclap}),
+%\begin{equation*} \begin{aligned}
+%-\int \varphi \theta_+ \Lambda \theta_+ &\leq \frac{-1}{2} \int \varphi \Lambda \theta_+^2
+%\\ &= \frac{-1}{2} \int \theta_+^2 \Lambda \varphi
+%\\ &\leq \frac{-1}{2} \iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x)-\varphi(y)] K_1(x,y) \,dxdy.
+%\end{aligned} \end{equation*}
+%
+%From the Caffarelli-Stinga Representation of Proposition~\ref{thm:Caff Stinga representation},
+%\[ - \int \varphi \theta_+ \Lambda \Psi \leq - \iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy.  \]
+
+%With these two bounds, the stated result follows from \eqref{equality with varphi}.  
 %For the $\Lambda \Psi$ term, we can ignore the boundary term of the Caffarelli-Stinga Representation from Proposition~\ref{thm:Caff Stinga representation} because it is non-negative so
 %\[ \int \varphi \theta_+ \Lambda \Psi \geq \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)] [\Psi(x) - \Psi(y)] K(x,y). \]
 
@@ -658,7 +677,7 @@ With these two bounds, the stated result follows from \eqref{equality with varph
 
 We will construct solutions which verify these energy inequalities proven above but which are not a priori in $L^2(H_0^1)$.  
 \begin{definition}
-A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain $[S,T]\times \Omega$ if $S < T$ are finite, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
+A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain $[0,T]\times \Omega$ if $T <\infty$, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
 \begin{enumerate}
 \item $\theta$, $u$ solve \eqref{eq:main linear} in the sense of distributions with $L^2$ norm decreasing in time, \\
 \item $\theta$, $u$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} at all scales with the same universal constant $\Csuit$ defined in Proposition~\ref{thm:suitability}.  More specifically, the following holds:
@@ -666,13 +685,13 @@ A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain
 %it satisfies \eqref{leray-hopf condition} and \eqref{local condition} at all scales with the same universal constant $\Csuit$ defined in Proposition~\ref{thm:suitability}.  Specifically, if the following holds:
 Let $\lambda >0$ and $\mu \in (0,1)$ be given and let $\Psi \in C^\infty([0,\infty)\times \R^2)$ be any smooth non-negative function satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$.  
 
-Define $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{\theta}_+(t,x) := (\lambda \theta(\mu t, \mu x)-\Psi(t, x))_+$, and $\tilde{u}(t,x):= u(\mu t, \mu x)$.  Let $\varphi \in \Ctest(S,T;C^\infty(\tilde{\Omega}))$ be non-negative.  
+Define $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{\theta}_+(t,x) := (\lambda \theta(\mu t, \mu x)-\Psi(t, x))_+$, and $\tilde{u}(t,x):= u(\mu t, \mu x)$.  Let $S \in (0,\mu\n T)$ and let $\varphi \in \Ctest(S,T;C^\infty(\tilde{\Omega}))$ be non-negative.  
 
-Then $\tilde{\theta}_+$ and $\tilde{u}$ and $\varphi$ and $\Psi$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} on $[\mu\n S,\mu\n T] \times \tilde{\Omega}$ with the universal constant $\Csuit$.  
+Then $\tilde{\theta}_+$ and $\tilde{u}$ and $\varphi$ and $\Psi$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} with $\tilde{\Omega}$ replacing $\Omega$ and $\mu\n T$ replacing $T$, with the universal constant $\Csuit$.  
 \end{enumerate}
 \end{definition}
 
-Since the assumptions of Proposition~\ref{thm:suitability} are preserved by the scaling $\theta \mapsto \lambda \theta(\mu\cdot, \mu \cdot)$, $u \mapsto u(\mu \cdot, \mu\cdot)$, and since the Riesz transform is bounded $L^p \to L^p$ for any $p \in (1,\infty)$, we see immediately that any solution $\theta \in L^\infty(L^2) \cap L^2(H_0^1)$ to \eqref{eq:main nonlinear} forms a suitable pair with the corresponding $u$.  However, global solutions are only known to exist with $L^2(\HD^{1/2})$ regularity (c.f. \cite{CoIg.fraclap}).  
+Since the assumptions of Proposition~\ref{thm:suitability} are preserved by the scaling $\theta \mapsto \lambda \theta(\mu\cdot, \mu \cdot)$, $u \mapsto u(\mu \cdot, \mu\cdot)$, and since the Riesz transform is bounded $L^p \to L^p$ for any $p \in (1,\infty)$, we see immediately that any solution $\theta \in L^\infty(L^2) \cap L^2(H_0^1)$ to \eqref{eq:main nonlinear} is a suitable solution with the corresponding $u$.  However, global solutions are only known to exist with $L^2(\HD^{1/2})$ regularity (c.f. \cite{CoIg.fraclap}).  
 
 To construct global suitable solutions, we will use the vanishing viscosity method.  First, we must prove existence of global weak solutions to critical SQG with an epsilon of viscosity.  
 
@@ -749,7 +768,7 @@ For small $S$, we can apply the above argument to the function $\theta\paren{(S/
 Now that we have global existence of solutions to the perturbed equation, we can take a limit as $\eps \to 0$ and obtain a suitable solution to the original equation.  
 
 \begin{proposition}[Existence of suitable solutions] \label{thm:existence}
-Given an open, bounded domain $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and initial data $\theta_0 \in L^2(\Omega)$, there exists a global-in-time weak solution $\theta$ to \eqref{eq:main nonlinear} such that, for any $0 < S < T < \infty$, $\theta$ and $u := \grad^\perp \Lambda^{-1} \theta$ are a suitable pair on $[S,T] \times \Omega$.  
+Given an open, bounded domain $\Omega \subseteq \R^2$ with $C^{2,\beta}$ boundary, $\beta \in (0,1)$, and initial data $\theta_0 \in L^2(\Omega)$, there exists a global-in-time weak solution $\theta$ to \eqref{eq:main nonlinear} such that, for any $0 < T < \infty$, $\theta$ and $u := \grad^\perp \Lambda^{-1} \theta$ are a suitable solution on $[0,T] \times \Omega$.  
 
 Moreover, $\theta \in L^\infty([0,\infty);L^2(\Omega)) \cap L^2([0,\infty);\HD^{1/2}(\Omega))$, and $\theta(t,\cdot) \to \theta_0(\cdot)$ weakly in $L^2(\Omega)$ as $t \to 0$.
 
@@ -773,16 +792,15 @@ Since $\del_t \theta_\eps$ is uniformly bounded and $\theta(t,\cdot) \to \theta_
 Define $u_\eps := \grad^\perp \Lambda^{-1} \theta_\eps$, and by continuity of the Riesz transform we have $u_\eps \to u$ in $L^2([0,\infty)\times\Omega)$ where $u := \grad^\perp\Lambda^{-1} \theta$.  
 \vskip.3cm
 
-It remains only to prove that $\theta$ and $u$ are a suitable pair.  This will be true because, for $\theta_\eps$ and $u_\eps$, we can make the same calculation as in the proof of Proposition~\ref{thm:suitability}.  The added viscosity term produces error terms which vanish as $\eps \to 0$, and since the suitability conditions \eqref{leray-hopf condition} and \eqref{local condition} are maintained by $L^2$ limits, the limiting functions $\theta$ and $u$ will satisfy the suitability conditions with no error terms.  The details of this calculation are given below.  
+It remains only to prove that $\theta$ and $u$ are a suitable pair.  This will be true because, for $\theta_\eps$ and $u_\eps$, we can make the same calculation as in the proof of Proposition~\ref{thm:suitability}.  The added viscosity term produces error terms which vanish as $\eps \to 0$, and the suitability conditions \eqref{leray-hopf condition} and \eqref{local condition} are maintained by $L^2$ limits, so the limiting functions $\theta$ and $u$ will satisfy the suitability conditions with no error terms.  The details of this calculation are given below.  
 
-Let $0 < S < T < \infty$ be constant times, and let $\Psi$, $\varphi$, $\lambda$, and $\mu$ be as in the definition of suitable solutions.  Define 
+Let $0 < T < \infty$ be a constant, and let $\lambda$, $\mu$, $\Psi$, $S$ and $\varphi$ be as in the definition of suitable solutions.  Define 
 \newcommand{\thetae}{\tilde{\theta}_\eps}
 \newcommand{\ue}{\tilde{u}_\eps}
 \newcommand{\thetaep}{\tilde{\theta}_{\eps,+}}
 \begin{align*}
 \tilde{\Omega} &:= \{x \in \R^2: \mu x \in \Omega\}, \\
 \tilde{T} &:= \mu\n T, \\
-\tilde{S} &:= \mu\n S, \\
 \thetae(t,x) &:= \lambda\theta_\eps(\mu t, \mu x), \\
 \ue(t,x) &:= u_\eps(\mu t, \mu x), \\
 \thetaep(t,x) &:= \paren{\thetae(t, x) - \Psi(t,x)}_+.
@@ -796,7 +814,7 @@ Note that $\thetae$ and $\ue$ are weak solutions to
 \end{cases}
 \end{equation}
 Because $\thetaep \in L^2(H_0^1)$, we can perform the exact same calculation as in the proof of Proposition~\ref{thm:suitability} to arrive at \eqref{leray-hopf condition} but with an additional term corresponding to $\eps \Laplace \theta_\eps$: (all integrals are over $\tilde{\Omega}$)
-\begin{equation*} \ddt \int \thetaep^2 + \int \abs{\Lambda^{1/2} \thetaep}^2 \leq C \paren{ - \int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi) + k^2 \int \indic{\thetaep\geq 0}  + \eps \int \thetaep \Laplace \thetae}.
+\begin{equation*} \ddt \int \thetaep^2 + \int \abs{\Lambda^{1/2} \thetaep}^2 \leq C \paren{ - \int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi) + k^2 \int \indic{\thetae\geq \Psi}  + \eps \int \thetaep \Laplace \thetae}.
 \end{equation*}
 
 Recall that $\thetaep$ and $\thetae - \thetaep - \Psi$ have disjoint support.  The added $\Laplace\thetae$ term therefore decomposes as
@@ -807,13 +825,16 @@ Recall that $\thetaep$ and $\thetae - \thetaep - \Psi$ have disjoint support.  T
 \end{align*}
 This term vanishes in the limit as $\eps \to 0$.  The terms $\int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi)$ and $\int \indic{\thetaep\geq 0}$ are continuous under $L^2$ limits, and the quantities $\ddt \int \thetaep^2$ and $\int \abs{\Lambda^{1/2} \thetaep}^2$ are lower-semicontinuous under $L^2$ limits, so we conclude that $\theta$ satisfies \eqref{leray-hopf condition}.  
 
-Similarly for the second suitability condition, we have as in the proof of Proposition~\ref{thm:suitability} (all $\iint$ are $\int_{\tilde{S}}^{\tilde{T}} \int_{\tilde{\Omega}}$)
-\begin{equation} \label{local for eps positive} \begin{aligned}
-\frac{-1}{2} \iint \thetaep^2 \del_t \varphi &= \frac{1}{2} \iint \thetaep^2 \ue \cdot \grad\varphi - \iint \varphi \thetaep \paren{\del_t \Psi + \ue \cdot\grad\Psi}  
-\\ & \hskip2cm - \int_{\tilde{S}}^{\tilde{T}}\!\!\!\! \iint_{\tilde{\Omega} \times \tilde{\Omega}} [\varphi(x) \thetaep(x) - \varphi(y) \thetaep(y)][\Psi(x) - \Psi(y)] K_1 
-\\ & \hskip2cm - \frac{1}{2} \int_{\tilde{S}}^{\tilde{T}}\!\!\!\! \iint_{\tilde{\Omega} \times \tilde{\Omega}} [\thetaep(x)^2 - \thetaep(y)^2][\varphi(x)-\varphi(y)] K_1 + \eps \iint \thetaep \Laplace \thetae.
+Similarly for the second suitability condition, we have as in the proof of Proposition~\ref{thm:suitability} (all $\int$ without limits are $\int_{\tilde{\Omega}}$)
+\begin{equation} \label{local for eps positive}
+\begin{aligned} 
+\frac{-1}{2} \int_S^{\tilde{T}}\!\!\!\!\int \thetaep^2 \del_t \varphi &\leq \frac{1}{2} \int_S^{\tilde{T}}\!\!\!\!\int  \thetaep^2 \ue \cdot \grad \varphi - \int_S^{\tilde{T}}\!\!\!\!\int \varphi \thetaep \paren{\del_t \Psi + \ue \cdot \grad \Psi} 
+\\ & \hskip2cm + \Csuit \norm{\varphi}_{C^0(C^1)} \Bigg( \paren{1\!\!+\!\!\frac{1}{S}} \int_0^{\tilde{T}}\!\!\!\!\int \thetaep^2 
+ + k^2 \int_0^{\tilde{T}}\!\!\!\!\int \indic{\thetae\geq\Psi}
+\\ & \hskip2cm + \int_0^{\tilde{T}}\! \abs{\int \thetaep \paren{\del_t \Psi + \ue\cdot\grad\Psi}} \Bigg) 
++ \eps \int_S^{\tilde{T}}\!\!\!\!\int \thetaep \Laplace \thetae.
 \end{aligned}
-\end{equation}
+\end{equation} 
 
 The added $\Laplace \thetae$ term decomposes as
 \[ \begin{aligned} 
@@ -824,28 +845,30 @@ The added $\Laplace \thetae$ term decomposes as
 \end{aligned} \]
 For $T$, $\mu$, $\lambda$, and $\varphi$ fixed, this term vanishes in the limit as $\eps \to 0$.  
 
-On $[\tilde{S}, \tilde{T}]$ we have a uniform $L^\infty(L^\infty)$ bound for $\thetae$. Therefore $\thetaep$ converges in $L^4(L^4)$, and so $\iint \thetaep^2 \ue\cdot\grad\varphi$ is conserved in the limit $\eps \to 0$.  
+On $[S, \tilde{T}]$ we have a uniform $L^\infty(L^\infty)$ bound for $\thetae$. Therefore $\thetaep$ converges in $L^3(L^3)$, and so $\int_S^{\tilde{T}}\int \thetaep^2 \ue\cdot\grad\varphi$ is conserved in the limit $\eps \to 0$.  
 
-Since $\Psi$ is smooth by assumption, $\iint \varphi \thetaep \paren{\del_t \Psi + \ue\cdot\grad\Psi}$ is $L^2(L^2)$ continuous and is conserved in the limit $\eps \to 0$.  
+The remaining terms in \eqref{local for eps positive} are $L^2(L^2)$ continuous, so $\theta$ satisfies \eqref{local condition}.  
 
-To show continuity of the $\iint [\varphi \thetaep - \varphi \thetaep][\Psi-\Psi] K_1$ term, let $f$ be an arbitrary $\HD^{1/4}$ function.  Then
-\[ \iint [\varphi(x) f(x) - \varphi(y) f(y)] [\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy \hskip7cm\]
-\[\begin{aligned}
-\hskip3cm &\leq \paren{\iint [\varphi(x) f(x) - \varphi(y) f(y)]^2 K_{1/2}(x,y)}^{1/2} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2}
-\\ &\leq \norm{\varphi f}_{\HD^{1/4}} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2}
-\\ &\leq C \norm{f}_{\HD^{1/4}} \norm{\varphi}_{C^1} \norm{\grad \Psi}_{L^\infty} \iint |x-y|^2 |x-y|^{-1/2} \frac{1}{|x-y|^3}.
-\end{aligned} \]
-In this last line we used Proposition~\ref{thm:Caff Stinga representation} and Lemma~\ref{thm:Lambda stuff} part \eqref{thm:extra product rule}.  It follows that the $\iint [\varphi \thetaep - \varphi \thetaep][\Psi-\Psi] K_1$ term of \eqref{local for eps positive} is continuous under $L^1(\HD^{1/4})$ limits of $\thetaep$.  
-Since $\thetae$ are convergent in $L^2(L^2)$ and bounded in $L^2(\HD^{1/2})$, this term is conserved in the limit $\eps \to 0$.  
-
-To show continuity of the $\iint [\thetaep^2 - \thetaep^2][\varphi-\varphi] K_1$ term, let $f$ be an arbitrary $\HD^{1/4}$ function.  Then
-\[ \begin{aligned}
-\iint [f(x)^2 - f(y)^2][\varphi(x)-\varphi(y)] K_1
-&\leq \paren{\iint [f(x)^2 - f(y)^2]^2 K_{1/2}}^{1/2} \paren{ \iint [\varphi(x)-\varphi(y)]^2 \frac{K_1^2}{K_{1/2}} }^{1/2}
-\\ &\leq \paren{ 4\!\! \iint\!\! f(x)^2 [f(x)-f(y)]^2 K_{1/2} }^{1/2} \!\! \norm{\grad\varphi}_{L^\infty} \paren{ \iint\!\! \frac{1}{|x-y|^{1.5}} }^{1/2}
-\\ &\leq C \norm{f}_{L^\infty} \norm{f}_{\HD^{1/4}}.
-\end{aligned}\]
-Since all of the terms of \eqref{local for eps positive} behave well in the limit as $\eps \to 0$, it follows that $\theta$ satisfies \eqref{local condition}.  
+%Since $\Psi$ is smooth by assumption, $\iint \varphi \thetaep \paren{\del_t \Psi + \ue\cdot\grad\Psi}$ is $L^2(L^2)$ continuous and is conserved in the limit $\eps \to 0$.  
+%
+%To show continuity of the $\iint [\varphi \thetaep - \varphi \thetaep][\Psi-\Psi] K_1$ term, let $f$ be an arbitrary $\HD^{1/4}$ function.  Then
+%\[ \iint [\varphi(x) f(x) - \varphi(y) f(y)] [\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy \hskip7cm\]
+%\[\begin{aligned}
+%\hskip3cm &\leq \paren{\iint [\varphi(x) f(x) - \varphi(y) f(y)]^2 K_{1/2}(x,y)}^{1/2} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2}
+%\\ &\leq \norm{\varphi f}_{\HD^{1/4}} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2}
+%\\ &\leq C \norm{f}_{\HD^{1/4}} \norm{\varphi}_{C^1} \norm{\grad \Psi}_{L^\infty} \iint |x-y|^2 |x-y|^{-1/2} \frac{1}{|x-y|^3}.
+%\end{aligned} \]
+%In this last line we used Proposition~\ref{thm:Caff Stinga representation} and Lemma~\ref{thm:Lambda stuff} part \eqref{thm:extra product rule}.  It follows that the $\iint [\varphi \thetaep - \varphi \thetaep][\Psi-\Psi] K_1$ term of \eqref{local for eps positive} is continuous under $L^1(\HD^{1/4})$ limits of $\thetaep$.  
+%Since $\thetae$ are convergent in $L^2(L^2)$ and bounded in $L^2(\HD^{1/2})$, this term is conserved in the limit $\eps \to 0$.  
+%
+%To show continuity of the $\iint [\thetaep^2 - \thetaep^2][\varphi-\varphi] K_1$ term, let $f$ be an arbitrary $\HD^{1/4}$ function.  Then
+%\[ \begin{aligned}
+%\iint [f(x)^2 - f(y)^2][\varphi(x)-\varphi(y)] K_1
+%&\leq \paren{\iint [f(x)^2 - f(y)^2]^2 K_{1/2}}^{1/2} \paren{ \iint [\varphi(x)-\varphi(y)]^2 \frac{K_1^2}{K_{1/2}} }^{1/2}
+%\\ &\leq \paren{ 4\!\! \iint\!\! f(x)^2 [f(x)-f(y)]^2 K_{1/2} }^{1/2} \!\! \norm{\grad\varphi}_{L^\infty} \paren{ \iint\!\! \frac{1}{|x-y|^{1.5}} }^{1/2}
+%\\ &\leq C \norm{f}_{L^\infty} \norm{f}_{\HD^{1/4}}.
+%\end{aligned}\]
+%Since all of the terms of \eqref{local for eps positive} behave well in the limit as $\eps \to 0$, it follows that $\theta$ satisfies \eqref{local condition}.  
 \end{proof}
 
 %The following lemma is used in the proof of Proposition~\ref{thm:existence}.  
@@ -1180,7 +1203,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-T,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Consider the functions
@@ -1330,36 +1353,31 @@ where $C$ does not depend on $n$.
 \step{Compactness in time}
 
 Let $\varphi \in C_0^\infty([-4,0]; C^\infty(\Omega))$ a test function.  
-Since each $\theta_n$ and $\uhigh^n + \ulow^n$ is a suitable pair by assumption, we can apply the inequality \eqref{local condition} to find that, for some constant $C$ independent of $n$ and of $\varphi$, on $[-4,0]\times \Omega_n$
-\begin{equation}\label{time compactness setup}\begin{aligned} 
+Since each $\theta_n$ and $\uhigh^n + \ulow^n$ is a suitable pair on $[-5,0]\times\Omega_n$ by assumption, we can apply the inequality \eqref{local condition} to find that, for some constant $C$ independent of $n$ and of $\varphi$, on $[-4,0]\times \Omega_n$
+\begin{equation}\label{time compactness setup}
+\begin{aligned} 
 \iint \varphi \del_t \theta_+^2 + \iint \varphi \dot{\Gamma}_n\cdot\grad\theta_+^2 &\leq 
 \iint \theta_+^2 \paren{\ulow^n - \dot{\Gamma}_n + \uhigh^n}\cdot\grad\varphi 
 - 2 \iint \varphi \theta_+ \paren{\ulow^n - \dot{\Gamma}_n + \uhigh^n} \cdot \grad\psi 
-\\ & - \iint \theta_+^2 \Lambda\varphi 
-- 2 \int \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\psi(x-\Gamma_n) - \psi(y-\Gamma_n)] K_1. 
+\\ & + C \norm{\varphi}_{C^0(C^1)} \paren{ 1 + \int_{-5}^0 \int \theta_+ \paren{\ulow^n - \dot{\Gamma}_n + \uhigh^n} \cdot \grad\psi }.
 \end{aligned}\end{equation}
 
 For the low pass terms, as in the proof of Lemma~\ref{thm:energy inequality}, we have $\abs{\ulow^n(t,x) - \dot{\Gamma}_n(t)} \leq (1+8\kappa)\Cgamma + 6\kappa$ for $t \in [-4,0]$ and $x \in \supp(\theta_+) \subseteq B_3(\Gamma_n(t))$.  Thus for $t\in[-4,0]$ we have for $C$ independent of $n$ and $\varphi$
 \begin{equation}\begin{aligned} \label{low pass bounds}
 \int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+^2\grad\varphi} & \leq C \norm{\grad\varphi}_{L^\infty(\Omega)}, \\
-%\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+\grad\psi} & \leq C, \\
-\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+\varphi\grad\psi} & \leq C \norm{\varphi}_{L^\infty(\Omega)}.
+\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+\varphi\grad\psi} & \leq C \norm{\varphi}_{L^\infty(\Omega)}, \\
+\int \paren{\ulow^n - \dot{\Gamma}_n}\cdot\paren{\theta_+\grad\psi} & \leq C.
 \end{aligned} \end{equation}
 
 For the high pass terms, we have $\uhigh^n$ uniformly bounded in $\dot{W}^{-1/4,\infty}$.  From step 1, we know $\theta_+^2$ is uniformly bounded in $L^2(-4,0;\HD^{1/2})$ so, by Lemma~\ref{thm:Lambda stuff} parts \ref{thm:L1 of Lambda1/4 bounded} and \ref{thm:extra product rule}, there is a constant $C$ independent of $n$ and $\varphi$ such that
 \begin{equation}\begin{aligned} \label{high pass bounds}
 \iint \uhigh^n \cdot (\theta_+^2 \grad\varphi) &\leq C \paren{\norm{\grad\varphi}_{C^0(-4,0;L^\infty(\Omega))} + \norm{\varphi}_{C^0(-4,0;C^2(\Omega))}}, \\
-%\int \uhigh^n \cdot (\theta_+ \grad\psi) &\leq C, \\
-\iint \uhigh^n \cdot (\theta_+ \varphi\grad\psi) &\leq C \paren{\norm{\varphi}_{C^0(-4,0;L^\infty(\Omega))} + \norm{\varphi}_{C^0(-4,0;C^1(\Omega))}}.
+\iint \uhigh^n \cdot (\theta_+ \varphi\grad\psi) &\leq C \paren{\norm{\varphi}_{C^0(-4,0;L^\infty(\Omega))} + \norm{\varphi}_{C^0(-4,0;C^1(\Omega))}}, \\
+\int_{-5}^0\!\! \int \uhigh^n \cdot (\theta_+ \grad\psi) &\leq C.
 \end{aligned} \end{equation}
 
-Since $\norm{\Lambda \varphi}_{L^2} = \norm{\grad \varphi}_{L^2}$, we have
-\begin{equation} \label{Lambda phi bounds}
-- \iint \theta_+^2 \Lambda \varphi \leq \norm{\varphi}
-\end{equation}
-
 Plugging these six bounds into \eqref{time compactness setup}, we have for a constant $C$ independent of $n$ and $\varphi$
-\begin{equation} \label{theta3 compact in time} \int_{-4}^0 \int_{\Omega_n} \paren{\del_t \theta_+^2 + \dot{\Gamma}_n\cdot\grad\theta_+^2}\varphi \,dxdt \leq C \norm{\varphi}_{C^0(0,T; C^2(\Omega))}. \end{equation}
+\begin{equation} \label{theta3 compact in time} \int_{-4}^0 \int_{\Omega_n} \paren{\del_t \theta_+^2 + \dot{\Gamma}_n\cdot\grad\theta_+^2}\varphi \,dxdt \leq C \norm{\varphi}_{C^0(-4,0; C^2(\Omega_n))}. \end{equation}
 
 \vskip.3cm
 \step{Taking the limit}
@@ -1603,6 +1621,12 @@ To show that $(\bar{u}_j)_{j \in \Z}$ is calibrated, we must translate the three
 
 \end{proof}
 \vskip.3cm
+
+Before proving Theorem~\ref{thm:main continuity}, we will show an essentially equivalent lemma.  
+
+\begin{lemma}[Continuity of suitable solutions] \label{thm:continuity for suitable}
+Let $\Omega \subseteq \R^2$ be an open, bounded domain with $C^{2,\beta}$ boundary, $\beta \in (0,1)$.  Let $T > 0$ be a finite time and let $\theta:[0,T] \times \Omega \to \R$ and $u:[0,T]\times\Omega \to \R^2$ be a suitable solution to \eqref{eq:main linear}.  Assume that $u$ is the 
+\end{lemma}
 
 \begin{proof}[Proof of Theorem \ref{thm:main continuity}]
 By Proposition~\ref{thm:L2 to Linfty}, the $L^\infty$ norm of $\theta$, after a short time, will be bounded by $\norm{\theta_0}_{L^2}$.  By translating and scaling, it will be sufficient to assume that $\theta$ solving \eqref{eq:main nonlinear} satisfies
