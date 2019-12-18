@@ -552,21 +552,26 @@ Let $\Omega \subseteq \R^2$ be bounded and open with $C^{2,\beta}$ boundary, $\b
 
 Then for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R^2)$ satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and the H\"{o}lder seminorm $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$ and any smooth non-negative $\varphi \in \Ctest(S,T;C^\infty(\Omega))$, the function $\theta_+ := \paren{\theta - \Psi}_+$ satisfies
 \begin{equation}\label{leray-hopf condition}
-\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq C \paren{ k^2 \int \indic{\theta_+ \geq 0} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} }
+\ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \Csuit \paren{ k^2 \int \indic{\theta \geq \Psi} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} } \qquad \forall t \in [0,T]
 \end{equation}
-for all $t \in [S,T]$, and
-\begin{equation} \label{local condition} \begin{aligned}
-\frac{-1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 \del_t \varphi &\leq -\int_S^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} + \frac{1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 u\cdot\grad\varphi
-\\ & \hskip2cm - \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy
-\\ & \hskip2cm - \frac{1}{2} \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x) - \varphi(y)] K_1(x,y) \,dxdy.
+and
+\begin{equation} \label{local condition} 
+\begin{aligned} 
+\frac{-1}{2} \int_S^T\!\!\!\!\int \theta_+^2 \del_t \varphi &\leq \frac{1}{2} \int_S^T\!\!\!\!\int  \theta_+^2 u \cdot \grad \varphi - \int_S^T\!\!\!\!\int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} 
++ \Csuit \norm{\varphi}_{C^0(S,T;C^1)} \bigg( \paren{1+\frac{1}{S}} \int_0^T\!\!\!\!\int \theta_+^2 
+\\ & \hskip2cm + k^2 \int_0^T\!\!\!\!\int \indic{\theta_+>0} + \int_0^T\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}} \bigg).
 \end{aligned}
+%\begin{aligned}
+%\frac{-1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 \del_t \varphi &\leq -\int_S^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi} + \frac{1}{2} \int_S^T\!\!\!\!\int\! \theta_+^2 u\cdot\grad\varphi
+%\\ & \hskip2cm - \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy
+%\\ & \hskip2cm - \frac{1}{2} \int_S^T\!\!\!\!\iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x) - \varphi(y)] K_1(x,y) \,dxdy.
+%\end{aligned}
 %\begin{aligned}
 %\frac{1}{2} \int_0^T\!\!\!\!\int\! \varphi \del_t \theta_+^2 &\leq \frac{1}{2} \int_0^T\!\!\!\!\int\! \theta_+^2 u\!\cdot\!\grad\varphi + \abs{\int_0^T\!\!\!\!\int\! \varphi \theta_+ \paren{\del_t\Psi+u\cdot\grad\Psi}} 
 %+ C\norm{\varphi}_{C^0(0,T;C^1(\Omega))} \Bigg(\int_0^T\!\!\!\!\int\! \theta_+^2 
 %\\ & + \sup_{[0,T]} \int\!\! \theta_+^2 + \abs{\int_0^T\!\!\!\!\int\! \theta_+ \paren{\del_t\Psi + u\cdot\grad\Psi}} + k^2 \int_0^T\!\! |\{\theta_+\geq 0\}| + k^4 \int_0^T\!\! |\{\theta_+ \geq 0\}|^2 \Bigg). 
 %\end{aligned} 
 \end{equation}
-
 \end{proposition}
 
 \begin{proof}[Proof of Proposition \ref{thm:suitability}]
@@ -626,17 +631,31 @@ which decomposes into three terms, corresponding to $\theta_+$, $\Psi$, and $\th
 \end{equation}
 Note that the $\Lambda \theta_-$ term on the left-hand side of this equality is non-negative by Lemma~\ref{thm:Lambda stuff} part \eqref{thm:disjoint}.  
 
-For the $\Lambda \theta_+$ term, by Cordoba's inequality (c.f. \cite{CoIg.fraclap}),
-\begin{equation*} \begin{aligned}
--\int \varphi \theta_+ \Lambda \theta_+ &\leq \frac{-1}{2} \int \varphi \Lambda \theta_+^2
-\\ &= \frac{-1}{2} \int \theta_+^2 \Lambda \varphi
-\\ &\leq \frac{-1}{2} \iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x)-\varphi(y)] K_1(x,y) \,dxdy.
-\end{aligned} \end{equation*}
+The two final terms on the right-hand side are bounded
+\[ - \int \varphi \theta_+ \Lambda \theta_+ - \int \varphi \theta_+ \Lambda \Psi \leq C \norm{\varphi}_{C^1(\Omega)} \paren{\int \theta_+^2 + \int \abs{\Lambda^{1/2}\theta_+}^2 + k^2 \int \indic{\theta_+>0} }. \]
 
-From the Caffarelli-Stinga Representation of Proposition~\ref{thm:Caff Stinga representation},
-\[ - \int \varphi \theta_+ \Lambda \Psi \leq - \iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy.  \]
+From the inequality \eqref{leray-hopf condition} already proven, we can obtain by a standard argument
+\[ \int_S^T\!\! \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \frac{1}{S} \int_0^T\!\! \int \theta_+^2 + k^2 \int_0^T\!\! \int \indic{\theta_+>0} + \int_0^T\!\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}}. \]
 
-With these two bounds, the stated result follows from \eqref{equality with varphi}.  
+By integrating \eqref{equality with varphi} from $S$ to $T$ and applying these two bounds, we obtain the stated result \eqref{local condition}.  
+
+%Applying these two bounds to the integral from $S$ to $T$ of \eqref{equality with varphi}, we obtain
+%\[\begin{aligned} 
+%\frac{-1}{2} \int_S^T\!\!\int \theta_+^2 \del_t \varphi &\leq \frac{1}{2} \int_S^T\!\!\int  \theta_+^2 u \cdot \grad \varphi - \int_S^T\!\!\int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} 
+%\\ &+ C \norm{\varphi}_{C^0(S,T;C^1)} \paren{ (1+S\n) \int_0^T\!\!\int \theta_+^2 + k^2 \int_0^T\!\!\int \indic{\theta_+>0} + \int_0^T\!\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}}}.
+%\end{aligned}\]
+
+%For the $\Lambda \theta_+$ term, by Cordoba's inequality (c.f. \cite{CoIg.fraclap}),
+%\begin{equation*} \begin{aligned}
+%-\int \varphi \theta_+ \Lambda \theta_+ &\leq \frac{-1}{2} \int \varphi \Lambda \theta_+^2
+%\\ &= \frac{-1}{2} \int \theta_+^2 \Lambda \varphi
+%\\ &\leq \frac{-1}{2} \iint_{\Omega \times \Omega} [\theta_+(x)^2 - \theta_+(y)^2][\varphi(x)-\varphi(y)] K_1(x,y) \,dxdy.
+%\end{aligned} \end{equation*}
+%
+%From the Caffarelli-Stinga Representation of Proposition~\ref{thm:Caff Stinga representation},
+%\[ - \int \varphi \theta_+ \Lambda \Psi \leq - \iint_{\Omega \times \Omega} [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)][\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy.  \]
+
+%With these two bounds, the stated result follows from \eqref{equality with varphi}.  
 %For the $\Lambda \Psi$ term, we can ignore the boundary term of the Caffarelli-Stinga Representation from Proposition~\ref{thm:Caff Stinga representation} because it is non-negative so
 %\[ \int \varphi \theta_+ \Lambda \Psi \geq \iint [\varphi(x) \theta_+(x) - \varphi(y) \theta_+(y)] [\Psi(x) - \Psi(y)] K(x,y). \]
 
@@ -658,7 +677,7 @@ With these two bounds, the stated result follows from \eqref{equality with varph
 
 We will construct solutions which verify these energy inequalities proven above but which are not a priori in $L^2(H_0^1)$.  
 \begin{definition}
-A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain $[S,T]\times \Omega$ if $S < T$ are finite, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
+A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain $[0,T]\times \Omega$ if $T <\infty$, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
 \begin{enumerate}
 \item $\theta$, $u$ solve \eqref{eq:main linear} in the sense of distributions with $L^2$ norm decreasing in time, \\
 \item $\theta$, $u$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} at all scales with the same universal constant $\Csuit$ defined in Proposition~\ref{thm:suitability}.  More specifically, the following holds:
@@ -666,9 +685,9 @@ A pair $\theta, u$ is called a \textbf{suitable solution} on a space time domain
 %it satisfies \eqref{leray-hopf condition} and \eqref{local condition} at all scales with the same universal constant $\Csuit$ defined in Proposition~\ref{thm:suitability}.  Specifically, if the following holds:
 Let $\lambda >0$ and $\mu \in (0,1)$ be given and let $\Psi \in C^\infty([0,\infty)\times \R^2)$ be any smooth non-negative function satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$.  
 
-Define $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{\theta}_+(t,x) := (\lambda \theta(\mu t, \mu x)-\Psi(t, x))_+$, and $\tilde{u}(t,x):= u(\mu t, \mu x)$.  Let $\varphi \in \Ctest(S,T;C^\infty(\tilde{\Omega}))$ be non-negative.  
+Define $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{\theta}_+(t,x) := (\lambda \theta(\mu t, \mu x)-\Psi(t, x))_+$, and $\tilde{u}(t,x):= u(\mu t, \mu x)$.  Let $S \in (0,\mu\n T)$ and let $\varphi \in \Ctest(S,T;C^\infty(\tilde{\Omega}))$ be non-negative.  
 
-Then $\tilde{\theta}_+$ and $\tilde{u}$ and $\varphi$ and $\Psi$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} on $[\mu\n S,\mu\n T] \times \tilde{\Omega}$ with the universal constant $\Csuit$.  
+Then $\tilde{\theta}_+$ and $\tilde{u}$ and $\varphi$ and $\Psi$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} with $\tilde{\Omega}$ replacing $\Omega$ and $\mu\n T$ replacing $T$, with the universal constant $\Csuit$.  
 \end{enumerate}
 \end{definition}
 
@@ -1180,7 +1199,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-T,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Consider the functions
