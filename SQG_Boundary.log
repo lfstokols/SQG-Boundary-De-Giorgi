@@ -1,64 +1,60 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.13)  19 DEC 2019 02:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.11.15)  19 DEC 2019 10:00
 entering extended mode
-**./SQG_Boundary.tex
-(SQG_Boundary.tex
-LaTeX2e <2019-10-01>
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amsart.cls"
-Document Class: amsart 2017/10/31 v2.20.4
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**SQG_Boundary.tex
+(./SQG_Boundary.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2015/03/04 v2.20.2
 \linespacing=\dimen102
 \normalparindent=\dimen103
 \normaltopskip=\skip41
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.st
-y"
-Package: amsmath 2019/04/01 v2.17c AMS math features
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip42
 
 For additional information on amsmath, use the `?' option.
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.st
-y"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
-"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen104
 ))
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
-"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
-"
-Package: amsopn 2016/03/08 v2.02 operator names
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count80
-LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count81
-\leftroot@=\count82
-LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count83
-\DOTSCASE@=\count84
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box27
-\strutbox@=\box28
+\inf@bad=\count79
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count80
+\leftroot@=\count81
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count82
+\DOTSCASE@=\count83
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count85
-\c@MaxMatrixCols=\count86
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count84
+\c@MaxMatrixCols=\count85
 \dotsspace@=\muskip10
-\c@parentequation=\count87
-\dspbrk@lvl=\count88
+\c@parentequation=\count86
+\dspbrk@lvl=\count87
 \tag@help=\toks15
-\row@=\count89
-\column@=\count90
-\maxfields@=\count91
+\row@=\count88
+\column@=\count89
+\maxfields@=\count90
 \andhelp@=\toks16
 \eqnshift@=\dimen107
 \alignsep@=\dimen108
@@ -70,35 +66,32 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \multlinegap=\skip43
 \multlinetaggap=\skip44
 \mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2855.
-LaTeX Info: Redefining \] on input line 2856.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 398
-.
+LaTeX Font Info:    Try loading font information for U+msa on input line 388.
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
 \copyins=\insert199
-\abstractbox=\box29
+\abstractbox=\box28
 \listisep=\skip45
-\c@part=\count92
-\c@section=\count93
-\c@subsection=\count94
-\c@subsubsection=\count95
-\c@paragraph=\count96
-\c@subparagraph=\count97
-\c@figure=\count98
-\c@table=\count99
+\c@part=\count91
+\c@section=\count92
+\c@subsection=\count93
+\c@subsubsection=\count94
+\c@paragraph=\count95
+\c@subparagraph=\count96
+\c@figure=\count97
+\c@table=\count98
 \abovecaptionskip=\skip46
 \belowcaptionskip=\skip47
 \captionindent=\dimen113
@@ -112,13 +105,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \thm@headsep=\skip50
 \dth@everypar=\toks24
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb.s
-ty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\upref.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/upref.sty
 Package: upref 2007/03/14 v2.04
-) ("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epsf\epsf.sty"
+)
+(/usr/share/texlive/texmf-dist/tex/generic/epsf/epsf.sty
 This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsffilein=\read1
 \epsfframemargin=\dimen114
@@ -129,13 +122,11 @@ This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsfxsize=\dimen119
 \epsfysize=\dimen120
 \pspoints=\dimen121
-)
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mnsymbol\MnSymbol.
-sty"
+) (/usr/share/texlive/texmf-dist/tex/latex/mnsymbol/MnSymbol.sty
 Package: MnSymbol 2007/01/21 v1.4 support for the MnSymbol font
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\textcomp.sty"
-Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
 (textcomp)               4 = 5 + \texteuro
@@ -148,86 +139,10 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1enc.def"
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-Now handling font encoding TS1 ...
-... processing UTF-8 mapping file for font encoding TS1
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1enc.dfu"
-File: ts1enc.dfu 2019/07/11 v1.2j UTF-8 support for inputenc
-   defining Unicode char U+00A2 (decimal 162)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00A4 (decimal 164)
-   defining Unicode char U+00A5 (decimal 165)
-   defining Unicode char U+00A6 (decimal 166)
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00A8 (decimal 168)
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AC (decimal 172)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00AF (decimal 175)
-   defining Unicode char U+00B0 (decimal 176)
-   defining Unicode char U+00B1 (decimal 177)
-   defining Unicode char U+00B2 (decimal 178)
-   defining Unicode char U+00B3 (decimal 179)
-   defining Unicode char U+00B4 (decimal 180)
-   defining Unicode char U+00B5 (decimal 181)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+00B9 (decimal 185)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+00BC (decimal 188)
-   defining Unicode char U+00BD (decimal 189)
-   defining Unicode char U+00BE (decimal 190)
-   defining Unicode char U+00D7 (decimal 215)
-   defining Unicode char U+00F7 (decimal 247)
-   defining Unicode char U+0192 (decimal 402)
-   defining Unicode char U+02C7 (decimal 711)
-   defining Unicode char U+02D8 (decimal 728)
-   defining Unicode char U+02DD (decimal 733)
-   defining Unicode char U+0E3F (decimal 3647)
-   defining Unicode char U+2016 (decimal 8214)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2031 (decimal 8241)
-   defining Unicode char U+203B (decimal 8251)
-   defining Unicode char U+203D (decimal 8253)
-   defining Unicode char U+2044 (decimal 8260)
-   defining Unicode char U+204E (decimal 8270)
-   defining Unicode char U+2052 (decimal 8274)
-   defining Unicode char U+20A1 (decimal 8353)
-   defining Unicode char U+20A4 (decimal 8356)
-   defining Unicode char U+20A6 (decimal 8358)
-   defining Unicode char U+20A9 (decimal 8361)
-   defining Unicode char U+20AB (decimal 8363)
-   defining Unicode char U+20AC (decimal 8364)
-   defining Unicode char U+20B1 (decimal 8369)
-   defining Unicode char U+2103 (decimal 8451)
-   defining Unicode char U+2116 (decimal 8470)
-   defining Unicode char U+2117 (decimal 8471)
-   defining Unicode char U+211E (decimal 8478)
-   defining Unicode char U+2120 (decimal 8480)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2126 (decimal 8486)
-   defining Unicode char U+2127 (decimal 8487)
-   defining Unicode char U+212E (decimal 8494)
-   defining Unicode char U+2190 (decimal 8592)
-   defining Unicode char U+2191 (decimal 8593)
-   defining Unicode char U+2192 (decimal 8594)
-   defining Unicode char U+2193 (decimal 8595)
-   defining Unicode char U+2329 (decimal 9001)
-   defining Unicode char U+232A (decimal 9002)
-   defining Unicode char U+2422 (decimal 9250)
-   defining Unicode char U+25E6 (decimal 9702)
-   defining Unicode char U+25EF (decimal 9711)
-   defining Unicode char U+266A (decimal 9834)
-   defining Unicode char U+27E8 (decimal 10216)
-   defining Unicode char U+27E9 (decimal 10217)
-   defining Unicode char U+FEFF (decimal 65279)
-))
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
 LaTeX Info: Redefining \oldstylenums on input line 334.
 Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
 Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
@@ -354,32 +269,6 @@ LaTeX Info: Redefining \Longleftarrow on input line 552.
 LaTeX Info: Redefining \Longleftrightarrow on input line 553.
 LaTeX Info: Redefining \longmapsto on input line 554.
 LaTeX Info: Redefining \vdots on input line 868.
-LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 1660.
-LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 1661.
-LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 1662.
-LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 1663.
-LaTeX Font Info:    Redeclaring math delimiter \ulcorner on input line 1664.
-LaTeX Font Info:    Redeclaring math delimiter \urcorner on input line 1665.
-LaTeX Font Info:    Redeclaring math delimiter \llcorner on input line 1666.
-LaTeX Font Info:    Redeclaring math delimiter \lrcorner on input line 1667.
-LaTeX Font Info:    Redeclaring math delimiter \vert on input line 1673.
-LaTeX Font Info:    Redeclaring math delimiter \lvert on input line 1676.
-LaTeX Font Info:    Redeclaring math delimiter \rvert on input line 1677.
-LaTeX Font Info:    Redeclaring math delimiter \Vert on input line 1678.
-LaTeX Font Info:    Redeclaring math delimiter \lVert on input line 1681.
-LaTeX Font Info:    Redeclaring math delimiter \rVert on input line 1682.
-LaTeX Font Info:    Redeclaring math delimiter \arrowvert on input line 1683.
-LaTeX Font Info:    Redeclaring math delimiter \Arrowvert on input line 1684.
-LaTeX Font Info:    Redeclaring math delimiter \langle on input line 1692.
-LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 1693.
-LaTeX Font Info:    Redeclaring math delimiter \backslash on input line 1699.
-LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 1704.
-LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 1705.
-LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 1706.
-LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 1707.
-LaTeX Font Info:    Redeclaring math delimiter \rmoustache on input line 1708.
-LaTeX Font Info:    Redeclaring math delimiter \lmoustache on input line 1709.
-LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 1710.
 LaTeX Font Info:    Redeclaring math symbol \braceld on input line 1721.
 LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 1722.
 LaTeX Font Info:    Redeclaring math symbol \bracerd on input line 1723.
@@ -393,41 +282,43 @@ LaTeX Font Info:    Redeclaring math accent \widehat on input line 1845.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 1846.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1848.
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
-sty"
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
-y"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks25
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
-sty"
-Package: graphics 2019/07/20 v1.3b Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
-ics.cfg"
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdfte
-x.def"
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count99
 ))
 \Gin@req@height=\dimen122
 \Gin@req@width=\dimen123
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathtools\mathtool
-s.sty"
-Package: mathtools 2019/07/31 v1.22 mathematical typesetting tools
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count100
 \calc@Bcount=\count101
 \calc@Adimen=\dimen124
@@ -439,9 +330,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count102
 \calc@Cskip=\skip53
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathtools\mhsetup.
-sty"
-Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
@@ -457,35 +347,30 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen131
 \l_MT_below_shortintertext_sep=\dimen132
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\mathrsfs.
-sty"
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup10
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.st
-y"
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen133
 \WF@size=\dimen134
 \c@WF@wrappedlines=\count104
-\WF@box=\box30
+\WF@box=\box29
 \WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.
-sty"
-Package: geometry 2018/04/16 v5.8 Page Geometry
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifpdf.s
-ty"
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifvtex.
-sty"
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\ifxetex.
-sty"
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count105
@@ -500,32 +385,27 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen141
 \Gm@layoutvoffset=\dimen142
 \Gm@dimlist=\toks27
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.
-cfg"))
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.
-sty"
-Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
-s
-\f@nch@headwidth=\skip55
-\f@nch@O@elh=\skip56
-\f@nch@O@erh=\skip57
-\f@nch@O@olh=\skip58
-\f@nch@O@orh=\skip59
-\f@nch@O@elf=\skip60
-\f@nch@O@erf=\skip61
-\f@nch@O@olf=\skip62
-\f@nch@O@orf=\skip63
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\enumerate.st
-y"
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip55
+\f@ncyO@elh=\skip56
+\f@ncyO@erh=\skip57
+\f@ncyO@olh=\skip58
+\f@ncyO@orh=\skip59
+\f@ncyO@elf=\skip60
+\f@ncyO@erf=\skip61
+\f@ncyO@olf=\skip62
+\f@ncyO@orf=\skip63
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks28
 )
 \c@theorem=\count108
 \c@definition=\count109
 \c@step_count=\count110
- (SQG_Boundary.aux)
+
+(./SQG_Boundary.aux)
 \openout1 = `SQG_Boundary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 140.
@@ -541,35 +421,32 @@ LaTeX Font Info:    ... okay on input line 140.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 140.
 LaTeX Font Info:    ... okay on input line 140.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 140.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-40.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 140.
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 140.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 140
-.
+LaTeX Font Info:    Try loading font information for U+msa on input line 140.
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 140
-.
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+LaTeX Font Info:    Try loading font information for U+msb on input line 140.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 14
-0.
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 140.
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
-df.mkii"
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen143
-\scratchbox=\box31
+\scratchbox=\box30
 \nofMPsegments=\count112
 \nofMParguments=\count113
 \everyMPshowfont=\toks29
@@ -578,60 +455,50 @@ df.mkii"
 \MPnumerator=\count115
 \makeMPintoPDFobject=\count116
 \everyMPtoPDFconversion=\toks30
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-
-base.sty"
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\infware
-rr.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.st
-y"
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvdefin
-ekeys.sty"
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ltxcmds
-.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)))
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions
-.sty"
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvsetke
-ys.sty"
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\etexcmd
-s.sty"
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifluate
-x.sty"
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-))))
-("C:\Users\lfsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdftexc
-mds.sty"
-Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-)
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -666,23 +533,23 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(SQG_Boundary.toc)
+(./SQG_Boundary.toc)
 \tf@toc=\write3
 \openout3 = `SQG_Boundary.toc'.
 
- [1{C:/Users/lfsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (20.49619pt too wide) in paragraph at lines 181--182
-[]\OT1/cmr/m/it/10.95 For any $\OML/cmm/m/it/10.95 [] \U/MnSymbolD/m/n/10.95 >
- \OML/cmm/m/it/10.95 L[]\OMX/MnSymbolE/m/n/10.95 à\OT1/cmr/m/n/10.95 
+[]\OT1/cmr/m/it/10.95 For any $\OML/cmm/m/it/10.95 ^^R[] \U/MnSymbolD/m/n/10.95
+ > \OML/cmm/m/it/10.95 L[]\OMX/MnSymbolE/m/n/10.95 à\OT1/cmr/m/n/10.95 
 \OMX/MnSymbolE/m/n/10.95 ç$ \OT1/cmr/m/it/10.95 there ex-ists a global-in-time 
-weak so-lu-tion $\OML/cmm/m/it/10.95  \U/MnSymbolD/m/n/10.95 > \OML/cmm/m/it/1
-0.95 L[]\OMX/MnSymbolE/m/n/10.95 à \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; \U
-/MnSymbolC/m/n/10.95 ™\OMX/MnSymbolE/m/n/10.95 ç\OT1/cmr/m/n/10.95 ; \OML/cmm/m
-/it/10.95 L[]\OMX/MnSymbolE/m/n/10.95 à\OT1/cmr/m/n/10.95 
+weak so-lu-tion $\OML/cmm/m/it/10.95 ^^R \U/MnSymbolD/m/n/10.95 > \OML/cmm/m/it
+/10.95 L[]\OMX/MnSymbolE/m/n/10.95 à^^@\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 
+; \U/MnSymbolC/m/n/10.95 ™\OMX/MnSymbolE/m/n/10.95 ç\OT1/cmr/m/n/10.95 ; \OML/c
+mm/m/it/10.95 L[]\OMX/MnSymbolE/m/n/10.95 à\OT1/cmr/m/n/10.95 
 \OMX/MnSymbolE/m/n/10.95 çç \U/MnSymbolC/m/n/10.95 9 \OML/cmm/m/it/10.95 L[]\OM
-X/MnSymbolE/m/n/10.95 à \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; \U/MnSymbolC/
-m/n/10.95 ™\OMX/MnSymbolE/m/n/10.95 ç\OT1/cmr/m/n/10.95 ; \OMS/MnSymbolS/m/n/10
-.95 H[]\OMX/MnSymbolE/m/n/10.95 ç$
+X/MnSymbolE/m/n/10.95 à^^@\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; \U/MnSymbol
+C/m/n/10.95 ™\OMX/MnSymbolE/m/n/10.95 ç\OT1/cmr/m/n/10.95 ; \OMS/MnSymbolS/m/n/
+10.95 H[]\OMX/MnSymbolE/m/n/10.95 ç$
  []
 
 [2]
@@ -703,64 +570,49 @@ ML/cmm/m/it/10.95 L[]$ \OT1/cmr/m/it/10.95 func-tion, i.e. $[][] \U/MnSymbolD/m
 /n/10.95 B
  []
 
-[29] [30] [31]
+[29] [30] [31] [32] [33] [34] (./SQG_Boundary.bbl [35]
+Missing character: There is no ‚ in font cmr9!
+Missing character: There is no Ä in font cmr9!
+Missing character: There is no ì in font cmr9!
 
-LaTeX Warning: Reference `thm:L2 to Linfty' on page 32 undefined on input line 
-1726.
-
-
-LaTeX Warning: Reference `thm:caccioppoli' on page 32 undefined on input line 1
-739.
-
-[32] [33] [34] (SQG_Boundary.bbl [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36])
-[37] (SQG_Boundary.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[37] (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
- 7480 strings out of 492452
- 101915 string characters out of 3120063
- 151265 words of memory out of 3000000
- 11547 multiletter control sequences out of 15000+200000
- 22421 words of font info for 82 fonts, out of 3000000 for 9000
+ 6148 strings out of 493033
+ 83444 string characters out of 6136454
+ 143816 words of memory out of 5000000
+ 9396 multiletter control sequences out of 15000+600000
+ 22421 words of font info for 82 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 46i,13n,45p,1419b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/Mn
-SymbolE.enc}{C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/m
-nsymbol/MnSymbolS.enc}{C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/e
-nc/dvips/mnsymbol/MnSymbolA.enc}{C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2
-.9/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{C:/Users/lfsto/AppData/Local/Program
-s/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{C:/Users/lfsto/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}<C:/Users/lfsto/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.pfb><C:
-/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSy
-mbol6.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-mnsymbol/MnSymbol8.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/lfsto/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/lfsto/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/
-Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-mi6.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmmi8.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lfsto/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lfsto/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/lfst
-o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><
-C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmti7.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmti8.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmti9.pfb><C:/Users/lfsto/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/lfsto/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lfst
-o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
-pfb>
-Output written on SQG_Boundary.pdf (37 pages, 508956 bytes).
+ 38i,13n,43p,1417b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsym
+bol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSym
+bolS.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/sha
+re/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texliv
+e/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}</usr/share/texlive/texmf-d
+ist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb>
+Output written on SQG_Boundary.pdf (37 pages, 508371 bytes).
 PDF statistics:
  229 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

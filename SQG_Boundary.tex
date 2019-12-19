@@ -1722,21 +1722,17 @@ In other words,
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:main continuity}]
-In Proposition~\ref{thm:existence} we construct global-in-time solutions to \eqref{eq:main nonlinear}.  If $t > 5$, then observe that the property of being a suitable solution to \eqref{eq:main linear} is linear in $\theta$ and translation-invariant, so 
-By Proposition~\ref{thm:L2 to Linfty}, the $L^\infty$ norm of $\theta$, after a short time, will be bounded by $\norm{\theta_0}_{L^2}$.  By translating and scaling, it will be sufficient to assume that $\theta$ solving \eqref{eq:main nonlinear} satisfies
-\[ \norm{\theta}_{L^\infty([-5,0] \times \Omega)} \leq 2 \]
-and prove that $\theta$ is H\"{o}lder continuous at the origin $(0,0) \in [-5,0]\times\bar{\Omega}$, meaning
-\[ \frac{|\theta(t,x) - \theta(0,0)|}{\paren{|t|^2 + |x|^2}^{\alpha/2}} \leq C \]
-for all $(t,x) \in [-5,0]\times\Omega$ and some constants $\alpha$ and $C$ depending on $\Omega$.  
-\vskip.3cm
+Recall that $\Omega$, $S$, $k$, and $\theta_0$ are given.  
 
-From Proposition~\ref{thm:u is calibrated}, we know that 
-\[ u = \grad^\perp \Lambda^{-1} \theta = \sum_{j=j_0}^\infty u_j \]
-for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega)$ and center 0.  Assume without loss of generality that $j_0 < 0$.
+In Proposition~\ref{thm:existence} we construct global-in-time solutions to \eqref{eq:main nonlinear}.  By construction, there is a universal constant $C_1$ so $\norm{\theta(t,\cdot)}_{L^\infty(\Omega)} \leq C_1 t\n \norm{\theta_0}_{L^2(\Omega)}$.  
 
-
-
-This completes the proof of regularity.  That $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ implies $\theta$, $u$ are a suitable pair is proven in Lemma~\ref{thm:caccioppoli}.  
+Consider a point $(t_0, x_0)$ with $t_0 > S$.  Consider arbitrary constants $\lambda$ and $\eps$ and note that
+\[ \tilde{\theta}(t,x) := \lambda \theta(\mu (t_0 + t), \mu x), \qquad \tilde{u}(t,x) := u(\mu (t-t_0), \mu x) \]
+is a suitable solution to \eqref{eq:main linear}.  If $\mu \geq (t_0 - S)\n$, then for $\tilde{\Omega} := \{x\in \R^2: \mu x \in \Omega \}$, we have 
+\[ \norm{\tilde{\theta}}_{L^\infty([-5,0]\times\tilde{\Omega}} \leq C_1 k. \]
+If moreovere $\lambda C_1 k \leq 2$ then we can apply Lemma~\ref{thm:continuity for suitable} to $\tilde{\theta}$, $\tilde{u}$ with
+\[ \norm{\Lambda^{-1} \grad^\perp \cdot \tilde{u}}_{L^\infty([-5,0]\times\Omega)} \leq C_1 k \]
+and find that $\tilde{\theta}$ is H\"{o}lder continuous at $(t_0,x_0)$ with constant $\alpha$ depending on $k$ and $S$.  
 
 \end{proof}
 
