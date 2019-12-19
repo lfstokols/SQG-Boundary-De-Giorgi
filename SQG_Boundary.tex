@@ -558,7 +558,7 @@ and
 \begin{equation} \label{local condition} 
 \begin{aligned} 
 \frac{-1}{2} \int_S^T\!\!\!\!\int \theta_+^2 \del_t \varphi &\leq \frac{1}{2} \int_S^T\!\!\!\!\int  \theta_+^2 u \cdot \grad \varphi - \int_S^T\!\!\!\!\int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} 
-+ \Csuit \norm{\varphi}_{C^0(S,T;C^1)} \bigg( \paren{1+\frac{1}{S}} \int_0^T\!\!\!\!\int \theta_+^2 
++ \Csuit \norm{\varphi}_{C^0(S,T;C^1)} \bigg( \paren{1\!\!+\!\!\frac{1}{S}} \int_0^T\!\!\!\!\int \theta_+^2 
 \\ & \hskip2cm + k^2 \int_0^T\!\!\!\!\int \indic{\theta\geq\Psi} + \int_0^T\! \abs{\int \theta_+ \paren{\del_t \Psi + u\cdot\grad\Psi}} \bigg).
 \end{aligned}
 %\begin{aligned}
@@ -1203,7 +1203,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-T,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume \\ $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Consider the functions
@@ -1627,23 +1627,19 @@ Before proving Theorem~\ref{thm:main continuity}, we will show an essentially eq
 \begin{lemma}[Continuity of suitable solutions] \label{thm:continuity for suitable}
 Let $\Omega \subseteq \R^2$ be an open, bounded domain with $C^{2,\beta}$ boundary, $\beta \in (0,1)$.  Let $k > 0$ be a constant.  Then there exist constants $\alpha \in (0,1)$ and $C > 0$ such that the following holds:
 
-Let $\theta:[-5,0] \times \Omega \to \R$ and $u:[-5,0]\times\Omega \to \R^2$ be a suitable solution to \eqref{eq:main linear}.  Assume that $u$ is the Riesz transform of an $L^\infty$ function, i.e. $\norm{\Lambda \grad^\perp \cdot u}_{L^\infty([-5,0] \times \Omega)} \leq k$.  
+Let $\theta:[-5,0] \times \Omega \to \R$ and $u:[-5,0]\times\Omega \to \R^2$ be a suitable solution to \eqref{eq:main linear}.  Assume that $\norm{\theta}_{L^\infty([-5,0]\times\Omega)} \leq 2$ and that $u$ is the Riesz transform of an $L^\infty$ function, i.e. $\norm{\Lambda^{-1} \grad^\perp \cdot u}_{L^\infty([-5,0] \times \Omega)} \leq k$.  
 
-Then
-\[ \norm{\theta}_{C^\alpha([-4,0]\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
+Then for any point $P \in \bar{\Omega}$, $\theta$ is H\"{o}lder continuous at $(0,P)$ and
+\[ \sup_{(t,x) \in [-5,0]\times\Omega} \frac{|\theta(t,x) - \theta(0,P)|}{(|t|^2 + |x|^2)^{\alpha/2}} \leq C. \]
+%\[ \norm{\theta}_{C^\alpha([-4,0]\times\Omega)} \leq C \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{lemma}
 
-\begin{proof}[Proof of Theorem \ref{thm:main continuity}]
-By Proposition~\ref{thm:L2 to Linfty}, the $L^\infty$ norm of $\theta$, after a short time, will be bounded by $\norm{\theta_0}_{L^2}$.  By translating and scaling, it will be sufficient to assume that $\theta$ solving \eqref{eq:main nonlinear} satisfies
-\[ \norm{\theta}_{L^\infty([-5,0] \times \Omega)} \leq 2 \]
-and prove that $\theta$ is H\"{o}lder continuous at the origin $(0,0) \in [-5,0]\times\bar{\Omega}$, meaning
-\[ \frac{|\theta(t,x) - \theta(0,0)|}{\paren{|t|^2 + |x|^2}^{\alpha/2}} \leq C \]
-for all $(t,x) \in [-5,0]\times\Omega$ and some constants $\alpha$ and $C$ depending on $\Omega$.  
-\vskip.3cm
+\begin{proof}
+By relabelling our coordinate system, we can assume without loss of generality that $P = 0$ is the origin in $\R^2$.  
 
 From Proposition~\ref{thm:u is calibrated}, we know that 
-\[ u = \grad^\perp \Lambda^{-1} \theta = \sum_{j=j_0}^\infty u_j \]
-for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega)$ and center 0.  Assume without loss of generality that $j_0 < 0$.
+\[ u = \grad^\perp \Lambda^{-1} \bracket{ \Lambda^{-1} \grad^\perp \cdot u} = \sum_{j=j_0}^\infty u_j \]
+for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega, k)$ and center 0.  Assume without loss of generality that $j_0 < 0$.
 
 Choose a constant $0 < \eps < 1/5$ such that
 \begin{equation}\label{eps is small enough for Cgamma} 
@@ -1709,6 +1705,7 @@ Trivially $|\dot{\gamma}_0| \leq (1-j_0) \Ccalib$, so if we define
 \[ \Cgamma = \max\paren{ - \Ccalib \log_2(\eps) e^{10\eps\Ccalib}, (1-j_0) \Ccalib} \]
 then for all $k \geq 0$ and $t \in [-5,0]$
 \[ |\dot{\gamma}_k(t)| \leq \Cgamma. \]
+Moreover, the assumption \eqref{Cgamma and eps for harnack} then follows from \eqref{eps is small enough for Cgamma}.  
 \vskip.3cm
 
 Define
@@ -1749,6 +1746,23 @@ In other words,
 \\ &= 4 \paren{\frac{2}{2-\lambda}} \exp\bracket{\ln\paren{\frac{2}{2-\lambda}} \frac{\ln(|t|^2 + |x|^2)}{-(1+C)\ln(\eps)}}
 \\ &= \frac{8}{2-\lambda} (|t|^2 + |x|^2)^{-\frac{\ln(2) - \ln(2-\lambda)}{(1+C)\ln(\eps)}}.
 \end{align*}
+
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:main continuity}]
+In Proposition~\ref{thm:existence} we construct global-in-time solutions to \eqref{eq:main nonlinear}.  If $t > 5$, then observe that the property of being a suitable solution to \eqref{eq:main linear} is linear in $\theta$ and translation-invariant, so 
+By Proposition~\ref{thm:L2 to Linfty}, the $L^\infty$ norm of $\theta$, after a short time, will be bounded by $\norm{\theta_0}_{L^2}$.  By translating and scaling, it will be sufficient to assume that $\theta$ solving \eqref{eq:main nonlinear} satisfies
+\[ \norm{\theta}_{L^\infty([-5,0] \times \Omega)} \leq 2 \]
+and prove that $\theta$ is H\"{o}lder continuous at the origin $(0,0) \in [-5,0]\times\bar{\Omega}$, meaning
+\[ \frac{|\theta(t,x) - \theta(0,0)|}{\paren{|t|^2 + |x|^2}^{\alpha/2}} \leq C \]
+for all $(t,x) \in [-5,0]\times\Omega$ and some constants $\alpha$ and $C$ depending on $\Omega$.  
+\vskip.3cm
+
+From Proposition~\ref{thm:u is calibrated}, we know that 
+\[ u = \grad^\perp \Lambda^{-1} \theta = \sum_{j=j_0}^\infty u_j \]
+for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega)$ and center 0.  Assume without loss of generality that $j_0 < 0$.
+
+
 
 This completes the proof of regularity.  That $\theta \in L^\infty(0,T; L^2(\Omega)) \cap L^2(0,T; H_0^1(\Omega))$ implies $\theta$, $u$ are a suitable pair is proven in Lemma~\ref{thm:caccioppoli}.  
 
