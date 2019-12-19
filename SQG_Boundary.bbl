@@ -57,6 +57,12 @@ P.~Constantin, M.~Ignatova, and H.-Q. Nguyen.
 \newblock Inviscid limit for {SQG} in bounded domains.
 \newblock {\em SIAM J. Math. Anal.}, 50(6):6196--6207, 2018.
 
+\bibitem[CKN82]{CaKoNi}
+L.~Caffarelli, R.~Kohn, and L.~Nirenberg.
+\newblock Partial regularity of suitable weak solutions of the
+  {N}avier-{S}tokes equations.
+\newblock {\em Comm. Pure Appl. Math.}, 35(6):771--831, 1982.
+
 \bibitem[CMT94]{CoMaTa}
 P.~Constantin, A.~J. Majda, and E.~Tabak.
 \newblock Formation of strong fronts in the {$2$}-{D} quasigeostrophic thermal
