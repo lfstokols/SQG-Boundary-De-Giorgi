@@ -587,7 +587,7 @@ Then for any smooth non-negative function $\Psi \in C^\infty([0,\infty)\times \R
 \begin{equation}\label{leray-hopf condition}
 \ddt \int \theta_+^2 + \int \abs{\Lambda^{1/2} \theta_+}^2 \leq \Csuit \paren{ k^2 \int \indic{\theta \geq \Psi} + \abs{\int \theta_+ (\del_t \Psi + u\cdot\grad\Psi)} } \qquad \forall t \in [0,T]
 \end{equation}
-and
+in the sense of distributions and
 \begin{equation} \label{local condition} 
 \begin{aligned} 
 \frac{-1}{2} \int_S^T\!\!\!\!\int \theta_+^2 \del_t \varphi &\leq \frac{1}{2} \int_S^T\!\!\!\!\int  \theta_+^2 u \cdot \grad \varphi - \int_S^T\!\!\!\!\int \varphi \theta_+ \paren{\del_t \Psi + u \cdot \grad \Psi} 
@@ -598,7 +598,7 @@ and
 \end{proposition}
 
 \begin{remark}
-Note that since $\Csuit$ is universal, Proposition~\ref{thm:suitability} does not depend on the values of $\norm{\theta}_{L^\infty(L^2)}$, $\norm{\theta}_{L^2(H_0^1)}$, $\norm{u}_{L^\infty(L^2)}$, or $\norm{u}_{L^4(L^4)}$, but only on the fact that these quantities are finite.  Therefore, using the natural scaling of \eqref{eq:viscous linear}, if $(\theta, u)$ verify the assumptions of Proposition~\ref{thm:suitability} on $[0,T]\times\Omega$, then so does $\big(\lambda \theta(\mu \cdot, \mu \cdot), u(\mu\cdot, \mu\cdot)\big)$ on $[0,\mu\n T] \times \mu\n \Omega$, for any $\lambda \in \R$ and $\mu > 0$ such that $\mu\n \eps \in [0,1]$.  
+Note that since $\Csuit$ is universal, Proposition~\ref{thm:suitability} does not depend on the values of $\norm{\theta}_{L^\infty(L^2)}$, $\norm{\theta}_{L^2(H_0^1)}$, $\norm{u}_{L^\infty(L^2)}$, or $\norm{u}_{L^4(L^4)}$, but only on the fact that these quantities are finite.  Therefore, using the natural scaling of \eqref{eq:viscous linear}, if $(\theta, u)$ verify the assumptions of Proposition~\ref{thm:suitability} on $[0,T]\times\Omega$, then so does $\big(\lambda \theta(\mu \cdot, \mu \cdot), u(\mu\cdot, \mu\cdot)\big)$ on $[0,\mu\n T] \times \mu\n \Omega$, for any $\lambda \in \R$ and $\mu > 0$ such that $\mu\n \eps \in [0,1]$.  Therefore the proposition applies also to these scaled functions, with the same universal constant $\Csuit$.  
 \end{remark}
 
 \begin{proof}[Proof of Proposition \ref{thm:suitability}]
@@ -698,16 +698,18 @@ Integrating this inequality from $S$ to $T$ and applying \eqref{dissipation cont
 
 We will construct global-in-time solutions to \eqref{eq:main linear} (equivalently \eqref{eq:viscous linear} with $\eps = 0$) for any initial value $\theta_0 \in L^2$ which verify these energy inequalities \eqref{leray-hopf condition} and \eqref{local condition} with the same universal constant $\Csuit$ at all scales, but which may not be in $L^2(H_0^1)$.  
 \begin{definition}
-A pair $\theta, u$ is called a \textbf{suitable solution} to \eqref{eq:main linear} on a space time domain $[0,T]\times \Omega$ if $T <\infty$, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega)$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^4(0,T; L^4(\Omega))$ and
+A pair $\theta, u$ is called a \textbf{suitable solution} to \eqref{eq:main linear} on $[0,\infty) \times \Omega$ if $\Omega \subseteq \R^2$ open and bounded, $\theta,u \in L^\infty(\R_+;L^2(\Omega))$, $\theta \in L^2(\R_+;\HD^{1/2}(\Omega))$, $u \in L^3(\R_+; L^3(\Omega))$ and $\theta, u$ is a suitable solution on $[0,T]\times\Omega$ for all $0 < T < \infty$.  
+
+A pair $\theta, u$ is called a \textbf{suitable solution} to \eqref{eq:main linear} on a space time domain $[0,T]\times \Omega$ if $T <\infty$, $\Omega \subseteq\R^2$ open and bounded,  $\theta,u \in L^\infty(0,T;L^2(\Omega))$, $\theta \in L^2(0,T;\HD^{1/2}(\Omega))$, $u \in L^3(0,T; L^3(\Omega))$ and
 \begin{enumerate}
-\item $\theta$, $u$ solve \eqref{eq:main linear} in the sense of distributions, \\
+\item $\theta$, $u$ solve \eqref{eq:main linear} in the sense of distributions on $[0,T]\times\Omega$, \\
 \item $\theta$, $u$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} at all scales with the same universal constant $\Csuit$ defined in Proposition~\ref{thm:suitability}.  More specifically, the following holds:
 
 Let $\lambda \in \R$ and $\mu \in (0,1)$ be given and let $\Psi \in C^\infty([0,\infty)\times \R^2)$ be any smooth non-negative function satisfying $\norm{\grad\Psi}_{L^\infty([0,\infty)\times\R^2)} \leq k$ and $\sup_{[0,\infty)} \bracket{\Psi(t,\cdot)}_{1/4; \R^2} \leq k$ for some constant $k$.  
 
-Define $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{\theta}_+(t,x) := (\lambda \theta(\mu t, \mu x)-\Psi(t, x))_+$, and $\tilde{u}(t,x):= u(\mu t, \mu x)$.  Let $S \in (0,\mu\n T)$ and let $\varphi \in \Ctest(S,T;C^\infty(\tilde{\Omega}))$ be non-negative.  
+Define $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{T}:= \mu\n T$, $\tilde{\theta}_+(t,x) := (\lambda \theta(\mu t, \mu x)-\Psi(t, x))_+$, and $\tilde{u}(t,x):= u(\mu t, \mu x)$.  Let $S \in (0,\tilde{T})$ and let $\varphi \in \Ctest(S,T;C^\infty(\tilde{\Omega}))$ be non-negative.  
 
-Then $\tilde{\theta}_+$ and $\tilde{u}$ and $\varphi$ and $\Psi$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} with $\tilde{\Omega}$ replacing $\Omega$ and $\mu\n T$ replacing $T$, with the same universal constant $\Csuit$.  
+Then $\tilde{\theta}_+$ and $\tilde{u}$ and $\varphi$ and $\Psi$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} on $\tilde{\Omega}$ with times 0, $S$ and $\tilde{T}$, with the same universal constant $\Csuit$.  
 \end{enumerate}
 \end{definition}
 
@@ -731,10 +733,10 @@ There exists a universal constant $C$ such that the following holds:
 
 Given an open, bounded domain $\Omega \subseteq \R^2$, initial data $\theta_0 \in L^2(\Omega)$ and a constant $\eps > 0$, there exists a global-in-time weak solution $\theta$ to \eqref{eq:viscous}.  
 
-In particular, $\theta \in C^0([0,\infty);L^2(\Omega)) \cap L^2([0,\infty);H_0^1(\Omega))$ and $\del_t \in L^2([0,\infty);H^{-1}(\Omega))$, and $\theta(t,\cdot) \to \theta_0(\cdot)$ weakly in $L^2(\Omega)$ as $t \to 0$, and for any $S > 0$
+In particular, $\theta \in C^0([0,\infty);L^2(\Omega)) \cap L^2([0,\infty);H_0^1(\Omega))$, $u \in C^0([0,\infty);L^2(\Omega)) \cap L^4([0,\infty);L^4(\Omega))$, and $\del_t \in L^2([0,\infty);H^{-1}(\Omega))$, and $\theta(t,\cdot) \to \theta_0(\cdot)$ weakly in $L^2(\Omega)$ as $t \to 0$, and for any $S > 0$
 \[ \norm{\theta}_{L^\infty\paren{[S,\infty)\times\Omega}} \leq \frac{C}{S} \norm{\theta_0}_{L^2(\Omega)}. \]
 \end{lemma}
-The proof is by Galerkin's method.  
+The proof of existence is by Galerkin's method, while the $L^\infty$ bound uses a De Giorgi argument.  
 
 \begin{proof}
 Recall that $\eigen{j}$ are the eigenfunctions of $-\Laplace_D$.  Let $N$ be an integer parameter, and $W_N := \lspan(\eigen{0},\ldots,\eigen{N})$, which consists only of smooth functions which vanish on $\del\Omega$.  We seek first a solution $\theta_N \in W_N$ to the weak equation
@@ -751,7 +753,7 @@ with
 \[ B_{ijk} = \lambda_j^{-1/2} \int \eigen{i} \grad^{\perp} \eigen{j} \cdot \grad \eigen{k} \]
 a constant tensor.  
 
-By Peano's existence theorem for ODEs, solutions to this system exist on some interval $[0,T]$ where $T$ depends on $\Omega$ and $N$ and the $L^2$ norm of the initial data.  
+By Peano's existence theorem for ODEs, solutions to this system exist on some interval $[0,T]$ where $T$ depends on $\Omega$ and $N$ and (since $W_N$ is finite dimensional and all norms are equivalent) the $L^2$ norm of the initial data.  
 
 Since $\theta_N \in W_N$ we can take $\theta_N$ as a test function and obtain, for any solution $\theta_N$ to \eqref{weak eqn for theta_N},
 \[ \ddt \int \theta_N^2 + \int \abs{\Lambda^{1/2} \theta_N}^2 + \eps \int \abs{\grad \theta_N}^2 = 0. \]
@@ -759,7 +761,7 @@ Therefore in particular $\norm{\theta_N}_{L^2(\Omega)}$ is non-increasing in tim
 \vskip.3cm
 
 To take a limit in $N$, we need uniform regularity in time.  From \eqref{weak eqn for theta_N} we can bound
-\[ \int_0^\infty \int \del_t \theta_N \varphi \leq \norm{\theta_N}_{L^4(L^4)} \norm{\varphi}_{L^2(H_0^1)} + \norm{\theta_N}_{L^2(L^2)} \norm{\varphi}_{L^2(H_0^1)} + \norm{\theta_N}_{L^2(H_0^1)} \norm{\varphi}_{L^2(H_0^1)}. \]
+\[ \int_0^\infty \int \del_t \theta_N \varphi \leq \norm{\theta_N}_{L^4(L^4)}^2 \norm{\varphi}_{L^2(H_0^1)} + \norm{\theta_N}_{L^2(L^2)} \norm{\varphi}_{L^2(H_0^1)} + \norm{\theta_N}_{L^2(H_0^1)} \norm{\varphi}_{L^2(H_0^1)}. \]
 Note that $\theta_N$ is uniformly bounded in $L^4(L^4)$ by interpolation and $L^2(L^2)$ by Poincar\'{e}'s inequality.  Therefore $\iint \varphi \del_t \theta_N \leq C \norm{\varphi}_{L^2(H_0^1)}$ for all $\varphi \in L^2(W_N)$ for a constant $C$ independent of $N$.  Since $\del_t \theta_N \in W_N$, this is sufficient to show that $\norm{\del_t \theta_N}_{L^2(H^{-1})}$ is uniformly bounded.  
 \vskip.3cm
 
@@ -775,18 +777,14 @@ Since $\del_t \theta_N$ is uniformly bounded in $L^2(H^{-1})$, we know $\theta_N
 \vskip.3cm
 
 Lastly, for any constant $a \geq 0$, the function $(\theta - a)_+$ satisfies
-\[ \ddt \int \frac{1}{2} (\theta - a)_+ + \int \abs{\Lambda^{1/2} (\theta - a)_+}^2 = \frac{-1}{2}\int u \cdot \grad (\theta - a)_+^2 - \int a \Lambda (\theta - a)_+ + \eps \int \abs{\grad (\theta - a)_+}^2. \]
-\[ = - \int a (\theta - a)_+ B_1 \leq 0. \]
-This inequality is scaling-invariant, so the same holds for $\lambda \theta(\mu t, \mu(\eps)$ for any $\lambda, \mu > 0$.  
+\begin{align*}
+\ddt \int \frac{1}{2} (\theta - a)_+^2 + \int \abs{\Lambda^{1/2} (\theta - a)_+}^2 &= \frac{-1}{2}\int u \cdot \grad (\theta - a)_+^2 - \int a \Lambda (\theta - a)_+ - \eps \int \abs{\grad (\theta - a)_+}^2
+\\ &= - \int a (\theta - a)_+ B_1 - \eps \int \abs{\grad (\theta - a)_+}^2
+\\ &\leq 0. 
+\end{align*}
+This inequality is scaling-invariant, so the same holds for $\lambda \theta(\mu t, \mu x)$ for any $\lambda, \mu > 0$.  
 
-By the standard De Giorgi argument (see Lemma~\ref{thm:DG1 skeleton} in the Appendix for details), there exists a universal constant $\delta$ such that $\int_0^2 \int (\lambda \theta(\mu t, \mu x)_+^2 \,dxdt \leq \delta$ implies $\theta \leq \lambda\n$ on $[\mu 1,\mu 2]$.  In fact, by comparison with a constant solution, $\theta \leq \lambda\n$ on $[\mu, \infty)$.  Taking $\lambda = \sqrt{\frac{\delta}{2 \mu^{-2} \norm{\theta_0}_{L^2(\Omega)}^2}}$, we find $\theta(t,\cdot) \leq C t^{-1} \norm{\theta_0}_{L^2(\Omega)}$ for a universal constant $C$.  
-
-guarantees that $\theta \in L^\infty([t,\infty]\times\Omega)$ for all $t > 0$, with norm depending on $t$ and $\norm{\theta_0}_{L^2(\Omega)}$ and $\Omega$ but independent of $\eps$.  
-
-In the case $S \geq 2$, we can apply \eqref{leray-hopf condition} to establish the family of energy inequalities assumed in Lemma~\ref{thm:DG1 skeleton} and then apply Lemma~\ref{thm:DG1 skeleton} to the function $\frac{\sqrt{\delta}}{\sqrt{2} \norm{\theta_0}_2} \theta(t+2,x)$ to show that 
-\[ \norm{\theta}_{L^\infty([2,T]\times\Omega)} \leq \paren{\frac{2}{\delta}}^{1/2} \norm{\theta_0}_2. \]
-
-For small $S$, we can apply the above argument to the function $\theta\paren{(S/2)t, (S/2)x}$.  
+By the standard De Giorgi argument (see Lemma~\ref{thm:DG1 skeleton} in the Appendix for details), there exists a universal constant $\delta$ such that $\int_0^2 \int (\lambda \theta(\mu t, \mu x)_+^2 \,dxdt \leq \delta$ implies $\theta \leq \lambda\n$ on $[\mu 1,\mu 2]$.  In fact, by comparison with a constant super-solution, $\theta \leq \lambda\n$ on $[\mu, \infty)$.  Taking $\lambda = \sqrt{\frac{\delta}{2 \mu^{-2} \norm{\theta_0}_{L^2(\Omega)}^2}}$, we find $\theta(t,\cdot) \leq C t^{-1} \norm{\theta_0}_{L^2(\Omega)}$ for a universal constant $C$.  Applying the same argument to $-\theta$ gives the $L^\infty$ bound.  
 \end{proof}
 
 Now that we have global existence of solutions to \eqref{eq:viscous} for $\eps > 0$, we can prove Proposition~\ref{thm:existence} by taking a limit as $\eps \to 0$.  
@@ -796,7 +794,7 @@ For any parameter $\eps > 0$, define $\theta_\eps \in L^2(H_0^1)$ the weak solut
 
 For any smooth $\varphi$, we have
 \[ \int_0^\infty \int \del_t \theta_\eps \varphi \leq \norm{\theta_\eps}_{L^4(L^{8/3})}^2 \norm{\varphi}_{L^2(W^{1,4})} + \norm{\theta_\eps}_{L^2(\HD^{1/2})} \norm{\varphi}_{L^2(\HD^{1/2})} + \eps \norm{\theta_\eps}_{L^2(\HD^{1/2})} \norm{\varphi}_{L^2(\HD^{3/2})}. \]
-Therefore $\del_t \theta_\eps$ is uniformly bounded in $L^2(\HD^{-3/2})$.  By Aubin-Lions, the sequence $\theta_\eps$ has a strong limit in $L^2(L^2)$.  Call this limit $\theta$.  
+Therefore $\del_t \theta_\eps$ is uniformly bounded in $L^2(\HD^{-3/2})$.  By Aubin-Lions, the sequence $\theta_\eps$, up to a subsequence, has a strong limit in $L^2(L^2)$.  Call this limit $\theta$.  
 
 Since $\del_t \theta_\eps$ is uniformly bounded and $\theta(t,\cdot) \to \theta_0$ weakly in $L^2$, the same holds for $\theta$.  
 
@@ -812,41 +810,15 @@ Let $0 < T < \infty$ be a constant, and let $\lambda$, $\mu$, $\Psi$, $S$ and $\
 \newcommand{\ue}{\tilde{u}_\eps}
 \newcommand{\thetaep}{\tilde{\theta}_{\eps,+}}
 \begin{align*}
-\tilde{\Omega} &:= \{x \in \R^2: \mu x \in \Omega\}, \\
-\tilde{T} &:= \mu\n T, \\
-\thetae(t,x) &:= \lambda\theta_\eps(\mu t, \mu x), \\
-\ue(t,x) &:= u_\eps(\mu t, \mu x), \\
-\thetaep(t,x) &:= \paren{\thetae(t, x) - \Psi(t,x)}_+.
+\thetae(t,x) &:= \lambda\theta_\eps(\mu t, \mu x), & \tilde{\theta}(t,x) &=  \lambda \theta(\mu t, \mu x), \\
+\ue(t,x) &:= u_\eps(\mu t, \mu x), & \tilde{u}(t,x) &:= u(\mu t, \mu x), \\
+\thetaep(t,x) &:= \paren{\thetae(t, x) - \Psi(t,x)}_+, & \tilde{\theta}_+(t,x) &:= \paren{\tilde{\theta}(t, x) - \Psi(t,x)}_+,
 \end{align*}
+and let $\tilde{\Omega} := \{x \in \R^2: \mu x \in \Omega\}$, $\tilde{T} := \mu\n T$, $\tilde{\eps} := \mu\n \eps$.  
 
-Note that $\thetae$ and $\ue$ are weak solutions to \eqref{eq:viscous linear}.  They therefore satisfy \eqref{leray-hopf condition}.  The terms $\int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi)$ and $\int \indic{\thetaep\geq 0}$ are continuous under $L^2$ limits, and the quantities $\ddt \int \thetaep^2$ and $\int \abs{\Lambda^{1/2} \thetaep}^2$ are lower-semicontinuous under $L^2$ limits, so we conclude that $\theta$ and $u$ satisfy \eqref{leray-hopf condition}.  
+Note that $\thetae$ and $\ue$ are weak solutions to \eqref{eq:viscous linear} with viscosity $\tilde{\eps}$.  Therefore, if $\eps \leq \mu$ then $\thetaep$ and $\ue$ satisfy \eqref{leray-hopf condition}.  The terms $\int \thetaep (\del_t\Psi+\ue\cdot\grad\Psi)$ and $\int \indic{\thetaep\geq 0}$ are continuous under $L^2$ limits, and the quantities $\ddt \int \thetaep^2$ and $\int \abs{\Lambda^{1/2} \thetaep}^2$ are lower-semicontinuous under $L^2$ limits, so we conclude that $\tilde{\theta}_+$ and $\tilde{u}$ satisfy \eqref{leray-hopf condition}.  
 
-Similarly, $\thetae$ and $\ue$ satisfy \eqref{local condition}.  
-
-On $[S, \tilde{T}]$ we have a uniform $L^\infty(L^\infty)$ bound for $\thetae$. Therefore $\thetaep$ converges in $L^3(L^3)$, and so $\int_S^{\tilde{T}}\int \thetaep^2 \ue\cdot\grad\varphi$ is conserved in the limit $\eps \to 0$.  
-
-The remaining terms in \eqref{local condition} are $L^2(L^2)$ continuous, so $\theta$ and $u$ satisfy \eqref{local condition}.  
-
-%Since $\Psi$ is smooth by assumption, $\iint \varphi \thetaep \paren{\del_t \Psi + \ue\cdot\grad\Psi}$ is $L^2(L^2)$ continuous and is conserved in the limit $\eps \to 0$.  
-%
-%To show continuity of the $\iint [\varphi \thetaep - \varphi \thetaep][\Psi-\Psi] K_1$ term, let $f$ be an arbitrary $\HD^{1/4}$ function.  Then
-%\[ \iint [\varphi(x) f(x) - \varphi(y) f(y)] [\Psi(x) - \Psi(y)] K_1(x,y) \,dxdy \hskip7cm\]
-%\[\begin{aligned}
-%\hskip3cm &\leq \paren{\iint [\varphi(x) f(x) - \varphi(y) f(y)]^2 K_{1/2}(x,y)}^{1/2} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2}
-%\\ &\leq \norm{\varphi f}_{\HD^{1/4}} \paren{\iint [\Psi(x) - \Psi(y)]^2 \frac{K_1(x,y)^2}{K_{1/2}(x,y)} }^{1/2}
-%\\ &\leq C \norm{f}_{\HD^{1/4}} \norm{\varphi}_{C^1} \norm{\grad \Psi}_{L^\infty} \iint |x-y|^2 |x-y|^{-1/2} \frac{1}{|x-y|^3}.
-%\end{aligned} \]
-%In this last line we used Proposition~\ref{thm:Caff Stinga representation} and Lemma~\ref{thm:Lambda stuff} part \eqref{thm:extra product rule}.  It follows that the $\iint [\varphi \thetaep - \varphi \thetaep][\Psi-\Psi] K_1$ term of \eqref{local for eps positive} is continuous under $L^1(\HD^{1/4})$ limits of $\thetaep$.  
-%Since $\thetae$ are convergent in $L^2(L^2)$ and bounded in $L^2(\HD^{1/2})$, this term is conserved in the limit $\eps \to 0$.  
-%
-%To show continuity of the $\iint [\thetaep^2 - \thetaep^2][\varphi-\varphi] K_1$ term, let $f$ be an arbitrary $\HD^{1/4}$ function.  Then
-%\[ \begin{aligned}
-%\iint [f(x)^2 - f(y)^2][\varphi(x)-\varphi(y)] K_1
-%&\leq \paren{\iint [f(x)^2 - f(y)^2]^2 K_{1/2}}^{1/2} \paren{ \iint [\varphi(x)-\varphi(y)]^2 \frac{K_1^2}{K_{1/2}} }^{1/2}
-%\\ &\leq \paren{ 4\!\! \iint\!\! f(x)^2 [f(x)-f(y)]^2 K_{1/2} }^{1/2} \!\! \norm{\grad\varphi}_{L^\infty} \paren{ \iint\!\! \frac{1}{|x-y|^{1.5}} }^{1/2}
-%\\ &\leq C \norm{f}_{L^\infty} \norm{f}_{\HD^{1/4}}.
-%\end{aligned}\]
-%Since all of the terms of \eqref{local for eps positive} behave well in the limit as $\eps \to 0$, it follows that $\theta$ satisfies \eqref{local condition}.  
+Similarly, $\thetaep$ and $\ue$ satisfy \eqref{local condition} if $\eps \leq \mu$.  On $[S, \tilde{T}]$ we have a uniform $L^\infty(L^\infty)$ bound for $\thetae$. Therefore $\thetaep$ converges in $L^3(L^3)$, and so $\int_S^{\tilde{T}}\int \thetaep^2 \ue\cdot\grad\varphi$ is conserved in the limit $\eps \to 0$.  The remaining terms in \eqref{local condition} are $L^2(L^2)$ continuous, so $\tilde{\theta}_+$ and $\tilde{u}$ satisfy \eqref{local condition}.  
 \end{proof}
 
 %The following lemma is used in the proof of Proposition~\ref{thm:existence}.  
@@ -1657,9 +1629,11 @@ Define $\Gamma_k, \gamma_k: [-5,0] \to \R^2$ by the following recursive formulae
 \dot{\gamma}_k(t) &:= \ulowth{k}(t, \Gamma_k(t) + \gamma_k(t)) - \dot{\Gamma}_k(t), & k \geq 0, t \in [-5,0) \\
 \Gamma_k(t) &:= \eps\n \gamma_{k-1}(\eps t) + \eps^{-2} \gamma_{k-2}(\eps^2 t) + \cdots + \eps^{-k} \gamma_0(\eps^k t), & k \geq 1, t \in [-5,0].
 \end{align*}
-The quantity $\gamma_k$ here corresponds to the part of the drift coming from frequency packets $u_j$ which are part of the definition of $\ulowth{k}$ but are not contained in $\ulowth{k-1}$ (they would instead be included in $\uhighth{k-1}$).  
+Since each $\ulowth{k}$ is $L^\infty$ in space-time and Lipschitz in space, these $\gamma_k$ exist by a version of the Cauchy-Lipschitz theorem.  For example, Theorem 3.7 of Bahouri, Chemin, and Danchin \cite{BaChDa} proves existence and uniqueness in our case.  In particular, since $\ulowth{k}$ is a vector field which is tangential to the boundary of $\Omega_k$ and has unique flows, the Lagrangian path
+\[ \Gammal^k(t) := \Gamma_k(t) + \gamma(k) \]
+for $\ulowth{k}$ must remain inside $\bar{\Omega}_k$ for all time and so our expressions remain well-defined.  
 
-Since each $\ulowth{k}$ is $L^\infty$ in space-time and Lipschitz in space, these $\gamma_k$ exist by a version of the Cauchy-Lipschitz theorem.  For example, Theorem 3.7 of Bahouri, Chemin, and Danchin \cite{BaChDa} proves existence and uniqueness in our case.  In particular, since $\ulowth{k}$ is a vector field which is tangential to the boundary of $\Omega_k$ and has unique flows, the path $\Gamma_k + \gamma_k$ which follows this vector field must remain inside $\bar{\Omega}_k$ for all time and so our expressions remain well-defined.  
+The quantity $\gamma_k$ here corresponds to the frequency packets $u_j$ with $-(k-1) \log_2(\eps) < j \leq -k\log_2(\eps)$.  These frequencies are included in the definition of $\ulowth{k}$ but not the definition of $\ulowth{k-1}$ (they would instead be included in $\uhighth{k-1}$).  
 \vskip.3cm
 
 By construction, for $k \geq 0$ we have $\Gamma_{k+1}(t) = \eps\n \gamma_k(\eps t) + \eps\n \Gamma_k(\eps t)$.  Therefore
@@ -1699,7 +1673,7 @@ and for each $k \geq 0$, if $|\{\theta_k \leq 0\} \cap [-4,0]\times B_4(\Gamma_k
 Otherwise, set
 \[ \theta_{k+1}(t,x) := \frac{1}{1-\lambda} \bracket{\theta_k(\eps t, \eps x) - \lambda}. \]
 
-From Lemma \ref{thm:scaling}, we know that $\theta_k$ and the calibrated function $\sum_{j \geq j_0} u_j(\eps^k \cdot, \eps^k \cdot)$ solve \eqref{eq:main linear}.  By construction, $\theta_k$, $\ulowth{k}$, $\uhighth{k}$, $\Gamma_k$, and $\gamma_k$ solve \eqref{eq:main linear brokendown}
+From Lemma \ref{thm:scaling}, we know that $\theta_k$ and the calibrated function $\sum_{j \geq j_0} u_j(\eps^k \cdot, \eps^k \cdot)$ solve \eqref{eq:main linear}.  By construction, $\theta_k$, $\ulowth{k}$, $\uhighth{k}$, and $\Gammal^k$ solve \eqref{eq:main linear brokendown}. 
 \vskip.3cm
 
 Since $|\theta_0|\leq 2$ by assumption, we know in particular that 
