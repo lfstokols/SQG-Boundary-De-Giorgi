@@ -325,7 +325,7 @@ Throughout this paper, if an integral sign is written $\int$ without a specified
 
 For any vector $v = (v_1,v_2)$, by $v^\perp$ we mean $(-v_2,v_1)$. By $\grad^\perp$ we mean $(-\del_y, \del_x)$.  
 
-In the remainder of this paper, the differential operator $D^2$ refers to the Hessian in space, excluding time derivatives.  The function space $\Ctest$ consists of smooth functions with compact support.  
+In the remainder of this paper, the differential operator $D^2$ refers to the Hessian in space, excluding time derivatives.  The function space $\Ctest$ consists of smooth functions with compact support.  By abuse of notation, if $\Gamma: [a,b] \to \R^2$, we write $[a,b] \times B_R(\Gamma)$ to denote $\{(t,x) \in [a,b]\times\R^2: |x-\Gamma(t)| \leq R\}$.  
 
 %The operator $D^2$ is the Hessian, the matrix-valued operator of second-order spatial derivatives.  Specifically, $D^2$, like $\grad$, never includes time derivatives.  
 
@@ -339,7 +339,9 @@ In this section we will investigate the basic properties of the operator $\Lambd
 We begin by stating a result of \cite{CaSt} which gives us a singular integral representation of the $\HD^s$ norm.  
 \begin{proposition}[Caffarelli-Stinga Representation] \label{thm:Caff Stinga representation}
 Let $s \in (0,1)$ and $f,g \in \HD^{s}$ on a bounded $C^{2,\beta}$ domain $\Omega \subseteq \R^2$.  Then
-\[ \int_\Omega \Lambda^s f \Lambda^s g \,dx = \iint_{\Omega^2} [f(x)-f(y)][g(x)-g(y)] K_{2s}(x,y) \,dxdy + \int_{\Omega} f(x) g(x) B_{2s}(x) \,dx \]
+\begin{equation} \label{Caff Stinga representation}
+\int_\Omega \Lambda^s f \Lambda^s g \,dx = \iint_{\Omega^2} [f(x)-f(y)][g(x)-g(y)] K_{2s}(x,y) \,dxdy + \int_{\Omega} f(x) g(x) B_{2s}(x) \,dx 
+\end{equation}
 for kernels $K_{2s}$ and $B_{2s}$ which depend on the parameter $s$ and the domain $\Omega$.  
 \vskip.3cm
 
@@ -1150,8 +1152,8 @@ Now we prove an energy inequality for solutions to \eqref{eq:main linear brokend
 \begin{lemma}[Energy inequality] \label{thm:energy inequality}
 Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let $\psi:\R^2 \to \R$ be a function such that $\norm{\grad\psi}_\infty$, $\norm{D^2\psi}_\infty$, and $\sup_t \bracket{\psi(t,\cdot)}_{1/4}$ are all finite. Then there exists a constant $C>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-T,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
-\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-T,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume \\ $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
@@ -1207,8 +1209,8 @@ The first lemma is a local version of the $L^2$ to $L^\infty$ regularization, st
 
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $\delta_0>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-2,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} holds on $\Omega$ with kernels that satisfy
-\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-2,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal-\Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
@@ -1244,8 +1246,8 @@ Next, we will prove De Giorgi's second lemma, a quantitative analog of the isope
 \begin{proposition}[Second De Giorgi Lemma] \label{thm:DG2}
 Let $\Ccalib$, $\Comega$, $\Cgamma$, and $\beta \in (0,1)$ be positive constants. Then there exists a constant $\mu>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$ , and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} holds on $\Omega$ with kernels that satisfy
-\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}(x,y). \]
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$ , and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
@@ -1275,7 +1277,7 @@ Fix $n$ and define
 \[ \theta_+ := \paren{\theta_n - \psi(x-\Gamma_n)}_+. \]
 Then $\theta_+$ is supported on $\Omega \cap B_3(\Gamma_n)$ and is less than $2 + 3^{1/4} - 2^{1/4} \leq 3$ everywhere.  
 
-Our goal is to bound the derivatives of $\theta_+^2$ so that we can apply a compactness argument to the sequence $\theta_n$.  (For the curious reader, it is the calculations in Step 2 below in which it becomes necessary to consider $\theta_+^2$ instead of $\theta_+$.)  
+Our goal is to bound the derivatives of $\theta_+^2$ so that we can apply a compactness argument to the sequence $\theta_n$.  (It is the calculations in Step 2 below in which it becomes necessary to consider $\theta_+^2$ instead of $\theta_+$.)  
 
 The remainder of the proof is divided in three steps.  First we show that the sequence of $\theta_+$ is compact in space, then we show that it is compact in time, and finally we show that the limiting function implies a contradiction.  
 
@@ -1336,7 +1338,7 @@ is uniformly bounded above and below.  Therefore, by decomposing $\varphi = (\va
 \vskip.3cm
 \step{Taking the limit}
 
-We wish to analyze the limiting behavior of $\theta_+^2$ in the vicinity of $\Gamma_n$.  First we shift these functions to remove the dependence on $\Gamma_n$, and
+We wish to analyze the limiting behavior of $\theta_+^2$ in the vicinity of $\Gamma_n$.  First we shift these functions following $\Gamma_n$ and
 define new functions on $[-4,0] \times \R^2$ by
 \[ v_n(t,x) := \begin{cases}
 \theta_+(t, x + \Gamma_n(t))^2, & x + \Gamma_n(t) \in \Omega_n, \\
@@ -1359,17 +1361,17 @@ Therefore, by the Aubin-Lions Lemma, the set $\{v_n\}_n$ is compactly embedded i
 \[ v_n \xrightarrow{L^2} v. \]
 \vskip.3cm
 
-By elementary properties of $L^2$ convergence, we know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, and $v \in L^2(H^{1/2})$.  
+We know that $v \in L^\infty$, $\supp(v) \subseteq [-4,0]\times B_3(0)$, and $v \in L^2(H^{1/2})$ because these properties hold uniformly on $v_n$.  
 
 By \eqref{ddt theta bounded}
 \begin{equation} \label{ddt v bounded} \ddt \int_{\R^2} v_n \,dx = \ddt \int_{\Omega_n} \theta_+^2 \,dx \leq C \end{equation}
 so the same must be true of $v$, for $\ddt$ interpreted in the sense of distributions.  
 
 By \eqref{mass assumption above}, \eqref{mass assumption between}, and \eqref{mass assumption below} applied to $v_n$ (recalling the relation \eqref{definition of v_n}), we conclude that
-\begin{equation} \label{mass assumptions v} \begin{cases} 
-\abs{\{v \geq 1\} \cap [-2,0]\times B_2(0)} \geq \delta_0/4, \\
-\abs{\{0 < v < [1-\psi]^2\} \cap [-4,0]\times B_4(0)} \leq 0, \\
-\abs{\{v \leq 0\} \cap [-4,0]\times B_4(0)} \geq 2|B_4|
+\begin{equation} \label{mass assumptions v} \begin{cases} \begin{aligned}
+\abs{\{v \geq 1\} \cap [-2,0]\times B_2(0)} &\geq \delta_0/4, \\
+\abs{\{0 < v < [1-\psi]^2\} \cap [-4,0]\times B_4(0)} &\leq 0, \\
+\abs{\{v \leq 0\} \cap [-4,0]\times B_4(0)} &\geq 2|B_4|. \end{aligned}
 \end{cases} \end{equation}
 
 %\begin{align} 
@@ -1396,8 +1398,8 @@ We combine the two De Giorgi lemmas (Propositions \ref{thm:DG1} and \ref{thm:DG2
 \begin{lemma}[Oscillation Lemma] \label{thm:oscillation general}
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exists a constant $k_0>0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gammal:[-5,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
-\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}. \]
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
@@ -1445,8 +1447,8 @@ By assuming that $\theta$ is small near $x = \Gamma(t)$, we have shown that the 
 \begin{proposition}[Oscillation Lemma with shift] \label{thm:oscillation shifted}
 Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be as in Lemma~\ref{thm:oscillation general}.  Then there exists a constant $\lambda > 0$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gammal:[-5,0] \to \R^2$ be Lipschitz.  Assume that Proposition~\ref{thm:Caff Stinga representation} hold on $\Omega$ with kernels that satisfy
-\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_{1}. \]
+Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
+\[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
 Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
@@ -1533,17 +1535,19 @@ This concludes the proof.
 \vskip1cm
 \section{H\"{o}lder Continuity} \label{sec:holder}
 
-In this section we shall prove the main theorem, Theorem~\ref{thm:main continuity}.  We begin with a final lemma to describe the scaling properties of \eqref{eq:main linear}.  
+In this section we shall prove the main theorem, Theorem~\ref{thm:main continuity}.  We will demonstrate H\"{o}lder continuity by iteratively applying Proposition~\ref{thm:oscillation shifted} and rescaling.  
+
+We begin with a lemma to describe the scaling properties of \eqref{eq:main linear}.  
 
 \begin{lemma}[Scaling] \label{thm:scaling}
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $j_0 \in \Z$ and $\eps > 0$ be constants.  
 
-Suppose that $\theta:[-T,0] \times \Omega \to \R$ and $u:[-T,0]\times \Omega \to \R^2$ solve \eqref{eq:main linear} and $u$ is calibrated by a sequence $(u_j)_{j \geq j_0}$ with constant $\Ccalib$ and center $N$.  
+Suppose that $\theta:[-T,0] \times \Omega \to \R$ and $u:[-T,0]\times \Omega \to \R^2$ are a suitable solution to \eqref{eq:main linear} and $u$ is calibrated by a sequence $(u_j)_{j \geq j_0}$ with constant $\Ccalib$ and center $N$.  
 % satisfies
 %\[ u = \sum_{j=j_0}^\infty u_j \]
 %with that sum converging in $L^2(\Omega)$ and $(u_j)_j$ calibrated with constant $\Ccalib$ and center $N$.  
 
-Suppose that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in Proposition~\ref{thm:Caff Stinga representation}) satisfy the relation
+Suppose that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 \vskip.3cm
 
@@ -1551,7 +1555,7 @@ Then
 \[ \bar{\theta}(t,x) := \theta(\eps t, \eps x) \]
 and
 \[ \bar{u}(t,x) := \sum_{j=j_0}^\infty \bar{u}_j(t, x), \qquad \bar{u}_j(t,x) := u_j(\eps t, \eps x) \]
-also solve \eqref{eq:main linear} on $[-T/\eps, 0]\times \Omega_\eps$ where $\Omega_\eps = \{x \in \R^2: \eps x \in \Omega\}$.  
+are also a suitable solution to \eqref{eq:main linear} on $[-T/\eps, 0]\times \Omega_\eps$ where $\Omega_\eps = \{x \in \R^2: \eps x \in \Omega\}$.  
 
 Moreover, $(\bar{u}_j)_{j \geq j_0}$ is calibrated with the same constant $\Ccalib$ but with center $N - \log_2(\eps)$, and the relation
 \begin{equation} \label{scaling 1/4 to 1 property} \bar{K}_{1/4}(x,y) \leq \Comega |x-y|^{3/4} \bar{K}_1(x,y) \qquad \forall x\neq y \in \Omega_\eps \end{equation}
@@ -1576,14 +1580,15 @@ To show that $(\bar{u}_j)_{j \in \Z}$ is calibrated, we must translate the three
 \end{proof}
 \vskip.3cm
 
-Before proving Theorem~\ref{thm:main continuity}, we will show an essentially equivalent lemma.  
+The next lemma demonstrates H\"{o}lder continuity of suitable solutions.  The proof method is to consruct a sequence of rescaled functions all of which, by induction, satisfy the assumptions of Proposition~\ref{thm:oscillation shifted}.  We will assume that the velocity $u$ is the Riesz transform of an $L^\infty$ function $\Theta$, which will in practice typically be $\theta$ itself, up to scaling and translation.  
 
 \begin{lemma}[Continuity of suitable solutions] \label{thm:continuity for suitable}
 There exists a universal constant $C$ such that the following holds:
 
-Let $\Omega \subseteq \R^2$ be an open, bounded domain with $C^{2,\beta}$ boundary, $\beta \in (0,1)$.  Let $k > 0$ be a constant.  Then there exist constants $\alpha \in (0,1)$ such that the following holds:
+Let $\Omega \subseteq \R^2$ be an open, bounded domain with $C^{2,\beta}$ boundary, $\beta \in (0,1)$.  Let $\Theta \in L^\infty([-5,0]\times\Omega)$.  Then there exists a constant $\alpha \in (0,1)$ depending on $\Omega$ and $\norm{\Theta}_{L^\infty}$ such that the following holds:
+\vskip.3cm
 
-Let $\theta:[-5,0] \times \Omega \to \R$ and $u:[-5,0]\times\Omega \to \R^2$ be a suitable solution to \eqref{eq:main linear}.  Assume that $\norm{\theta}_{L^\infty([-5,0]\times\Omega)} \leq 2$ and that $u$ is the Riesz transform of an $L^\infty$ function, i.e. $\norm{\Lambda^{-1} \grad^\perp \cdot u}_{L^\infty([-5,0] \times \Omega)} \leq k$.  
+Let $\theta:[-5,0] \times \Omega \to \R$ and $u:[-5,0]\times\Omega \to \R^2$ be a suitable solution to \eqref{eq:main linear}.  Assume that $\norm{\theta}_{L^\infty([-5,0]\times\Omega)} \leq 2$ and that $u = \grad^\perp \Lambda^{-1} \Theta$.  
 
 Then for any point $P \in \bar{\Omega}$, $\theta$ is H\"{o}lder continuous at $(0,P)$ and
 \[ \sup_{(t,x) \in [-5,0]\times\Omega} \frac{|\theta(t,x) - \theta(0,P)|}{(|t|^2 + |x-P|^2)^{\alpha/2}} \leq C. \]
@@ -1594,8 +1599,8 @@ Then for any point $P \in \bar{\Omega}$, $\theta$ is H\"{o}lder continuous at $(
 By relabelling our coordinate system, we can assume without loss of generality that $P = 0$ is the origin in $\R^2$.  
 
 From Proposition~\ref{thm:u is calibrated}, we know that 
-\[ u = \grad^\perp \Lambda^{-1} \bracket{ \Lambda^{-1} \grad^\perp \cdot u} = \sum_{j=j_0}^\infty u_j \]
-for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega, k)$ and center 0.  Assume without loss of generality that $j_0 < 0$.
+\[ u = \grad^\perp \Lambda^{-1} \Theta = \sum_{j=j_0}^\infty u_j \]
+for a sequence $(u_j)_{j\geq j_0}$ of divergence-free functions calibrated with some constant $\Ccalib = \Ccalib(\Omega, \norm{\Theta}_{L^\infty})$ and center 0.  Assume without loss of generality that $j_0 < 0$.
 
 Choose a constant $0 < \eps < 1/5$ such that
 \begin{equation}\label{eps is small enough for Cgamma} 
@@ -1708,20 +1713,27 @@ In other words,
 
 \end{proof}
 
+We are now able to prove the main result, Theorem~\ref{thm:main continuity}.  
+
 \begin{proof}[Proof of Theorem \ref{thm:main continuity}]
 Recall that $\Omega$, $S$, $k$, and $\theta_0$ are given.  
 
 In Proposition~\ref{thm:existence} we construct global-in-time solutions to \eqref{eq:main nonlinear}.  By construction, there is a universal constant $C_1$ so $\norm{\theta(t,\cdot)}_{L^\infty(\Omega)} \leq C_1 t\n \norm{\theta_0}_{L^2(\Omega)}$.  
 
-Consider a point $(t_0, x_0)$ with $t_0 > S$.  Consider arbitrary constants $\lambda$ and $\mu$ and note that
+Consider a point $(t_0, x_0)$ with $t_0 > S$.  Consider arbitrary constants $\lambda, \mu \in (0,1]$ and note that
 \[ \tilde{\theta}(t,x) := \lambda \theta(t_0 + \mu t, \mu x), \qquad \tilde{u}(t,x) := u(t_0 + \mu t, \mu x) \]
 is a suitable solution to \eqref{eq:main linear} on $[-t_0/\mu,\infty) \times \tilde{\Omega}$ where $\tilde{\Omega} := \{x\in \R^2: \mu x \in \Omega \}$.  
 
-If $S + \mu (-5) > \frac{S}{2}$, or equivalently if $\mu < S/10$, then then we have 
+If $S + \mu (-5) = \frac{S}{2}$, or equivalently if $\mu = S/10$, then then we have 
 \[ \norm{\Lambda^{-1} \grad^\perp \cdot \tilde{u}}_{L^\infty([-5,0]\times\Omega)} \leq 2 C_1 \frac{k}{S} \]
 and
 \[ \norm{\tilde{\theta}}_{L^\infty([-5,0]\times\tilde{\Omega})} \leq \lambda 2 C_1 \frac{k}{S}. \]
-If $\lambda \leq S / (C_1 k)$ then we can apply Lemma~\ref{thm:continuity for suitable} to $\tilde{\theta}$, $\tilde{u}$ and find that $\tilde{\theta}$ is H\"{o}lder continuous at $(t_0,x_0)$ with constant $\alpha$ depending on $k$ and $S$.  
+If $\lambda = S / (C_1 k)$ then we can apply Lemma~\ref{thm:continuity for suitable} to $\tilde{\theta}$, $\tilde{u}$ and find that $\tilde{\theta}$ is H\"{o}lder continuous at $(t_0,x_0)$ with constant $\alpha$ depending on $k$ and $S$.  
+
+Since the rescaled function satisfies
+\[ \sup_{(t,x) \in [-5,0]\times\tilde{\Omega}} \frac{|\tilde{\theta}(t,x) - \tilde{\theta}(t_0,x_0)|}{\paren{|t-t_0|^2 + |x-x_0|^2}^{\alpha_{k,S}/2}} \leq C, \]
+the original function satisfies
+\[ \sup_{(t,x) \in [S/2,t_0]\times\Omega} \frac{|\theta(t,x) - \theta(t_0,x_0)|}{\paren{|t-t_0|^2 + |x-x_0|^2}^{\alpha_{k,S}/2}} \leq C \lambda\n \mu^{-\alpha_{S,k}} \leq C (\lambda\mu)\n = C \frac{10 C_1}{S^2} k. \]
 
 \end{proof}
 
