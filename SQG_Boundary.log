@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  20 DEC 2019 19:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.10.30)  21 DEC 2019 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -563,10 +563,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 707--708
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no “ in font cmr9!
-
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37])
+ [37]
 [38] (./SQG_Boundary.aux) ) 
 Here is how much of TeX's memory you used:
  6139 strings out of 494985
@@ -605,7 +605,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SQG_Boundary.pdf (38 pages, 434906 bytes).
+Output written on SQG_Boundary.pdf (38 pages, 434409 bytes).
 PDF statistics:
  362 PDF objects out of 1000 (max. 8388607)
  190 compressed objects within 2 object streams

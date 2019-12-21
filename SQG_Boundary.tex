@@ -805,7 +805,7 @@ Since $\del_t \theta_\eps$ is uniformly bounded and $\theta(t,\cdot) \to \theta_
 Define $u_\eps := \grad^\perp \Lambda^{-1} \theta_\eps$, and by continuity of the Riesz transform we have $u_\eps \to u$ in $L^2([0,\infty)\times\Omega)$ where $u := \grad^\perp\Lambda^{-1} \theta$.  
 \vskip.3cm
 
-It remains only to prove that $\theta$ and $u$ are a suitable pair.  Recall that $\theta_\eps$ and $u_\eps$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} by Proposition~\ref{thm:suitability}, so we need only show that these inequalities hold also in the limit.  The details of this calculation are given below.  
+It remains only to prove that $\theta$ and $u$ satisfy the energy inequalities \eqref{leray-hopf condition} and \eqref{local condition}.  Recall that $\theta_\eps$ and $u_\eps$ satisfy \eqref{leray-hopf condition} and \eqref{local condition} by Proposition~\ref{thm:suitability}, so we need only show that these inequalities hold also in the limit.  The details of this calculation are given below.  
 
 Let $0 < T < \infty$ be a constant, and let $\lambda$, $\mu$, $\Psi$, $S$ and $\varphi$ be as in the definition of suitable solutions.  Define 
 \newcommand{\thetae}{\tilde{\theta}_\eps}
@@ -1033,7 +1033,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, $T$, and $R$ be positive constants, and let
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-T,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume \\ $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-T,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-T,0]\times\Omega)} \leq 6 \Ccalib$ and $\norm{\grad \ulow}_{L^\infty([-T,0]\times\Omega)} \leq 2\Ccalib$.   Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-T,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Consider the functions
@@ -1090,7 +1090,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-2,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal-\Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-2,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-2,0]\times\Omega)} \leq 6 \Ccalib$ and $\norm{\grad \ulow}_{L^\infty([-2,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal-\Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-2,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 If
@@ -1127,7 +1127,7 @@ Let $\Ccalib$, $\Comega$, $\Cgamma$, and $\beta \in (0,1)$ be positive constants
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$ , and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$ with $\theta$ and $\ulow+\uhigh$ a suitable pair, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$ and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Suppose that for $t \in [-5,0]$ and any $x \in \Omega$,
@@ -1183,7 +1183,7 @@ where $C$ does not depend on $n$.
 \step{Compactness in time}
 
 Let $\varphi \in C_0^\infty([-4,0]; C^\infty(\Omega))$ a test function.  
-Since each $\theta_n$ and $\uhigh^n + \ulow^n$ is a suitable pair on $[-5,0]\times\Omega_n$ by assumption, we can apply the inequality \eqref{local condition} to find that, for some constant $C$ independent of $n$ and of $\varphi$, on $[-4,0]\times \Omega_n$
+Since each $\theta_n$ and $\uhigh^n + \ulow^n$ is a suitable solution to \eqref{eq:main linear} on $[-5,0]\times\Omega_n$ by assumption, we can apply the inequality \eqref{local condition} to find that, for some constant $C$ independent of $n$ and of $\varphi$, on $[-4,0]\times \Omega_n$
 \begin{equation}\label{time compactness setup}
 \begin{aligned} 
 \iint \varphi \del_t \theta_+^2 + \iint \varphi \dot{\Gamma}_n\cdot\grad\theta_+^2 &\leq 
@@ -1279,7 +1279,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants. Then there exist
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$ and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
@@ -1328,7 +1328,7 @@ Let $\Ccalib$, $\Comega$, and $\Cgamma$, be positive constants, and let $k_0$ be
 Let $\Omega \subseteq \R^2$ be a bounded open set with $C^{2,\beta}$ boundary for some $\beta \in (0,1)$, and let $\Gamma:[-5,0] \to \R^2$ be Lipschitz.  Assume that on $\Omega$ the functions $K_{1/4}$ and $K_1$ (defined in \eqref{Caff Stinga representation}) satisfy the relation
 \[ K_{1/4}(x,y) \leq \Comega |x-y|^{3/4} K_1(x,y) \qquad \forall x\neq y \in \Omega. \]
 
-Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$, and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
+Let $\theta$, $\ulow$, $\uhigh$, and $\Gammal$ solve \eqref{eq:main linear brokendown} on $[-5,0]\times\Omega$, and satisfy $\norm{\Lambda^{-1/4} \uhigh}_{L^\infty([-5,0]\times\Omega)} \leq 6 \Ccalib$ and $\norm{\grad \ulow}_{L^\infty([-5,0]\times\Omega)} \leq 2\Ccalib$.  Denote $\gamma := \Gammal - \Gamma$ and assume $\norm{\dot{\gamma}}_{L^\infty([-5,0])} \leq \Cgamma$ and $\gamma(0) = 0$.  
 \vskip.3cm
 
 Suppose that for all $t \in [-5,0]$ and any $x \in \Omega$
@@ -1603,15 +1603,15 @@ Consider a point $(t_0, x_0)$ with $t_0 > S$.  Consider arbitrary constants $\la
 is a suitable solution to \eqref{eq:main linear} on $[-t_0/\mu,\infty) \times \tilde{\Omega}$ where $\tilde{\Omega} := \{x\in \R^2: \mu x \in \Omega \}$.  
 
 If $S + \mu (-5) = \frac{S}{2}$, or equivalently if $\mu = S/10$, then then we have 
-\[ \norm{\Lambda^{-1} \grad^\perp \cdot \tilde{u}}_{L^\infty([-5,0]\times\Omega)} \leq 2 C_1 \frac{k}{S} \]
-and
 \[ \norm{\tilde{\theta}}_{L^\infty([-5,0]\times\tilde{\Omega})} \leq \lambda 2 C_1 \frac{k}{S}. \]
-If $\lambda = S / (C_1 k)$ then we can apply Lemma~\ref{thm:continuity for suitable} to $\tilde{\theta}$, $\tilde{u}$ and find that $\tilde{\theta}$ is H\"{o}lder continuous at $(t_0,x_0)$ with constant $\alpha$ depending on $k$ and $S$.  
+Take $\lambda = S / (C_1 k)$.
 
-Since the rescaled function satisfies
-\[ \sup_{(t,x) \in [-5,0]\times\tilde{\Omega}} \frac{|\tilde{\theta}(t,x) - \tilde{\theta}(t_0,x_0)|}{\paren{|t-t_0|^2 + |x-x_0|^2}^{\alpha_{k,S}/2}} \leq C, \]
-the original function satisfies
-\[ \sup_{(t,x) \in [S/2,t_0]\times\Omega} \frac{|\theta(t,x) - \theta(t_0,x_0)|}{\paren{|t-t_0|^2 + |x-x_0|^2}^{\alpha_{k,S}/2}} \leq C \lambda\n \mu^{-\alpha_{S,k}} \leq C (\lambda\mu)\n = C \frac{10 C_1}{S^2} k. \]
+On $[-5,0]\times\tilde{\Omega}$ we have $\tilde{\theta}$ and $\tilde{u}$ a suitable solution to \eqref{eq:main linear} satisfying $\norm{\tilde{\theta}}_{L^\infty} \leq 2$ and $\tilde{u} = \grad^\perp \Lambda^{-1} \Theta$ with $\norm{\Theta}_{L^\infty} \leq 2 C_1 k/S$.  Therefore we can apply Lemma~\ref{thm:continuity for suitable} to $\tilde{\theta}$, $\tilde{u}$ and find that $\tilde{\theta}$ satisfies, for $\alpha = \alpha(k,S)$ and $C$ universal,
+\[ \sup_{(t,x) \in [-5,0]\times\tilde{\Omega}} \frac{|\tilde{\theta}(t,x) - \tilde{\theta}(t_0,x_0)|}{\paren{|t-t_0|^2 + |x-x_0|^2}^{\alpha/2}} \leq C. \]
+
+
+For the original unscaled $\theta$, we have
+\[ \sup_{(t,x) \in [S/2,t_0]\times\Omega} \frac{|\theta(t,x) - \theta(t_0,x_0)|}{\paren{|t-t_0|^2 + |x-x_0|^2}^{\alpha/2}} \leq C \lambda\n \mu^{-\alpha} \leq C (\lambda\mu)\n = C \frac{10 C_1}{S^2} k. \]
 
 \end{proof}
 
